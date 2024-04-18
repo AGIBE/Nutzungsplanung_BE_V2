@@ -34,4 +34,4 @@ Erste offizielle Modellversion: Nutzungsplanung_`BE_V2_0`
 Jede Änderung am Modellnamen kann Anpassungen an den Datensätzen oder Systemen zur Folge haben. Die markierten Suffixe können dabei relativ einfach mit einer Suchen/Ersetzen-Funktion ausgetauscht werden. In Notepad++ lässt sich diese Funktion mit `Ctrl + H` aufrufen. Im Reiter "In Dateien suchen" lässt sich diese Funktion mit gebotener Vorsicht sogar auf alle Dateien im anzugebenden Verzeichnis anwenden.
 
 ## Dateinamen
-Anders als der Modellname spielen die Dateinamen bei der Modellvalidierung keine Rolle. Um unnötige Aufwände zu vermeiden und damit GitHub die Änderungen an einer Datei aufzeigen kann, bleiben die Dateinamen deshalb vorläufig stabil und stimmen nicht zwangsläufig mit dem Modellnamen überein.
+Anders als der Modellname spielen die Dateinamen bei der Modellvalidierung keine Rolle. Um unnötige Aufwände zu vermeiden und damit GitHub vorgenommene Änderungen an einer Datei aufzeigen kann, bleiben die Dateinamen deshalb vorläufig stabil und stimmen nicht zwangsläufig mit dem Modellnamen überein.
