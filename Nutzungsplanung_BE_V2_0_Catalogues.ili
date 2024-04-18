@@ -1,0 +1,232 @@
+INTERLIS 2.3;
+/*
+Teilmodell für die XML-Kataloge                                                 Modèle partiel pour les catalogues XML
+  Hauptmodell       : Nutzungsplanung_BE_V2_Test01                                     Modèle principal       : PlanDAffectation_BE_V2_Test01
+  Datenverwaltung   : AGR                                                         Gestion des données    : OACOT
+  Sprachversion     : DE und FR                                                   Version de langue      : DE et FR
+  Support fachlich  : Amt für Gemeinden und Raumordnung (www.be.ch/agr)           Support thématique     : Office des affaires communales et de l'organisation du territoire (www.be.ch/oacot)
+  Support technisch : Amt für Geoinformation (www.be.ch/agi)                      Support technique      : Office de l'information géographique (www.be.ch/oig) 
+
+  Abkürzungen                                                                     Abréviations
+  -----------                                                                     ------------
+  GN    : Grundnutzung                                                            AP    : Affectation primaire
+  ES    : Lärmempfindlichkeitsstufen                                              DS    : Degrés de sensibilité au bruit
+  GG    : Gefahrengebiete                                                         ZD    : Zones de danger
+  GR    : Gewässerraum                                                            EE    : Espace réservé aux eaux
+  UE    : Überlagerungen                                                          SU    : Superposition
+  NH    : Natur- und Heimatschutz                                                 NP    : Protection de la nature et du patrimoine
+  BL    : Baulinien                                                               AL    : Alignements
+  WE    : Wege                                                                    CH    : Chemins
+  WF    : Waldfeststellung                                                        CF    : Constatation de la nature forestière
+
+*/
+
+!!@ technicalContact=mailto:info.agr@be.ch
+!!@ furtherInformation=https://www.raumplanung.dij.be.ch/de/start/eplan.html
+MODEL Nutzungsplanung_BE_V2_Test01_Catalogues
+  AT "http://models.geo.be.ch/Grundlagen_und_Planung/Raumplanung_Grundstueckskataster/"
+  VERSION "2024-04-18" =
+
+  IMPORTS CatalogueObjects_V1,LocalisationCH_V1;
+
+  TOPIC Catalogues EXTENDS CatalogueObjects_V1.Catalogues =
+
+    !! Dient zur Validierung (true = erlaubt, false = nicht erlaubt)             !! Sert à la validation (true = autorisé, false = non autorisé) 
+    STRUCTURE Validations =
+      Polygon : BOOLEAN;                 !! KantArt als Fläche erfassen          !! Saisir le GenreCant comme surface
+      Polyline : BOOLEAN;                !! Kantart als Linie erfassen           !! Saisir le GenreCant comme ligne
+      Point : BOOLEAN;                   !! KantArt als Punkt erfassen           !! Saisir le GenreCant comme point
+      RepresentationType : BOOLEAN;      !! Darstellungsart erfassen             !! Saisir un GenreRepresentation
+    END Validations;
+
+    !! Abstrakte Klassen und Strukturen als Basis für alle externen              !! Classes et structures abstraites servant de base à toutes les
+    !! XML-Katalogdefinitionen                                                   !! définitions de catalogues XML externes
+    !! --------------------------------------------------------------------      !! --------------------------------------------------------------------
+    CLASS BaseClassCatalog (ABSTRACT)
+    EXTENDS CatalogueObjects_V1.Catalogues.Item =
+      ID : MANDATORY 0 .. 9999;
+      Notation : MANDATORY LocalisationCH_V1.MultilingualText;
+      Abbreviation : LocalisationCH_V1.MultilingualText;
+      Description : LocalisationCH_V1.MultilingualText;
+      Validation : Validations;
+    END BaseClassCatalog;
+
+    STRUCTURE Typ_CatalogueReference (ABSTRACT)
+    EXTENDS CatalogueObjects_V1.Catalogues.CatalogueReference =
+      Reference (EXTENDED) : MANDATORY REFERENCE TO (EXTERNAL) BaseClassCatalog;
+    END Typ_CatalogueReference;
+
+    !! Konkrete Klassen                                                          !! Classes concrètes
+    !! --------------------------------------------------------------------      !! --------------------------------------------------------------------
+
+    !! Dokumentart                                                               !! GenreDocument
+    !! --------------------                                                      !! ------------------------
+    CLASS Dokumentart
+    EXTENDS BaseClassCatalog =
+      UNIQUE ID;
+    END Dokumentart;
+
+    STRUCTURE Dokumentart_CatalogueReference
+    EXTENDS Typ_CatalogueReference =
+      Reference (EXTENDED) : MANDATORY REFERENCE TO (EXTERNAL) Dokumentart;
+    END Dokumentart_CatalogueReference;
+
+    !! Klassifizierung                                                           !! Classification
+    !! --------------------                                                      !! ------------------------
+    CLASS Klassifizierung
+    EXTENDS BaseClassCatalog =
+      UNIQUE ID;
+    END Klassifizierung;
+
+    STRUCTURE Klassifizierung_CatalogueReference
+    EXTENDS Typ_CatalogueReference =
+      Reference (EXTENDED) : MANDATORY REFERENCE TO (EXTERNAL) Klassifizierung;
+    END Klassifizierung_CatalogueReference;
+
+    !! Verbindlichkeit                                                           !! Niveaux_legislatifs
+    !! --------------------                                                      !! ------------------------
+    CLASS Verbindlichkeit
+    EXTENDS BaseClassCatalog =
+      UNIQUE ID;
+    END Verbindlichkeit;
+
+    STRUCTURE Verbindlichkeit_CatalogueReference
+    EXTENDS Typ_CatalogueReference =
+      Reference (EXTENDED) : MANDATORY REFERENCE TO (EXTERNAL) Verbindlichkeit;
+    END Verbindlichkeit_CatalogueReference;
+
+    !! Darstellungsart                                                           !! GenreRepresentation
+    !! --------------------                                                      !! ------------------------
+    CLASS Darstellungsart
+    EXTENDS BaseClassCatalog =
+      UNIQUE ID;
+    END Darstellungsart;
+
+    STRUCTURE Darstellungsart_CatalogueReference
+    EXTENDS Typ_CatalogueReference =
+      Reference (EXTENDED) : MANDATORY REFERENCE TO (EXTERNAL) Darstellungsart;
+    END Darstellungsart_CatalogueReference;
+
+    !! GN_KantArt                                                                !! AP_GenreCant
+    !! --------------------                                                      !! ------------------------
+    CLASS GN_KantArt
+    EXTENDS BaseClassCatalog =
+      UNIQUE ID;
+    END GN_KantArt;
+
+    STRUCTURE GN_KantArt_CatalogueReference
+    EXTENDS Typ_CatalogueReference =
+      Reference (EXTENDED) : MANDATORY REFERENCE TO (EXTERNAL) GN_KantArt;
+    END GN_KantArt_CatalogueReference;
+
+    !! GN_NutzungszifferArt                                                      !! AP_TypeIndiceUtilisation
+    !! --------------------                                                      !! ------------------------
+    CLASS GN_NutzungszifferArt
+    EXTENDS BaseClassCatalog =
+      UNIQUE ID;
+    END GN_NutzungszifferArt;
+
+    STRUCTURE GN_NutzungszifferArt_CatalogueReference
+    EXTENDS Typ_CatalogueReference =
+      Reference (EXTENDED) : MANDATORY REFERENCE TO (EXTERNAL) GN_NutzungszifferArt;
+    END GN_NutzungszifferArt_CatalogueReference;
+
+    !! ES_KantArt                                                                !! DS_GenreCant
+    !! --------------------                                                      !! ------------------------
+    CLASS ES_KantArt
+    EXTENDS BaseClassCatalog =
+      UNIQUE ID;
+    END ES_KantArt;
+
+    STRUCTURE ES_KantArt_CatalogueReference
+    EXTENDS Typ_CatalogueReference =
+      Reference (EXTENDED) : MANDATORY REFERENCE TO (EXTERNAL) ES_KantArt;
+    END ES_KantArt_CatalogueReference;
+
+    !! UE_KantArt                                                                !! SU_GenreCant
+    !! --------------------                                                      !! ------------------------
+    CLASS UE_KantArt
+    EXTENDS BaseClassCatalog =
+      UNIQUE ID;
+    END UE_KantArt;
+
+    STRUCTURE UE_KantArt_CatalogueReference
+    EXTENDS Typ_CatalogueReference =
+      Reference (EXTENDED) : MANDATORY REFERENCE TO (EXTERNAL) UE_KantArt;
+    END UE_KantArt_CatalogueReference;
+
+    !! GG_KantArt                                                                !! SU_GenreCant
+    !! --------------------                                                      !! ------------------------
+    CLASS GG_KantArt
+    EXTENDS BaseClassCatalog =
+      UNIQUE ID;
+    END GG_KantArt;
+
+    STRUCTURE GG_KantArt_CatalogueReference
+    EXTENDS Typ_CatalogueReference =
+      Reference (EXTENDED) : MANDATORY REFERENCE TO (EXTERNAL) GG_KantArt;
+    END GG_KantArt_CatalogueReference;
+
+    !! BL_KantArt                                                                !! AL_GenreCant
+    !! --------------------                                                      !! ------------------------
+    CLASS BL_KantArt
+    EXTENDS BaseClassCatalog =
+      UNIQUE ID;
+    END BL_KantArt;
+
+    STRUCTURE BL_KantArt_CatalogueReference
+    EXTENDS Typ_CatalogueReference =
+      Reference (EXTENDED) : MANDATORY REFERENCE TO (EXTERNAL) BL_KantArt;
+    END BL_KantArt_CatalogueReference;
+
+    !! NH_KantArt                                                                !! NP_GenreCant
+    !! --------------------                                                      !! ------------------------
+    CLASS NH_KantArt
+    EXTENDS BaseClassCatalog =
+      UNIQUE ID;
+    END NH_KantArt;
+
+    STRUCTURE NH_KantArt_CatalogueReference
+    EXTENDS Typ_CatalogueReference =
+      Reference (EXTENDED) : MANDATORY REFERENCE TO (EXTERNAL) NH_KantArt;
+    END NH_KantArt_CatalogueReference;
+
+    !! WF_KantArt                                                                !! CF_GenreCant
+    !! --------------------                                                      !! ------------------------
+    CLASS WF_KantArt
+    EXTENDS BaseClassCatalog =
+      UNIQUE ID;
+    END WF_KantArt;
+
+    STRUCTURE WF_KantArt_CatalogueReference
+    EXTENDS Typ_CatalogueReference =
+      Reference (EXTENDED) : MANDATORY REFERENCE TO (EXTERNAL) WF_KantArt;
+    END WF_KantArt_CatalogueReference;
+
+    !! GR_KantArt                                                                !! EE_GenreCant
+    !! --------------------                                                      !! ------------------------
+    CLASS GR_KantArt
+    EXTENDS BaseClassCatalog =
+      UNIQUE ID;
+    END GR_KantArt;
+
+    STRUCTURE GR_KantArt_CatalogueReference
+    EXTENDS Typ_CatalogueReference =
+      Reference (EXTENDED) : MANDATORY REFERENCE TO (EXTERNAL) GR_KantArt;
+    END GR_KantArt_CatalogueReference;
+
+    !! WE_KantArt                                                                !! CH_GenreCant
+    !! --------------------                                                      !! ------------------------
+    CLASS WE_KantArt
+    EXTENDS BaseClassCatalog =
+      UNIQUE ID;
+    END WE_KantArt;
+
+    STRUCTURE WE_KantArt_CatalogueReference
+    EXTENDS Typ_CatalogueReference =
+      Reference (EXTENDED) : MANDATORY REFERENCE TO (EXTERNAL) WE_KantArt;
+    END WE_KantArt_CatalogueReference;
+
+  END Catalogues;
+
+END Nutzungsplanung_BE_V2_Test01_Catalogues.

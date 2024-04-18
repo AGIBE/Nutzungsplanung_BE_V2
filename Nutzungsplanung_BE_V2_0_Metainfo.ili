@@ -1,0 +1,165 @@
+INTERLIS 2.3;
+/*
+Teilmodell für Geschäfts- und Änderungsinformationen                            Modèle partiel pour les informations du dossier et des modifications
+  Hauptmodell       : Nutzungsplanung_BE_V2_Test01                                     Modèle principal       : PlanDAffectation_BE_V2_Test01
+  Datenverwaltung   : ePlan                                                       Gestion des données    : ePlan
+  Sprachversion     : DE und FR                                                   Version de langue      : DE et FR
+  Support fachlich  : Amt für Gemeinden und Raumordnung (www.be.ch/agr)           Support thématique     : Office des affaires communales et de l'organisation du territoire (www.be.ch/oacot)
+  Support technisch : Amt für Geoinformation (www.be.ch/agi)                      Support technique      : Office de l'information géographique (www.be.ch/oig)
+  */
+
+!!@ technicalContact=mailto:info.agr@be.ch
+!!@ furtherInformation=https://www.raumplanung.dij.be.ch/de/start/eplan.html
+MODEL Nutzungsplanung_BE_V2_Test01_Metainfo
+  AT "http://models.geo.be.ch/Grundlagen_und_Planung/Raumplanung_Grundstueckskataster/"
+  VERSION "2024-04-18" =
+
+  IMPORTS GeometryCHLV95_V1;
+  IMPORTS Nutzungsplanung_BE_V2_Test01;
+
+  DOMAIN
+    Date = FORMAT INTERLIS.XMLDate "1848-1-1" .. "2100-12-31";
+    Time = FORMAT INTERLIS.XMLTime "00:00:00.000" .. "23:59:59.999";
+
+    LKoord EXTENDS GeometryCHLV95_V1.Coord2 = COORD
+      2550000.000 .. 2690000.000 [INTERLIS.m] ,
+      1120000.000 .. 1250000.000 [INTERLIS.m] ,
+      ROTATION 2 -> 1;
+    Polyline = POLYLINE WITH (STRAIGHTS, ARCS) VERTEX LKoord;
+    Surface  = SURFACE  WITH (STRAIGHTS, ARCS) VERTEX LKoord WITHOUT OVERLAPS > 0.050;
+    Area     = AREA     WITH (STRAIGHTS, ARCS) VERTEX LKoord WITHOUT OVERLAPS > 0.050;
+
+ TOPIC Dossier =
+  BASKET OID AS INTERLIS.UUIDOID;
+  OID AS INTERLIS.UUIDOID;
+
+    !! Kantonale Geschäftsinformationen
+    !! -----------------------------------------------
+    CLASS Dossier_cantonal =
+      Title : TEXT*256;
+      AxiomaNr : TEXT*256;
+      Process_step : TEXT*256;      !! (Voranfrage, Vorprüfung, Öffentliche Auflage, Genehmigung, etc.)
+      Process_type : TEXT*256;      !! (Ordentliches Verfahren, Geringfügiges Verfahren, etc.)
+      Process_status : TEXT*256;    !! (open,closed,blocked)
+      ResolutionCommittee: TEXT*256;
+      Date_ResolutionCommittee : Date;
+      Date_resolution : Date;
+      Date_approved : Date;
+      Date_inForce : Date;
+      TID_DossierCommunal : INTERLIS.UUIDOID;
+      BID_NplBE_old : INTERLIS.UUIDOID;
+      BID_NplBE_new : INTERLIS.UUIDOID;
+      BID_DeltaObjects : INTERLIS.UUIDOID;
+      creation_date : Date;
+      creation_time : Time;
+      last_update : Date;
+    END Dossier_cantonal;
+
+    !! Geschäftsdokumente
+    !! -----------------------------------------------    
+    CLASS DossierDocument =
+      Doc_title : MANDATORY TEXT*256;
+      Doc_type : TEXT*256;
+      Doc_filename : MANDATORY TEXT*256;
+    END DossierDocument;
+
+    ASSOCIATION DossierDocument_Dossier =
+      Dossier_cantonal -- {1} Dossier_cantonal;
+      Document -- {0..*} DossierDocument;
+    END DossierDocument_Dossier;
+
+  END Dossier; 
+
+  !! Delta-Objekte beschreiben die Differenz zwischen zwei Datenständen. Fakultativ erfasste Hinweisobjekte werden nicht ausgewertet.
+  !! Les objets delta décrivent la différence entre deux états de données. Les objets à titre idicatifs saisis de manière facultative ne sont pas évalués.
+  !! ----------------------------------------------- 
+  TOPIC DeltaObjects =
+  BASKET OID AS INTERLIS.UUIDOID;
+  OID AS INTERLIS.UUIDOID;
+
+    STRUCTURE DeltaAttribute =
+      Attribute_Display : MANDATORY (public,internal);
+      Attribute_ChangeLevel : MANDATORY (ToApprove,ToAccept,ToLog,unchanged);
+      Attribute_Name_DE : MANDATORY TEXT*256;
+      Attribute_OldValue_DE : TEXT*256;
+      Attribute_NewValue_DE : TEXT*256;
+      Attribute_Name_FR : MANDATORY TEXT*256;
+      Attribute_OldValue_FR : TEXT*256;
+      Attribute_NewValue_FR : TEXT*256;
+    END DeltaAttribute;
+
+    STRUCTURE DocLink =
+      DocLink_ChangeLevel : MANDATORY (ToApprove,ToAccept,ToLog,unchanged);
+      DocLink_TID : MANDATORY TEXT*256;
+      DocLink_Titel_DE : MANDATORY TEXT*256;
+      DocLink_FileName_DE : MANDATORY TEXT*256;
+      DocLink_Titel_FR : MANDATORY TEXT*256;
+      DocLink_FileName_FR : MANDATORY TEXT*256;
+    END DocLink;
+
+    !! Delta_Type
+    !! -----------------------------------------------
+    CLASS Delta_Type =
+        BID_NplBE_new : MANDATORY INTERLIS.UUIDOID;
+        BID_NplBE_old : MANDATORY INTERLIS.UUIDOID;
+        DossierCommunal_TID : MANDATORY INTERLIS.UUIDOID;
+        DossierCommunal_Title : MANDATORY TEXT*256;
+        Object_Type : MANDATORY (Geometry,Document);
+        Object_Name : MANDATORY TEXT*256;
+        Object_Importance : MANDATORY (determinative,indicative);
+        Object_ChangeType : MANDATORY (added,removed,changed);
+        Object_ChangeLevel : MANDATORY (ToApprove,ToAccept,ToLog);
+        Object_ChangeInfo_DE : MANDATORY TEXT*256;
+        Object_ChangeInfo_FR : MANDATORY TEXT*256;
+        DeltaAttributes : BAG {0..*} OF DeltaAttribute;
+        DocLinks_old : BAG {0..*} OF DocLink;
+        DocLinks_new : BAG {0..*} OF DocLink;
+        creation_date : MANDATORY Date;
+        creation_time : MANDATORY Time;
+        verification_status : (Approved,Accepted,Rejected,Pending);
+        verification_note : TEXT*256;
+        verification_date : Date;
+        check_consistency : MANDATORY BOOLEAN; !! Planbeständigkeit berücksitigen true/false
+    END Delta_Type;
+
+    !! Delta_Point
+    !! -----------------------------------------------
+    CLASS Delta_Point =
+      layer_name : MANDATORY TEXT*256;
+      Geometrie : MANDATORY LKoord;
+    END Delta_Point;
+
+    ASSOCIATION Type_Point =
+      Type -- {1} Delta_Type;
+      Point -- {0..*} Delta_Point;
+    END Type_Point;
+
+    !! Delta_Polyline
+    !! -----------------------------------------------
+    CLASS Delta_Polyline =
+      layer_name : MANDATORY TEXT*256;
+      geom_size : MANDATORY TEXT*256;
+      Geometrie : MANDATORY Polyline;
+    END Delta_Polyline;
+
+    ASSOCIATION Type_Polyline =
+      Type -- {1} Delta_Type;
+      Polyline -- {0..*} Delta_Polyline;
+    END Type_Polyline;
+
+    !! Delta_Polygon
+    !! -----------------------------------------------
+    CLASS Delta_Polygon =
+      layer_name : MANDATORY TEXT*256;
+      geom_size : MANDATORY TEXT*256;
+      Geometrie : MANDATORY Surface;
+    END Delta_Polygon;
+
+    ASSOCIATION Type_Polygon =
+      Type -- {1} Delta_Type;
+      Polygon -- {0..*} Delta_Polygon;
+    END Type_Polygon;
+
+ END DeltaObjects; 
+
+END Nutzungsplanung_BE_V2_Test01_Metainfo.
