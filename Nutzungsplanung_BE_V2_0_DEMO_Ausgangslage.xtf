@@ -12,12 +12,14 @@
         <Nutzungsplanung_BE_V2_Test01.Nutzungsplanung BID="eabbe1aa-30cb-45b0-b9f2-c011d0a7c659">
 
             <Nutzungsplanung_BE_V2_Test01.Nutzungsplanung.Dossier_kommunal TID="00000000-0000-0000-0000-000000000101">
+                <Aktives_Geschaeft>false</Aktives_Geschaeft>
                 <Geschaeftstitel>Einführung ePlan</Geschaeftstitel>
                 <Geschaeftsnummer>999_2024_001</Geschaeftsnummer>
                 <Ortsplanungsrevision>false</Ortsplanungsrevision>
             </Nutzungsplanung_BE_V2_Test01.Nutzungsplanung.Dossier_kommunal>
 
             <Nutzungsplanung_BE_V2_Test01.Nutzungsplanung.Dossier_kommunal TID="00000000-0000-0000-0000-000000000102">
+                <Aktives_Geschaeft>false</Aktives_Geschaeft>
                 <Geschaeftstitel>Änderung Baureglement</Geschaeftstitel>
                 <Geschaeftsnummer>999_2024_002</Geschaeftsnummer>
                 <Ortsplanungsrevision>false</Ortsplanungsrevision>

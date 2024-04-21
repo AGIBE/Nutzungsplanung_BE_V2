@@ -12,18 +12,21 @@
         <PlansDAffectation_BE_V2_Test01.PlansDAffectation BID="5dc51d3a-fef8-421d-b7f7-f97b21354a12">
 
             <PlansDAffectation_BE_V2_Test01.PlansDAffectation.Dossier_communal TID="00000000-0000-0000-0000-000000000101">
+                <Dossier_actif>false</Dossier_actif>
                 <Titre_du_dossier>Introduction ePlan</Titre_du_dossier>
                 <Numero_du_dossier>999_2024_001</Numero_du_dossier>
                 <Revision_de_PAL>false</Revision_de_PAL>
             </PlansDAffectation_BE_V2_Test01.PlansDAffectation.Dossier_communal>
 
             <PlansDAffectation_BE_V2_Test01.PlansDAffectation.Dossier_communal TID="00000000-0000-0000-0000-000000000102">
+                <Dossier_actif>false</Dossier_actif>
                 <Titre_du_dossier>Modification du règlement de construction</Titre_du_dossier>
                 <Numero_du_dossier>999_2024_002</Numero_du_dossier>
                 <Revision_de_PAL>false</Revision_de_PAL>
             </PlansDAffectation_BE_V2_Test01.PlansDAffectation.Dossier_communal>
 
             <PlansDAffectation_BE_V2_Test01.PlansDAffectation.Dossier_communal TID="00000000-0000-0000-0000-000000000103">
+                <Dossier_actif>true</Dossier_actif>
                 <Titre_du_dossier>Détermination de la limite forestière Bellevue</Titre_du_dossier>
                 <Numero_du_dossier>999_2025_001</Numero_du_dossier>
                 <Revision_de_PAL>false</Revision_de_PAL>

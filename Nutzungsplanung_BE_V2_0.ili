@@ -73,6 +73,7 @@ MODEL Nutzungsplanung_BE_V2_Test01 (de)
     !! Kommunale Geschäftsinformationen
     !! -----------------------------------------------
     CLASS Dossier_kommunal =
+      Aktives_Geschaeft  : MANDATORY BOOLEAN;
       Geschaeftstitel : MANDATORY TEXT*100;
       Geschaeftsnummer : TEXT*50;
       Ortsplanungsrevision : MANDATORY BOOLEAN;

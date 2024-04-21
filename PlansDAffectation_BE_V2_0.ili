@@ -74,6 +74,7 @@ MODEL PlansDAffectation_BE_V2_Test01 (fr)
     !! Informations communales relatives au dossier
     !! -----------------------------------------------
     CLASS Dossier_communal =
+      Dossier_actif : MANDATORY BOOLEAN;
       Titre_du_dossier : MANDATORY TEXT*100;
       Numero_du_dossier : TEXT*50;
       Revision_de_PAL : MANDATORY BOOLEAN;
