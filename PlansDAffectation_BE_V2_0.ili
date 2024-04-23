@@ -44,7 +44,7 @@ MODEL PlansDAffectation_BE_V2_Test01 (fr)
     AngleGon_Second = 1 / 100 [AngleGon_Minute];
 
   DOMAIN
-    NoOFS EXTENDS CHAdminCodes_V1.CHMunicipalityCode = 301..1000;
+    NoOFS EXTENDS CHAdminCodes_V1.CHMunicipalityCode = 301..999;
     Date = FORMAT INTERLIS.XMLDate "1848-1-1" .. "2100-12-31";
     AngleGon = 0.0000 .. 399.9999 CIRCULAR [AngleGon_Degree] <GeometryCHLV95_V1.Coord2>;
 
