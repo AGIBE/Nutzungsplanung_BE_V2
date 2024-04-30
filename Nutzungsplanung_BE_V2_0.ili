@@ -23,7 +23,7 @@ Datenmodell für die Nutzungsplanung im Kanton Bern
   Version    | Modification
   ------------------------------------------------------------------------------
   2022-04-01 | Version 1.0
-  2024-04-18 | Version 2.0
+  2024-05-01 | Version 2.0
 
 */
 
@@ -31,7 +31,7 @@ Datenmodell für die Nutzungsplanung im Kanton Bern
 !!@ furtherInformation=https://www.raumplanung.dij.be.ch/de/start/eplan.html
 MODEL Nutzungsplanung_BE_V2_Test01 (de)
   AT "http://models.geo.be.ch/Grundlagen_und_Planung/Raumplanung_Grundstueckskataster/"
-  VERSION "2024-04-18" =
+  VERSION "2024-05-01" =
 
   IMPORTS GeometryCHLV95_V1;
   IMPORTS CHAdminCodes_V1;

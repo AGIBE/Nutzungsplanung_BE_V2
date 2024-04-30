@@ -12,7 +12,7 @@ Teilmodell für Geschäfts- und Änderungsinformationen                         
 !!@ furtherInformation=https://www.raumplanung.dij.be.ch/de/start/eplan.html
 MODEL Nutzungsplanung_BE_V2_Test01_Metainfo
   AT "http://models.geo.be.ch/Grundlagen_und_Planung/Raumplanung_Grundstueckskataster/"
-  VERSION "2024-04-18" =
+  VERSION "2024-05-01" =
 
   IMPORTS GeometryCHLV95_V1;
   IMPORTS Nutzungsplanung_BE_V2_Test01;
