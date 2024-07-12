@@ -1,7 +1,7 @@
 INTERLIS 2.3;
 /*
 Teilmodell für die XML-Kataloge                                                 Modèle partiel pour les catalogues XML
-  Hauptmodell       : Nutzungsplanung_BE_V2_Test01                                     Modèle principal       : PlanDAffectation_BE_V2_Test01
+  Hauptmodell       : Nutzungsplanung_BE_V2_Test02                                     Modèle principal       : PlanDAffectation_BE_V2_Test02
   Datenverwaltung   : AGR                                                         Gestion des données    : OACOT
   Sprachversion     : DE und FR                                                   Version de langue      : DE et FR
   Support fachlich  : Amt für Gemeinden und Raumordnung (www.be.ch/agr)           Support thématique     : Office des affaires communales et de l'organisation du territoire (www.be.ch/oacot)
@@ -23,7 +23,7 @@ Teilmodell für die XML-Kataloge                                                
 
 !!@ technicalContact=mailto:info.agr@be.ch
 !!@ furtherInformation=https://www.raumplanung.dij.be.ch/de/start/eplan.html
-MODEL Nutzungsplanung_BE_V2_Test01_Catalogues
+MODEL Nutzungsplanung_BE_V2_Test02_Catalogues
   AT "http://models.geo.be.ch/Grundlagen_und_Planung/Raumplanung_Grundstueckskataster/"
   VERSION "2024-05-01" =
 
@@ -229,4 +229,4 @@ MODEL Nutzungsplanung_BE_V2_Test01_Catalogues
 
   END Catalogues;
 
-END Nutzungsplanung_BE_V2_Test01_Catalogues.
+END Nutzungsplanung_BE_V2_Test02_Catalogues.

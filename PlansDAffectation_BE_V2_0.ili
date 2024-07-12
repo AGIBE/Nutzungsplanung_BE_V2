@@ -1,9 +1,9 @@
 INTERLIS 2.3;
 /*
 Modèle de données pour les plans d'affectation dans le canton de Berne
-  Modèles partiels    : Nutzungsplanung_BE_V2_Test01_Catalogues, Nutzungsplanung_BE_V2_Test01_Metainfo
+  Modèles partiels    : Nutzungsplanung_BE_V2_Test02_Catalogues, Nutzungsplanung_BE_V2_Test02_Metainfo
   Gestion des données : Commune
-  Version de langue   : FR (TRANSALTION OF Nutzungsplanung_BE_V2_Test01.ili)
+  Version de langue   : FR (TRANSALTION OF Nutzungsplanung_BE_V2_Test02.ili)
   Support thématique  : Office des affaires communales et de l'organisation du territoire (www.be.ch/oacot)
   Support technique   : Office de l'information géographique (www.be.ch/oig)
 
@@ -29,14 +29,14 @@ Modèle de données pour les plans d'affectation dans le canton de Berne
 
 !!@ technicalContact=mailto:info.agr@be.ch
 !!@ furtherInformation=https://www.raumplanung.dij.be.ch/de/start/eplan.html
-MODEL PlansDAffectation_BE_V2_Test01 (fr)
+MODEL PlansDAffectation_BE_V2_Test02 (fr)
   AT "http://models.geo.be.ch/Grundlagen_und_Planung/Raumplanung_Grundstueckskataster/"
   VERSION "2024-05-01"
-  TRANSLATION OF Nutzungsplanung_BE_V2_Test01 ["2024-05-01"] =
+  TRANSLATION OF Nutzungsplanung_BE_V2_Test02 ["2024-05-01"] =
 
   IMPORTS GeometryCHLV95_V1;
   IMPORTS CHAdminCodes_V1;
-  IMPORTS CatalogueObjects_V1, Nutzungsplanung_BE_V2_Test01_Catalogues;
+  IMPORTS CatalogueObjects_V1, Nutzungsplanung_BE_V2_Test02_Catalogues;
 
   UNIT
     AngleGon_Degree = 200 / PI [INTERLIS.rad];
@@ -62,7 +62,7 @@ MODEL PlansDAffectation_BE_V2_Test01 (fr)
   BASKET OID AS INTERLIS.UUIDOID;
   OID AS INTERLIS.UUIDOID;
 
-  DEPENDS ON CatalogueObjects_V1.Catalogues, Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues;
+  DEPENDS ON CatalogueObjects_V1.Catalogues, Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues;
 
     !! Structures pour des informations supplémentaires individuelles
     !! --------------------------------------------------------------  
@@ -95,8 +95,8 @@ MODEL PlansDAffectation_BE_V2_Test01 (fr)
     CLASS Document =
       Titre : MANDATORY TEXT*200;
       Abreviation : TEXT*20;
-      GenreDocument : MANDATORY Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Dokumentart_CatalogueReference;
-      Classification : MANDATORY Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Klassifizierung_CatalogueReference;
+      GenreDocument : MANDATORY Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Dokumentart_CatalogueReference;
+      Classification : MANDATORY Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Klassifizierung_CatalogueReference;
       No_officiel : TEXT*20;
       Nom_du_fichier_PDF : MANDATORY TEXT*100;
       Supplement_Attributs : BAG {0..*} OF CustomAttribute;
@@ -147,9 +147,9 @@ MODEL PlansDAffectation_BE_V2_Test01 (fr)
     CLASS BaseClassType (ABSTRACT) =
       Designation : MANDATORY TEXT*150;
       Abreviation : TEXT*12;
-      GenreCant : MANDATORY Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Typ_CatalogueReference;
-      GenreRepresentation : Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Darstellungsart_CatalogueReference; !! Default: représentation standard selon GenreCant
-      Niveaux_legislatifs : MANDATORY Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference;
+      GenreCant : MANDATORY Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Typ_CatalogueReference;
+      GenreRepresentation : Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Darstellungsart_CatalogueReference; !! Default: représentation standard selon GenreCant
+      Niveaux_legislatifs : MANDATORY Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference;
       Supplement_Attributs : BAG {0..*} OF CustomAttribute;
     END BaseClassType;
 
@@ -189,7 +189,7 @@ MODEL PlansDAffectation_BE_V2_Test01 (fr)
     !! -------------------------------------------------------------- 
     CLASS AP_Type
     EXTENDS BaseClassType =
-      GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.GN_KantArt_CatalogueReference;
+      GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.GN_KantArt_CatalogueReference;
     END AP_Type;
 
     ASSOCIATION AP_DJ
@@ -229,7 +229,7 @@ MODEL PlansDAffectation_BE_V2_Test01 (fr)
     !! -------------------------------------------------------------- 
     CLASS DS_Type
     EXTENDS BaseClassType =
-      GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.ES_KantArt_CatalogueReference;
+      GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.ES_KantArt_CatalogueReference;
     END DS_Type;
 
     ASSOCIATION DS_DJ
@@ -258,7 +258,7 @@ MODEL PlansDAffectation_BE_V2_Test01 (fr)
     !! -------------------------------------------------------------- 
     CLASS ZD_Type
     EXTENDS BaseClassType =
-      GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.GG_KantArt_CatalogueReference;
+      GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.GG_KantArt_CatalogueReference;
     END ZD_Type;
 
     ASSOCIATION ZD_DJ
@@ -287,7 +287,7 @@ MODEL PlansDAffectation_BE_V2_Test01 (fr)
     !! -------------------------------------------------------------- 
     CLASS EE_Type
     EXTENDS BaseClassType =
-      GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.GR_KantArt_CatalogueReference;
+      GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.GR_KantArt_CatalogueReference;
     END EE_Type;
 
     ASSOCIATION EE_DJ
@@ -316,7 +316,7 @@ MODEL PlansDAffectation_BE_V2_Test01 (fr)
     !! -------------------------------------------------------------- 
     CLASS SU_Type
     EXTENDS BaseClassType =
-      GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.UE_KantArt_CatalogueReference;
+      GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.UE_KantArt_CatalogueReference;
     END SU_Type;
 
     ASSOCIATION SU_DJ
@@ -367,7 +367,7 @@ MODEL PlansDAffectation_BE_V2_Test01 (fr)
     !! -------------------------------------------------------------- 
     CLASS NP_Type
     EXTENDS BaseClassType =
-      GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.NH_KantArt_CatalogueReference;
+      GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.NH_KantArt_CatalogueReference;
     END NP_Type;
 
     ASSOCIATION NP_DJ
@@ -418,7 +418,7 @@ MODEL PlansDAffectation_BE_V2_Test01 (fr)
     !! -------------------------------------------------------------- 
     CLASS AL_Type
     EXTENDS BaseClassType =
-      GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.BL_KantArt_CatalogueReference;
+      GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.BL_KantArt_CatalogueReference;
     END AL_Type;
 
     ASSOCIATION AL_DJ
@@ -458,7 +458,7 @@ MODEL PlansDAffectation_BE_V2_Test01 (fr)
     !! -------------------------------------------------------------- 
     CLASS CH_Type
     EXTENDS BaseClassType =
-      GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.WE_KantArt_CatalogueReference;
+      GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.WE_KantArt_CatalogueReference;
     END CH_Type;
 
     ASSOCIATION CH_DJ
@@ -498,7 +498,7 @@ MODEL PlansDAffectation_BE_V2_Test01 (fr)
     !! -------------------------------------------------------------- 
     CLASS CF_Type
     EXTENDS BaseClassType =
-      GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.WF_KantArt_CatalogueReference;
+      GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.WF_KantArt_CatalogueReference;
     END CF_Type;
 
     ASSOCIATION CF_DJ
@@ -548,5 +548,5 @@ MODEL PlansDAffectation_BE_V2_Test01 (fr)
 
  END PlansDAffectation;
 
-END PlansDAffectation_BE_V2_Test01.
+END PlansDAffectation_BE_V2_Test02.
 

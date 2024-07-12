@@ -3,14 +3,14 @@
 <TRANSFER xmlns="http://www.interlis.ch/INTERLIS2.3">
     <HEADERSECTION SENDER="AGR Kanton Bern" VERSION="2.3">
         <MODELS>
-            <MODEL NAME="Nutzungsplanung_BE_V2_Test01_Metainfo" VERSION="2024-05-01" URI="http://models.geo.be.ch/Grundlagen_und_Planung/Raumplanung_Grundstueckskataster/"/>
+            <MODEL NAME="Nutzungsplanung_BE_V2_Test02_Metainfo" VERSION="2024-05-01" URI="http://models.geo.be.ch/Grundlagen_und_Planung/Raumplanung_Grundstueckskataster/"/>
         </MODELS>
     </HEADERSECTION>
 
     <DATASECTION>
-        <Nutzungsplanung_BE_V2_Test01_Metainfo.Dossier BID="b0ec03c3-9d82-4607-ba83-87f7e11b29a2">
+        <Nutzungsplanung_BE_V2_Test02_Metainfo.Dossier BID="b0ec03c3-9d82-4607-ba83-87f7e11b29a2">
 
-            <Nutzungsplanung_BE_V2_Test01_Metainfo.Dossier.Dossier_cantonal TID="00000000-0000-0000-0000-999000000001">
+            <Nutzungsplanung_BE_V2_Test02_Metainfo.Dossier.Dossier_cantonal TID="00000000-0000-0000-0000-999000000001">
                 <Title>Einführung ePlan</Title>
                 <AxiomaNr>Axioma.11</AxiomaNr>
                 <Process_step>Öffentliche Auflage</Process_step>
@@ -21,9 +21,9 @@
                 <BID_NplBE_new>59b16360-84bd-420a-96e2-10ab9a78fddd</BID_NplBE_new>
                 <BID_DeltaObjects>af79463e-b41a-4599-9509-bc559763bace</BID_DeltaObjects>
                 <last_update>2024-03-01</last_update>
-            </Nutzungsplanung_BE_V2_Test01_Metainfo.Dossier.Dossier_cantonal>
+            </Nutzungsplanung_BE_V2_Test02_Metainfo.Dossier.Dossier_cantonal>
 
-            <Nutzungsplanung_BE_V2_Test01_Metainfo.Dossier.Dossier_cantonal TID="00000000-0000-0000-0000-999000000002">
+            <Nutzungsplanung_BE_V2_Test02_Metainfo.Dossier.Dossier_cantonal TID="00000000-0000-0000-0000-999000000002">
                 <Title>Einführung ePlan</Title>
                 <AxiomaNr>Axioma.12</AxiomaNr>
                 <Process_step>Genehmigung</Process_step>
@@ -36,9 +36,9 @@
                 <BID_NplBE_new>59b16360-84bd-420a-96e2-10ab9a78fddd</BID_NplBE_new>
                 <BID_DeltaObjects>26165dd7-ab07-402f-a535-7da5e315f021</BID_DeltaObjects>
                 <last_update>2024-09-01</last_update>
-            </Nutzungsplanung_BE_V2_Test01_Metainfo.Dossier.Dossier_cantonal>
+            </Nutzungsplanung_BE_V2_Test02_Metainfo.Dossier.Dossier_cantonal>
 
-            <Nutzungsplanung_BE_V2_Test01_Metainfo.Dossier.Dossier_cantonal TID="00000000-0000-0000-0000-999000000003">
+            <Nutzungsplanung_BE_V2_Test02_Metainfo.Dossier.Dossier_cantonal TID="00000000-0000-0000-0000-999000000003">
                 <Title>Änderung Baureglement</Title>
                 <AxiomaNr>Axioma.21</AxiomaNr>
                 <Process_step>Öffentliche Auflage</Process_step>
@@ -50,9 +50,9 @@
                 <BID_NplBE_new>1fa405ee-da4d-4abc-9c88-57a8a6ddf86e</BID_NplBE_new>
                 <BID_DeltaObjects>7cbd5adc-c287-4511-a5c8-081afe876d65</BID_DeltaObjects>
                 <last_update>2024-10-01</last_update>
-            </Nutzungsplanung_BE_V2_Test01_Metainfo.Dossier.Dossier_cantonal>
+            </Nutzungsplanung_BE_V2_Test02_Metainfo.Dossier.Dossier_cantonal>
 
-            <Nutzungsplanung_BE_V2_Test01_Metainfo.Dossier.Dossier_cantonal TID="00000000-0000-0000-0000-999000000004">
+            <Nutzungsplanung_BE_V2_Test02_Metainfo.Dossier.Dossier_cantonal TID="00000000-0000-0000-0000-999000000004">
                 <Title>Änderung Baureglement</Title>
                 <AxiomaNr>Axioma.22</AxiomaNr>
                 <Process_step>Genehmigung</Process_step>
@@ -66,9 +66,9 @@
                 <BID_NplBE_new>1fa405ee-da4d-4abc-9c88-57a8a6ddf86e</BID_NplBE_new>
                 <BID_DeltaObjects>3edc48d3-741c-4fef-8439-8638f27a1313</BID_DeltaObjects>
                 <last_update>2024-12-01</last_update>
-            </Nutzungsplanung_BE_V2_Test01_Metainfo.Dossier.Dossier_cantonal>
+            </Nutzungsplanung_BE_V2_Test02_Metainfo.Dossier.Dossier_cantonal>
 
-            <Nutzungsplanung_BE_V2_Test01_Metainfo.Dossier.Dossier_cantonal TID="00000000-0000-0000-0000-999000000005">
+            <Nutzungsplanung_BE_V2_Test02_Metainfo.Dossier.Dossier_cantonal TID="00000000-0000-0000-0000-999000000005">
                 <Title>Festlegung Waldgrenze Obermatt</Title>
                 <AxiomaNr>Axioma.31</AxiomaNr>
                 <Process_step>Vorprüfung</Process_step>
@@ -79,9 +79,9 @@
                 <BID_NplBE_new>99d4cad9-4e3c-43aa-aeef-094e7d14280f</BID_NplBE_new>
                 <BID_DeltaObjects>d3a36bcd-f8e1-4146-9eea-2236992a1ea7</BID_DeltaObjects>
                 <last_update>2025-01-01</last_update>
-            </Nutzungsplanung_BE_V2_Test01_Metainfo.Dossier.Dossier_cantonal>
+            </Nutzungsplanung_BE_V2_Test02_Metainfo.Dossier.Dossier_cantonal>
 
-            <Nutzungsplanung_BE_V2_Test01_Metainfo.Dossier.Dossier_cantonal TID="00000000-0000-0000-0000-999000000007">
+            <Nutzungsplanung_BE_V2_Test02_Metainfo.Dossier.Dossier_cantonal TID="00000000-0000-0000-0000-999000000007">
                 <Title>Festlegung Waldgrenze Obermatt</Title>
                 <AxiomaNr>Axioma.32</AxiomaNr>
                 <Process_step>Genehmigung</Process_step>
@@ -95,43 +95,43 @@
                 <BID_NplBE_new>76cbe329-788a-4f99-888d-8767c9fc7e79</BID_NplBE_new>
                 <BID_DeltaObjects>924fff49-9948-4635-8b29-817e351dc2f4</BID_DeltaObjects>
                 <last_update>2025-07-01</last_update>
-            </Nutzungsplanung_BE_V2_Test01_Metainfo.Dossier.Dossier_cantonal>
+            </Nutzungsplanung_BE_V2_Test02_Metainfo.Dossier.Dossier_cantonal>
 
-            <Nutzungsplanung_BE_V2_Test01_Metainfo.Dossier.DossierDocument TID="00000000-0000-0000-0000-999100000001">
+            <Nutzungsplanung_BE_V2_Test02_Metainfo.Dossier.DossierDocument TID="00000000-0000-0000-0000-999100000001">
                 <Doc_title>Genehmigungsvermerk vom 01.07.2024</Doc_title>
                 <Doc_type>Genehmigungsvermerk</Doc_type>
                 <Doc_filename>Genehmigungsvermerk_2024_07_01</Doc_filename>
                 <Dossier_cantonal REF="00000000-0000-0000-0000-999000000002"/>
-            </Nutzungsplanung_BE_V2_Test01_Metainfo.Dossier.DossierDocument>
+            </Nutzungsplanung_BE_V2_Test02_Metainfo.Dossier.DossierDocument>
 
-            <Nutzungsplanung_BE_V2_Test01_Metainfo.Dossier.DossierDocument TID="00000000-0000-0000-0000-999100000003">
+            <Nutzungsplanung_BE_V2_Test02_Metainfo.Dossier.DossierDocument TID="00000000-0000-0000-0000-999100000003">
                 <Doc_title>Waldfeststellungsverfügung vom 01.07.2024</Doc_title>
                 <Doc_type>Waldfeststellungsverfügung</Doc_type>
                 <Doc_filename>Waldfeststellungsverfuegung_2024_07_01</Doc_filename>
                 <Dossier_cantonal REF="00000000-0000-0000-0000-999000000002"/>
-            </Nutzungsplanung_BE_V2_Test01_Metainfo.Dossier.DossierDocument>
+            </Nutzungsplanung_BE_V2_Test02_Metainfo.Dossier.DossierDocument>
 
-            <Nutzungsplanung_BE_V2_Test01_Metainfo.Dossier.DossierDocument TID="00000000-0000-0000-0000-999100000002">
+            <Nutzungsplanung_BE_V2_Test02_Metainfo.Dossier.DossierDocument TID="00000000-0000-0000-0000-999100000002">
                 <Doc_title>Genehmigungsvermerk vom 01.11.2024</Doc_title>
                 <Doc_type>Genehmigungsvermerk</Doc_type>
                 <Doc_filename>Genehmigungsvermerk_2024_11_01</Doc_filename>
                 <Dossier_cantonal REF="00000000-0000-0000-0000-999000000004"/>
-            </Nutzungsplanung_BE_V2_Test01_Metainfo.Dossier.DossierDocument>
+            </Nutzungsplanung_BE_V2_Test02_Metainfo.Dossier.DossierDocument>
 
-            <Nutzungsplanung_BE_V2_Test01_Metainfo.Dossier.DossierDocument TID="00000000-0000-0000-0000-999100000004">
+            <Nutzungsplanung_BE_V2_Test02_Metainfo.Dossier.DossierDocument TID="00000000-0000-0000-0000-999100000004">
                 <Doc_title>Genehmigungsvermerk vom 01.07.2025</Doc_title>
                 <Doc_type>Genehmigungsvermerk</Doc_type>
                 <Doc_filename>Genehmigungsvermerk_2025_07_01</Doc_filename>
                 <Dossier_cantonal REF="00000000-0000-0000-0000-999000000007"/>
-            </Nutzungsplanung_BE_V2_Test01_Metainfo.Dossier.DossierDocument>            
+            </Nutzungsplanung_BE_V2_Test02_Metainfo.Dossier.DossierDocument>            
 
-            <Nutzungsplanung_BE_V2_Test01_Metainfo.Dossier.DossierDocument TID="00000000-0000-0000-0000-999100000005">
+            <Nutzungsplanung_BE_V2_Test02_Metainfo.Dossier.DossierDocument TID="00000000-0000-0000-0000-999100000005">
                 <Doc_title>Waldfeststellungsverfügung vom 01.07.2025</Doc_title>
                 <Doc_type>Waldfeststellungsverfügung</Doc_type>
                 <Doc_filename>Waldfeststellungsverfuegung_2025_07_01</Doc_filename>
                 <Dossier_cantonal REF="00000000-0000-0000-0000-999000000007"/>
-            </Nutzungsplanung_BE_V2_Test01_Metainfo.Dossier.DossierDocument>
+            </Nutzungsplanung_BE_V2_Test02_Metainfo.Dossier.DossierDocument>
 
-        </Nutzungsplanung_BE_V2_Test01_Metainfo.Dossier>
+        </Nutzungsplanung_BE_V2_Test02_Metainfo.Dossier>
     </DATASECTION>
 </TRANSFER>

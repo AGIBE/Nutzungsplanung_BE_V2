@@ -1,225 +1,225 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Données de test fictives, correspondant au modèle de données PlansDAffectation_BE_V2_Test01 -->
+<!-- Données de test fictives, correspondant au modèle de données PlansDAffectation_BE_V2_Test02 -->
 
 <TRANSFER xmlns="http://www.interlis.ch/INTERLIS2.3">
     <HEADERSECTION SENDER="OACOT du canton de Berne" VERSION="2.3">
         <MODELS>
-            <MODEL NAME="PlansDAffectation_BE_V2_Test01" VERSION="2024-05-01" URI="http://models.geo.be.ch/Grundlagen_und_Planung/Raumplanung_Grundstueckskataster/"/>
+            <MODEL NAME="PlansDAffectation_BE_V2_Test02" VERSION="2024-05-01" URI="http://models.geo.be.ch/Grundlagen_und_Planung/Raumplanung_Grundstueckskataster/"/>
         </MODELS>
     </HEADERSECTION>
     
     <DATASECTION>
-        <PlansDAffectation_BE_V2_Test01.PlansDAffectation BID="5dc51d3a-fef8-421d-b7f7-f97b21354a12">
+        <PlansDAffectation_BE_V2_Test02.PlansDAffectation BID="5dc51d3a-fef8-421d-b7f7-f97b21354a12">
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.Dossier_communal TID="00000000-0000-0000-0000-000000000101">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.Dossier_communal TID="00000000-0000-0000-0000-000000000101">
                 <Titre_du_dossier>Introduction ePlan</Titre_du_dossier>
                 <Numero_du_dossier>999_2024_001</Numero_du_dossier>
                 <Revision_de_PAL>false</Revision_de_PAL>
                 <Date_de_creation>2023-12-01</Date_de_creation>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.Dossier_communal>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.Dossier_communal>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.Dossier_communal TID="00000000-0000-0000-0000-000000000102">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.Dossier_communal TID="00000000-0000-0000-0000-000000000102">
                 <Titre_du_dossier>Modification du règlement de construction</Titre_du_dossier>
                 <Numero_du_dossier>999_2024_002</Numero_du_dossier>
                 <Revision_de_PAL>false</Revision_de_PAL>
                 <Date_de_creation>2024-05-30</Date_de_creation>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.Dossier_communal>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.Dossier_communal>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.Dossier_communal TID="00000000-0000-0000-0000-000000000103">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.Dossier_communal TID="00000000-0000-0000-0000-000000000103">
                 <Titre_du_dossier>Détermination de la limite forestière Bellevue</Titre_du_dossier>
                 <Numero_du_dossier>999_2025_001</Numero_du_dossier>
                 <Revision_de_PAL>false</Revision_de_PAL>
                 <Date_de_creation>2025-01-10</Date_de_creation>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.Dossier_communal>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.Dossier_communal>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.Office TID="00000000-0000-0000-0000-000000000001">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.Office TID="00000000-0000-0000-0000-000000000001">
                 <Nom>Commune de Grand-Exemple</Nom>
                 <IDE>CHE-114.809.379</IDE>
                 <GuichetEnLigne>https://www.grandexemple.ch</GuichetEnLigne>
                 <Supplement_Attributs>
-                    <PlansDAffectation_BE_V2_Test01.PlansDAffectation.CustomAttribute>
+                    <PlansDAffectation_BE_V2_Test02.PlansDAffectation.CustomAttribute>
                         <AttributeName>Adresse</AttributeName>
                         <AttributeValue>Rue du Grand-Exemple 12</AttributeValue>
-                    </PlansDAffectation_BE_V2_Test01.PlansDAffectation.CustomAttribute>
-                    <PlansDAffectation_BE_V2_Test01.PlansDAffectation.CustomAttribute>
+                    </PlansDAffectation_BE_V2_Test02.PlansDAffectation.CustomAttribute>
+                    <PlansDAffectation_BE_V2_Test02.PlansDAffectation.CustomAttribute>
                         <AttributeName>Contact</AttributeName>
                         <AttributeValue>info@grandexemple.ch</AttributeValue>
-                    </PlansDAffectation_BE_V2_Test01.PlansDAffectation.CustomAttribute>
+                    </PlansDAffectation_BE_V2_Test02.PlansDAffectation.CustomAttribute>
                 </Supplement_Attributs>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.Office>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.Office>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.Office TID="00000000-0000-0000-0000-000000000002">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.Office TID="00000000-0000-0000-0000-000000000002">
                 <Nom>Office des forêts et des dangers naturels du canton de Berne</Nom>
                 <IDE>CHE-108.957.267</IDE>
                 <GuichetEnLigne>https://www.be.ch/ofdn</GuichetEnLigne>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.Office>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.Office>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.Office TID="00000000-0000-0000-0000-000000000003">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.Office TID="00000000-0000-0000-0000-000000000003">
                 <Nom>Office des affaires communales et de l’organisation du territoire du canton de Berne</Nom>
                 <IDE>CHE-114.809.379</IDE>
                 <GuichetEnLigne>https://www.be.ch/oacot</GuichetEnLigne>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.Office>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.Office>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.Document TID="00000000-0000-0000-0000-110000000001">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.Document TID="00000000-0000-0000-0000-110000000001">
                 <Titre>Réglement de l'affectation du sol et de construction</Titre>
                 <Abreviation>RAC</Abreviation>
                 <GenreDocument>
-                    <Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Dokumentart_CatalogueReference>
+                    <Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Dokumentart_CatalogueReference>
                         <Reference REF="dokumentart.1"/>
-                    </Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Dokumentart_CatalogueReference>
+                    </Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Dokumentart_CatalogueReference>
                 </GenreDocument>
                 <Classification>
-                    <Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Klassifizierung_CatalogueReference>
+                    <Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Klassifizierung_CatalogueReference>
                         <Reference REF="klassifizierung.1"/>
-                    </Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Klassifizierung_CatalogueReference>
+                    </Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Klassifizierung_CatalogueReference>
                 </Classification>
                 <Nom_du_fichier_PDF>reglement_construction.pdf</Nom_du_fichier_PDF>
                 <Supplement_Attributs>
-                    <PlansDAffectation_BE_V2_Test01.PlansDAffectation.CustomAttribute>
+                    <PlansDAffectation_BE_V2_Test02.PlansDAffectation.CustomAttribute>
                         <AttributeName>Remarque</AttributeName>
                         <AttributeValue>Exemple de texte</AttributeValue>
-                    </PlansDAffectation_BE_V2_Test01.PlansDAffectation.CustomAttribute>
+                    </PlansDAffectation_BE_V2_Test02.PlansDAffectation.CustomAttribute>
                 </Supplement_Attributs>
                 <Dossier_communal REF="00000000-0000-0000-0000-000000000101"/>
                 <Service_competent REF="00000000-0000-0000-0000-000000000001"/>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.Document>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.Document>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.Document TID="00000000-0000-0000-0000-110000000002">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.Document TID="00000000-0000-0000-0000-110000000002">
                 <Titre>Plan de quartier Grand-Places (Disposition)</Titre>
                 <Abreviation>PQ</Abreviation>
                 <GenreDocument>
-                    <Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Dokumentart_CatalogueReference>
+                    <Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Dokumentart_CatalogueReference>
                         <Reference REF="dokumentart.2"/>
-                    </Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Dokumentart_CatalogueReference>
+                    </Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Dokumentart_CatalogueReference>
                 </GenreDocument>
                 <Classification>
-                    <Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Klassifizierung_CatalogueReference>
+                    <Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Klassifizierung_CatalogueReference>
                         <Reference REF="klassifizierung.1"/>
-                    </Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Klassifizierung_CatalogueReference>
+                    </Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Klassifizierung_CatalogueReference>
                 </Classification>
                 <Nom_du_fichier_PDF>PQ_grand_places.pdf</Nom_du_fichier_PDF>
                 <Dossier_communal REF="00000000-0000-0000-0000-000000000101"/>
                 <Service_competent REF="00000000-0000-0000-0000-000000000001"/>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.Document>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.Document>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.Document TID="00000000-0000-0000-0000-110000000003">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.Document TID="00000000-0000-0000-0000-110000000003">
                 <Titre>Plan de quartier Grand-Places (Plan)</Titre>
                 <Abreviation>PQ plan</Abreviation>
                 <GenreDocument>
-                    <Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Dokumentart_CatalogueReference>
+                    <Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Dokumentart_CatalogueReference>
                         <Reference REF="dokumentart.3"/>
-                    </Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Dokumentart_CatalogueReference>
+                    </Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Dokumentart_CatalogueReference>
                 </GenreDocument>
                 <Classification>
-                    <Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Klassifizierung_CatalogueReference>
+                    <Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Klassifizierung_CatalogueReference>
                         <Reference REF="klassifizierung.1"/>
-                    </Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Klassifizierung_CatalogueReference>
+                    </Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Klassifizierung_CatalogueReference>
                 </Classification>
                 <Nom_du_fichier_PDF>PQ_grand_places_plan.pdf</Nom_du_fichier_PDF>
                 <Dossier_communal REF="00000000-0000-0000-0000-000000000101"/>
                 <Service_competent REF="00000000-0000-0000-0000-000000000001"/>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.Document>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.Document>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.Document TID="00000000-0000-0000-0000-110000000004">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.Document TID="00000000-0000-0000-0000-110000000004">
                 <Titre>Rapport explicatif</Titre>
                 <GenreDocument>
-                    <Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Dokumentart_CatalogueReference>
+                    <Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Dokumentart_CatalogueReference>
                         <Reference REF="dokumentart.0"/>
-                    </Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Dokumentart_CatalogueReference>
+                    </Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Dokumentart_CatalogueReference>
                 </GenreDocument>
                 <Classification>
-                    <Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Klassifizierung_CatalogueReference>
+                    <Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Klassifizierung_CatalogueReference>
                         <Reference REF="klassifizierung.1"/>
-                    </Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Klassifizierung_CatalogueReference>
+                    </Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Klassifizierung_CatalogueReference>
                 </Classification>
                 <Nom_du_fichier_PDF>PQ_grand_places_rapport_explicatif.pdf</Nom_du_fichier_PDF>
                 <Dossier_communal REF="00000000-0000-0000-0000-000000000101"/>
                 <Service_competent REF="00000000-0000-0000-0000-000000000001"/>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.Document>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.Document>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.AutresDocuments TID="00000000-0000-0000-0000-120000000001">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.AutresDocuments TID="00000000-0000-0000-0000-120000000001">
                 <Document REF="00000000-0000-0000-0000-110000000002"/>
                 <AutreDocument REF="00000000-0000-0000-0000-110000000003"/>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.AutresDocuments>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.AutresDocuments>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.AutresDocuments TID="00000000-0000-0000-0000-120000000002">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.AutresDocuments TID="00000000-0000-0000-0000-120000000002">
                 <Document REF="00000000-0000-0000-0000-110000000002"/>
                 <AutreDocument REF="00000000-0000-0000-0000-110000000004"/>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.AutresDocuments>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.AutresDocuments>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.DocumentRevision TID="00000000-0000-0000-0000-130000000001">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.DocumentRevision TID="00000000-0000-0000-0000-130000000001">
                 <Titre>Revision Art. 2</Titre>
                 <Nom_du_fichier_PDF>reglement_construction_a1.pdf</Nom_du_fichier_PDF>
                 <Dossier_communal REF="00000000-0000-0000-0000-000000000102"/>
                 <VersionInitiale REF="00000000-0000-0000-0000-110000000001"/>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.DocumentRevision>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.DocumentRevision>
             
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.DocumentRevision TID="00000000-0000-0000-0000-130000000002">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.DocumentRevision TID="00000000-0000-0000-0000-130000000002">
                 <Titre>Revision Art. 3</Titre>
                 <Nom_du_fichier_PDF>reglement_construction_a2.pdf</Nom_du_fichier_PDF>
                 <Dossier_communal REF="00000000-0000-0000-0000-000000000103"/>
                 <VersionInitiale REF="00000000-0000-0000-0000-110000000001"/>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.DocumentRevision>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.DocumentRevision>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.AP_Type TID="00000000-0000-0000-0000-210000000001">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.AP_Type TID="00000000-0000-0000-0000-210000000001">
                 <Designation>Plan de quartier Grand-Places</Designation>
                 <Abreviation>PQ Grand</Abreviation>
                 <GenreCant>
-                    <Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.GN_KantArt_CatalogueReference>
+                    <Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.GN_KantArt_CatalogueReference>
                         <Reference REF="gn_kantart.31"/>
-                    </Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.GN_KantArt_CatalogueReference>
+                    </Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.GN_KantArt_CatalogueReference>
                 </GenreCant>
                 <Niveaux_legislatifs>
-                    <Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+                    <Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
                         <Reference REF="verbindlichkeit.3"/>
-                    </Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+                    </Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
                 </Niveaux_legislatifs>
                 <Service_competent REF="00000000-0000-0000-0000-000000000001"/>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.AP_Type>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.AP_Type>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.AP_Type TID="00000000-0000-0000-0000-210000000002">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.AP_Type TID="00000000-0000-0000-0000-210000000002">
                 <Designation>Zone d'habitation 1</Designation>
                 <Abreviation>H1</Abreviation>
                 <GenreCant>
-                    <Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.GN_KantArt_CatalogueReference>
+                    <Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.GN_KantArt_CatalogueReference>
                         <Reference REF="gn_kantart.1"/>
-                    </Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.GN_KantArt_CatalogueReference>
+                    </Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.GN_KantArt_CatalogueReference>
                 </GenreCant>
                 <GenreRepresentation>
-                    <Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Darstellungsart_CatalogueReference>
+                    <Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Darstellungsart_CatalogueReference>
                         <Reference REF="darstellungsart.1"/>
-                    </Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Darstellungsart_CatalogueReference>
+                    </Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Darstellungsart_CatalogueReference>
                 </GenreRepresentation>
                 <Niveaux_legislatifs>
-                    <Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+                    <Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
                         <Reference REF="verbindlichkeit.3"/>
-                    </Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+                    </Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
                 </Niveaux_legislatifs>
                 <Service_competent REF="00000000-0000-0000-0000-000000000001"/>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.AP_Type>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.AP_Type>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.AP_DJ TID="00000000-0000-0000-0000-220000000001">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.AP_DJ TID="00000000-0000-0000-0000-220000000001">
                 <Disposition REF="00000000-0000-0000-0000-110000000001"/>
                 <Type REF="00000000-0000-0000-0000-210000000001"/>
                 <Supplement_Attributs>
-                    <PlansDAffectation_BE_V2_Test01.PlansDAffectation.CustomAttribute>
+                    <PlansDAffectation_BE_V2_Test02.PlansDAffectation.CustomAttribute>
                         <AttributeName>Numero_article</AttributeName>
                         <AttributeValue>17b</AttributeValue>
-                    </PlansDAffectation_BE_V2_Test01.PlansDAffectation.CustomAttribute>
+                    </PlansDAffectation_BE_V2_Test02.PlansDAffectation.CustomAttribute>
                 </Supplement_Attributs>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.AP_DJ>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.AP_DJ>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.AP_DJ TID="00000000-0000-0000-0000-220000000002">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.AP_DJ TID="00000000-0000-0000-0000-220000000002">
                 <Disposition REF="00000000-0000-0000-0000-110000000001"/>
                 <Type REF="00000000-0000-0000-0000-210000000002"/>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.AP_DJ>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.AP_DJ>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.AP_DJ TID="00000000-0000-0000-0000-220000000003">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.AP_DJ TID="00000000-0000-0000-0000-220000000003">
                 <Disposition REF="00000000-0000-0000-0000-110000000002"/>
                 <Type REF="00000000-0000-0000-0000-210000000002"/>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.AP_DJ>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.AP_DJ>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.AP_Surface TID="00000000-0000-0000-0000-230000000001">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.AP_Surface TID="00000000-0000-0000-0000-230000000001">
                 <Geometrie>
                     <SURFACE>
                         <BOUNDARY>
@@ -249,23 +249,23 @@
                     </SURFACE>
                 </Geometrie>
                 <Supplement_Attributs>
-                    <PlansDAffectation_BE_V2_Test01.PlansDAffectation.CustomAttribute>
+                    <PlansDAffectation_BE_V2_Test02.PlansDAffectation.CustomAttribute>
                         <AttributeName>Attribut_1</AttributeName>
                         <AttributeValue>Valeur 1</AttributeValue>
-                    </PlansDAffectation_BE_V2_Test01.PlansDAffectation.CustomAttribute>
-                    <PlansDAffectation_BE_V2_Test01.PlansDAffectation.CustomAttribute>
+                    </PlansDAffectation_BE_V2_Test02.PlansDAffectation.CustomAttribute>
+                    <PlansDAffectation_BE_V2_Test02.PlansDAffectation.CustomAttribute>
                         <AttributeName>Attribut_2</AttributeName>
                         <AttributeValue>Valeur 2</AttributeValue>
-                    </PlansDAffectation_BE_V2_Test01.PlansDAffectation.CustomAttribute>
-                    <PlansDAffectation_BE_V2_Test01.PlansDAffectation.CustomAttribute>
+                    </PlansDAffectation_BE_V2_Test02.PlansDAffectation.CustomAttribute>
+                    <PlansDAffectation_BE_V2_Test02.PlansDAffectation.CustomAttribute>
                         <AttributeName>Attribut_3</AttributeName>
                         <AttributeValue>Valeur 3</AttributeValue>
-                    </PlansDAffectation_BE_V2_Test01.PlansDAffectation.CustomAttribute>
+                    </PlansDAffectation_BE_V2_Test02.PlansDAffectation.CustomAttribute>
                 </Supplement_Attributs>
                 <Type REF="00000000-0000-0000-0000-210000000001"/>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.AP_Surface>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.AP_Surface>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.AP_Utilisation_interieure TID="00000000-0000-0000-0000-240000000001">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.AP_Utilisation_interieure TID="00000000-0000-0000-0000-240000000001">
                 <Geometrie>
                     <SURFACE>
                         <BOUNDARY>
@@ -295,29 +295,29 @@
                     </SURFACE>
                 </Geometrie>
                 <Type REF="00000000-0000-0000-0000-210000000002"/>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.AP_Utilisation_interieure>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.AP_Utilisation_interieure>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.DS_Type TID="00000000-0000-0000-0000-310000000001">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.DS_Type TID="00000000-0000-0000-0000-310000000001">
                 <Designation>DS I</Designation>
                 <GenreCant>
-                    <Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.ES_KantArt_CatalogueReference>
+                    <Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.ES_KantArt_CatalogueReference>
                         <Reference REF="es_kantart.2"/>
-                    </Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.ES_KantArt_CatalogueReference>
+                    </Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.ES_KantArt_CatalogueReference>
                 </GenreCant>
                 <Niveaux_legislatifs>
-                    <Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+                    <Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
                         <Reference REF="verbindlichkeit.3"/>
-                    </Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+                    </Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
                 </Niveaux_legislatifs>
                 <Service_competent REF="00000000-0000-0000-0000-000000000001"/>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.DS_Type>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.DS_Type>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.DS_DJ TID="00000000-0000-0000-0000-320000000001">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.DS_DJ TID="00000000-0000-0000-0000-320000000001">
                 <Disposition REF="00000000-0000-0000-0000-110000000001"/>
                 <Type REF="00000000-0000-0000-0000-310000000001"/>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.DS_DJ>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.DS_DJ>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.DS_Surface TID="00000000-0000-0000-0000-330000000001">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.DS_Surface TID="00000000-0000-0000-0000-330000000001">
                 <Geometrie>
                     <SURFACE>
                         <BOUNDARY>
@@ -347,30 +347,30 @@
                     </SURFACE>
                 </Geometrie>
                 <Type REF="00000000-0000-0000-0000-310000000001"/>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.DS_Surface>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.DS_Surface>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.ZD_Type TID="00000000-0000-0000-0000-440000000001">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.ZD_Type TID="00000000-0000-0000-0000-440000000001">
                 <Designation>Zone de danger moyen</Designation>
                 <Abreviation>Danger bleu</Abreviation>
                 <GenreCant>
-                    <Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.GG_KantArt_CatalogueReference>
+                    <Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.GG_KantArt_CatalogueReference>
                         <Reference REF="gg_kantart.2"/>
-                    </Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.GG_KantArt_CatalogueReference>
+                    </Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.GG_KantArt_CatalogueReference>
                 </GenreCant>
                 <Niveaux_legislatifs>
-                    <Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+                    <Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
                         <Reference REF="verbindlichkeit.3"/>
-                    </Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+                    </Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
                 </Niveaux_legislatifs>
                 <Service_competent REF="00000000-0000-0000-0000-000000000001"/>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.ZD_Type>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.ZD_Type>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.ZD_DJ TID="00000000-0000-0000-0000-450000000001">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.ZD_DJ TID="00000000-0000-0000-0000-450000000001">
                 <Disposition REF="00000000-0000-0000-0000-110000000001"/>
                 <Type REF="00000000-0000-0000-0000-440000000001"/>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.ZD_DJ>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.ZD_DJ>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.ZD_Surface TID="00000000-0000-0000-0000-460000000001">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.ZD_Surface TID="00000000-0000-0000-0000-460000000001">
                 <Geometrie>
                     <SURFACE>
                         <BOUNDARY>
@@ -400,29 +400,29 @@
                     </SURFACE>
                 </Geometrie>
                 <Type REF="00000000-0000-0000-0000-440000000001"/>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.ZD_Surface>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.ZD_Surface>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.EE_Type TID="00000000-0000-0000-0000-810000000001">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.EE_Type TID="00000000-0000-0000-0000-810000000001">
                 <Designation>Espace réservé aux eaux sans restrictions d'exploitation</Designation>
                 <GenreCant>
-                    <Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.GR_KantArt_CatalogueReference>
+                    <Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.GR_KantArt_CatalogueReference>
                         <Reference REF="gr_kantart.2"/>
-                    </Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.GR_KantArt_CatalogueReference>
+                    </Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.GR_KantArt_CatalogueReference>
                 </GenreCant>
                 <Niveaux_legislatifs>
-                    <Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+                    <Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
                         <Reference REF="verbindlichkeit.3"/>
-                    </Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+                    </Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
                 </Niveaux_legislatifs>
                 <Service_competent REF="00000000-0000-0000-0000-000000000001"/>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.EE_Type>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.EE_Type>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.EE_DJ TID="00000000-0000-0000-0000-820000000001">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.EE_DJ TID="00000000-0000-0000-0000-820000000001">
                 <Disposition REF="00000000-0000-0000-0000-110000000001"/>
                 <Type REF="00000000-0000-0000-0000-810000000001"/>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.EE_DJ>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.EE_DJ>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.EE_Surface TID="00000000-0000-0000-0000-830000000001">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.EE_Surface TID="00000000-0000-0000-0000-830000000001">
                 <Geometrie>
                     <SURFACE>
                         <BOUNDARY>
@@ -452,30 +452,30 @@
                     </SURFACE>
                 </Geometrie>
                 <Type REF="00000000-0000-0000-0000-810000000001"/>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.EE_Surface>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.EE_Surface>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.SU_Type TID="00000000-0000-0000-0000-410000000001">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.SU_Type TID="00000000-0000-0000-0000-410000000001">
                 <Designation>Plan d'aménagement Petite-Place</Designation>
                 <Abreviation>PQ Petite</Abreviation>
                 <GenreCant>
-                    <Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
+                    <Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
                         <Reference REF="ue_kantart.1"/>
-                    </Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
+                    </Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
                 </GenreCant>
                 <Niveaux_legislatifs>
-                    <Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+                    <Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
                         <Reference REF="verbindlichkeit.3"/>
-                    </Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+                    </Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
                 </Niveaux_legislatifs>
                 <Service_competent REF="00000000-0000-0000-0000-000000000001"/>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.SU_Type>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.SU_Type>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.SU_DJ TID="00000000-0000-0000-0000-420000000001">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.SU_DJ TID="00000000-0000-0000-0000-420000000001">
                 <Disposition REF="00000000-0000-0000-0000-110000000001"/>
                 <Type REF="00000000-0000-0000-0000-410000000001"/>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.SU_DJ>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.SU_DJ>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.SU_Surface TID="00000000-0000-0000-0000-430000000001">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.SU_Surface TID="00000000-0000-0000-0000-430000000001">
                 <Geometrie>
                     <SURFACE>
                         <BOUNDARY>
@@ -505,70 +505,70 @@
                     </SURFACE>
                 </Geometrie>
                 <Type REF="00000000-0000-0000-0000-410000000001"/>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.SU_Surface>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.SU_Surface>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.NP_Type TID="00000000-0000-0000-0000-610000000001">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.NP_Type TID="00000000-0000-0000-0000-610000000001">
                 <Designation>Périmètre de protection du paysage</Designation>
                 <Abreviation>PPP</Abreviation>
                 <GenreCant>
-                    <Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.NH_KantArt_CatalogueReference>
+                    <Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.NH_KantArt_CatalogueReference>
                         <Reference REF="nh_kantart.1"/>
-                    </Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.NH_KantArt_CatalogueReference>
+                    </Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.NH_KantArt_CatalogueReference>
                 </GenreCant>
                 <Niveaux_legislatifs>
-                    <Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+                    <Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
                         <Reference REF="verbindlichkeit.3"/>
-                    </Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+                    </Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
                 </Niveaux_legislatifs>
                 <Service_competent REF="00000000-0000-0000-0000-000000000001"/>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.NP_Type>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.NP_Type>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.NP_Type TID="00000000-0000-0000-0000-610000000002">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.NP_Type TID="00000000-0000-0000-0000-610000000002">
                 <Designation>Mur en pierres sèches</Designation>
                 <GenreCant>
-                    <Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.NH_KantArt_CatalogueReference>
+                    <Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.NH_KantArt_CatalogueReference>
                         <Reference REF="nh_kantart.35"/>
-                    </Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.NH_KantArt_CatalogueReference>
+                    </Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.NH_KantArt_CatalogueReference>
                 </GenreCant>
                 <Niveaux_legislatifs>
-                    <Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+                    <Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
                         <Reference REF="verbindlichkeit.3"/>
-                    </Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+                    </Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
                 </Niveaux_legislatifs>
                 <Service_competent REF="00000000-0000-0000-0000-000000000001"/>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.NP_Type>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.NP_Type>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.NP_Type TID="00000000-0000-0000-0000-610000000003">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.NP_Type TID="00000000-0000-0000-0000-610000000003">
                 <Designation>Bloc erratique protégé</Designation>
                 <GenreCant>
-                    <Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.NH_KantArt_CatalogueReference>
+                    <Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.NH_KantArt_CatalogueReference>
                         <Reference REF="nh_kantart.43"/>
-                    </Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.NH_KantArt_CatalogueReference>
+                    </Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.NH_KantArt_CatalogueReference>
                 </GenreCant>
                 <Niveaux_legislatifs>
-                    <Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+                    <Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
                         <Reference REF="verbindlichkeit.3"/>
-                    </Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+                    </Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
                 </Niveaux_legislatifs>
                 <Service_competent REF="00000000-0000-0000-0000-000000000001"/>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.NP_Type>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.NP_Type>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.NP_DJ TID="00000000-0000-0000-0000-620000000001">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.NP_DJ TID="00000000-0000-0000-0000-620000000001">
                 <Disposition REF="00000000-0000-0000-0000-110000000001"/>
                 <Type REF="00000000-0000-0000-0000-610000000001"/>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.NP_DJ>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.NP_DJ>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.NP_DJ TID="00000000-0000-0000-0000-620000000002">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.NP_DJ TID="00000000-0000-0000-0000-620000000002">
                 <Disposition REF="00000000-0000-0000-0000-110000000001"/>
                 <Type REF="00000000-0000-0000-0000-610000000002"/>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.NP_DJ>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.NP_DJ>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.NP_DJ TID="00000000-0000-0000-0000-620000000003">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.NP_DJ TID="00000000-0000-0000-0000-620000000003">
                 <Disposition REF="00000000-0000-0000-0000-110000000001"/>
                 <Type REF="00000000-0000-0000-0000-610000000003"/>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.NP_DJ>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.NP_DJ>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.NP_Point TID="00000000-0000-0000-0000-630000000001">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.NP_Point TID="00000000-0000-0000-0000-630000000001">
                 <Geometrie>
                     <COORD>
                         <C1>2600005.0</C1>
@@ -576,9 +576,9 @@
                     </COORD>
                 </Geometrie>
                 <Type REF="00000000-0000-0000-0000-610000000003"/>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.NP_Point>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.NP_Point>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.NP_Ligne TID="00000000-0000-0000-0000-640000000001">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.NP_Ligne TID="00000000-0000-0000-0000-640000000001">
                 <Geometrie>
                     <POLYLINE>
                         <COORD>
@@ -592,9 +592,9 @@
                     </POLYLINE>
                 </Geometrie>
                 <Type REF="00000000-0000-0000-0000-610000000002"/>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.NP_Ligne>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.NP_Ligne>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.NP_Surface TID="00000000-0000-0000-0000-650000000001">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.NP_Surface TID="00000000-0000-0000-0000-650000000001">
                 <Geometrie>
                     <SURFACE>
                         <BOUNDARY>
@@ -624,49 +624,49 @@
                     </SURFACE>
                 </Geometrie>
                 <Type REF="00000000-0000-0000-0000-610000000001"/>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.NP_Surface>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.NP_Surface>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.AL_Type TID="00000000-0000-0000-0000-510000000001">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.AL_Type TID="00000000-0000-0000-0000-510000000001">
                 <Designation>Zone d'impact de l'alignement des constructions</Designation>
                 <GenreCant>
-                    <Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.BL_KantArt_CatalogueReference>
+                    <Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.BL_KantArt_CatalogueReference>
                         <Reference REF="bl_kantart.1"/>
-                    </Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.BL_KantArt_CatalogueReference>
+                    </Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.BL_KantArt_CatalogueReference>
                 </GenreCant>
                 <Niveaux_legislatifs>
-                    <Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+                    <Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
                         <Reference REF="verbindlichkeit.3"/>
-                    </Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+                    </Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
                 </Niveaux_legislatifs>
                 <Service_competent REF="00000000-0000-0000-0000-000000000001"/>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.AL_Type>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.AL_Type>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.AL_Type TID="00000000-0000-0000-0000-510000000002">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.AL_Type TID="00000000-0000-0000-0000-510000000002">
                 <Designation>Alignement forestier</Designation>
                 <GenreCant>
-                    <Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.BL_KantArt_CatalogueReference>
+                    <Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.BL_KantArt_CatalogueReference>
                         <Reference REF="bl_kantart.4"/>
-                    </Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.BL_KantArt_CatalogueReference>
+                    </Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.BL_KantArt_CatalogueReference>
                 </GenreCant>
                 <Niveaux_legislatifs>
-                    <Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+                    <Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
                         <Reference REF="verbindlichkeit.3"/>
-                    </Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+                    </Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
                 </Niveaux_legislatifs>
                 <Service_competent REF="00000000-0000-0000-0000-000000000001"/>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.AL_Type>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.AL_Type>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.AL_DJ TID="00000000-0000-0000-0000-520000000001">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.AL_DJ TID="00000000-0000-0000-0000-520000000001">
                 <Disposition REF="00000000-0000-0000-0000-110000000001"/>
                 <Type REF="00000000-0000-0000-0000-510000000001"/>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.AL_DJ>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.AL_DJ>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.AL_DJ TID="00000000-0000-0000-0000-520000000002">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.AL_DJ TID="00000000-0000-0000-0000-520000000002">
                 <Disposition REF="00000000-0000-0000-0000-110000000001"/>
                 <Type REF="00000000-0000-0000-0000-510000000002"/>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.AL_DJ>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.AL_DJ>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.AL_Ligne TID="00000000-0000-0000-0000-530000000001">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.AL_Ligne TID="00000000-0000-0000-0000-530000000001">
                 <Geometrie>
                     <POLYLINE>
                         <COORD>
@@ -680,9 +680,9 @@
                     </POLYLINE>
                 </Geometrie>
                 <Type REF="00000000-0000-0000-0000-510000000001"/>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.AL_Ligne>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.AL_Ligne>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.AL_Surface TID="00000000-0000-0000-0000-530000000002">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.AL_Surface TID="00000000-0000-0000-0000-530000000002">
                 <Geometrie>
                     <SURFACE>
                         <BOUNDARY>
@@ -712,29 +712,29 @@
                     </SURFACE>
                 </Geometrie>
                 <Type REF="00000000-0000-0000-0000-510000000001"/>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.AL_Surface>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.AL_Surface>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.CH_Type TID="00000000-0000-0000-0000-910000000001">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.CH_Type TID="00000000-0000-0000-0000-910000000001">
                 <Designation>Chemin de randonnée pédestre: Vue sur les Alpes</Designation>
                 <GenreCant>
-                    <Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.WE_KantArt_CatalogueReference>
+                    <Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.WE_KantArt_CatalogueReference>
                         <Reference REF="we_kantart.2"/>
-                    </Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.WE_KantArt_CatalogueReference>
+                    </Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.WE_KantArt_CatalogueReference>
                 </GenreCant>
                 <Niveaux_legislatifs>
-                    <Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+                    <Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
                         <Reference REF="verbindlichkeit.3"/>
-                    </Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+                    </Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
                 </Niveaux_legislatifs>
                 <Service_competent REF="00000000-0000-0000-0000-000000000001"/>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.CH_Type>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.CH_Type>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.CH_DJ TID="00000000-0000-0000-0000-920000000001">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.CH_DJ TID="00000000-0000-0000-0000-920000000001">
                 <Disposition REF="00000000-0000-0000-0000-110000000001"/>
                 <Type REF="00000000-0000-0000-0000-910000000001"/>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.CH_DJ>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.CH_DJ>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.CH_Ligne TID="00000000-0000-0000-0000-930000000001">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.CH_Ligne TID="00000000-0000-0000-0000-930000000001">
                 <Geometrie>
                     <POLYLINE>
                         <COORD>
@@ -748,24 +748,24 @@
                     </POLYLINE>
                 </Geometrie>
                 <Type REF="00000000-0000-0000-0000-910000000001"/>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.CH_Ligne>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.CH_Ligne>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.CF_Type TID="00000000-0000-0000-0000-710000000001">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.CF_Type TID="00000000-0000-0000-0000-710000000001">
                 <Designation>Limite forestière statique</Designation>
                 <GenreCant>
-                    <Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.WF_KantArt_CatalogueReference>
+                    <Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.WF_KantArt_CatalogueReference>
                         <Reference REF="wf_kantart.1"/>
-                    </Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.WF_KantArt_CatalogueReference>
+                    </Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.WF_KantArt_CatalogueReference>
                 </GenreCant>
                 <Niveaux_legislatifs>
-                    <Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+                    <Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
                         <Reference REF="verbindlichkeit.1"/>
-                    </Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+                    </Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
                 </Niveaux_legislatifs>
                 <Service_competent REF="00000000-0000-0000-0000-000000000002"/>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.CF_Type>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.CF_Type>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.CF_Ligne TID="00000000-0000-0000-0000-730000000001">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.CF_Ligne TID="00000000-0000-0000-0000-730000000001">
                 <Geometrie>
                     <POLYLINE>
                         <COORD>
@@ -780,9 +780,9 @@
                 </Geometrie>
                 <Dossier_communal REF="00000000-0000-0000-0000-000000000101"/>
                 <Type REF="00000000-0000-0000-0000-710000000001"/>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.CF_Ligne>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.CF_Ligne>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.CF_Ligne TID="00000000-0000-0000-0000-730000000002">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.CF_Ligne TID="00000000-0000-0000-0000-730000000002">
                 <Geometrie>
                     <POLYLINE>
                         <COORD>
@@ -797,9 +797,9 @@
                 </Geometrie>
                 <Dossier_communal REF="00000000-0000-0000-0000-000000000103"/>
                 <Type REF="00000000-0000-0000-0000-710000000001"/>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.CF_Ligne>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.CF_Ligne>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.Perimetre_communal TID="00000000-0000-0000-0000-100000000000">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.Perimetre_communal TID="00000000-0000-0000-0000-100000000000">
                 <Numero_OFS>999</Numero_OFS>
                 <Nom_commune>Grand-Exemple</Nom_commune>
                 <Date_mise_a_jour>2023-01-01</Date_mise_a_jour>
@@ -831,18 +831,18 @@
                         </BOUNDARY>
                     </SURFACE>
                 </Geometrie>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.Perimetre_communal>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.Perimetre_communal>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.Geoservice TID="00000000-0000-0000-0000-900000000001">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.Geoservice TID="00000000-0000-0000-0000-900000000001">
                 <Geoservice_Nom>Plans directeurs cantonaux (WMS)</Geoservice_Nom>
                 <Geoservice_URL>https://www.geoservice.apps.be.ch/geoservice3/services/a42geo/of_planningcadastre03_fr_ms_wms/MapServer/WMSServer?</Geoservice_URL>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.Geoservice>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.Geoservice>
 
-            <PlansDAffectation_BE_V2_Test01.PlansDAffectation.Geoservice TID="00000000-0000-0000-0000-900000000002">
+            <PlansDAffectation_BE_V2_Test02.PlansDAffectation.Geoservice TID="00000000-0000-0000-0000-900000000002">
                 <Geoservice_Nom>Carte de la protection des eaux (WFS)</Geoservice_Nom>
                 <Geoservice_URL>https://www.geoservice.apps.be.ch/geoservice3/services/a42geo/of_inlandwaters01_fr_ms_wfs/MapServer/WFSServer?</Geoservice_URL>
-            </PlansDAffectation_BE_V2_Test01.PlansDAffectation.Geoservice>
+            </PlansDAffectation_BE_V2_Test02.PlansDAffectation.Geoservice>
 
-        </PlansDAffectation_BE_V2_Test01.PlansDAffectation>
+        </PlansDAffectation_BE_V2_Test02.PlansDAffectation>
     </DATASECTION>
 </TRANSFER>

@@ -1,9 +1,9 @@
 INTERLIS 2.3;
 /*
 Datenmodell für die Nutzungsplanung im Kanton Bern
-  Teilmodelle       : Nutzungsplanung_BE_V2_Test01_Catalogues, Nutzungsplanung_BE_V2_Test01_Metainfo
+  Teilmodelle       : Nutzungsplanung_BE_V2_Test02_Catalogues, Nutzungsplanung_BE_V2_Test02_Metainfo
   Datenverwaltung   : Gemeinde
-  Sprachversion     : DE (TRANSALTION OF-Modell: PlansDAffectation_BE_V2_Test01.ili)
+  Sprachversion     : DE (TRANSALTION OF-Modell: PlansDAffectation_BE_V2_Test02.ili)
   Support fachlich  : Amt für Gemeinden und Raumordnung (www.be.ch/agr)
   Support technisch : Amt für Geoinformation (www.be.ch/agi)
 
@@ -29,13 +29,13 @@ Datenmodell für die Nutzungsplanung im Kanton Bern
 
 !!@ technicalContact=mailto:info.agr@be.ch
 !!@ furtherInformation=https://www.raumplanung.dij.be.ch/de/start/eplan.html
-MODEL Nutzungsplanung_BE_V2_Test01 (de)
+MODEL Nutzungsplanung_BE_V2_Test02 (de)
   AT "http://models.geo.be.ch/Grundlagen_und_Planung/Raumplanung_Grundstueckskataster/"
   VERSION "2024-05-01" =
 
   IMPORTS GeometryCHLV95_V1;
   IMPORTS CHAdminCodes_V1;
-  IMPORTS CatalogueObjects_V1, Nutzungsplanung_BE_V2_Test01_Catalogues;
+  IMPORTS CatalogueObjects_V1, Nutzungsplanung_BE_V2_Test02_Catalogues;
 
   UNIT
     AngleGon_Degree = 200 / PI [INTERLIS.rad];
@@ -61,7 +61,7 @@ MODEL Nutzungsplanung_BE_V2_Test01 (de)
   BASKET OID AS INTERLIS.UUIDOID;
   OID AS INTERLIS.UUIDOID;
 
-  DEPENDS ON CatalogueObjects_V1.Catalogues, Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues;
+  DEPENDS ON CatalogueObjects_V1.Catalogues, Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues;
 
     !! Strukturen für individuelle Zusatzinformationen
     !! -----------------------------------------------
@@ -94,8 +94,8 @@ MODEL Nutzungsplanung_BE_V2_Test01 (de)
     CLASS Dokument =
       Titel : MANDATORY TEXT*200;
       Abkuerzung : TEXT*20;
-      Dokumentart : MANDATORY Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Dokumentart_CatalogueReference;
-      Klassifizierung : MANDATORY Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Klassifizierung_CatalogueReference;
+      Dokumentart : MANDATORY Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Dokumentart_CatalogueReference;
+      Klassifizierung : MANDATORY Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Klassifizierung_CatalogueReference;
       OffizielleNr : TEXT*20;
       PDF_Dateiname : MANDATORY TEXT*100;
       Zusatz_Attribute : BAG {0..*} OF CustomAttribute;
@@ -146,9 +146,9 @@ MODEL Nutzungsplanung_BE_V2_Test01 (de)
     CLASS BaseClassType (ABSTRACT) =
       Bezeichnung : MANDATORY TEXT*150;
       Abkuerzung : TEXT*12;
-      KantArt : MANDATORY Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Typ_CatalogueReference;
-      Darstellungsart : Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Darstellungsart_CatalogueReference; !! Default: Standard-Darstellung gemäss KantArt
-      Verbindlichkeit : MANDATORY Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference;
+      KantArt : MANDATORY Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Typ_CatalogueReference;
+      Darstellungsart : Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Darstellungsart_CatalogueReference; !! Default: Standard-Darstellung gemäss KantArt
+      Verbindlichkeit : MANDATORY Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference;
       Zusatz_Attribute : BAG {0..*} OF CustomAttribute;
     END BaseClassType;
 
@@ -188,7 +188,7 @@ MODEL Nutzungsplanung_BE_V2_Test01 (de)
     !! -----------------------------------------------
     CLASS GN_Typ
     EXTENDS BaseClassType =
-      KantArt (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.GN_KantArt_CatalogueReference;
+      KantArt (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.GN_KantArt_CatalogueReference;
     END GN_Typ;
 
     ASSOCIATION GN_RV
@@ -228,7 +228,7 @@ MODEL Nutzungsplanung_BE_V2_Test01 (de)
     !! -----------------------------------------------
     CLASS ES_Typ
     EXTENDS BaseClassType =
-      KantArt (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.ES_KantArt_CatalogueReference;
+      KantArt (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.ES_KantArt_CatalogueReference;
     END ES_Typ;
 
     ASSOCIATION ES_RV
@@ -257,7 +257,7 @@ MODEL Nutzungsplanung_BE_V2_Test01 (de)
     !! -----------------------------------------------
     CLASS GG_Typ
     EXTENDS BaseClassType =
-      KantArt (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.GG_KantArt_CatalogueReference;
+      KantArt (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.GG_KantArt_CatalogueReference;
     END GG_Typ;
 
     ASSOCIATION GG_RV
@@ -286,7 +286,7 @@ MODEL Nutzungsplanung_BE_V2_Test01 (de)
     !! -----------------------------------------------
     CLASS GR_Typ
     EXTENDS BaseClassType =
-      KantArt (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.GR_KantArt_CatalogueReference;
+      KantArt (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.GR_KantArt_CatalogueReference;
     END GR_Typ;
 
     ASSOCIATION GR_RV
@@ -315,7 +315,7 @@ MODEL Nutzungsplanung_BE_V2_Test01 (de)
     !! -----------------------------------------------
     CLASS UE_Typ
     EXTENDS BaseClassType =
-      KantArt (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.UE_KantArt_CatalogueReference;
+      KantArt (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.UE_KantArt_CatalogueReference;
     END UE_Typ;
 
     ASSOCIATION UE_RV
@@ -366,7 +366,7 @@ MODEL Nutzungsplanung_BE_V2_Test01 (de)
     !! -----------------------------------------------
     CLASS NH_Typ
     EXTENDS BaseClassType =
-      KantArt (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.NH_KantArt_CatalogueReference;
+      KantArt (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.NH_KantArt_CatalogueReference;
     END NH_Typ;
 
     ASSOCIATION NH_RV
@@ -417,7 +417,7 @@ MODEL Nutzungsplanung_BE_V2_Test01 (de)
     !! -----------------------------------------------
     CLASS BL_Typ
     EXTENDS BaseClassType =
-      KantArt (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.BL_KantArt_CatalogueReference;
+      KantArt (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.BL_KantArt_CatalogueReference;
     END BL_Typ;
 
     ASSOCIATION BL_RV
@@ -457,7 +457,7 @@ MODEL Nutzungsplanung_BE_V2_Test01 (de)
     !! -----------------------------------------------
     CLASS WE_Typ
     EXTENDS BaseClassType =
-      KantArt (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.WE_KantArt_CatalogueReference;
+      KantArt (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.WE_KantArt_CatalogueReference;
     END WE_Typ;
 
     ASSOCIATION WE_RV
@@ -497,7 +497,7 @@ MODEL Nutzungsplanung_BE_V2_Test01 (de)
     !! -----------------------------------------------
     CLASS WF_Typ
     EXTENDS BaseClassType =
-      KantArt (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_Test01_Catalogues.Catalogues.WF_KantArt_CatalogueReference;
+      KantArt (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.WF_KantArt_CatalogueReference;
     END WF_Typ;
 
     ASSOCIATION WF_RV
@@ -547,4 +547,4 @@ MODEL Nutzungsplanung_BE_V2_Test01 (de)
 
  END Nutzungsplanung;
 
-END Nutzungsplanung_BE_V2_Test01.
+END Nutzungsplanung_BE_V2_Test02.
