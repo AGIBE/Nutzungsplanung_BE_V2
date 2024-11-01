@@ -2,14 +2,21 @@ INTERLIS 2.3;
 /*
 Modèle de données pour les plans d'affectation dans le canton de Berne
   Modèles partiels    : Nutzungsplanung_BE_V2_Test02_Catalogues, Nutzungsplanung_BE_V2_Test02_Metainfo
-  Gestion des données : Commune
+  Gestion des données : Autorité de planification
   Version de langue   : FR (TRANSALTION OF Nutzungsplanung_BE_V2_Test02.ili)
   Support thématique  : Office des affaires communales et de l'organisation du territoire (www.be.ch/oacot)
   Support technique   : Office de l'information géographique (www.be.ch/oig)
 
   Abréviations
   ------------
+  AD    : Administratif                                     AD    : Administratives
+  DO    : Documents                                         DO    : Dokumente
+  DJ    : Disposition juridique                             RV    : Rechtsvorschrift
   AP    : Affectation primaire                              GN    : Grundnutzung
+  ZA    : Zones d'affectation                               NZ    : Nutzungszone
+  CC    : Classe de construction                            BK    : Bauklasse
+  UI    : Utilisation intérieure                            IN    : Innere Nutzung
+  AS    : Affectation spéciale                              SN    : Sondernutzung
   DS    : Degrés de sensibilité au bruit                    ES    : Lärmempfindlichkeitsstufen
   ZD    : Zones de danger                                   GG    : Gefahrengebiete
   EE    : Espace réservé aux eaux                           GR    : Gewässerraum
@@ -18,12 +25,12 @@ Modèle de données pour les plans d'affectation dans le canton de Berne
   AL    : Alignements                                       BL    : Baulinien
   CH    : Chemins                                           WE    : Wege
   CF    : Constatation de la nature forestière              WF    : Waldfeststellung
-  DJ    : Disposition juridique                             RV    : Rechtsvorschrift
+  SE    : Secteurs                                          SE    : Sektoren
 
   Version    | Modification
   ------------------------------------------------------------------------------
   2022-04-01 | Version 1.0
-  2024-05-01 | Version 2.0
+  2024-11-01 | Version 2.Test02
 
 */
 
@@ -31,23 +38,14 @@ Modèle de données pour les plans d'affectation dans le canton de Berne
 !!@ furtherInformation=https://www.raumplanung.dij.be.ch/de/start/eplan.html
 MODEL PlansDAffectation_BE_V2_Test02 (fr)
   AT "http://models.geo.be.ch/Grundlagen_und_Planung/Raumplanung_Grundstueckskataster/"
-  VERSION "2024-05-01"
-  TRANSLATION OF Nutzungsplanung_BE_V2_Test02 ["2024-05-01"] =
+  VERSION "2024-11-01"
+  TRANSLATION OF Nutzungsplanung_BE_V2_Test02 ["2024-11-01"] =
 
   IMPORTS GeometryCHLV95_V1;
-  IMPORTS CHAdminCodes_V1;
   IMPORTS CatalogueObjects_V1, Nutzungsplanung_BE_V2_Test02_Catalogues;
 
-  UNIT
-    AngleGon_Degree = 200 / PI [INTERLIS.rad];
-    AngleGon_Minute = 1 / 100 [AngleGon_Degree];
-    AngleGon_Second = 1 / 100 [AngleGon_Minute];
-
   DOMAIN
-    NoOFS EXTENDS CHAdminCodes_V1.CHMunicipalityCode = 301..999;
     Date = FORMAT INTERLIS.XMLDate "1848-1-1" .. "2100-12-31";
-    AngleGon = 0.0000 .. 399.9999 CIRCULAR [AngleGon_Degree] <GeometryCHLV95_V1.Coord2>;
-
     CoordP EXTENDS GeometryCHLV95_V1.Coord2 = COORD
       2550000.000 .. 2690000.000 [INTERLIS.m] ,
       1120000.000 .. 1250000.000 [INTERLIS.m] ,
@@ -64,122 +62,186 @@ MODEL PlansDAffectation_BE_V2_Test02 (fr)
 
   DEPENDS ON CatalogueObjects_V1.Catalogues, Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues;
 
-    !! Structures pour des informations supplémentaires individuelles
+    !! Structure pour des informations supplémentaires individuelles
     !! --------------------------------------------------------------  
     STRUCTURE CustomAttribute =
       AttributeName : MANDATORY TEXT*50; !! Doit être UNIQUE
       AttributeValue : MTEXT*256;
     END CustomAttribute;
 
-    !! Informations communales relatives au dossier
+    !! ***********************
+    !! AD = Administratif
+    !! ***********************
+
+    !! Jeu de données
     !! -----------------------------------------------
-    CLASS Dossier_communal =
-      Titre_du_dossier : MANDATORY TEXT*100;
-      Numero_du_dossier : TEXT*50;
-      Revision_de_PAL : MANDATORY BOOLEAN;
-      Date_de_creation : MANDATORY Date;
+    CLASS AD_Jeu_de_donnes = !! Doit contenir exactement 1 entrée.
+      Unite_de_livraison : MANDATORY 101..999; !! OACOT: 101, Conférences régionales: 201-206, Communes: 301-999
       Supplement_Attributs : BAG {0..*} OF CustomAttribute;
-    END Dossier_communal;
+    END AD_Jeu_de_donnes;
+
+    !! Liste des projets d'aménagement
+    !! -----------------------------------------------
+    CLASS AD_Projet_d_amenagement =
+      Projet_Numero : MANDATORY TEXT*50;
+      Projet_Titre : MANDATORY TEXT*250;
+      Projet_cree_le : MANDATORY Date;
+      Revision_de_PAL : MANDATORY BOOLEAN;
+      Supplement_Attributs : BAG {0..*} OF CustomAttribute;
+    UNIQUE Projet_Numero;
+    END AD_Projet_d_amenagement;
+
+    ASSOCIATION JeuDeDonnes_ProjetDAmenagement =
+      Projet_actif -- {0..1} AD_Projet_d_amenagement;
+      Jeu_de_donnes -- {0..1} AD_Jeu_de_donnes;
+    END JeuDeDonnes_ProjetDAmenagement;
+
+    !! Périmètre de planification (territoire de l'autorité de planification)
+    !! -----------------------------------------------
+    CLASS AD_Perimetre_de_planification =
+      Perimetre_Nom : MANDATORY TEXT*200;
+      Perimetre_mise_a_jour : MANDATORY Date;
+      Geometrie : MANDATORY Area;
+      Supplement_Attributs : BAG {0..*} OF CustomAttribute;
+    END AD_Perimetre_de_planification;
+
+    !! Géoservices externes (facultatif)
+    !! -----------------------------------------------
+    CLASS AD_Geoservice =
+      Geoservice_Nom : MANDATORY TEXT*200;
+      Geoservice_URL : MANDATORY URI;
+      Supplement_Attributs : BAG {0..*} OF CustomAttribute;
+    END AD_Geoservice;
 
     !! Office (Service compétent)
     !! -------------------------------------------------------------- 
-    CLASS Office =
+    CLASS AD_Office =
       Nom : MANDATORY TEXT*200;
       IDE : TEXT*15;
       GuichetEnLigne : MANDATORY URI;
       Supplement_Attributs : BAG {0..*} OF CustomAttribute;
-    END Office;
+    END AD_Office;
+
+    !! ***********************
+    !! Documents
+    !! ***********************
 
     !! Dispositions juridiques et document à titre indicatif
     !! -------------------------------------------------------------- 
-    CLASS Document =
-      Titre : MANDATORY TEXT*200;
-      Abreviation : TEXT*20;
+    CLASS DO_Document =
+      Titre : MANDATORY TEXT*500;
+      Abreviation : TEXT*50;
+      No_officiel : TEXT*50;
+      Nom_du_fichier_PDF : MANDATORY TEXT*200;
       GenreDocument : MANDATORY Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Dokumentart_CatalogueReference;
-      Classification : MANDATORY Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Klassifizierung_CatalogueReference;
-      No_officiel : TEXT*20;
-      Nom_du_fichier_PDF : MANDATORY TEXT*100;
+      ForceObligatoireDocument : MANDATORY Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Dokumentverbindlichkeit_CatalogueReference;
       Supplement_Attributs : BAG {0..*} OF CustomAttribute;
     UNIQUE Nom_du_fichier_PDF;
-    END Document;
+    END DO_Document;
 
-    ASSOCIATION Document_Dossier =
-      Dossier_communal -- {0..1} Dossier_communal;
-      Document -- {0..*} Document;
-    END Document_Dossier;
+    ASSOCIATION Document_Projet =
+      Projet_d_amenagement -- {0..1} AD_Projet_d_amenagement;
+      Document -- {0..*} DO_Document;
+    END Document_Projet;
 
     ASSOCIATION Document_Service_competent =
-      Service_competent -- {1} Office;
-      Document -- {0..*} Document;
+      Service_competent -- {1} AD_Office;
+      Document -- {0..*} DO_Document;
     END Document_Service_competent;
 
-    ASSOCIATION AutresDocuments =
+    ASSOCIATION DO_AutresDocuments =
     OID AS INTERLIS.UUIDOID;
-      Document -- {0..*} Document;
-      AutreDocument -- {0..*} Document;
-    END AutresDocuments;
+      Document -- {0..*} DO_Document;
+      AutreDocument -- {0..*} DO_Document;
+      NoArticles : TEXT*50;
+      ToApprove : (No);
+    END DO_AutresDocuments;
 
     !! Documents de révision (modifications des dispositions juridiques)
     !! -------------------------------------------------------------- 
-    CLASS DocumentRevision =
-      Titre : MANDATORY TEXT*200;
-      Nom_du_fichier_PDF : MANDATORY TEXT*100;
+    CLASS DO_DocumentRevision =
+      Titre : MANDATORY TEXT*500;
+      Abreviation : TEXT*50;
+      No_officiel : TEXT*50;
+      Nom_du_fichier_PDF : MANDATORY TEXT*200;
       Supplement_Attributs : BAG {0..*} OF CustomAttribute;
     UNIQUE Nom_du_fichier_PDF;
-    END DocumentRevision;
+    END DO_DocumentRevision;
 
-    ASSOCIATION DocumentRevision_Dossier =
-      Dossier_communal -- {0..1} Dossier_communal;
-      DocumentDeRevision -- {0..*} DocumentRevision;
-    END DocumentRevision_Dossier;
+    ASSOCIATION DocumentRevision_Projet =
+      Projet_d_amenagement -- {0..1} AD_Projet_d_amenagement;
+      DocumentDeRevision -- {0..*} DO_DocumentRevision;
+    END DocumentRevision_Projet;
 
     ASSOCIATION DocumentRevision_Document =
-      VersionInitiale -- {1} Document;
-      DocumentDeRevision -- {0..*} DocumentRevision;
+      VersionInitiale -- {1} DO_Document;
+      DocumentDeRevision -- {0..*} DO_DocumentRevision;
     END DocumentRevision_Document;  
 
     !! ***********************
-    !! Classes de base
+    !! Géodonnées
     !! ***********************
 
     !! Classe de base pour les Types
     !! -------------------------------------------------------------- 
     CLASS BaseClassType (ABSTRACT) =
-      Designation : MANDATORY TEXT*150;
-      Abreviation : TEXT*12;
+      Designation : MANDATORY TEXT*500;
+      Categorie : TEXT*100;
+      Abreviation : TEXT*50;
+      Symbole : MANDATORY Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Symbol_CatalogueReference;
       GenreCant : MANDATORY Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Typ_CatalogueReference;
-      GenreRepresentation : Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Darstellungsart_CatalogueReference; !! Default: représentation standard selon GenreCant
-      Niveaux_legislatifs : MANDATORY Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference;
+      ForceObligatoire : MANDATORY Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference;
       Supplement_Attributs : BAG {0..*} OF CustomAttribute;
     END BaseClassType;
 
     ASSOCIATION BaseClass_Service_competent =
-      Service_competent -- {1} Office;
+      Service_competent -- {1} AD_Office;
       Type -- {0..*} BaseClassType;
     END BaseClass_Service_competent;
 
     ASSOCIATION BaseClass_DJ (ABSTRACT) =
     OID AS INTERLIS.UUIDOID;
-      Disposition (ABSTRACT) -- {0..*} Document;
+      Disposition (ABSTRACT) -- {0..*} DO_Document;
       Type (ABSTRACT) -- {0..*} BaseClassType;
+      NoArticles : TEXT*50;
+      ToApprove : (No);
+      Supplement_Attributs : BAG {0..*} OF CustomAttribute;
     END BaseClass_DJ;
 
     !! Classes de base pour les géométries
     !! -------------------------------------------------------------- 
     CLASS BaseClassPoint (ABSTRACT) =
+      Label : TEXT*50;
       Geometrie : MANDATORY CoordP;
       Supplement_Attributs : BAG {0..*} OF CustomAttribute;
     END BaseClassPoint;
 
     CLASS BaseClassPolyline (ABSTRACT) =
+      Label : TEXT*50;
       Geometrie : MANDATORY Polyline;
       Supplement_Attributs : BAG {0..*} OF CustomAttribute;
     END BaseClassPolyline;
 
     CLASS BaseClassPolygon (ABSTRACT) =
+      Label : TEXT*50;
       Geometrie : MANDATORY Surface; !! Le contrôle AREA s'effectue via le checkservice
       Supplement_Attributs : BAG {0..*} OF CustomAttribute;
     END BaseClassPolygon;
+
+    ASSOCIATION BaseClassPoint_Projet =
+      Projet_d_amenagement -- {0..1} AD_Projet_d_amenagement;
+      BaseClassPoint -- {0..*} BaseClassPoint;
+    END BaseClassPoint_Projet;
+
+    ASSOCIATION BaseClassPolyline_Projet =
+      Projet_d_amenagement -- {0..1} AD_Projet_d_amenagement;
+      BaseClassPolyline -- {0..*} BaseClassPolyline;
+    END BaseClassPolyline_Projet;
+
+    ASSOCIATION BaseClassPolygon_Projet =
+      Projet_d_amenagement -- {0..1} AD_Projet_d_amenagement;
+      BaseClassPolygon -- {0..*} BaseClassPolygon;
+    END BaseClassPolygon_Projet;
 
     !! *************************
     !! AP = Affectation primaire
@@ -194,9 +256,8 @@ MODEL PlansDAffectation_BE_V2_Test02 (fr)
 
     ASSOCIATION AP_DJ
     EXTENDS BaseClass_DJ =
-      Disposition (EXTENDED) -- {0..*} Document;
+      Disposition (EXTENDED) -- {0..*} DO_Document;
       Type (EXTENDED) -- {0..*} AP_Type;
-      Supplement_Attributs : BAG {0..*} OF CustomAttribute;
     END AP_DJ;
 
     !! AP_Surface (AREA)
@@ -205,21 +266,132 @@ MODEL PlansDAffectation_BE_V2_Test02 (fr)
     EXTENDS BaseClassPolygon =
     END AP_Surface;
 
-    ASSOCIATION AP_Type_Surface =
+    ASSOCIATION AP_Surface_Type =
       Type -- {1} AP_Type;
       AP_Surface -- {0..*} AP_Surface;
-    END AP_Type_Surface;
+    END AP_Surface_Type;
 
-    !! AP_Utilisation_interieure (AREA) (Utilisation intérieure de ZPO, PQ, PPR et PS)
+    !! *************************
+    !! ZA = Zones d'affectation
+    !! *************************
+
+    !! ZA_Type
     !! -------------------------------------------------------------- 
-    CLASS AP_Utilisation_interieure
-    EXTENDS BaseClassPolygon =
-    END AP_Utilisation_interieure;
+    CLASS ZA_Type
+    EXTENDS BaseClassType =
+      GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.NZ_KantArt_CatalogueReference;
+    END ZA_Type;
 
-    ASSOCIATION AP_Type_Utilisation_interieure =
-      Type -- {1} AP_Type;
-      AP_Utilisation_interieure -- {0..*} AP_Utilisation_interieure  ;
-    END AP_Type_Utilisation_interieure ;
+    ASSOCIATION ZA_DJ
+    EXTENDS BaseClass_DJ =
+      Disposition (EXTENDED) -- {0..*} DO_Document;
+      Type (EXTENDED) -- {0..*} ZA_Type;
+    END ZA_DJ;
+
+    !! ZA_Surface (AREA)
+    !! -------------------------------------------------------------- 
+    CLASS ZA_Surface
+    EXTENDS BaseClassPolygon =
+    END ZA_Surface;
+
+    ASSOCIATION ZA_Surface_Type =
+      Type -- {1} ZA_Type;
+      ZA_Surface -- {0..*} ZA_Surface;
+    END ZA_Surface_Type;
+
+    !! *************************
+    !! CC = Classe de construction/Zone à bâtir 
+    !! *************************
+
+    !! CC_Type
+    !! -------------------------------------------------------------- 
+    CLASS CC_Type
+    EXTENDS BaseClassType =
+      GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.BK_KantArt_CatalogueReference;
+    END CC_Type;
+
+    ASSOCIATION CC_DJ
+    EXTENDS BaseClass_DJ =
+      Disposition (EXTENDED) -- {0..*} DO_Document;
+      Type (EXTENDED) -- {0..*} CC_Type;
+    END CC_DJ;
+
+    ASSOCIATION CC_ZA_Type =
+      ZA_Type -- {0..1} ZA_Type;
+      CC_Type -- {0..*} CC_Type;
+    END CC_ZA_Type;
+
+    !! CC_Surface (AREA)
+    !! -------------------------------------------------------------- 
+    CLASS CC_Surface
+    EXTENDS BaseClassPolygon =
+    END CC_Surface;
+
+    ASSOCIATION CC_Surface_Type =
+      Type -- {1} CC_Type;
+      CC_Surface -- {0..*} CC_Surface;
+    END CC_Surface_Type;
+
+    ASSOCIATION CC_ZA_Surface =
+      ZA_Surface -- {0..1} ZA_Surface;
+      CC_Surface -- {0..*} CC_Surface;
+    END CC_ZA_Surface;
+
+    !! *************************
+    !! UI = Utilisation intérieure (de ZPO,PQ,PPR,PS)
+    !! *************************
+
+    !! UI_Type
+    !! -------------------------------------------------------------- 
+    CLASS UI_Type
+    EXTENDS BaseClassType =
+      GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.IN_KantArt_CatalogueReference;
+    END UI_Type;
+
+    ASSOCIATION UI_DJ
+    EXTENDS BaseClass_DJ =
+      Disposition (EXTENDED) -- {0..*} DO_Document;
+      Type (EXTENDED) -- {0..*} UI_Type;
+    END UI_DJ;
+
+    !! UI_Surface (AREA)
+    !! -------------------------------------------------------------- 
+    CLASS UI_Surface
+    EXTENDS BaseClassPolygon =
+    END UI_Surface;
+
+    ASSOCIATION UI_Surface_Type =
+      Type -- {1} UI_Type;
+      UI_Surface -- {0..*} UI_Surface;
+    END UI_Surface_Type;
+
+    !! *************************
+    !! AS = Affectation spéciale
+    !! *************************
+
+    !! AS_Type
+    !! -------------------------------------------------------------- 
+    CLASS AS_Type
+    EXTENDS BaseClassType =
+      GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.SN_KantArt_CatalogueReference;
+    END AS_Type;
+
+    ASSOCIATION AS_DJ
+    EXTENDS BaseClass_DJ =
+      Disposition (EXTENDED) -- {0..*} DO_Document;
+      Type (EXTENDED) -- {0..*} AS_Type;
+    END AS_DJ;
+
+    !! AS_Surface (AREA)
+    !! -------------------------------------------------------------- 
+    CLASS AS_Surface
+    EXTENDS BaseClassPolygon =
+    END AS_Surface;
+
+    ASSOCIATION AS_Surface_Type =
+      Type -- {1} AS_Type;
+      AS_Surface -- {0..*} AS_Surface;
+    END AS_Surface_Type;
 
     !! **********************************
     !! DS = Degrés de sensibilité au bruit
@@ -234,9 +406,8 @@ MODEL PlansDAffectation_BE_V2_Test02 (fr)
 
     ASSOCIATION DS_DJ
     EXTENDS BaseClass_DJ =
-      Disposition (EXTENDED) -- {0..*} Document;
+      Disposition (EXTENDED) -- {0..*} DO_Document;
       Type (EXTENDED) -- {0..*} DS_Type;
-      Supplement_Attributs : BAG {0..*} OF CustomAttribute;
     END DS_DJ;
 
     !! DS_Surface
@@ -245,10 +416,10 @@ MODEL PlansDAffectation_BE_V2_Test02 (fr)
     EXTENDS BaseClassPolygon =
     END DS_Surface;
 
-    ASSOCIATION DS_Type_Surface =
+    ASSOCIATION DS_Surface_Type =
       Type -- {1} DS_Type;
       DS_Surface -- {0..*} DS_Surface;
-    END DS_Type_Surface;
+    END DS_Surface_Type;
 
     !! ***********************
     !! ZD = Zones de danger
@@ -263,9 +434,8 @@ MODEL PlansDAffectation_BE_V2_Test02 (fr)
 
     ASSOCIATION ZD_DJ
     EXTENDS BaseClass_DJ =
-      Disposition (EXTENDED) -- {0..*} Document;
+      Disposition (EXTENDED) -- {0..*} DO_Document;
       Type (EXTENDED) -- {0..*} ZD_Type;
-      Supplement_Attributs : BAG {0..*} OF CustomAttribute;
     END ZD_DJ;
 
     !! ZD_Surface (AREA)
@@ -274,10 +444,10 @@ MODEL PlansDAffectation_BE_V2_Test02 (fr)
     EXTENDS BaseClassPolygon =
     END ZD_Surface;
 
-    ASSOCIATION ZD_Type_Surface =
+    ASSOCIATION ZD_Surface_Type =
       Type -- {1} ZD_Type;
       ZD_Surface -- {0..*} ZD_Surface;
-    END ZD_Type_Surface;
+    END ZD_Surface_Type;
 
     !! ***********************
     !! EE = Espace réservé aux eaux
@@ -292,9 +462,8 @@ MODEL PlansDAffectation_BE_V2_Test02 (fr)
 
     ASSOCIATION EE_DJ
     EXTENDS BaseClass_DJ =
-      Disposition (EXTENDED) -- {0..*} Document;
+      Disposition (EXTENDED) -- {0..*} DO_Document;
       Type (EXTENDED) -- {0..*} EE_Type;
-      Supplement_Attributs : BAG {0..*} OF CustomAttribute;
     END EE_DJ;
 
     !! EE_Surface (AREA)
@@ -303,10 +472,10 @@ MODEL PlansDAffectation_BE_V2_Test02 (fr)
     EXTENDS BaseClassPolygon =
     END EE_Surface;
 
-    ASSOCIATION EE_Type_Surface =
+    ASSOCIATION EE_Surface_Type =
       Type -- {1} EE_Type;
       EE_Surface -- {0..*} EE_Surface;
-    END EE_Type_Surface;
+    END EE_Surface_Type;
 
     !! ***********************
     !! SU = Superposition
@@ -321,9 +490,8 @@ MODEL PlansDAffectation_BE_V2_Test02 (fr)
 
     ASSOCIATION SU_DJ
     EXTENDS BaseClass_DJ =
-      Disposition (EXTENDED) -- {0..*} Document;
+      Disposition (EXTENDED) -- {0..*} DO_Document;
       Type (EXTENDED) -- {0..*} SU_Type;
-      Supplement_Attributs : BAG {0..*} OF CustomAttribute;
     END SU_DJ;
 
     !! SU_Point (COORD)
@@ -332,10 +500,10 @@ MODEL PlansDAffectation_BE_V2_Test02 (fr)
     EXTENDS BaseClassPoint =
     END SU_Point;
 
-    ASSOCIATION SU_Type_Point =
+    ASSOCIATION SU_Point_Type =
       Type -- {1} SU_Type;
       SU_Point -- {0..*} SU_Point;
-    END SU_Type_Point;
+    END SU_Point_Type;
 
     !! SU_Ligne (POLYLINE)
     !! -------------------------------------------------------------- 
@@ -343,10 +511,10 @@ MODEL PlansDAffectation_BE_V2_Test02 (fr)
     EXTENDS BaseClassPolyline =
     END SU_Ligne;
 
-    ASSOCIATION SU_Type_Ligne =
+    ASSOCIATION SU_Ligne_Type =
       Type -- {1} SU_Type;
       SU_Ligne -- {0..*} SU_Ligne;
-    END SU_Type_Ligne;
+    END SU_Ligne_Type;
 
     !! SU_Surface (SURFACE)
     !! -------------------------------------------------------------- 
@@ -354,10 +522,10 @@ MODEL PlansDAffectation_BE_V2_Test02 (fr)
     EXTENDS BaseClassPolygon =
     END SU_Surface;
 
-    ASSOCIATION SU_Type_Surface =
+    ASSOCIATION SU_Surface_Type =
       Type -- {1} SU_Type;
       SU_Surface -- {0..*} SU_Surface;
-    END SU_Type_Surface;
+    END SU_Surface_Type;
 
     !! ****************************
     !! NP = Protection de la nature et du patrimoine
@@ -372,9 +540,8 @@ MODEL PlansDAffectation_BE_V2_Test02 (fr)
 
     ASSOCIATION NP_DJ
     EXTENDS BaseClass_DJ =
-      Disposition (EXTENDED) -- {0..*} Document;
+      Disposition (EXTENDED) -- {0..*} DO_Document;
       Type (EXTENDED) -- {0..*} NP_Type;
-      Supplement_Attributs : BAG {0..*} OF CustomAttribute;
     END NP_DJ;
 
     !! NP_Point (COORD)
@@ -383,10 +550,10 @@ MODEL PlansDAffectation_BE_V2_Test02 (fr)
     EXTENDS BaseClassPoint=
     END NP_Point;
 
-    ASSOCIATION NP_Type_Point =
+    ASSOCIATION NP_Point_Type =
       Type -- {1} NP_Type;
       NP_Point -- {0..*} NP_Point;
-    END NP_Type_Point;
+    END NP_Point_Type;
 
     !! NP_Ligne (POLYLINE)
     !! -------------------------------------------------------------- 
@@ -394,10 +561,10 @@ MODEL PlansDAffectation_BE_V2_Test02 (fr)
     EXTENDS BaseClassPolyline =
     END NP_Ligne;
 
-    ASSOCIATION NP_Type_Ligne =
+    ASSOCIATION NP_Ligne_Type =
       Type -- {1} NP_Type;
       NP_Ligne -- {0..*} NP_Ligne;
-    END NP_Type_Ligne;
+    END NP_Ligne_Type;
 
     !! NP_Surface (SURFACE)
     !! -------------------------------------------------------------- 
@@ -405,10 +572,10 @@ MODEL PlansDAffectation_BE_V2_Test02 (fr)
     EXTENDS BaseClassPolygon =
     END NP_Surface;
 
-    ASSOCIATION NP_Type_Surface =
+    ASSOCIATION NP_Surface_Type =
       Type -- {1} NP_Type;
       NP_Surface -- {0..*} NP_Surface;
-    END NP_Type_Surface;
+    END NP_Surface_Type;
 
     !! ***********************
     !! AL = Alignements
@@ -423,9 +590,8 @@ MODEL PlansDAffectation_BE_V2_Test02 (fr)
 
     ASSOCIATION AL_DJ
     EXTENDS BaseClass_DJ =
-      Disposition (EXTENDED) -- {0..*} Document;
+      Disposition (EXTENDED) -- {0..*} DO_Document;
       Type (EXTENDED) -- {0..*} AL_Type;
-      Supplement_Attributs : BAG {0..*} OF CustomAttribute;
     END AL_DJ;
 
     !! AL_Ligne (POLYLINE)
@@ -434,10 +600,10 @@ MODEL PlansDAffectation_BE_V2_Test02 (fr)
     EXTENDS BaseClassPolyline =
     END AL_Ligne;
 
-    ASSOCIATION AL_Type_Ligne =
+    ASSOCIATION AL_Ligne_Type =
       Type -- {1} AL_Type;
       AL_Ligne -- {0..*} AL_Ligne;
-    END AL_Type_Ligne;
+    END AL_Ligne_Type;
 
     !! AL_Surface (SURFACE)
     !! -------------------------------------------------------------- 
@@ -445,10 +611,10 @@ MODEL PlansDAffectation_BE_V2_Test02 (fr)
     EXTENDS BaseClassPolygon =
     END AL_Surface;
 
-    ASSOCIATION AL_Type_Surface =
+    ASSOCIATION AL_Surface_Type =
       Type -- {1} AL_Type;
       AL_Surface -- {0..*} AL_Surface;
-    END AL_Type_Surface;
+    END AL_Surface_Type;
 
     !! ***********************
     !! CH = Chemins
@@ -463,9 +629,8 @@ MODEL PlansDAffectation_BE_V2_Test02 (fr)
 
     ASSOCIATION CH_DJ
     EXTENDS BaseClass_DJ =
-      Disposition (EXTENDED) -- {0..*} Document;
+      Disposition (EXTENDED) -- {0..*} DO_Document;
       Type (EXTENDED) -- {0..*} CH_Type;
-      Supplement_Attributs : BAG {0..*} OF CustomAttribute;
     END CH_DJ;
 
     !! CH_Ligne (POLYLINE)
@@ -474,10 +639,10 @@ MODEL PlansDAffectation_BE_V2_Test02 (fr)
     EXTENDS BaseClassPolyline =
     END CH_Ligne;
 
-    ASSOCIATION CH_Type_Ligne =
+    ASSOCIATION CH_Ligne_Type =
       Type -- {1} CH_Type;
       CH_Ligne -- {0..*} CH_Ligne;
-    END CH_Type_Ligne;
+    END CH_Ligne_Type;
 
     !! CH_Surface (SURFACE)
     !! -------------------------------------------------------------- 
@@ -485,10 +650,10 @@ MODEL PlansDAffectation_BE_V2_Test02 (fr)
     EXTENDS BaseClassPolygon =
     END CH_Surface;
 
-    ASSOCIATION CH_Type_Surface =
+    ASSOCIATION CH_Surface_Type =
       Type -- {1} CH_Type;
       CH_Surface -- {0..*} CH_Surface;
-    END CH_Type_Surface;
+    END CH_Surface_Type;
 
     !! ***********************
     !! CF = Constatation de la nature forestière
@@ -503,9 +668,8 @@ MODEL PlansDAffectation_BE_V2_Test02 (fr)
 
     ASSOCIATION CF_DJ
     EXTENDS BaseClass_DJ =
-      Disposition (EXTENDED) -- {0..*} Document;
+      Disposition (EXTENDED) -- {0..*} DO_Document;
       Type (EXTENDED) -- {0..*} CF_Type;
-      Supplement_Attributs : BAG {0..*} OF CustomAttribute;
     END CF_DJ;
 
     !! CF_Ligne (POLYLINE)
@@ -514,37 +678,43 @@ MODEL PlansDAffectation_BE_V2_Test02 (fr)
     EXTENDS BaseClassPolyline =
     END CF_Ligne;
 
-    ASSOCIATION CF_Type_Ligne =
+    ASSOCIATION CF_Ligne_Type =
       Type -- {1} CF_Type;
       CF_Ligne -- {0..*} CF_Ligne;
-    END CF_Type_Ligne;
-
-    ASSOCIATION CF_Ligne_Dossier =
-      Dossier_communal -- {0..1} Dossier_communal;
-      LimiteForestiere -- {0..*} CF_Ligne;
-    END CF_Ligne_Dossier;
+    END CF_Ligne_Type;
 
     !! ***********************
-    !! Données supplémentaires
+    !! SE = Secteurs
     !! ***********************
 
-    !! Périmètre de la commune pour la validation
-    !! -----------------------------------------------
-    CLASS Perimetre_communal =
-      Numero_OFS : MANDATORY NoOFS;
-      Nom_commune : MANDATORY TEXT*150;
-      Date_mise_a_jour : MANDATORY Date;
-      Geometrie : MANDATORY Area;
-      Supplement_Attributs : BAG {0..*} OF CustomAttribute;
-    END Perimetre_communal;
+    !! SE_Type
+    !! -------------------------------------------------------------- 
+    CLASS SE_Type
+    EXTENDS BaseClassType =
+      GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_Test02_Catalogues.Catalogues.SE_KantArt_CatalogueReference;
+    END SE_Type;
 
-    !! Géoservices pour les données indicatives (facultatif)
-    !! -----------------------------------------------
-    CLASS Geoservice =
-      Geoservice_Nom : TEXT*150;
-      Geoservice_URL : MANDATORY URI;
-      Supplement_Attributs : BAG {0..*} OF CustomAttribute;
-    END Geoservice;
+    ASSOCIATION SE_DJ
+    EXTENDS BaseClass_DJ =
+      Disposition (EXTENDED) -- {0..*} DO_Document;
+      Type (EXTENDED) -- {0..*} SE_Type;
+    END SE_DJ;
+
+    ASSOCIATION SE_Type_ZonePrincipale =
+      ZonePrincipale -- {1} BaseClassType;
+      SE_Type -- {0..*} SE_Type;
+    END SE_Type_ZonePrincipale;
+
+    !! SE_Surface (SURFACE)
+    !! -------------------------------------------------------------- 
+    CLASS SE_Surface
+    EXTENDS BaseClassPolygon =
+    END SE_Surface;
+
+    ASSOCIATION SE_Surface_Type =
+      Type -- {1} SE_Type;
+      SE_Surface -- {0..*} SE_Surface;
+    END SE_Surface_Type;
 
  END PlansDAffectation;
 
