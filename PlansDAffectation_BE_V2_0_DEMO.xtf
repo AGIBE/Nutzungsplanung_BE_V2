@@ -96,14 +96,14 @@
 				<IDE>CHE-114.809.379</IDE>
 				<GuichetEnLigne>https://www.muster.ch</GuichetEnLigne>
 				<Supplement_Attributs>
-					<Nutzungsplanung_BE_V2_Test02.Nutzungsplanung.CustomAttribute>
+					<PlansDAffectation_BE_V2_Test02.PlansDAffectation.CustomAttribute>
 						<AttributeName>Adresse</AttributeName>
 						<AttributeValue>Musterweg 123</AttributeValue>
-					</Nutzungsplanung_BE_V2_Test02.Nutzungsplanung.CustomAttribute>
-					<Nutzungsplanung_BE_V2_Test02.Nutzungsplanung.CustomAttribute>
+					</PlansDAffectation_BE_V2_Test02.PlansDAffectation.CustomAttribute>
+					<PlansDAffectation_BE_V2_Test02.PlansDAffectation.CustomAttribute>
 						<AttributeName>Telefonnummer</AttributeName>
 						<AttributeValue>123 456 78 90</AttributeValue>
-					</Nutzungsplanung_BE_V2_Test02.Nutzungsplanung.CustomAttribute>
+					</PlansDAffectation_BE_V2_Test02.PlansDAffectation.CustomAttribute>
 				</Supplement_Attributs>
 			</PlansDAffectation_BE_V2_Test02.PlansDAffectation.AD_Office>
 			<PlansDAffectation_BE_V2_Test02.PlansDAffectation.AD_Office TID="82aab446-9dc3-40df-90d8-ccfa7d8aba96">
