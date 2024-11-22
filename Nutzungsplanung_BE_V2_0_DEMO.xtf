@@ -867,6 +867,118 @@
 				</Geometrie>
 				<Typ REF="718f9c1e-176b-4f50-b3f0-ed000cfd4013"/>
 			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_Flaeche>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_Typ TID="6ca04d5f-42ce-4167-92ff-70236de5406e">
+				<Bezeichnung>Zone für öffentliche Nutzung Nr. X - Sektor A</Bezeichnung>
+				<Abkuerzung>ZöN Xa</Abkuerzung>
+				<Symbol>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
+						<Reference REF="standard"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
+				</Symbol>
+				<KantArt>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
+						<Reference REF="ue_kantart.201"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
+				</KantArt>
+				<Verbindlichkeit>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+						<Reference REF="verbindlichkeit.1"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+				</Verbindlichkeit>
+				<ZustaendigeStelle REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_Typ>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_RV TID="6e48cd20-0f14-4260-b754-7088af3527a6">
+				<Vorschrift REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
+				<Typ REF="6ca04d5f-42ce-4167-92ff-70236de5406e"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_RV>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_Flaeche TID="d3af9443-f3df-46e3-bd5a-39283ba7e29b">
+				<Label>A</Label>
+				<Geometrie>
+					<SURFACE>
+						<BOUNDARY>
+							<POLYLINE>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200010.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600010.0</C1>
+									<C2>1200010.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600010.0</C1>
+									<C2>1200015.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200015.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200010.0</C2>
+								</COORD>
+							</POLYLINE>
+						</BOUNDARY>
+					</SURFACE>
+				</Geometrie>
+				<Typ REF="6ca04d5f-42ce-4167-92ff-70236de5406e"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_Flaeche>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_Typ TID="91421931-72cb-4727-9e25-016f81640efe">
+				<Bezeichnung>Zone für öffentliche Nutzung Nr. X - Sektor B</Bezeichnung>
+				<Abkuerzung>ZöN Xb</Abkuerzung>
+				<Symbol>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
+						<Reference REF="standard"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
+				</Symbol>
+				<KantArt>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
+						<Reference REF="ue_kantart.201"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
+				</KantArt>
+				<Verbindlichkeit>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+						<Reference REF="verbindlichkeit.1"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+				</Verbindlichkeit>
+				<ZustaendigeStelle REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_Typ>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_RV TID="894944f2-7d90-4e54-be2d-50a4d517489b">
+				<Vorschrift REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
+				<Typ REF="91421931-72cb-4727-9e25-016f81640efe"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_RV>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_Flaeche TID="1b9e6c5d-31cd-4a3f-8032-76c762ed0ff6">
+				<Label>B</Label>
+				<Geometrie>
+					<SURFACE>
+						<BOUNDARY>
+							<POLYLINE>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200015.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600010.0</C1>
+									<C2>1200015.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600010.0</C1>
+									<C2>1200020.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200020.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200015.0</C2>
+								</COORD>
+							</POLYLINE>
+						</BOUNDARY>
+					</SURFACE>
+				</Geometrie>
+				<Typ REF="91421931-72cb-4727-9e25-016f81640efe"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_Flaeche>
 			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.NH_Typ TID="127b10ac-0b8e-4286-aa2c-3cdfc5bb9af7">
 				<Bezeichnung>Einzelbaum</Bezeichnung>
 				<Symbol>
@@ -1163,120 +1275,6 @@
 				<Planungsgeschaeft REF="6440cc9e-789c-482e-9b8f-3926b11a0708"/>
 				<Typ REF="4ba78ae1-4d6c-41d4-b697-89c04ee2f588"/>
 			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.WF_Linie>
-			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.SE_Typ TID="6ca04d5f-42ce-4167-92ff-70236de5406e">
-				<Bezeichnung>Zone für öffentliche Nutzung Nr. X - Sektor A</Bezeichnung>
-				<Abkuerzung>ZöN Xa</Abkuerzung>
-				<Symbol>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
-						<Reference REF="standard"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
-				</Symbol>
-				<KantArt>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.SE_KantArt_CatalogueReference>
-						<Reference REF="se_kantart.1"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.SE_KantArt_CatalogueReference>
-				</KantArt>
-				<Verbindlichkeit>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
-						<Reference REF="verbindlichkeit.1"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
-				</Verbindlichkeit>
-				<ZustaendigeStelle REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
-				<Hauptzone REF="3cb8fdfa-0bdd-4d5c-94bc-b62234a782f7"/>
-			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.SE_Typ>
-			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.SE_RV TID="6e48cd20-0f14-4260-b754-7088af3527a6">
-				<Vorschrift REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
-				<Typ REF="6ca04d5f-42ce-4167-92ff-70236de5406e"/>
-			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.SE_RV>
-			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.SE_Flaeche TID="d3af9443-f3df-46e3-bd5a-39283ba7e29b">
-				<Label>A</Label>
-				<Geometrie>
-					<SURFACE>
-						<BOUNDARY>
-							<POLYLINE>
-								<COORD>
-									<C1>2600000.0</C1>
-									<C2>1200010.0</C2>
-								</COORD>
-								<COORD>
-									<C1>2600010.0</C1>
-									<C2>1200010.0</C2>
-								</COORD>
-								<COORD>
-									<C1>2600010.0</C1>
-									<C2>1200015.0</C2>
-								</COORD>
-								<COORD>
-									<C1>2600000.0</C1>
-									<C2>1200015.0</C2>
-								</COORD>
-								<COORD>
-									<C1>2600000.0</C1>
-									<C2>1200010.0</C2>
-								</COORD>
-							</POLYLINE>
-						</BOUNDARY>
-					</SURFACE>
-				</Geometrie>
-				<Typ REF="6ca04d5f-42ce-4167-92ff-70236de5406e"/>
-			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.SE_Flaeche>
-			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.SE_Typ TID="91421931-72cb-4727-9e25-016f81640efe">
-				<Bezeichnung>Zone für öffentliche Nutzung Nr. X - Sektor B</Bezeichnung>
-				<Abkuerzung>ZöN Xb</Abkuerzung>
-				<Symbol>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
-						<Reference REF="standard"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
-				</Symbol>
-				<KantArt>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.SE_KantArt_CatalogueReference>
-						<Reference REF="se_kantart.1"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.SE_KantArt_CatalogueReference>
-				</KantArt>
-				<Verbindlichkeit>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
-						<Reference REF="verbindlichkeit.1"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
-				</Verbindlichkeit>
-				<ZustaendigeStelle REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
-				<Hauptzone REF="3cb8fdfa-0bdd-4d5c-94bc-b62234a782f7"/>
-			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.SE_Typ>
-			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.SE_RV TID="894944f2-7d90-4e54-be2d-50a4d517489b">
-				<Vorschrift REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
-				<Typ REF="91421931-72cb-4727-9e25-016f81640efe"/>
-			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.SE_RV>
-			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.SE_Flaeche TID="1b9e6c5d-31cd-4a3f-8032-76c762ed0ff6">
-				<Label>B</Label>
-				<Geometrie>
-					<SURFACE>
-						<BOUNDARY>
-							<POLYLINE>
-								<COORD>
-									<C1>2600000.0</C1>
-									<C2>1200015.0</C2>
-								</COORD>
-								<COORD>
-									<C1>2600010.0</C1>
-									<C2>1200015.0</C2>
-								</COORD>
-								<COORD>
-									<C1>2600010.0</C1>
-									<C2>1200020.0</C2>
-								</COORD>
-								<COORD>
-									<C1>2600000.0</C1>
-									<C2>1200020.0</C2>
-								</COORD>
-								<COORD>
-									<C1>2600000.0</C1>
-									<C2>1200015.0</C2>
-								</COORD>
-							</POLYLINE>
-						</BOUNDARY>
-					</SURFACE>
-				</Geometrie>
-				<Typ REF="91421931-72cb-4727-9e25-016f81640efe"/>
-			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.SE_Flaeche>
 		</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung>
 	</DATASECTION>
 </TRANSFER>

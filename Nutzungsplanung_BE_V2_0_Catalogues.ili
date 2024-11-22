@@ -266,18 +266,6 @@ MODEL Nutzungsplanung_BE_V2_Test03_Catalogues
       Reference (EXTENDED) : MANDATORY REFERENCE TO (EXTERNAL) WE_KantArt;
     END WE_KantArt_CatalogueReference;
 
-    !! SE_KantArt                                                                !! SE_GenreCant
-    !! --------------------                                                      !! ------------------------
-    CLASS SE_KantArt
-    EXTENDS BaseClassCatalog =
-      UNIQUE ID;
-    END SE_KantArt;
-
-    STRUCTURE SE_KantArt_CatalogueReference
-    EXTENDS Typ_CatalogueReference =
-      Reference (EXTENDED) : MANDATORY REFERENCE TO (EXTERNAL) SE_KantArt;
-    END SE_KantArt_CatalogueReference;
-
   END Catalogues;
 
 END Nutzungsplanung_BE_V2_Test03_Catalogues.

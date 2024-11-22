@@ -682,39 +682,6 @@ MODEL Nutzungsplanung_BE_V2_Test03 (de)
       WF_Linie -- {0..*} WF_Linie;
     END WF_Linie_Typ;
 
-    !! ***********************
-    !! SE = Sektoren
-    !! ***********************
-
-    !! SE_Typ
-    !! -----------------------------------------------
-    CLASS SE_Typ
-    EXTENDS BaseClassType =
-      KantArt (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.SE_KantArt_CatalogueReference;
-    END SE_Typ;
-
-    ASSOCIATION SE_RV
-    EXTENDS BaseClass_RV =
-      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
-      Typ (EXTENDED) -- {0..*} SE_Typ;
-    END SE_RV;
-
-    ASSOCIATION SE_Typ_Hauptzone =
-      Hauptzone -- {1} BaseClassType;
-      SE_Typ -- {0..*} SE_Typ;
-    END SE_Typ_Hauptzone;
-
-    !! SE_Flaeche (SURFACE)
-    !! -----------------------------------------------
-    CLASS SE_Flaeche
-    EXTENDS BaseClassPolygon =
-    END SE_Flaeche;
-
-    ASSOCIATION SE_Flaeche_Typ =
-      Typ -- {1} SE_Typ;
-      SE_Flaeche -- {0..*} SE_Flaeche;
-    END SE_Flaeche_Typ;
-
  END Nutzungsplanung;
 
 END Nutzungsplanung_BE_V2_Test03.

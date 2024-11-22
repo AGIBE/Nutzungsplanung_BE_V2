@@ -683,39 +683,6 @@ MODEL PlansDAffectation_BE_V2_Test03 (fr)
       CF_Ligne -- {0..*} CF_Ligne;
     END CF_Ligne_Type;
 
-    !! ***********************
-    !! SE = Secteurs
-    !! ***********************
-
-    !! SE_Type
-    !! -------------------------------------------------------------- 
-    CLASS SE_Type
-    EXTENDS BaseClassType =
-      GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.SE_KantArt_CatalogueReference;
-    END SE_Type;
-
-    ASSOCIATION SE_DJ
-    EXTENDS BaseClass_DJ =
-      Disposition (EXTENDED) -- {0..*} DO_Document;
-      Type (EXTENDED) -- {0..*} SE_Type;
-    END SE_DJ;
-
-    ASSOCIATION SE_Type_ZonePrincipale =
-      ZonePrincipale -- {1} BaseClassType;
-      SE_Type -- {0..*} SE_Type;
-    END SE_Type_ZonePrincipale;
-
-    !! SE_Surface (SURFACE)
-    !! -------------------------------------------------------------- 
-    CLASS SE_Surface
-    EXTENDS BaseClassPolygon =
-    END SE_Surface;
-
-    ASSOCIATION SE_Surface_Type =
-      Type -- {1} SE_Type;
-      SE_Surface -- {0..*} SE_Surface;
-    END SE_Surface_Type;
-
  END PlansDAffectation;
 
 END PlansDAffectation_BE_V2_Test03.
