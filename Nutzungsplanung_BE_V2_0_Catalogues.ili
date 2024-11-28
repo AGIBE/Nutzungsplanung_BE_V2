@@ -22,7 +22,6 @@ Teilmodell für die XML-Kataloge                                                
   BL    : Baulinien                                                               AL    : Alignements
   WE    : Wege                                                                    CH    : Chemins
   WF    : Waldfeststellung                                                        CF    : Constatation de la nature forestière
-  SE    : Sektoren                                                                SE    : Secteurs
 
 */
 
@@ -98,17 +97,17 @@ MODEL Nutzungsplanung_BE_V2_Test03_Catalogues
       Reference (EXTENDED) : MANDATORY REFERENCE TO (EXTERNAL) Verbindlichkeit;
     END Verbindlichkeit_CatalogueReference;
 
-    !! Symbol                                                                    !! Symbole
+    !! Darstellungscode                                                          !! Code_de_representation
     !! --------------------                                                      !! ------------------------
-    CLASS Symbol
+    CLASS Darstellungscode
     EXTENDS BaseClassCatalog =
       UNIQUE ID;
-    END Symbol;
+    END Darstellungscode;
 
-    STRUCTURE Symbol_CatalogueReference
+    STRUCTURE Darstellungscode_CatalogueReference
     EXTENDS Typ_CatalogueReference =
-      Reference (EXTENDED) : MANDATORY REFERENCE TO (EXTERNAL) Symbol;
-    END Symbol_CatalogueReference;
+      Reference (EXTENDED) : MANDATORY REFERENCE TO (EXTERNAL) Darstellungscode;
+    END Darstellungscode_CatalogueReference;
 
     !! GN_KantArt                                                                !! AP_GenreCant
     !! --------------------                                                      !! ------------------------

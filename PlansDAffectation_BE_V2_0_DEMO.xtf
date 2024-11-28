@@ -10,7 +10,7 @@
 	<DATASECTION>
 		<PlansDAffectation_BE_V2_Test03.PlansDAffectation BID="f9fff5ec-eb43-4725-9e0d-b2d1991bc117">
 			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.AD_Jeu_de_donnes TID="9a717257-d148-4277-aa1f-0df737711180">
-				<Unite_de_livraison>301</Unite_de_livraison>
+				<Autorite_de_planification>301</Autorite_de_planification>
 				<Projet_actif REF="6440cc9e-789c-482e-9b8f-3926b11a0708"/>
 			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.AD_Jeu_de_donnes>
 			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.AD_Projet_d_amenagement TID="334a102b-f56f-4a22-90cf-8cfcf336ca30">
@@ -31,7 +31,7 @@
 				<Projet_cree_le>2027-02-01</Projet_cree_le>
 				<Revision_de_PAL>false</Revision_de_PAL>
 			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.AD_Projet_d_amenagement>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.AD_Perimetre_de_planification TID="ea9f95b2-3800-45ec-b81f-c7dbb94c5a7f">
+			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.AD_Perimetre_des_donnees TID="ea9f95b2-3800-45ec-b81f-c7dbb94c5a7f">
 				<Perimetre_Nom>Gemeinde Muster an der Aare</Perimetre_Nom>
 				<Perimetre_mise_a_jour>2026-01-01</Perimetre_mise_a_jour>
 				<Geometrie>
@@ -86,7 +86,7 @@
 						</BOUNDARY>
 					</SURFACE>
 				</Geometrie>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.AD_Perimetre_de_planification>
+			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.AD_Perimetre_des_donnees>
 			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.AD_Geoservice TID="b4ee57d1-db2c-4fe8-888f-d5d1968c39a4">
 				<Geoservice_Nom>Kantonale Richtpläne (WMS)</Geoservice_Nom>
 				<Geoservice_URL>https://www.geoservice.apps.be.ch/geoservice3/services/a42geo/of_planningcadastre03_de_ms_wms/MapServer/WMSServer?</Geoservice_URL>
@@ -211,11 +211,11 @@
 			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.AP_Type TID="66a93d45-bc8f-45a4-a281-7a5ce3b2de86">
 				<Designation>Landwirtschaftszone</Designation>
 				<Abreviation>LWZ</Abreviation>
-				<Symbole>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
+				<Code_de_representation>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 						<Reference REF="standard"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
-				</Symbole>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+				</Code_de_representation>
 				<GenreCant>
 					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.GN_KantArt_CatalogueReference>
 						<Reference REF="gn_kantart.27"/>
@@ -267,11 +267,11 @@
 				<Designation>Zone für öffentliche Nutzung Nr. X</Designation>
 				<Categorie>ZöN</Categorie>
 				<Abreviation>ZöN X</Abreviation>
-				<Symbole>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
+				<Code_de_representation>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 						<Reference REF="standard"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
-				</Symbole>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+				</Code_de_representation>
 				<GenreCant>
 					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.GN_KantArt_CatalogueReference>
 						<Reference REF="gn_kantart.22"/>
@@ -324,11 +324,11 @@
 				<Designation>Zone für öffentliche Nutzung Nr. XII</Designation>
 				<Categorie>ZöN</Categorie>
 				<Abreviation>ZöN XII</Abreviation>
-				<Symbole>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
+				<Code_de_representation>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 						<Reference REF="standard"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
-				</Symbole>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+				</Code_de_representation>
 				<GenreCant>
 					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.GN_KantArt_CatalogueReference>
 						<Reference REF="gn_kantart.22"/>
@@ -380,11 +380,11 @@
 			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.UI_Type TID="0c9fcfd4-ce3f-4c3d-864f-ec99f61d6fa4">
 				<Designation>Wohnzone 1</Designation>
 				<Abreviation>W1</Abreviation>
-				<Symbole>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
+				<Code_de_representation>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 						<Reference REF="standard"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
-				</Symbole>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+				</Code_de_representation>
 				<GenreCant>
 					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.IN_KantArt_CatalogueReference>
 						<Reference REF="in_kantart.1"/>
@@ -435,11 +435,11 @@
 			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.AS_Type TID="fd733b24-f0fc-470f-bb4c-2935a16ebf1e">
 				<Designation>Überbauungsordnung 1 "Nord"</Designation>
 				<Abreviation>UeO 1</Abreviation>
-				<Symbole>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
+				<Code_de_representation>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 						<Reference REF="standard"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
-				</Symbole>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+				</Code_de_representation>
 				<GenreCant>
 					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.SN_KantArt_CatalogueReference>
 						<Reference REF="sn_kantart.3"/>
@@ -491,11 +491,11 @@
 			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.DS_Type TID="94abeaaa-4ee5-4539-bfa7-2be89e33782b">
 				<Designation>Lärmempfindlichkeitsstufe II</Designation>
 				<Abreviation>ES II</Abreviation>
-				<Symbole>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
+				<Code_de_representation>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 						<Reference REF="standard"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
-				</Symbole>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+				</Code_de_representation>
 				<GenreCant>
 					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.ES_KantArt_CatalogueReference>
 						<Reference REF="es_kantart.3"/>
@@ -545,11 +545,11 @@
 			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.DS_Surface>
 			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.ZD_Type TID="692c747e-82a6-4e2a-915d-51b5ced42513">
 				<Designation>Erhebliche Gefährdung</Designation>
-				<Symbole>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
+				<Code_de_representation>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 						<Reference REF="standard"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
-				</Symbole>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+				</Code_de_representation>
 				<GenreCant>
 					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.GG_KantArt_CatalogueReference>
 						<Reference REF="gg_kantart.1"/>
@@ -599,11 +599,11 @@
 			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.ZD_Surface>
 			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.EE_Type TID="586392da-d7d4-474b-aedd-fff9ca392308">
 				<Designation>Gewässerraum</Designation>
-				<Symbole>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
+				<Code_de_representation>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 						<Reference REF="standard"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
-				</Symbole>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+				</Code_de_representation>
 				<GenreCant>
 					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.GR_KantArt_CatalogueReference>
 						<Reference REF="gr_kantart.1"/>
@@ -653,11 +653,11 @@
 			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.EE_Surface>
 			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.SU_Type TID="edcb1dbb-83ed-457e-bef0-fc992eaf4ec6">
 				<Designation>Besondere Lärmquelle</Designation>
-				<Symbole>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
+				<Code_de_representation>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 						<Reference REF="standard"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
-				</Symbole>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+				</Code_de_representation>
 				<GenreCant>
 					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
 						<Reference REF="ue_kantart.108"/>
@@ -685,11 +685,11 @@
 			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.SU_Point>
 			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.SU_Type TID="d1588f50-0199-47c2-92c9-621628143acb">
 				<Designation>Besondere Gefahrenquelle</Designation>
-				<Symbole>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
+				<Code_de_representation>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 						<Reference REF="standard"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
-				</Symbole>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+				</Code_de_representation>
 				<GenreCant>
 					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
 						<Reference REF="ue_kantart.107"/>
@@ -717,11 +717,11 @@
 			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.SU_Point>
 			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.SU_Type TID="2e73c259-81d5-42df-915a-c55c8ec03233">
 				<Designation>Lärmschutzmauer</Designation>
-				<Symbole>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
+				<Code_de_representation>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 						<Reference REF="standard"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
-				</Symbole>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+				</Code_de_representation>
 				<GenreCant>
 					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
 						<Reference REF="ue_kantart.106"/>
@@ -757,11 +757,11 @@
 				<Designation>Geschossflächenziffer (GFZo 0.5)</Designation>
 				<Categorie>Geschossflächenziffer</Categorie>
 				<Abreviation>GFZo 0.5</Abreviation>
-				<Symbole>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
+				<Code_de_representation>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 						<Reference REF="standard"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
-				</Symbole>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+				</Code_de_representation>
 				<GenreCant>
 					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
 						<Reference REF="ue_kantart.1"/>
@@ -814,11 +814,11 @@
 				<Designation>Geschossflächenziffer (GFZo 0.6)</Designation>
 				<Categorie>Geschossflächenziffer</Categorie>
 				<Abreviation>GFZo 0.6</Abreviation>
-				<Symbole>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
+				<Code_de_representation>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 						<Reference REF="standard"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
-				</Symbole>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+				</Code_de_representation>
 				<GenreCant>
 					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
 						<Reference REF="ue_kantart.1"/>
@@ -870,11 +870,11 @@
 			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.SU_Type TID="6ca04d5f-42ce-4167-92ff-70236de5406e">
 				<Designation>Zone für öffentliche Nutzung Nr. X - Sektor A</Designation>
 				<Abreviation>ZöN Xa</Abreviation>
-				<Symbole>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
+				<Code_de_representation>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 						<Reference REF="standard"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
-				</Symbole>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+				</Code_de_representation>
 				<GenreCant>
 					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
 						<Reference REF="ue_kantart.201"/>
@@ -926,11 +926,11 @@
 			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.SU_Type TID="91421931-72cb-4727-9e25-016f81640efe">
 				<Designation>Zone für öffentliche Nutzung Nr. X - Sektor B</Designation>
 				<Abreviation>ZöN Xb</Abreviation>
-				<Symbole>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
+				<Code_de_representation>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 						<Reference REF="standard"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
-				</Symbole>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+				</Code_de_representation>
 				<GenreCant>
 					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
 						<Reference REF="ue_kantart.201"/>
@@ -981,11 +981,11 @@
 			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.SU_Surface>
 			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.NP_Type TID="127b10ac-0b8e-4286-aa2c-3cdfc5bb9af7">
 				<Designation>Einzelbaum</Designation>
-				<Symbole>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
+				<Code_de_representation>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 						<Reference REF="standard"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
-				</Symbole>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+				</Code_de_representation>
 				<GenreCant>
 					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.NH_KantArt_CatalogueReference>
 						<Reference REF="nh_kantart.51"/>
@@ -1014,11 +1014,11 @@
 			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.NP_Point>
 			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.NP_Type TID="fc3ca8b6-917d-49cb-8255-c1f4733c485f">
 				<Designation>Trockenmauer</Designation>
-				<Symbole>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
+				<Code_de_representation>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 						<Reference REF="standard"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
-				</Symbole>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+				</Code_de_representation>
 				<GenreCant>
 					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.NH_KantArt_CatalogueReference>
 						<Reference REF="nh_kantart.35"/>
@@ -1053,11 +1053,11 @@
 			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.NP_Type TID="fe7f7d9f-657b-4952-b098-9d0f1870dc58">
 				<Designation>Landschaftsschutzgebiet</Designation>
 				<Abreviation>LSG</Abreviation>
-				<Symbole>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
+				<Code_de_representation>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 						<Reference REF="standard"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
-				</Symbole>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+				</Code_de_representation>
 				<GenreCant>
 					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.NH_KantArt_CatalogueReference>
 						<Reference REF="nh_kantart.1"/>
@@ -1107,11 +1107,11 @@
 			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.NP_Surface>
 			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.AL_Type TID="af84034d-7094-4cba-9dba-11052d266808">
 				<Designation>Baulinie</Designation>
-				<Symbole>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
+				<Code_de_representation>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 						<Reference REF="standard"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
-				</Symbole>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+				</Code_de_representation>
 				<GenreCant>
 					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.BL_KantArt_CatalogueReference>
 						<Reference REF="bl_kantart.1"/>
@@ -1145,11 +1145,11 @@
 			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.AL_Ligne>
 			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.AL_Type TID="443d237d-881c-4cba-bf4b-63fef1d3c45c">
 				<Designation>Baulinie (Wirkungsbereich)</Designation>
-				<Symbole>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
+				<Code_de_representation>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 						<Reference REF="standard"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
-				</Symbole>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+				</Code_de_representation>
 				<GenreCant>
 					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.BL_KantArt_CatalogueReference>
 						<Reference REF="bl_kantart.11"/>
@@ -1199,11 +1199,11 @@
 			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.AL_Surface>
 			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.CH_Type TID="e4f0db2f-a1d3-4f02-a00b-41761601197b">
 				<Designation>Wanderweg</Designation>
-				<Symbole>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
+				<Code_de_representation>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 						<Reference REF="standard"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
-				</Symbole>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+				</Code_de_representation>
 				<GenreCant>
 					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.WE_KantArt_CatalogueReference>
 						<Reference REF="we_kantart.2"/>
@@ -1238,11 +1238,11 @@
 			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.CF_Type TID="4ba78ae1-4d6c-41d4-b697-89c04ee2f588">
 				<Designation>Statische Waldgrenze</Designation>
 				<Abreviation>WGR</Abreviation>
-				<Symbole>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
+				<Code_de_representation>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 						<Reference REF="standard"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference>
-				</Symbole>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+				</Code_de_representation>
 				<GenreCant>
 					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.WF_KantArt_CatalogueReference>
 						<Reference REF="wf_kantart.1"/>

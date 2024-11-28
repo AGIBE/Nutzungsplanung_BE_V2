@@ -25,7 +25,6 @@ Modèle de données pour les plans d'affectation dans le canton de Berne
   AL    : Alignements                                       BL    : Baulinien
   CH    : Chemins                                           WE    : Wege
   CF    : Constatation de la nature forestière              WF    : Waldfeststellung
-  SE    : Secteurs                                          SE    : Sektoren
 
   Version    | Modification
   ------------------------------------------------------------------------------
@@ -76,7 +75,7 @@ MODEL PlansDAffectation_BE_V2_Test03 (fr)
     !! Jeu de données
     !! -----------------------------------------------
     CLASS AD_Jeu_de_donnes = !! Doit contenir exactement 1 entrée.
-      Unite_de_livraison : MANDATORY 101..999; !! OACOT: 101, Conférences régionales: 201-206, Communes: 301-999
+      Autorite_de_planification : MANDATORY 101..999; !! OACOT: 101, Conférences régionales: 201-206, Communes: 301-999
       Supplement_Attributs : BAG {0..*} OF CustomAttribute;
     END AD_Jeu_de_donnes;
 
@@ -96,14 +95,14 @@ MODEL PlansDAffectation_BE_V2_Test03 (fr)
       Jeu_de_donnes -- {0..1} AD_Jeu_de_donnes;
     END JeuDeDonnes_ProjetDAmenagement;
 
-    !! Périmètre de planification (territoire de l'autorité de planification)
+    !! Périmètre des données (territoire de l'autorité de planification)
     !! -----------------------------------------------
-    CLASS AD_Perimetre_de_planification =
+    CLASS AD_Perimetre_des_donnees =
       Perimetre_Nom : MANDATORY TEXT*200;
       Perimetre_mise_a_jour : MANDATORY Date;
       Geometrie : MANDATORY Area;
       Supplement_Attributs : BAG {0..*} OF CustomAttribute;
-    END AD_Perimetre_de_planification;
+    END AD_Perimetre_des_donnees;
 
     !! Géoservices externes (facultatif)
     !! -----------------------------------------------
@@ -188,7 +187,7 @@ MODEL PlansDAffectation_BE_V2_Test03 (fr)
       Designation : MANDATORY TEXT*500;
       Categorie : TEXT*100;
       Abreviation : TEXT*50;
-      Symbole : MANDATORY Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference;
+      Code_de_representation : MANDATORY Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference;
       GenreCant : MANDATORY Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Typ_CatalogueReference;
       ForceObligatoire : MANDATORY Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference;
       Supplement_Attributs : BAG {0..*} OF CustomAttribute;

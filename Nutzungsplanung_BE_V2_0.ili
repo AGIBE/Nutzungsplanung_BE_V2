@@ -25,7 +25,6 @@ Datenmodell für die Nutzungsplanung im Kanton Bern
   BL    : Baulinien
   WE    : Wege
   WF    : Waldfeststellung
-  SE    : Sektoren
 
   Version    | Modification
   ------------------------------------------------------------------------------
@@ -75,7 +74,7 @@ MODEL Nutzungsplanung_BE_V2_Test03 (de)
     !! Datensatz
     !! -----------------------------------------------
     CLASS AD_Datensatz = !! Muss exakt 1 Eintrag enthalten.
-      Liefereinheit : MANDATORY 101..999; !! AGR: 101, Regionalkonferenzen: 201-206, Gemeinden: 301-999
+      Planungsbehoerde : MANDATORY 101..999; !! AGR: 101, Regionalkonferenzen: 201-206, Gemeinden: 301-999
       Zusatz_Attribute : BAG {0..*} OF CustomAttribute;
     END AD_Datensatz;
 
@@ -95,14 +94,14 @@ MODEL Nutzungsplanung_BE_V2_Test03 (de)
       Datensatz -- {0..1} AD_Datensatz;
     END Datensatz_Planungsgeschaeft;
 
-    !! Planungsperimeter (Hoheitsgebiet der Planungsbehörde)
+    !! Datenperimeter (Hoheitsgebiet der Planungsbehörde)
     !! -----------------------------------------------
-    CLASS AD_Planungsperimeter =
+    CLASS AD_Datenperimeter =
       Perimeter_Name : MANDATORY TEXT*200;
       Perimeter_Zeitstand : MANDATORY Datum;
       Geometrie : MANDATORY Area;
       Zusatz_Attribute : BAG {0..*} OF CustomAttribute;
-    END AD_Planungsperimeter;
+    END AD_Datenperimeter;
 
     !! Externe Geodienste (optional)
     !! -----------------------------------------------
@@ -187,7 +186,7 @@ MODEL Nutzungsplanung_BE_V2_Test03 (de)
       Bezeichnung : MANDATORY TEXT*500;
       Kategorie : TEXT*100;
       Abkuerzung : TEXT*50;
-      Symbol : MANDATORY Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Symbol_CatalogueReference;
+      Darstellungscode : MANDATORY Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference;
       KantArt : MANDATORY Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Typ_CatalogueReference;
       Verbindlichkeit : MANDATORY Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference;
       Zusatz_Attribute : BAG {0..*} OF CustomAttribute;
