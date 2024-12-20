@@ -12,15 +12,15 @@ Datenmodell für die Nutzungsplanung im Kanton Bern
   AD    : Administratives
   DO    : Dokumente
   RV    : Rechtsvorschrift
-  GN    : Grundnutzung/Nutzungszone
+  GN    : Grundnutzung
   NZ    : Nutzungszone
   BK    : Bauklasse
   IN    : Innere Nutzung
-  SN    : Sondernutzungsplanung
+  SN    : Überlagernde Sondernutzungsplanung
+  UE    : Weitere Überlagerungen  
   ES    : Lärmempfindlichkeitsstufen
   GG    : Gefahrengebiete
   GR    : Gewässerraum
-  UE    : Überlagerungen
   NH    : Natur- und Heimatschutz
   BL    : Baulinien
   WE    : Wege
@@ -29,7 +29,7 @@ Datenmodell für die Nutzungsplanung im Kanton Bern
   Version    | Modification
   ------------------------------------------------------------------------------
   2022-04-01 | Version 1.0
-  2024-11-22 | Version 2.Test03
+  2024-12-20 | Version 2.Test03
 
 */
 
@@ -37,7 +37,7 @@ Datenmodell für die Nutzungsplanung im Kanton Bern
 !!@ furtherInformation=https://www.raumplanung.dij.be.ch/de/start/eplan.html
 MODEL Nutzungsplanung_BE_V2_Test03 (de)
   AT "http://models.geo.be.ch/Grundlagen_und_Planung/Raumplanung_Grundstueckskataster/"
-  VERSION "2024-11-22" =
+  VERSION "2024-12-20" =
 
   IMPORTS GeometryCHLV95_V1;
   IMPORTS CatalogueObjects_V1, Nutzungsplanung_BE_V2_Test03_Catalogues;
@@ -74,7 +74,8 @@ MODEL Nutzungsplanung_BE_V2_Test03 (de)
     !! Datensatz
     !! -----------------------------------------------
     CLASS AD_Datensatz = !! Muss exakt 1 Eintrag enthalten.
-      Planungsbehoerde : MANDATORY 101..999; !! AGR: 101, Regionalkonferenzen: 201-206, Gemeinden: 301-999
+      Planungsbehoerde : MANDATORY 101..999;
+      Sprache : MANDATORY (de,fr,de_fr);
       Zusatz_Attribute : BAG {0..*} OF CustomAttribute;
     END AD_Datensatz;
 
@@ -184,8 +185,8 @@ MODEL Nutzungsplanung_BE_V2_Test03 (de)
     !! -----------------------------------------------
     CLASS BaseClassType (ABSTRACT) =
       Bezeichnung : MANDATORY TEXT*500;
-      Kategorie : TEXT*100;
       Abkuerzung : TEXT*50;
+      Kategorie : TEXT*100;
       Darstellungscode : MANDATORY Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference;
       KantArt : MANDATORY Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Typ_CatalogueReference;
       Verbindlichkeit : MANDATORY Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference;
@@ -364,7 +365,7 @@ MODEL Nutzungsplanung_BE_V2_Test03 (de)
     END IN_Flaeche_Typ;
 
     !! ***********************
-    !! SN = Sondernutzung
+    !! SN = Überlagernde Sondernutzungsplanung
     !! ***********************
 
     !! SN_Typ
@@ -390,6 +391,56 @@ MODEL Nutzungsplanung_BE_V2_Test03 (de)
       Typ -- {1} SN_Typ;
       SN_Flaeche -- {0..*} SN_Flaeche;
     END SN_Flaeche_Typ;
+
+    !! ***********************
+    !! UE = Ueberlagerung
+    !! ***********************
+
+    !! UE_Typ
+    !! -----------------------------------------------
+    CLASS UE_Typ
+    EXTENDS BaseClassType =
+      KantArt (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.UE_KantArt_CatalogueReference;
+    END UE_Typ;
+
+    ASSOCIATION UE_RV
+    EXTENDS BaseClass_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Typ (EXTENDED) -- {0..*} UE_Typ;
+    END UE_RV;
+
+    !! UE_Punkt (COORD)
+    !! -----------------------------------------------
+    CLASS UE_Punkt
+    EXTENDS BaseClassPoint =
+    END UE_Punkt;
+
+    ASSOCIATION UE_Punkt_Typ =
+      Typ -- {1} UE_Typ;
+      UE_Punkt -- {0..*} UE_Punkt;
+    END UE_Punkt_Typ;
+
+    !! UE_Linie (POLYLINE)
+    !! -----------------------------------------------
+    CLASS UE_Linie
+    EXTENDS BaseClassPolyline =
+    END UE_Linie;
+
+    ASSOCIATION UE_Linie_Typ =
+      Typ -- {1} UE_Typ;
+      UE_Linie -- {0..*} UE_Linie;
+    END UE_Linie_Typ;
+
+    !! UE_Flaeche (SURFACE)
+    !! -----------------------------------------------
+    CLASS UE_Flaeche
+    EXTENDS BaseClassPolygon =
+    END UE_Flaeche;
+
+    ASSOCIATION UE_Flaeche_Typ =
+      Typ -- {1} UE_Typ;
+      UE_Flaeche -- {0..*} UE_Flaeche;
+    END UE_Flaeche_Typ;
 
     !! *********************************
     !! ES = Laermempfindlichkeitsstufen
@@ -474,56 +525,6 @@ MODEL Nutzungsplanung_BE_V2_Test03 (de)
       Typ -- {1} GR_Typ;
       GR_Flaeche -- {0..*} GR_Flaeche;
     END GR_Flaeche_Typ;
-
-    !! ***********************
-    !! UE = Ueberlagerung
-    !! ***********************
-
-    !! UE_Typ
-    !! -----------------------------------------------
-    CLASS UE_Typ
-    EXTENDS BaseClassType =
-      KantArt (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.UE_KantArt_CatalogueReference;
-    END UE_Typ;
-
-    ASSOCIATION UE_RV
-    EXTENDS BaseClass_RV =
-      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
-      Typ (EXTENDED) -- {0..*} UE_Typ;
-    END UE_RV;
-
-    !! UE_Punkt (COORD)
-    !! -----------------------------------------------
-    CLASS UE_Punkt
-    EXTENDS BaseClassPoint =
-    END UE_Punkt;
-
-    ASSOCIATION UE_Punkt_Typ =
-      Typ -- {1} UE_Typ;
-      UE_Punkt -- {0..*} UE_Punkt;
-    END UE_Punkt_Typ;
-
-    !! UE_Linie (POLYLINE)
-    !! -----------------------------------------------
-    CLASS UE_Linie
-    EXTENDS BaseClassPolyline =
-    END UE_Linie;
-
-    ASSOCIATION UE_Linie_Typ =
-      Typ -- {1} UE_Typ;
-      UE_Linie -- {0..*} UE_Linie;
-    END UE_Linie_Typ;
-
-    !! UE_Flaeche (SURFACE)
-    !! -----------------------------------------------
-    CLASS UE_Flaeche
-    EXTENDS BaseClassPolygon =
-    END UE_Flaeche;
-
-    ASSOCIATION UE_Flaeche_Typ =
-      Typ -- {1} UE_Typ;
-      UE_Flaeche -- {0..*} UE_Flaeche;
-    END UE_Flaeche_Typ;
 
     !! ****************************
     !! NH = Natur- und Heimatschutz

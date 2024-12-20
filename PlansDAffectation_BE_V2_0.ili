@@ -16,11 +16,11 @@ Modèle de données pour les plans d'affectation dans le canton de Berne
   ZA    : Zones d'affectation                               NZ    : Nutzungszone
   CC    : Classe de construction                            BK    : Bauklasse
   UI    : Utilisation intérieure                            IN    : Innere Nutzung
-  AS    : Affectation spéciale                              SN    : Sondernutzung
+  AS    : Affectation spéciale superposée                   SN    : Überlagernde Sondernutzungsplanung
+  SU    : Autres Superpositions                             UE    : Weitere Überlagerungen  
   DS    : Degrés de sensibilité au bruit                    ES    : Lärmempfindlichkeitsstufen
   ZD    : Zones de danger                                   GG    : Gefahrengebiete
   EE    : Espace réservé aux eaux                           GR    : Gewässerraum
-  SU    : Superposition                                     UE    : Überlagerungen
   NP    : Protection de la nature et du patrimoine          NH    : Natur- und Heimatschutz
   AL    : Alignements                                       BL    : Baulinien
   CH    : Chemins                                           WE    : Wege
@@ -29,7 +29,7 @@ Modèle de données pour les plans d'affectation dans le canton de Berne
   Version    | Modification
   ------------------------------------------------------------------------------
   2022-04-01 | Version 1.0
-  2024-11-22 | Version 2.Test03
+  2024-12-20 | Version 2.Test03
 
 */
 
@@ -37,8 +37,8 @@ Modèle de données pour les plans d'affectation dans le canton de Berne
 !!@ furtherInformation=https://www.raumplanung.dij.be.ch/de/start/eplan.html
 MODEL PlansDAffectation_BE_V2_Test03 (fr)
   AT "http://models.geo.be.ch/Grundlagen_und_Planung/Raumplanung_Grundstueckskataster/"
-  VERSION "2024-11-22"
-  TRANSLATION OF Nutzungsplanung_BE_V2_Test03 ["2024-11-22"] =
+  VERSION "2024-12-20"
+  TRANSLATION OF Nutzungsplanung_BE_V2_Test03 ["2024-12-20"] =
 
   IMPORTS GeometryCHLV95_V1;
   IMPORTS CatalogueObjects_V1, Nutzungsplanung_BE_V2_Test03_Catalogues;
@@ -75,7 +75,8 @@ MODEL PlansDAffectation_BE_V2_Test03 (fr)
     !! Jeu de données
     !! -----------------------------------------------
     CLASS AD_Jeu_de_donnes = !! Doit contenir exactement 1 entrée.
-      Autorite_de_planification : MANDATORY 101..999; !! OACOT: 101, Conférences régionales: 201-206, Communes: 301-999
+      Autorite_de_planification : MANDATORY 101..999;
+      Langage : MANDATORY (de,fr,de_fr);
       Supplement_Attributs : BAG {0..*} OF CustomAttribute;
     END AD_Jeu_de_donnes;
 
@@ -185,8 +186,8 @@ MODEL PlansDAffectation_BE_V2_Test03 (fr)
     !! -------------------------------------------------------------- 
     CLASS BaseClassType (ABSTRACT) =
       Designation : MANDATORY TEXT*500;
-      Categorie : TEXT*100;
       Abreviation : TEXT*50;
+      Categorie : TEXT*100;
       Code_de_representation : MANDATORY Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference;
       GenreCant : MANDATORY Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Typ_CatalogueReference;
       ForceObligatoire : MANDATORY Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference;
@@ -365,7 +366,7 @@ MODEL PlansDAffectation_BE_V2_Test03 (fr)
     END UI_Surface_Type;
 
     !! *************************
-    !! AS = Affectation spéciale
+    !! AS = Affectation spéciale superposée
     !! *************************
 
     !! AS_Type
@@ -391,6 +392,56 @@ MODEL PlansDAffectation_BE_V2_Test03 (fr)
       Type -- {1} AS_Type;
       AS_Surface -- {0..*} AS_Surface;
     END AS_Surface_Type;
+
+    !! ***********************
+    !! SU = Superposition
+    !! ***********************
+
+    !! SU_Type
+    !! -------------------------------------------------------------- 
+    CLASS SU_Type
+    EXTENDS BaseClassType =
+      GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.UE_KantArt_CatalogueReference;
+    END SU_Type;
+
+    ASSOCIATION SU_DJ
+    EXTENDS BaseClass_DJ =
+      Disposition (EXTENDED) -- {0..*} DO_Document;
+      Type (EXTENDED) -- {0..*} SU_Type;
+    END SU_DJ;
+
+    !! SU_Point (COORD)
+    !! -------------------------------------------------------------- 
+    CLASS SU_Point
+    EXTENDS BaseClassPoint =
+    END SU_Point;
+
+    ASSOCIATION SU_Point_Type =
+      Type -- {1} SU_Type;
+      SU_Point -- {0..*} SU_Point;
+    END SU_Point_Type;
+
+    !! SU_Ligne (POLYLINE)
+    !! -------------------------------------------------------------- 
+    CLASS SU_Ligne
+    EXTENDS BaseClassPolyline =
+    END SU_Ligne;
+
+    ASSOCIATION SU_Ligne_Type =
+      Type -- {1} SU_Type;
+      SU_Ligne -- {0..*} SU_Ligne;
+    END SU_Ligne_Type;
+
+    !! SU_Surface (SURFACE)
+    !! -------------------------------------------------------------- 
+    CLASS SU_Surface
+    EXTENDS BaseClassPolygon =
+    END SU_Surface;
+
+    ASSOCIATION SU_Surface_Type =
+      Type -- {1} SU_Type;
+      SU_Surface -- {0..*} SU_Surface;
+    END SU_Surface_Type;
 
     !! **********************************
     !! DS = Degrés de sensibilité au bruit
@@ -475,56 +526,6 @@ MODEL PlansDAffectation_BE_V2_Test03 (fr)
       Type -- {1} EE_Type;
       EE_Surface -- {0..*} EE_Surface;
     END EE_Surface_Type;
-
-    !! ***********************
-    !! SU = Superposition
-    !! ***********************
-
-    !! SU_Type
-    !! -------------------------------------------------------------- 
-    CLASS SU_Type
-    EXTENDS BaseClassType =
-      GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.UE_KantArt_CatalogueReference;
-    END SU_Type;
-
-    ASSOCIATION SU_DJ
-    EXTENDS BaseClass_DJ =
-      Disposition (EXTENDED) -- {0..*} DO_Document;
-      Type (EXTENDED) -- {0..*} SU_Type;
-    END SU_DJ;
-
-    !! SU_Point (COORD)
-    !! -------------------------------------------------------------- 
-    CLASS SU_Point
-    EXTENDS BaseClassPoint =
-    END SU_Point;
-
-    ASSOCIATION SU_Point_Type =
-      Type -- {1} SU_Type;
-      SU_Point -- {0..*} SU_Point;
-    END SU_Point_Type;
-
-    !! SU_Ligne (POLYLINE)
-    !! -------------------------------------------------------------- 
-    CLASS SU_Ligne
-    EXTENDS BaseClassPolyline =
-    END SU_Ligne;
-
-    ASSOCIATION SU_Ligne_Type =
-      Type -- {1} SU_Type;
-      SU_Ligne -- {0..*} SU_Ligne;
-    END SU_Ligne_Type;
-
-    !! SU_Surface (SURFACE)
-    !! -------------------------------------------------------------- 
-    CLASS SU_Surface
-    EXTENDS BaseClassPolygon =
-    END SU_Surface;
-
-    ASSOCIATION SU_Surface_Type =
-      Type -- {1} SU_Type;
-      SU_Surface -- {0..*} SU_Surface;
-    END SU_Surface_Type;
 
     !! ****************************
     !! NP = Protection de la nature et du patrimoine
