@@ -13,11 +13,11 @@ Teilmodell für die XML-Kataloge                                                
   NZ    : Nutzungszone                                                            ZA    : Zones d'affectation 
   BK    : Bauklasse                                                               CC    : Classe de construction
   IN    : Innere Nutzung                                                          UI    : Utilisation intérieure
-  SN    : Sondernutzungsplanung                                                   AS    : Affectation spéciale
+  SN    : Überlagernde Sondernutzungsplanung                                      AS    : Affectation spéciale
+  UE    : Weitere Überlagerungen                                                  SU    : Autres Superpositions 
   ES    : Lärmempfindlichkeitsstufen                                              DS    : Degrés de sensibilité au bruit
   GG    : Gefahrengebiete                                                         ZD    : Zones de danger
   GR    : Gewässerraum                                                            EE    : Espace réservé aux eaux
-  UE    : Überlagerungen                                                          SU    : Superposition
   NH    : Natur- und Heimatschutz                                                 NP    : Protection de la nature et du patrimoine
   BL    : Baulinien                                                               AL    : Alignements
   WE    : Wege                                                                    CH    : Chemins
@@ -29,7 +29,7 @@ Teilmodell für die XML-Kataloge                                                
 !!@ furtherInformation=https://www.raumplanung.dij.be.ch/de/start/eplan.html
 MODEL Nutzungsplanung_BE_V2_Test03_Catalogues
   AT "http://models.geo.be.ch/Grundlagen_und_Planung/Raumplanung_Grundstueckskataster/"
-  VERSION "2024-11-22" =
+  VERSION "2024-12-20" =
 
   IMPORTS CatalogueObjects_V1,LocalisationCH_V1;
 
@@ -46,11 +46,14 @@ MODEL Nutzungsplanung_BE_V2_Test03_Catalogues
       Theme : LocalisationCH_V1.MultilingualText;
       Layer : LocalisationCH_V1.MultilingualText;
       BasicGeodata : LocalisationCH_V1.MultilingualText;
-      StandardSymbol : TEXT*20;
-      Check_AREA : TEXT*10;
+      StandardSymbol_Polygon : TEXT*20;
+      StandardSymbol_Polyline : TEXT*20;
+      StandardSymbol_Point : TEXT*20;
+      Check_MandatorySymbol : BOOLEAN;
       Check_Polygon : BOOLEAN;
       Check_Polyline : BOOLEAN;
       Check_Point : BOOLEAN;
+      Check_AREA : TEXT*10;
     END BaseClassCatalog;
 
     STRUCTURE Typ_CatalogueReference (ABSTRACT)
@@ -169,18 +172,6 @@ MODEL Nutzungsplanung_BE_V2_Test03_Catalogues
       Reference (EXTENDED) : MANDATORY REFERENCE TO (EXTERNAL) SN_KantArt;
     END SN_KantArt_CatalogueReference;
 
-    !! ES_KantArt                                                                !! DS_GenreCant
-    !! --------------------                                                      !! ------------------------
-    CLASS ES_KantArt
-    EXTENDS BaseClassCatalog =
-      UNIQUE ID;
-    END ES_KantArt;
-
-    STRUCTURE ES_KantArt_CatalogueReference
-    EXTENDS Typ_CatalogueReference =
-      Reference (EXTENDED) : MANDATORY REFERENCE TO (EXTERNAL) ES_KantArt;
-    END ES_KantArt_CatalogueReference;
-
     !! UE_KantArt                                                                !! SU_GenreCant
     !! --------------------                                                      !! ------------------------
     CLASS UE_KantArt
@@ -192,6 +183,18 @@ MODEL Nutzungsplanung_BE_V2_Test03_Catalogues
     EXTENDS Typ_CatalogueReference =
       Reference (EXTENDED) : MANDATORY REFERENCE TO (EXTERNAL) UE_KantArt;
     END UE_KantArt_CatalogueReference;
+
+    !! ES_KantArt                                                                !! DS_GenreCant
+    !! --------------------                                                      !! ------------------------
+    CLASS ES_KantArt
+    EXTENDS BaseClassCatalog =
+      UNIQUE ID;
+    END ES_KantArt;
+
+    STRUCTURE ES_KantArt_CatalogueReference
+    EXTENDS Typ_CatalogueReference =
+      Reference (EXTENDED) : MANDATORY REFERENCE TO (EXTERNAL) ES_KantArt;
+    END ES_KantArt_CatalogueReference;
 
     !! GG_KantArt                                                                !! ZD_GenreCant
     !! --------------------                                                      !! ------------------------
@@ -205,17 +208,17 @@ MODEL Nutzungsplanung_BE_V2_Test03_Catalogues
       Reference (EXTENDED) : MANDATORY REFERENCE TO (EXTERNAL) GG_KantArt;
     END GG_KantArt_CatalogueReference;
 
-    !! BL_KantArt                                                                !! AL_GenreCant
+    !! GR_KantArt                                                                !! EE_GenreCant
     !! --------------------                                                      !! ------------------------
-    CLASS BL_KantArt
+    CLASS GR_KantArt
     EXTENDS BaseClassCatalog =
       UNIQUE ID;
-    END BL_KantArt;
+    END GR_KantArt;
 
-    STRUCTURE BL_KantArt_CatalogueReference
+    STRUCTURE GR_KantArt_CatalogueReference
     EXTENDS Typ_CatalogueReference =
-      Reference (EXTENDED) : MANDATORY REFERENCE TO (EXTERNAL) BL_KantArt;
-    END BL_KantArt_CatalogueReference;
+      Reference (EXTENDED) : MANDATORY REFERENCE TO (EXTERNAL) GR_KantArt;
+    END GR_KantArt_CatalogueReference;
 
     !! NH_KantArt                                                                !! NP_GenreCant
     !! --------------------                                                      !! ------------------------
@@ -229,29 +232,17 @@ MODEL Nutzungsplanung_BE_V2_Test03_Catalogues
       Reference (EXTENDED) : MANDATORY REFERENCE TO (EXTERNAL) NH_KantArt;
     END NH_KantArt_CatalogueReference;
 
-    !! WF_KantArt                                                                !! CF_GenreCant
+    !! BL_KantArt                                                                !! AL_GenreCant
     !! --------------------                                                      !! ------------------------
-    CLASS WF_KantArt
+    CLASS BL_KantArt
     EXTENDS BaseClassCatalog =
       UNIQUE ID;
-    END WF_KantArt;
+    END BL_KantArt;
 
-    STRUCTURE WF_KantArt_CatalogueReference
+    STRUCTURE BL_KantArt_CatalogueReference
     EXTENDS Typ_CatalogueReference =
-      Reference (EXTENDED) : MANDATORY REFERENCE TO (EXTERNAL) WF_KantArt;
-    END WF_KantArt_CatalogueReference;
-
-    !! GR_KantArt                                                                !! EE_GenreCant
-    !! --------------------                                                      !! ------------------------
-    CLASS GR_KantArt
-    EXTENDS BaseClassCatalog =
-      UNIQUE ID;
-    END GR_KantArt;
-
-    STRUCTURE GR_KantArt_CatalogueReference
-    EXTENDS Typ_CatalogueReference =
-      Reference (EXTENDED) : MANDATORY REFERENCE TO (EXTERNAL) GR_KantArt;
-    END GR_KantArt_CatalogueReference;
+      Reference (EXTENDED) : MANDATORY REFERENCE TO (EXTERNAL) BL_KantArt;
+    END BL_KantArt_CatalogueReference;
 
     !! WE_KantArt                                                                !! CH_GenreCant
     !! --------------------                                                      !! ------------------------
@@ -264,6 +255,18 @@ MODEL Nutzungsplanung_BE_V2_Test03_Catalogues
     EXTENDS Typ_CatalogueReference =
       Reference (EXTENDED) : MANDATORY REFERENCE TO (EXTERNAL) WE_KantArt;
     END WE_KantArt_CatalogueReference;
+
+    !! WF_KantArt                                                                !! CF_GenreCant
+    !! --------------------                                                      !! ------------------------
+    CLASS WF_KantArt
+    EXTENDS BaseClassCatalog =
+      UNIQUE ID;
+    END WF_KantArt;
+
+    STRUCTURE WF_KantArt_CatalogueReference
+    EXTENDS Typ_CatalogueReference =
+      Reference (EXTENDED) : MANDATORY REFERENCE TO (EXTERNAL) WF_KantArt;
+    END WF_KantArt_CatalogueReference;
 
   END Catalogues;
 
