@@ -29,7 +29,7 @@ Modèle de données pour les plans d'affectation dans le canton de Berne
   Version    | Modification
   ------------------------------------------------------------------------------
   2022-04-01 | Version 1.0
-  2024-12-20 | Version 2.Test03
+  2025-01-23 | Version 2.Test03
 
 */
 
@@ -37,8 +37,8 @@ Modèle de données pour les plans d'affectation dans le canton de Berne
 !!@ furtherInformation=https://www.raumplanung.dij.be.ch/de/start/eplan.html
 MODEL PlansDAffectation_BE_V2_Test03 (fr)
   AT "http://models.geo.be.ch/Grundlagen_und_Planung/Raumplanung_Grundstueckskataster/"
-  VERSION "2024-12-20"
-  TRANSLATION OF Nutzungsplanung_BE_V2_Test03 ["2024-12-20"] =
+  VERSION "2025-01-23"
+  TRANSLATION OF Nutzungsplanung_BE_V2_Test03 ["2025-01-23"] =
 
   IMPORTS GeometryCHLV95_V1;
   IMPORTS CatalogueObjects_V1, Nutzungsplanung_BE_V2_Test03_Catalogues;
@@ -72,14 +72,6 @@ MODEL PlansDAffectation_BE_V2_Test03 (fr)
     !! AD = Administratif
     !! ***********************
 
-    !! Jeu de données
-    !! -----------------------------------------------
-    CLASS AD_Jeu_de_donnes = !! Doit contenir exactement 1 entrée.
-      Autorite_de_planification : MANDATORY 101..999;
-      Langage : MANDATORY (de,fr,de_fr);
-      Supplement_Attributs : BAG {0..*} OF CustomAttribute;
-    END AD_Jeu_de_donnes;
-
     !! Liste des projets d'aménagement
     !! -----------------------------------------------
     CLASS AD_Projet_d_amenagement =
@@ -90,6 +82,14 @@ MODEL PlansDAffectation_BE_V2_Test03 (fr)
       Supplement_Attributs : BAG {0..*} OF CustomAttribute;
     UNIQUE Projet_Numero;
     END AD_Projet_d_amenagement;
+
+    !! Jeu de données
+    !! -----------------------------------------------
+    CLASS AD_Jeu_de_donnes = !! Doit contenir exactement 1 entrée.
+      Autorite_de_planification : MANDATORY 101..999;
+      Langage : MANDATORY (de,fr,de_fr);
+      Supplement_Attributs : BAG {0..*} OF CustomAttribute;
+    END AD_Jeu_de_donnes;
 
     ASSOCIATION JeuDeDonnes_ProjetDAmenagement =
       Projet_actif -- {0..1} AD_Projet_d_amenagement;
@@ -200,7 +200,6 @@ MODEL PlansDAffectation_BE_V2_Test03 (fr)
     END BaseClass_Service_competent;
 
     ASSOCIATION BaseClass_DJ (ABSTRACT) =
-    OID AS INTERLIS.UUIDOID;
       Disposition (ABSTRACT) -- {0..*} DO_Document;
       Type (ABSTRACT) -- {0..*} BaseClassType;
       NoArticles : TEXT*50;
@@ -256,6 +255,7 @@ MODEL PlansDAffectation_BE_V2_Test03 (fr)
 
     ASSOCIATION AP_DJ
     EXTENDS BaseClass_DJ =
+    OID AS INTERLIS.UUIDOID;
       Disposition (EXTENDED) -- {0..*} DO_Document;
       Type (EXTENDED) -- {0..*} AP_Type;
     END AP_DJ;
@@ -284,6 +284,7 @@ MODEL PlansDAffectation_BE_V2_Test03 (fr)
 
     ASSOCIATION ZA_DJ
     EXTENDS BaseClass_DJ =
+    OID AS INTERLIS.UUIDOID;
       Disposition (EXTENDED) -- {0..*} DO_Document;
       Type (EXTENDED) -- {0..*} ZA_Type;
     END ZA_DJ;
@@ -312,6 +313,7 @@ MODEL PlansDAffectation_BE_V2_Test03 (fr)
 
     ASSOCIATION CC_DJ
     EXTENDS BaseClass_DJ =
+    OID AS INTERLIS.UUIDOID;
       Disposition (EXTENDED) -- {0..*} DO_Document;
       Type (EXTENDED) -- {0..*} CC_Type;
     END CC_DJ;
@@ -350,6 +352,7 @@ MODEL PlansDAffectation_BE_V2_Test03 (fr)
 
     ASSOCIATION UI_DJ
     EXTENDS BaseClass_DJ =
+    OID AS INTERLIS.UUIDOID;
       Disposition (EXTENDED) -- {0..*} DO_Document;
       Type (EXTENDED) -- {0..*} UI_Type;
     END UI_DJ;
@@ -378,6 +381,7 @@ MODEL PlansDAffectation_BE_V2_Test03 (fr)
 
     ASSOCIATION AS_DJ
     EXTENDS BaseClass_DJ =
+    OID AS INTERLIS.UUIDOID;
       Disposition (EXTENDED) -- {0..*} DO_Document;
       Type (EXTENDED) -- {0..*} AS_Type;
     END AS_DJ;
@@ -406,6 +410,7 @@ MODEL PlansDAffectation_BE_V2_Test03 (fr)
 
     ASSOCIATION SU_DJ
     EXTENDS BaseClass_DJ =
+    OID AS INTERLIS.UUIDOID;
       Disposition (EXTENDED) -- {0..*} DO_Document;
       Type (EXTENDED) -- {0..*} SU_Type;
     END SU_DJ;
@@ -456,6 +461,7 @@ MODEL PlansDAffectation_BE_V2_Test03 (fr)
 
     ASSOCIATION DS_DJ
     EXTENDS BaseClass_DJ =
+    OID AS INTERLIS.UUIDOID;
       Disposition (EXTENDED) -- {0..*} DO_Document;
       Type (EXTENDED) -- {0..*} DS_Type;
     END DS_DJ;
@@ -484,6 +490,7 @@ MODEL PlansDAffectation_BE_V2_Test03 (fr)
 
     ASSOCIATION ZD_DJ
     EXTENDS BaseClass_DJ =
+    OID AS INTERLIS.UUIDOID;
       Disposition (EXTENDED) -- {0..*} DO_Document;
       Type (EXTENDED) -- {0..*} ZD_Type;
     END ZD_DJ;
@@ -512,6 +519,7 @@ MODEL PlansDAffectation_BE_V2_Test03 (fr)
 
     ASSOCIATION EE_DJ
     EXTENDS BaseClass_DJ =
+    OID AS INTERLIS.UUIDOID;
       Disposition (EXTENDED) -- {0..*} DO_Document;
       Type (EXTENDED) -- {0..*} EE_Type;
     END EE_DJ;
@@ -540,6 +548,7 @@ MODEL PlansDAffectation_BE_V2_Test03 (fr)
 
     ASSOCIATION NP_DJ
     EXTENDS BaseClass_DJ =
+    OID AS INTERLIS.UUIDOID;
       Disposition (EXTENDED) -- {0..*} DO_Document;
       Type (EXTENDED) -- {0..*} NP_Type;
     END NP_DJ;
@@ -590,6 +599,7 @@ MODEL PlansDAffectation_BE_V2_Test03 (fr)
 
     ASSOCIATION AL_DJ
     EXTENDS BaseClass_DJ =
+    OID AS INTERLIS.UUIDOID;
       Disposition (EXTENDED) -- {0..*} DO_Document;
       Type (EXTENDED) -- {0..*} AL_Type;
     END AL_DJ;
@@ -629,6 +639,7 @@ MODEL PlansDAffectation_BE_V2_Test03 (fr)
 
     ASSOCIATION CH_DJ
     EXTENDS BaseClass_DJ =
+    OID AS INTERLIS.UUIDOID;
       Disposition (EXTENDED) -- {0..*} DO_Document;
       Type (EXTENDED) -- {0..*} CH_Type;
     END CH_DJ;
@@ -668,6 +679,7 @@ MODEL PlansDAffectation_BE_V2_Test03 (fr)
 
     ASSOCIATION CF_DJ
     EXTENDS BaseClass_DJ =
+    OID AS INTERLIS.UUIDOID;
       Disposition (EXTENDED) -- {0..*} DO_Document;
       Type (EXTENDED) -- {0..*} CF_Type;
     END CF_DJ;
