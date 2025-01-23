@@ -4,7 +4,7 @@
 <TRANSFER xmlns="http://www.interlis.ch/INTERLIS2.3">
     <HEADERSECTION SENDER="OACOT du canton de Berne" VERSION="2.3">
         <MODELS>
-            <MODEL NAME="PlansDAffectation_BE_V2_Test03" VERSION="2024-12-20" URI="http://models.geo.be.ch/Grundlagen_und_Planung/Raumplanung_Grundstueckskataster/"/>
+            <MODEL NAME="PlansDAffectation_BE_V2_Test03" VERSION="2025-01-23" URI="http://models.geo.be.ch/Grundlagen_und_Planung/Raumplanung_Grundstueckskataster/"/>
         </MODELS>
     </HEADERSECTION>
 	<DATASECTION>

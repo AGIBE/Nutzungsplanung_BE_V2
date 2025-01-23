@@ -29,7 +29,7 @@ Teilmodell für die XML-Kataloge                                                
 !!@ furtherInformation=https://www.raumplanung.dij.be.ch/de/start/eplan.html
 MODEL Nutzungsplanung_BE_V2_Test03_Catalogues
   AT "http://models.geo.be.ch/Grundlagen_und_Planung/Raumplanung_Grundstueckskataster/"
-  VERSION "2024-12-20" =
+  VERSION "2025-01-23" =
 
   IMPORTS CatalogueObjects_V1,LocalisationCH_V1;
 
