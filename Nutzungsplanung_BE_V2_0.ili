@@ -199,6 +199,7 @@ MODEL Nutzungsplanung_BE_V2_Test03 (de)
     END BaseClass_ZustaendigeStelle;
 
     ASSOCIATION BaseClass_RV (ABSTRACT) =
+    OID AS INTERLIS.UUIDOID;
       Vorschrift (ABSTRACT) -- {0..*} DO_Dokument;
       Typ (ABSTRACT) -- {0..*} BaseClassType;
       ArtikelNr : TEXT*50;
@@ -254,7 +255,6 @@ MODEL Nutzungsplanung_BE_V2_Test03 (de)
 
     ASSOCIATION GN_RV
     EXTENDS BaseClass_RV =
-    OID AS INTERLIS.UUIDOID;
       Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
       Typ (EXTENDED) -- {0..*} GN_Typ;
     END GN_RV;
@@ -283,7 +283,6 @@ MODEL Nutzungsplanung_BE_V2_Test03 (de)
 
     ASSOCIATION NZ_RV
     EXTENDS BaseClass_RV =
-    OID AS INTERLIS.UUIDOID;
       Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
       Typ (EXTENDED) -- {0..*} NZ_Typ;
     END NZ_RV;
@@ -312,7 +311,6 @@ MODEL Nutzungsplanung_BE_V2_Test03 (de)
 
     ASSOCIATION BK_RV
     EXTENDS BaseClass_RV =
-    OID AS INTERLIS.UUIDOID;
       Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
       Typ (EXTENDED) -- {0..*} BK_Typ;
     END BK_RV;
@@ -351,7 +349,6 @@ MODEL Nutzungsplanung_BE_V2_Test03 (de)
 
     ASSOCIATION IN_RV
     EXTENDS BaseClass_RV =
-    OID AS INTERLIS.UUIDOID;
       Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
       Typ (EXTENDED) -- {0..*} IN_Typ;
     END IN_RV;
@@ -380,7 +377,6 @@ MODEL Nutzungsplanung_BE_V2_Test03 (de)
 
     ASSOCIATION SN_RV
     EXTENDS BaseClass_RV =
-    OID AS INTERLIS.UUIDOID;
       Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
       Typ (EXTENDED) -- {0..*} SN_Typ;
     END SN_RV;
@@ -409,7 +405,6 @@ MODEL Nutzungsplanung_BE_V2_Test03 (de)
 
     ASSOCIATION UE_RV
     EXTENDS BaseClass_RV =
-    OID AS INTERLIS.UUIDOID;
       Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
       Typ (EXTENDED) -- {0..*} UE_Typ;
     END UE_RV;
@@ -460,7 +455,6 @@ MODEL Nutzungsplanung_BE_V2_Test03 (de)
 
     ASSOCIATION ES_RV
     EXTENDS BaseClass_RV =
-    OID AS INTERLIS.UUIDOID;
       Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
       Typ (EXTENDED) -- {0..*} ES_Typ;
     END ES_RV;
@@ -489,7 +483,6 @@ MODEL Nutzungsplanung_BE_V2_Test03 (de)
 
     ASSOCIATION GG_RV
     EXTENDS BaseClass_RV =
-    OID AS INTERLIS.UUIDOID;
       Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
       Typ (EXTENDED) -- {0..*} GG_Typ;
     END GG_RV;
@@ -518,7 +511,6 @@ MODEL Nutzungsplanung_BE_V2_Test03 (de)
 
     ASSOCIATION GR_RV
     EXTENDS BaseClass_RV =
-    OID AS INTERLIS.UUIDOID;
       Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
       Typ (EXTENDED) -- {0..*} GR_Typ;
     END GR_RV;
@@ -547,7 +539,6 @@ MODEL Nutzungsplanung_BE_V2_Test03 (de)
 
     ASSOCIATION NH_RV
     EXTENDS BaseClass_RV =
-    OID AS INTERLIS.UUIDOID;
       Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
       Typ (EXTENDED) -- {0..*} NH_Typ;
     END NH_RV;
@@ -598,7 +589,6 @@ MODEL Nutzungsplanung_BE_V2_Test03 (de)
 
     ASSOCIATION BL_RV
     EXTENDS BaseClass_RV =
-    OID AS INTERLIS.UUIDOID;
       Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
       Typ (EXTENDED) -- {0..*} BL_Typ;
     END BL_RV;
@@ -638,7 +628,6 @@ MODEL Nutzungsplanung_BE_V2_Test03 (de)
 
     ASSOCIATION WE_RV
     EXTENDS BaseClass_RV =
-    OID AS INTERLIS.UUIDOID;
       Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
       Typ (EXTENDED) -- {0..*} WE_Typ;
     END WE_RV;
@@ -678,7 +667,6 @@ MODEL Nutzungsplanung_BE_V2_Test03 (de)
 
     ASSOCIATION WF_RV
     EXTENDS BaseClass_RV =
-    OID AS INTERLIS.UUIDOID;
       Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
       Typ (EXTENDED) -- {0..*} WF_Typ;
     END WF_RV;
