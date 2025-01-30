@@ -1,0 +1,211 @@
+INTERLIS 2.3;
+/*
+Teilmodell für Geschäfts- und Änderungsinformationen                            Modèle partiel pour les informations du dossier et des modifications
+  Hauptmodell       : Nutzungsplanung_BE_V2_0                                     Modèle principal       : PlanDAffectation_BE_V2_0
+  Datenverwaltung   : ePlan                                                       Gestion des données    : ePlan
+  Sprachversion     : DE und FR                                                   Version de langue      : DE et FR
+  Support fachlich  : Amt für Gemeinden und Raumordnung (www.be.ch/agr)           Support thématique     : Office des affaires communales et de l'organisation du territoire (www.be.ch/oacot)
+  Support technisch : Amt für Geoinformation (www.be.ch/agi)                      Support technique      : Office de l'information géographique (www.be.ch/oig)
+  */
+
+!!@ technicalContact=mailto:info.agr@be.ch
+!!@ furtherInformation=https://www.raumplanung.dij.be.ch/de/start/eplan.html
+MODEL Nutzungsplanung_BE_V2_0_Metainfo
+  AT "http://models.geo.be.ch/Grundlagen_und_Planung/Raumplanung_Grundstueckskataster/"
+  VERSION "2025-01-23" =
+
+  IMPORTS GeometryCHLV95_V1;
+
+  DOMAIN
+    Date = FORMAT INTERLIS.XMLDate "1848-1-1" .. "2100-12-31";
+    Time = FORMAT INTERLIS.XMLTime "00:00:00.000" .. "23:59:59.999";
+
+    LKoord EXTENDS GeometryCHLV95_V1.Coord2 = COORD
+      2550000.000 .. 2690000.000 [INTERLIS.m] ,
+      1120000.000 .. 1250000.000 [INTERLIS.m] ,
+      ROTATION 2 -> 1;
+    Polyline = POLYLINE WITH (STRAIGHTS, ARCS) VERTEX LKoord;
+    Surface  = SURFACE  WITH (STRAIGHTS, ARCS) VERTEX LKoord WITHOUT OVERLAPS > 0.050;
+    Area     = AREA     WITH (STRAIGHTS, ARCS) VERTEX LKoord WITHOUT OVERLAPS > 0.050;
+
+ TOPIC Dossier =
+  BASKET OID AS INTERLIS.UUIDOID;
+  OID AS INTERLIS.UUIDOID;
+
+    !! Kantonale Geschäftsinformationen
+    !! -----------------------------------------------
+    CLASS Dossier_cantonal =
+      Title : TEXT*256;
+      AxiomaNr : TEXT*256;
+      Process_step : TEXT*256;      !! (Voranfrage, Vorprüfung, Öffentliche Auflage, Genehmigung, etc.)
+      Process_type : TEXT*256;      !! (Ordentliches Verfahren, Geringfügiges Verfahren, etc.)
+      Process_status : TEXT*256;    !! (open,closed,blocked)
+      ResolutionCommittee: TEXT*256;
+      Date_ResolutionCommittee : Date;
+      Date_resolution : Date;
+      Date_approved : Date;
+      Date_inForce : Date;
+      TID_DossierCommunal : INTERLIS.UUIDOID;
+      BID_NplBE_old : INTERLIS.UUIDOID;
+      BID_NplBE_new : INTERLIS.UUIDOID;
+      BID_DeltaObjects : INTERLIS.UUIDOID;
+      creation_date : Date;
+      creation_time : Time;
+      last_update : Date;
+    END Dossier_cantonal;
+
+    !! Geschäftsdokumente
+    !! -----------------------------------------------    
+    CLASS DossierDocument =
+      Doc_title : MANDATORY TEXT*256;
+      Doc_type : TEXT*256;
+      Doc_filename : MANDATORY TEXT*256;
+    END DossierDocument;
+
+    ASSOCIATION DossierDocument_Dossier =
+      Dossier_cantonal -- {1} Dossier_cantonal;
+      Document -- {0..*} DossierDocument;
+    END DossierDocument_Dossier;
+
+  END Dossier; 
+
+  !! Delta-Objekte beschreiben die Differenz zwischen zwei Datenständen.
+  !! Les objets delta décrivent la différence entre deux états de données.
+  !! ----------------------------------------------- 
+  TOPIC DeltaObjects =
+  BASKET OID AS INTERLIS.UUIDOID;
+  OID AS INTERLIS.UUIDOID;
+
+    !! DeltaBusiness
+    !! -----------------------------------------------
+    CLASS DeltaBusiness =
+      Business_TID : MANDATORY INTERLIS.UUIDOID;
+	    Business_Number : MANDATORY TEXT*256;
+      Business_Title : MANDATORY TEXT*256;
+      BasketId_BeforeChange : MANDATORY INTERLIS.UUIDOID;
+      BasketId_AfterChange : MANDATORY INTERLIS.UUIDOID;
+      creation_date : MANDATORY Date;
+      creation_time : MANDATORY Time;
+    END DeltaBusiness;
+
+    !! DeltaType
+    !! -----------------------------------------------
+    CLASS DeltaTypes =
+      Object_Index : MANDATORY 0 .. 99999;
+	    Object_Display : MANDATORY (public,internal,expert);
+	    Object_ChangeType : MANDATORY (added_doc,deleted_doc,added_extent,deleted_extent,modified_extent,modified_properties,unchanged);
+      Object_ChangeLevel : MANDATORY (ToApprove,ToCheck,ToLog,None);
+      Object_ChangeLevel_Existence : MANDATORY (ToApprove,ToCheck,ToLog,None);
+      Object_ChangeLevel_Attributes : MANDATORY (ToApprove,ToCheck,ToLog,None);
+      Object_ChangeLevel_DocLinks : MANDATORY (ToApprove,ToCheck,ToLog,None);
+      Object_TID : MANDATORY INTERLIS.UUIDOID;
+      Object_Theme : MANDATORY TEXT*256;
+	    Object_Liability : MANDATORY TEXT*256;
+      Object_Name : MANDATORY TEXT*500;
+      Geom_Count : MANDATORY 0 .. 99999;
+    END DeltaTypes;
+
+    ASSOCIATION DeltaType_DeltaBusiness =
+      DeltaBusiness -- {1} DeltaBusiness;
+      DeltaType -- {0..*} DeltaTypes;
+    END DeltaType_DeltaBusiness;
+
+    !! DeltaAttributes
+    !! -----------------------------------------------
+    CLASS DeltaAttributes =
+      Attribute_Index : MANDATORY 0 .. 99999;
+      Attribute_Display : MANDATORY (public,internal,expert);
+      Attribute_ChangeLevel : MANDATORY (ToApprove,ToCheck,ToLog,None);
+      Attribute_Name_DE : MANDATORY TEXT*256;
+      Attribute_Name_FR : MANDATORY TEXT*256;
+      Attribute_OldValue : TEXT*500;
+      Attribute_NewValue : TEXT*500;
+      Geom_AttributeID : INTERLIS.UUIDOID;
+    END DeltaAttributes;
+
+    ASSOCIATION DeltaType_DeltaAttributes =
+      DeltaType -- {1} DeltaTypes;
+      DeltaAttribute -- {0..*} DeltaAttributes;
+    END DeltaType_DeltaAttributes;
+
+    !! DocLinks
+    !! -----------------------------------------------
+    CLASS DocLinks =
+      DocLink_Index : MANDATORY 0 .. 99;
+      DocLink_Display : MANDATORY (public,internal,expert);
+	    DocLink_ChangeType : MANDATORY (added_link,deleted_link,unchanged);
+      DocLink_ChangeLevel : MANDATORY (ToApprove,ToCheck,ToLog,None);
+      LinkedDoc_TID : MANDATORY INTERLIS.UUIDOID;
+      LinkedDoc_Liability : MANDATORY TEXT*256;
+	    LinkedDoc_Title : MANDATORY TEXT*500;
+	    LinkedDoc_FileName : MANDATORY TEXT*500;
+	    LinkedDoc_ChangeType : MANDATORY (added_doc,deleted_doc,modified_properties,unchanged);
+	    LinkedDoc_ChangeLevel : MANDATORY (ToApprove,ToCheck,ToLog,None);
+    END DocLinks;
+
+    ASSOCIATION DeltaType_DocLinks =
+      DeltaType -- {1} DeltaTypes;
+      DocLink -- {0..*} DocLinks;
+    END DeltaType_DocLinks;
+
+    !! Delta_Point
+    !! -----------------------------------------------
+    CLASS Delta_Point =
+      Geom_Index : MANDATORY 0 .. 99999;
+      Geom_TID_OldValue : INTERLIS.UUIDOID;
+      Geom_TID_NewValue : INTERLIS.UUIDOID;
+      Geom_AttributeID : INTERLIS.UUIDOID;
+      Geometrie : MANDATORY LKoord;
+    END Delta_Point;
+
+    ASSOCIATION DeltaType_Point =
+      DeltaType -- {1} DeltaTypes;
+      Point -- {0..*} Delta_Point;
+    END DeltaType_Point;
+
+    !! Delta_Polyline
+    !! -----------------------------------------------
+    CLASS Delta_Polyline =
+      Geom_Index : MANDATORY 0 .. 99999;
+      Geom_TID_OldValue : INTERLIS.UUIDOID;
+      Geom_TID_NewValue : INTERLIS.UUIDOID;
+      Geom_AttributeID : INTERLIS.UUIDOID;
+      Geom_Size : MANDATORY TEXT*256;
+      Geometrie : MANDATORY Polyline;
+    END Delta_Polyline;
+
+    ASSOCIATION DeltaType_Polyline =
+      DeltaType -- {1} DeltaTypes;
+      Polyline -- {0..*} Delta_Polyline;
+    END DeltaType_Polyline;
+
+    !! Delta_Polygon
+    !! -----------------------------------------------
+    CLASS Delta_Polygon =
+      Geom_Index : MANDATORY 0 .. 99999;
+      Geom_TID_OldValue : INTERLIS.UUIDOID;
+      Geom_TID_NewValue : INTERLIS.UUIDOID;
+      Geom_AttributeID : INTERLIS.UUIDOID;
+      Geom_Size : MANDATORY TEXT*256;
+      Geometrie : MANDATORY Surface;
+    END Delta_Polygon;
+
+    ASSOCIATION DeltaType_Polygon =
+      DeltaType -- {1} DeltaTypes;
+      Polygon -- {0..*} Delta_Polygon;
+    END DeltaType_Polygon;
+
+    !! Translations for various attributes
+    !! -----------------------------------------------
+    CLASS Translations =
+      ReferenceValue : MANDATORY TEXT*256;
+      Text_DE : MANDATORY TEXT*256;
+      Text_FR : MANDATORY TEXT*256;
+      Theme_DE : TEXT*256;
+      Theme_FR : TEXT*256;
+    UNIQUE ReferenceValue;
+    END Translations;
+
+ END DeltaObjects; 
+
+END Nutzungsplanung_BE_V2_0_Metainfo.
