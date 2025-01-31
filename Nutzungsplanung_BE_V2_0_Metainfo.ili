@@ -195,16 +195,16 @@ MODEL Nutzungsplanung_BE_V2_Test03_Metainfo
       Polygon -- {0..*} Delta_Polygon;
     END DeltaType_Polygon;
 
-    !! Translations for various attributes
+    !! Dictionary with speaking texts for various attribute values
     !! -----------------------------------------------
-    CLASS Translations =
+    CLASS Dictionary =
       ReferenceValue : MANDATORY TEXT*256;
       Text_DE : MANDATORY TEXT*256;
       Text_FR : MANDATORY TEXT*256;
       Theme_DE : TEXT*256;
       Theme_FR : TEXT*256;
     UNIQUE ReferenceValue;
-    END Translations;
+    END Dictionary;
 
  END DeltaObjects; 
 
