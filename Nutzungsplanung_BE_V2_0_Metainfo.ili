@@ -79,11 +79,11 @@ MODEL Nutzungsplanung_BE_V2_Test03_Metainfo
     !! DeltaBusiness
     !! -----------------------------------------------
     CLASS DeltaBusiness =
-      Business_TID : MANDATORY INTERLIS.UUIDOID;
+      Business_TID : MANDATORY TEXT*36;
 	    Business_Number : MANDATORY TEXT*256;
       Business_Title : MANDATORY TEXT*256;
-      BasketId_BeforeChange : MANDATORY INTERLIS.UUIDOID;
-      BasketId_AfterChange : MANDATORY INTERLIS.UUIDOID;
+      BasketId_BeforeChange : MANDATORY TEXT*36;
+      BasketId_AfterChange : MANDATORY TEXT*36;
       creation_date : MANDATORY Date;
       creation_time : MANDATORY Time;
     END DeltaBusiness;
@@ -98,7 +98,7 @@ MODEL Nutzungsplanung_BE_V2_Test03_Metainfo
       Object_ChangeLevel_Existence : MANDATORY (ToApprove,ToCheck,ToLog,None);
       Object_ChangeLevel_Attributes : MANDATORY (ToApprove,ToCheck,ToLog,None);
       Object_ChangeLevel_DocLinks : MANDATORY (ToApprove,ToCheck,ToLog,None);
-      Object_TID : MANDATORY INTERLIS.UUIDOID;
+      Object_TID : MANDATORY TEXT*36;
       Object_Theme : MANDATORY TEXT*256;
 	    Object_Liability : MANDATORY TEXT*256;
       Object_Name : MANDATORY TEXT*500;
@@ -120,7 +120,7 @@ MODEL Nutzungsplanung_BE_V2_Test03_Metainfo
       Attribute_Name_FR : MANDATORY TEXT*256;
       Attribute_OldValue : TEXT*500;
       Attribute_NewValue : TEXT*500;
-      Geom_AttributeID : INTERLIS.UUIDOID; !! Frage: Als UUIDOID oder als TEXT*256 modellieren?
+      Geom_AttributeID : TEXT*36;
     END DeltaAttributes;
 
     ASSOCIATION DeltaType_DeltaAttributes =
@@ -135,7 +135,7 @@ MODEL Nutzungsplanung_BE_V2_Test03_Metainfo
       DocLink_Display : MANDATORY (public,internal,expert);
 	    DocLink_ChangeType : MANDATORY (added_link,deleted_link,unchanged);
       DocLink_ChangeLevel : MANDATORY (ToApprove,ToCheck,ToLog,None);
-      LinkedDoc_TID : MANDATORY INTERLIS.UUIDOID;
+      LinkedDoc_TID : MANDATORY TEXT*36;
       LinkedDoc_Liability : MANDATORY TEXT*256;
 	    LinkedDoc_Title : MANDATORY TEXT*500;
 	    LinkedDoc_FileName : MANDATORY TEXT*500;
@@ -152,9 +152,9 @@ MODEL Nutzungsplanung_BE_V2_Test03_Metainfo
     !! -----------------------------------------------
     CLASS Delta_Point =
       Geom_Index : MANDATORY 0 .. 99999;
-      Geom_TID_OldValue : INTERLIS.UUIDOID;
-      Geom_TID_NewValue : INTERLIS.UUIDOID;
-      Geom_AttributeID : INTERLIS.UUIDOID;
+      Geom_TID_OldValue : TEXT*36;
+      Geom_TID_NewValue : TEXT*36;
+      Geom_AttributeID : TEXT*36;
       Geometrie : MANDATORY LKoord;
     END Delta_Point;
 
@@ -167,9 +167,9 @@ MODEL Nutzungsplanung_BE_V2_Test03_Metainfo
     !! -----------------------------------------------
     CLASS Delta_Polyline =
       Geom_Index : MANDATORY 0 .. 99999;
-      Geom_TID_OldValue : INTERLIS.UUIDOID;
-      Geom_TID_NewValue : INTERLIS.UUIDOID;
-      Geom_AttributeID : INTERLIS.UUIDOID;
+      Geom_TID_OldValue : TEXT*36;
+      Geom_TID_NewValue : TEXT*36;
+      Geom_AttributeID : TEXT*36;
       Geom_Size : MANDATORY TEXT*256;
       Geometrie : MANDATORY Polyline;
     END Delta_Polyline;
@@ -183,9 +183,9 @@ MODEL Nutzungsplanung_BE_V2_Test03_Metainfo
     !! -----------------------------------------------
     CLASS Delta_Polygon =
       Geom_Index : MANDATORY 0 .. 99999;
-      Geom_TID_OldValue : INTERLIS.UUIDOID;
-      Geom_TID_NewValue : INTERLIS.UUIDOID;
-      Geom_AttributeID : INTERLIS.UUIDOID;
+      Geom_TID_OldValue : TEXT*36;
+      Geom_TID_NewValue : TEXT*36;
+      Geom_AttributeID : TEXT*36;
       Geom_Size : MANDATORY TEXT*256;
       Geometrie : MANDATORY Surface;
     END Delta_Polygon;
