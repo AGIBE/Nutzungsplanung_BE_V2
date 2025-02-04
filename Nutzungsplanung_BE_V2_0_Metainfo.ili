@@ -33,28 +33,30 @@ MODEL Nutzungsplanung_BE_V2_Test03_Metainfo
   OID AS INTERLIS.UUIDOID;
 
     !! Kantonale Geschäftsinformationen
+    !! Informations cantonales sur les projet d'aménagement
     !! -----------------------------------------------
     CLASS Dossier_cantonal =
+      DossierNr : TEXT*256          !! (z.B. Axioma-Nr. oder ePlan-Geschäftsnummer)
       Title : TEXT*256;
-      AxiomaNr : TEXT*256;
       Process_step : TEXT*256;      !! (Voranfrage, Vorprüfung, Öffentliche Auflage, Genehmigung, etc.)
       Process_type : TEXT*256;      !! (Ordentliches Verfahren, Geringfügiges Verfahren, etc.)
-      Process_status : TEXT*256;    !! (open,closed,blocked)
+      Process_status : TEXT*256;    !! (open,closed,blocked) => nur falls es sowas gibt
       ResolutionCommittee: TEXT*256;
       Date_ResolutionCommittee : Date;
       Date_resolution : Date;
       Date_approved : Date;
       Date_inForce : Date;
-      TID_DossierCommunal : INTERLIS.UUIDOID;
-      BID_NplBE_old : INTERLIS.UUIDOID;
-      BID_NplBE_new : INTERLIS.UUIDOID;
-      BID_DeltaObjects : INTERLIS.UUIDOID;
+      TID_ActiveBusiness : TEXT*36;     !! (Aktives_Geschaeft)
+      BasketId_BeforeChange : TEXT*36;
+      BasketId_AfterChange : TEXT*36;
+      BasketId_DeltaObjects : TEXT*36;  !! => nur falls einfach möglich. Ansonsten findet man auch vom Delta aus den Weg zum Geschäft.
       creation_date : Date;
       creation_time : Time;
-      last_update : Date;
+      last_update : Date;               !! => nur falls sinnvoll.
     END Dossier_cantonal;
 
     !! Geschäftsdokumente
+    !! Documents du projet d'aménamgement
     !! -----------------------------------------------    
     CLASS DossierDocument =
       Doc_title : MANDATORY TEXT*256;
