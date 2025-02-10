@@ -1,0 +1,1238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Fiktive Testdaten zum Datenmodell Nutzungsplanung_BE_V2_Test03 -->
+
+<TRANSFER xmlns="http://www.interlis.ch/INTERLIS2.3">
+    <HEADERSECTION SENDER="AGR Kanton Bern" VERSION="2.3">
+        <MODELS>
+            <MODEL NAME="Nutzungsplanung_BE_V2_Test03" VERSION="2025-01-23" URI="http://models.geo.be.ch/Grundlagen_und_Planung/Raumplanung_Grundstueckskataster/"/>
+        </MODELS>
+    </HEADERSECTION>
+	<DATASECTION>
+		<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung BID="f9fff5ec-eb43-4725-9e0d-b2d1991bc117">
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.AD_Datensatz TID="9a717257-d148-4277-aa1f-0df737711180">
+				<Planungsbehoerde>301</Planungsbehoerde>
+				<Sprache>de</Sprache>
+				<Aktives_Geschaeft REF="c230dac5-2372-40c6-aaf1-2efef15a3944"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.AD_Datensatz>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.AD_Planungsgeschaeft TID="334a102b-f56f-4a22-90cf-8cfcf336ca30">
+				<Geschaeft_Nummer>301_2026_001</Geschaeft_Nummer>
+				<Geschaeft_Titel>Einführung ePlan</Geschaeft_Titel>
+				<Geschaeft_ErstelltAm>2026-01-01</Geschaeft_ErstelltAm>
+				<Ortsplanungsrevision>false</Ortsplanungsrevision>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.AD_Planungsgeschaeft>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.AD_Planungsgeschaeft TID="c230dac5-2372-40c6-aaf1-2efef15a3944">
+				<Geschaeft_Nummer>301_2026_002</Geschaeft_Nummer>
+				<Geschaeft_Titel>Änderung Baureglement</Geschaeft_Titel>
+				<Geschaeft_ErstelltAm>2026-07-01</Geschaeft_ErstelltAm>
+				<Ortsplanungsrevision>false</Ortsplanungsrevision>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.AD_Planungsgeschaeft>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.AD_Datenperimeter TID="ea9f95b2-3800-45ec-b81f-c7dbb94c5a7f">
+				<Perimeter_Name>Gemeinde Muster an der Aare</Perimeter_Name>
+				<Perimeter_Zeitstand>2026-01-01</Perimeter_Zeitstand>
+				<Geometrie>
+					<SURFACE>
+						<BOUNDARY>
+							<POLYLINE>
+								<COORD>
+									<C1>2600010.0</C1>
+									<C2>1200030.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600010.0</C1>
+									<C2>1200040.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200040.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200030.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200020.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200010.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200000.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600010.0</C1>
+									<C2>1200000.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600010.0</C1>
+									<C2>1200010.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600010.0</C1>
+									<C2>1200020.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600010.0</C1>
+									<C2>1200030.0</C2>
+								</COORD>
+							</POLYLINE>
+						</BOUNDARY>
+					</SURFACE>
+				</Geometrie>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.AD_Datenperimeter>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.AD_Geoservice TID="b4ee57d1-db2c-4fe8-888f-d5d1968c39a4">
+				<Geoservice_Name>Kantonale Richtpläne (WMS)</Geoservice_Name>
+				<Geoservice_URL>https://www.geoservice.apps.be.ch/geoservice3/services/a42geo/of_planningcadastre03_de_ms_wms/MapServer/WMSServer?</Geoservice_URL>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.AD_Geoservice>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.AD_Amt TID="ac16fb03-a846-4c13-b519-fe1e1e3c28c2">
+				<Name>Gemeinde Muster an der Aare</Name>
+				<UID>CHE-114.809.379</UID>
+				<AmtImWeb>https://www.muster.ch</AmtImWeb>
+				<Zusatz_Attribute>
+					<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.CustomAttribute>
+						<AttributeName>Adresse</AttributeName>
+						<AttributeValue>Musterweg 123</AttributeValue>
+					</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.CustomAttribute>
+					<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.CustomAttribute>
+						<AttributeName>Telefonnummer</AttributeName>
+						<AttributeValue>123 456 78 90</AttributeValue>
+					</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.CustomAttribute>
+				</Zusatz_Attribute>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.AD_Amt>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.AD_Amt TID="82aab446-9dc3-40df-90d8-ccfa7d8aba96">
+				<Name>Amt für Wald und Naturgefahren des Kantons Bern</Name>
+				<UID>CHE-108.957.267</UID>
+				<AmtImWeb>https://www.be.ch/awn</AmtImWeb>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.AD_Amt>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.DO_Dokument TID="69471826-1027-46cf-a7ca-12f64d1f1d81">
+				<Titel>Baureglement</Titel>
+				<Abkuerzung>BauR</Abkuerzung>
+				<PDF_Dateiname>Baureglement.pdf</PDF_Dateiname>
+				<Dokumentart>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Dokumentart_CatalogueReference>
+						<Reference REF="dokumentart.1"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Dokumentart_CatalogueReference>
+				</Dokumentart>
+				<Dokumentverbindlichkeit>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Dokumentverbindlichkeit_CatalogueReference>
+						<Reference REF="dokumentverbindlichkeit.1"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Dokumentverbindlichkeit_CatalogueReference>
+				</Dokumentverbindlichkeit>
+				<Planungsgeschaeft REF="334a102b-f56f-4a22-90cf-8cfcf336ca30"/>
+				<ZustaendigeStelle REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.DO_Dokument>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.DO_Dokument TID="ab2927a9-35e4-4c91-9d97-136d646b1906">
+				<Titel>Überbauungsordnung 1 "Nord" (Vorschrift)</Titel>
+				<Abkuerzung>UeV 1</Abkuerzung>
+				<PDF_Dateiname>UEO_1_Vorschrift.pdf</PDF_Dateiname>
+				<Dokumentart>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Dokumentart_CatalogueReference>
+						<Reference REF="dokumentart.2"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Dokumentart_CatalogueReference>
+				</Dokumentart>
+				<Dokumentverbindlichkeit>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Dokumentverbindlichkeit_CatalogueReference>
+						<Reference REF="dokumentverbindlichkeit.1"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Dokumentverbindlichkeit_CatalogueReference>
+				</Dokumentverbindlichkeit>
+				<Planungsgeschaeft REF="334a102b-f56f-4a22-90cf-8cfcf336ca30"/>
+				<ZustaendigeStelle REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.DO_Dokument>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.DO_Dokument TID="6524629b-34c9-4384-bbdb-2578506a5250">
+				<Titel>Erläuterungsbericht</Titel>
+				<PDF_Dateiname>Erlaeuterungsbericht.pdf</PDF_Dateiname>
+				<Dokumentart>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Dokumentart_CatalogueReference>
+						<Reference REF="dokumentart.99"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Dokumentart_CatalogueReference>
+				</Dokumentart>
+				<Dokumentverbindlichkeit>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Dokumentverbindlichkeit_CatalogueReference>
+						<Reference REF="dokumentverbindlichkeit.2"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Dokumentverbindlichkeit_CatalogueReference>
+				</Dokumentverbindlichkeit>
+				<ZustaendigeStelle REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.DO_Dokument>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.DO_Dokument TID="6524629b-34c9-4384-bbdb-2578506a5251">
+				<Titel>Testdokument (löschen)</Titel>
+				<PDF_Dateiname>Testdokument.pdf</PDF_Dateiname>
+				<Dokumentart>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Dokumentart_CatalogueReference>
+						<Reference REF="dokumentart.1"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Dokumentart_CatalogueReference>
+				</Dokumentart>
+				<Dokumentverbindlichkeit>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Dokumentverbindlichkeit_CatalogueReference>
+						<Reference REF="dokumentverbindlichkeit.1"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Dokumentverbindlichkeit_CatalogueReference>
+				</Dokumentverbindlichkeit>
+				<Planungsgeschaeft REF="334a102b-f56f-4a22-90cf-8cfcf336ca30"/>
+				<ZustaendigeStelle REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.DO_Dokument>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.DO_WeitereDokumente TID="9b23b484-5936-4b5b-a53b-9d97d95095c2">
+				<Dokument REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
+				<WeiteresDokument REF="6524629b-34c9-4384-bbdb-2578506a5250"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.DO_WeitereDokumente>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.DO_DokumentRevision TID="84e6d1c4-2651-4f5d-8352-7d85b3272d89">
+				<Titel>Baureglement - Änderung Nr. 1</Titel>
+				<Abkuerzung>BauR A1</Abkuerzung>
+				<PDF_Dateiname>Baureglement_A1.pdf</PDF_Dateiname>
+				<Erstversion REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
+				<Planungsgeschaeft REF="c230dac5-2372-40c6-aaf1-2efef15a3944"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.DO_DokumentRevision>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.GN_Typ TID="66a93d45-bc8f-45a4-a281-7a5ce3b2de86">
+				<Bezeichnung>Landwirtschaftszone</Bezeichnung>
+				<Abkuerzung>LWZ</Abkuerzung>
+				<Darstellungscode>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+						<Reference REF="standard"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+				</Darstellungscode>
+				<KantArt>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.GN_KantArt_CatalogueReference>
+						<Reference REF="gn_kantart.27"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.GN_KantArt_CatalogueReference>
+				</KantArt>
+				<Verbindlichkeit>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+						<Reference REF="verbindlichkeit.1"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+				</Verbindlichkeit>
+				<ZustaendigeStelle REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.GN_Typ>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.GN_RV TID="0e5c18c2-8c92-4664-91c8-89ec1feb0a85">
+				<Vorschrift REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
+				<Typ REF="66a93d45-bc8f-45a4-a281-7a5ce3b2de86"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.GN_RV>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.GN_Flaeche TID="0f1e875f-82b4-48b1-b7ff-b851f7318f2d">
+				<Geometrie>
+					<SURFACE>
+						<BOUNDARY>
+							<POLYLINE>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200000.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600010.0</C1>
+									<C2>1200000.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600010.0</C1>
+									<C2>1200010.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200010.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200000.0</C2>
+								</COORD>
+							</POLYLINE>
+						</BOUNDARY>
+					</SURFACE>
+				</Geometrie>
+				<Typ REF="a925bec1-6368-43e4-a404-44a9fdf83e9a"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.GN_Flaeche>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.GN_Typ TID="3cb8fdfa-0bdd-4d5c-94bc-b62234a782f7">
+				<Bezeichnung>Zone für öffentliche Nutzung Nr. X</Bezeichnung>
+				<Abkuerzung>ZöN X</Abkuerzung>
+				<Kategorie>ZöN</Kategorie>
+				<Darstellungscode>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+						<Reference REF="standard"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+				</Darstellungscode>
+				<KantArt>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.GN_KantArt_CatalogueReference>
+						<Reference REF="gn_kantart.22"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.GN_KantArt_CatalogueReference>
+				</KantArt>
+				<Verbindlichkeit>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+						<Reference REF="verbindlichkeit.1"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+				</Verbindlichkeit>
+				<ZustaendigeStelle REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.GN_Typ>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.GN_RV TID="c554278b-4c06-49c0-927f-4a4d1427ec49">
+				<Vorschrift REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
+				<Typ REF="3cb8fdfa-0bdd-4d5c-94bc-b62234a782f7"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.GN_RV>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.GN_Flaeche TID="bf3a09e8-15bf-43be-9cea-ba9297ae596e">
+				<Label>10</Label>
+				<Geometrie>
+					<SURFACE>
+						<BOUNDARY>
+							<POLYLINE>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200010.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600010.0</C1>
+									<C2>1200010.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600010.0</C1>
+									<C2>1200020.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200020.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200010.0</C2>
+								</COORD>
+							</POLYLINE>
+						</BOUNDARY>
+					</SURFACE>
+				</Geometrie>
+				<Typ REF="3cb8fdfa-0bdd-4d5c-94bc-b62234a782f7"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.GN_Flaeche>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.GN_Typ TID="a925bec1-6368-43e4-a404-44a9fdf83e9a">
+				<Bezeichnung>Zone für öffentliche Nutzung Nr. XII</Bezeichnung>
+				<Abkuerzung>ZöN XII</Abkuerzung>
+				<Kategorie>ZöN</Kategorie>
+				<Darstellungscode>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+						<Reference REF="standard"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+				</Darstellungscode>
+				<KantArt>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.GN_KantArt_CatalogueReference>
+						<Reference REF="gn_kantart.22"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.GN_KantArt_CatalogueReference>
+				</KantArt>
+				<Verbindlichkeit>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+						<Reference REF="verbindlichkeit.1"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+				</Verbindlichkeit>
+				<ZustaendigeStelle REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.GN_Typ>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.GN_RV TID="22bc089a-2058-42eb-8cc6-1455085f7a88">
+				<Vorschrift REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
+				<Typ REF="a925bec1-6368-43e4-a404-44a9fdf83e9a"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.GN_RV>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.GN_Flaeche TID="d0e783db-1156-4998-be93-353cc74bdeed">
+				<Label>XII</Label>
+				<Geometrie>
+					<SURFACE>
+						<BOUNDARY>
+							<POLYLINE>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200020.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600010.0</C1>
+									<C2>1200020.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600010.0</C1>
+									<C2>1200030.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200030.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200020.0</C2>
+								</COORD>
+							</POLYLINE>
+						</BOUNDARY>
+					</SURFACE>
+				</Geometrie>
+				<Typ REF="a925bec1-6368-43e4-a404-44a9fdf83e9a"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.GN_Flaeche>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.GN_Typ TID="fd733b24-f0fc-470f-bb4c-2935a16ebf1e">
+				<Bezeichnung>Überbauungsordnung 1 "Nord"</Bezeichnung>
+				<Abkuerzung>UeO 1</Abkuerzung>
+				<Darstellungscode>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+						<Reference REF="standard"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+				</Darstellungscode>
+				<KantArt>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.GN_KantArt_CatalogueReference>
+						<Reference REF="gn_kantart.31"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.GN_KantArt_CatalogueReference>
+				</KantArt>
+				<Verbindlichkeit>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+						<Reference REF="verbindlichkeit.1"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+				</Verbindlichkeit>
+				<ZustaendigeStelle REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.GN_Typ>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.GN_RV TID="41ea4a03-c1cd-4bf1-bbda-1153914e3409">
+				<Vorschrift REF="ab2927a9-35e4-4c91-9d97-136d646b1906"/>
+				<Typ REF="fd733b24-f0fc-470f-bb4c-2935a16ebf1e"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.GN_RV>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.GN_Flaeche TID="bd7c1c70-e540-45ed-ab74-b03a3c5b1a6d">
+				<Label>1</Label>
+				<Geometrie>
+					<SURFACE>
+						<BOUNDARY>
+							<POLYLINE>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200030.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600010.0</C1>
+									<C2>1200030.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600010.0</C1>
+									<C2>1200040.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200040.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200030.0</C2>
+								</COORD>
+							</POLYLINE>
+						</BOUNDARY>
+					</SURFACE>
+				</Geometrie>
+				<Typ REF="fd733b24-f0fc-470f-bb4c-2935a16ebf1e"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.GN_Flaeche>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.IN_Typ TID="0c9fcfd4-ce3f-4c3d-864f-ec99f61d6fa4">
+				<Bezeichnung>Wohnzone 1</Bezeichnung>
+				<Abkuerzung>W1</Abkuerzung>
+				<Darstellungscode>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+						<Reference REF="standard"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+				</Darstellungscode>
+				<KantArt>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.IN_KantArt_CatalogueReference>
+						<Reference REF="in_kantart.1"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.IN_KantArt_CatalogueReference>
+				</KantArt>
+				<Verbindlichkeit>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+						<Reference REF="verbindlichkeit.3"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+				</Verbindlichkeit>
+				<ZustaendigeStelle REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.IN_Typ>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.IN_RV TID="6a4e32d5-5422-4143-be7c-bf8cc5036eeb">
+				<Vorschrift REF="ab2927a9-35e4-4c91-9d97-136d646b1906"/>
+				<Typ REF="0c9fcfd4-ce3f-4c3d-864f-ec99f61d6fa4"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.IN_RV>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.IN_Flaeche TID="c96a1a4c-99f9-47e1-956d-dc176765acde">
+				<Geometrie>
+					<SURFACE>
+						<BOUNDARY>
+							<POLYLINE>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200030.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600010.0</C1>
+									<C2>1200030.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600010.0</C1>
+									<C2>1200040.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200040.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200030.0</C2>
+								</COORD>
+							</POLYLINE>
+						</BOUNDARY>
+					</SURFACE>
+				</Geometrie>
+				<Typ REF="0c9fcfd4-ce3f-4c3d-864f-ec99f61d6fa4"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.IN_Flaeche>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_Typ TID="6ca04d5f-42ce-4167-92ff-70236de5406e">
+				<Bezeichnung>Zone für öffentliche Nutzung Nr. X - Sektor A</Bezeichnung>
+				<Abkuerzung>ZöN Xa</Abkuerzung>
+				<Darstellungscode>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+						<Reference REF="standard"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+				</Darstellungscode>
+				<KantArt>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
+						<Reference REF="ue_kantart.202"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
+				</KantArt>
+				<Verbindlichkeit>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+						<Reference REF="verbindlichkeit.1"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+				</Verbindlichkeit>
+				<ZustaendigeStelle REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_Typ>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_RV TID="6e48cd20-0f14-4260-b754-7088af3527a6">
+				<Vorschrift REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
+				<Typ REF="6ca04d5f-42ce-4167-92ff-70236de5406e"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_RV>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_Flaeche TID="d3af9443-f3df-46e3-bd5a-39283ba7e29b">
+				<Label>A</Label>
+				<Geometrie>
+					<SURFACE>
+						<BOUNDARY>
+							<POLYLINE>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200010.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600010.0</C1>
+									<C2>1200010.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600010.0</C1>
+									<C2>1200015.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200015.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200010.0</C2>
+								</COORD>
+							</POLYLINE>
+						</BOUNDARY>
+					</SURFACE>
+				</Geometrie>
+				<Typ REF="6ca04d5f-42ce-4167-92ff-70236de5406e"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_Flaeche>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_Typ TID="91421931-72cb-4727-9e25-016f81640efe">
+				<Bezeichnung>Zone für öffentliche Nutzung Nr. X (Sektor B)</Bezeichnung>
+				<Abkuerzung>ZöN Xb</Abkuerzung>
+				<Darstellungscode>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+						<Reference REF="standard"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+				</Darstellungscode>
+				<KantArt>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
+						<Reference REF="ue_kantart.201"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
+				</KantArt>
+				<Verbindlichkeit>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+						<Reference REF="verbindlichkeit.1"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+				</Verbindlichkeit>
+				<ZustaendigeStelle REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_Typ>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_RV TID="894944f2-7d90-4e54-be2d-50a4d517489b">
+				<Vorschrift REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
+				<Typ REF="91421931-72cb-4727-9e25-016f81640efe"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_RV>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_Flaeche TID="1b9e6c5d-31cd-4a3f-8032-76c762ed0ff6">
+				<Label>B</Label>
+				<Geometrie>
+					<SURFACE>
+						<BOUNDARY>
+							<POLYLINE>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200015.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600010.0</C1>
+									<C2>1200015.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600010.0</C1>
+									<C2>1200020.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200020.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200015.0</C2>
+								</COORD>
+							</POLYLINE>
+						</BOUNDARY>
+					</SURFACE>
+				</Geometrie>
+				<Typ REF="91421931-72cb-4727-9e25-016f81640efe"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_Flaeche>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.ES_Typ TID="94abeaaa-4ee5-4539-bfa7-2be89e33782b">
+				<Bezeichnung>Lärmempfindlichkeitsstufe II</Bezeichnung>
+				<Abkuerzung>ES II</Abkuerzung>
+				<Darstellungscode>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+						<Reference REF="standard"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+				</Darstellungscode>
+				<KantArt>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.ES_KantArt_CatalogueReference>
+						<Reference REF="es_kantart.3"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.ES_KantArt_CatalogueReference>
+				</KantArt>
+				<Verbindlichkeit>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+						<Reference REF="verbindlichkeit.2"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+				</Verbindlichkeit>
+				<ZustaendigeStelle REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.ES_Typ>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.ES_RV TID="7af1a571-9ccc-4fb5-b8d5-d25989d00b2b">
+				<Vorschrift REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
+				<Typ REF="94abeaaa-4ee5-4539-bfa7-2be89e33782b"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.ES_RV>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.ES_Flaeche TID="0d70c963-5122-42b9-9c93-9bba98926c1d">
+				<Geometrie>
+					<SURFACE>
+						<BOUNDARY>
+							<POLYLINE>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200010.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600010.0</C1>
+									<C2>1200010.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600010.0</C1>
+									<C2>1200020.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200020.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200010.0</C2>
+								</COORD>
+							</POLYLINE>
+						</BOUNDARY>
+					</SURFACE>
+				</Geometrie>
+				<Typ REF="94abeaaa-4ee5-4539-bfa7-2be89e33782b"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.ES_Flaeche>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.GG_Typ TID="692c747e-82a6-4e2a-915d-51b5ced42513">
+				<Bezeichnung>Erhebliche Gefährdung</Bezeichnung>
+				<Darstellungscode>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+						<Reference REF="standard"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+				</Darstellungscode>
+				<KantArt>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.GG_KantArt_CatalogueReference>
+						<Reference REF="gg_kantart.1"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.GG_KantArt_CatalogueReference>
+				</KantArt>
+				<Verbindlichkeit>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+						<Reference REF="verbindlichkeit.1"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+				</Verbindlichkeit>
+				<ZustaendigeStelle REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.GG_Typ>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.GG_RV TID="5afb423c-07f9-44ad-87c4-4544494a0193">
+				<Vorschrift REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
+				<Typ REF="692c747e-82a6-4e2a-915d-51b5ced42513"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.GG_RV>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.GG_Flaeche TID="06f418bb-440a-46e9-b70b-0994c1cbbaf2">
+				<Geometrie>
+					<SURFACE>
+						<BOUNDARY>
+							<POLYLINE>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200000.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600010.0</C1>
+									<C2>1200000.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600010.0</C1>
+									<C2>1200010.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200010.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200000.0</C2>
+								</COORD>
+							</POLYLINE>
+						</BOUNDARY>
+					</SURFACE>
+				</Geometrie>
+				<Typ REF="692c747e-82a6-4e2a-915d-51b5ced42513"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.GG_Flaeche>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.GR_Typ TID="586392da-d7d4-474b-aedd-fff9ca392308">
+				<Bezeichnung>Gewässerraum</Bezeichnung>
+				<Darstellungscode>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+						<Reference REF="standard"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+				</Darstellungscode>
+				<KantArt>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.GR_KantArt_CatalogueReference>
+						<Reference REF="gr_kantart.1"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.GR_KantArt_CatalogueReference>
+				</KantArt>
+				<Verbindlichkeit>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+						<Reference REF="verbindlichkeit.1"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+				</Verbindlichkeit>
+				<ZustaendigeStelle REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.GR_Typ>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.GR_RV TID="45a91c93-7c06-4085-896f-aaa14cf1b7a5">
+				<Vorschrift REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
+				<Typ REF="586392da-d7d4-474b-aedd-fff9ca392308"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.GR_RV>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.GR_Flaeche TID="b8357f52-1f84-4f80-8fed-892b93885552">
+				<Geometrie>
+					<SURFACE>
+						<BOUNDARY>
+							<POLYLINE>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200000.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600010.0</C1>
+									<C2>1200000.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600010.0</C1>
+									<C2>1200010.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200010.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200000.0</C2>
+								</COORD>
+							</POLYLINE>
+						</BOUNDARY>
+					</SURFACE>
+				</Geometrie>
+				<Typ REF="586392da-d7d4-474b-aedd-fff9ca392308"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.GR_Flaeche>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_Typ TID="edcb1dbb-83ed-457e-bef0-fc992eaf4ec6">
+				<Bezeichnung>Besondere Lärmquelle</Bezeichnung>
+				<Darstellungscode>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+						<Reference REF="standard"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+				</Darstellungscode>
+				<KantArt>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
+						<Reference REF="ue_kantart.108"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
+				</KantArt>
+				<Verbindlichkeit>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+						<Reference REF="verbindlichkeit.1"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+				</Verbindlichkeit>
+				<ZustaendigeStelle REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_Typ>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_RV TID="cb88d575-48b2-4bd2-9dbf-2b2346cd44e3">
+				<Vorschrift REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
+				<Typ REF="edcb1dbb-83ed-457e-bef0-fc992eaf4ec6"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_RV>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_Punkt TID="9276b3b4-ee7e-440d-9063-4b48692b4963">
+				<Geometrie>
+					<COORD>
+						<C1>2600005.0</C1>
+						<C2>1200005.0</C2>
+					</COORD>
+				</Geometrie>
+				<Typ REF="edcb1dbb-83ed-457e-bef0-fc992eaf4ec6"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_Punkt>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_Typ TID="d1588f50-0199-47c2-92c9-621628143acb">
+				<Bezeichnung>Besondere Gefahrenquelle</Bezeichnung>
+				<Darstellungscode>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+						<Reference REF="standard"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+				</Darstellungscode>
+				<KantArt>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
+						<Reference REF="ue_kantart.107"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
+				</KantArt>
+				<Verbindlichkeit>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+						<Reference REF="verbindlichkeit.1"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+				</Verbindlichkeit>
+				<ZustaendigeStelle REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_Typ>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_RV TID="53f400ea-253d-4520-9846-5316f2f67b0d">
+				<Vorschrift REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
+				<Typ REF="d1588f50-0199-47c2-92c9-621628143acb"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_RV>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_Punkt TID="152d3561-63a5-4348-9813-912d0662602e">
+				<Geometrie>
+					<COORD>
+						<C1>2600005.0</C1>
+						<C2>1200015.0</C2>
+					</COORD>
+				</Geometrie>
+				<Typ REF="d1588f50-0199-47c2-92c9-621628143acb"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_Punkt>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_Typ TID="2e73c259-81d5-42df-915a-c55c8ec03233">
+				<Bezeichnung>Lärmschutzmauer</Bezeichnung>
+				<Darstellungscode>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+						<Reference REF="standard"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+				</Darstellungscode>
+				<KantArt>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
+						<Reference REF="ue_kantart.106"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
+				</KantArt>
+				<Verbindlichkeit>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+						<Reference REF="verbindlichkeit.1"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+				</Verbindlichkeit>
+				<ZustaendigeStelle REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_Typ>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_RV TID="9c9ebccc-bc1b-47d4-8f10-1a76977cb6a3">
+				<Vorschrift REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
+				<Typ REF="2e73c259-81d5-42df-915a-c55c8ec03233"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_RV>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_Linie TID="208e0af5-500b-4e92-bbc3-580a34fe396a">
+				<Geometrie>
+					<POLYLINE>
+						<COORD>
+							<C1>2600000.0</C1>
+							<C2>1200010.0</C2>
+						</COORD>
+						<COORD>
+							<C1>2600010.0</C1>
+							<C2>1200000.0</C2>
+						</COORD>
+					</POLYLINE>
+				</Geometrie>
+				<Typ REF="2e73c259-81d5-42df-915a-c55c8ec03233"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_Linie>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_Typ TID="9fc4f7c7-592b-4f7e-87c0-157e668986ca">
+				<Bezeichnung>Geschossflächenziffer (GFZo 0.5)</Bezeichnung>
+				<Abkuerzung>GFZo 0.5</Abkuerzung>
+				<Kategorie>Geschossflächenziffer</Kategorie>
+				<Darstellungscode>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+						<Reference REF="standard"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+				</Darstellungscode>
+				<KantArt>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
+						<Reference REF="ue_kantart.1"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
+				</KantArt>
+				<Verbindlichkeit>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+						<Reference REF="verbindlichkeit.1"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+				</Verbindlichkeit>
+				<ZustaendigeStelle REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_Typ>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_RV TID="c181c054-f0c4-4fc4-b6c5-0be32eab91b9">
+				<Vorschrift REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
+				<Typ REF="9fc4f7c7-592b-4f7e-87c0-157e668986ca"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_RV>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_Flaeche TID="9e4c9733-01d5-42d4-812b-6daa922a749e">
+				<Label>GFZo 0.5</Label>
+				<Geometrie>
+					<SURFACE>
+						<BOUNDARY>
+							<POLYLINE>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200010.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600010.0</C1>
+									<C2>1200010.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600010.0</C1>
+									<C2>1200020.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200020.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200010.0</C2>
+								</COORD>
+							</POLYLINE>
+						</BOUNDARY>
+					</SURFACE>
+				</Geometrie>
+				<Typ REF="9fc4f7c7-592b-4f7e-87c0-157e668986ca"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_Flaeche>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_Typ TID="718f9c1e-176b-4f50-b3f0-ed000cfd4013">
+				<Bezeichnung>Geschossflächenziffer (GFZo 0.6)</Bezeichnung>
+				<Abkuerzung>GFZo 0.6</Abkuerzung>
+				<Kategorie>Geschossflächenziffer</Kategorie>
+				<Darstellungscode>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+						<Reference REF="standard"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+				</Darstellungscode>
+				<KantArt>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
+						<Reference REF="ue_kantart.1"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
+				</KantArt>
+				<Verbindlichkeit>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+						<Reference REF="verbindlichkeit.1"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+				</Verbindlichkeit>
+				<ZustaendigeStelle REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_Typ>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_RV TID="c45189f3-e684-4a54-b619-364347ff72c4">
+				<Vorschrift REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
+				<Typ REF="718f9c1e-176b-4f50-b3f0-ed000cfd4013"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_RV>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_Flaeche TID="51777ee1-fee8-435c-905e-72d5fc1bbaad">
+				<Label>GFZo 0.6</Label>
+				<Geometrie>
+					<SURFACE>
+						<BOUNDARY>
+							<POLYLINE>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200020.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600010.0</C1>
+									<C2>1200020.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600010.0</C1>
+									<C2>1200030.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200030.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200020.0</C2>
+								</COORD>
+							</POLYLINE>
+						</BOUNDARY>
+					</SURFACE>
+				</Geometrie>
+				<Typ REF="718f9c1e-176b-4f50-b3f0-ed000cfd4013"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.UE_Flaeche>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.NH_Typ TID="127b10ac-0b8e-4286-aa2c-3cdfc5bb9af7">
+				<Bezeichnung>Einzelbaum</Bezeichnung>
+				<Darstellungscode>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+						<Reference REF="standard"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+				</Darstellungscode>
+				<KantArt>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.NH_KantArt_CatalogueReference>
+						<Reference REF="nh_kantart.51"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.NH_KantArt_CatalogueReference>
+				</KantArt>
+				<Verbindlichkeit>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+						<Reference REF="verbindlichkeit.1"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+				</Verbindlichkeit>
+				<ZustaendigeStelle REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.NH_Typ>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.NH_RV TID="d25dd836-32c3-4242-9355-7fe1d96b1b4a">
+				<Vorschrift REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
+				<Typ REF="127b10ac-0b8e-4286-aa2c-3cdfc5bb9af7"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.NH_RV>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.NH_Punkt TID="92ae1083-5531-46ec-82a1-2a274ee84a45">
+				<Label>E1</Label>
+				<Geometrie>
+					<COORD>
+						<C1>2600005.0</C1>
+						<C2>1200025.0</C2>
+					</COORD>
+				</Geometrie>
+				<Typ REF="127b10ac-0b8e-4286-aa2c-3cdfc5bb9af7"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.NH_Punkt>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.NH_Typ TID="fc3ca8b6-917d-49cb-8255-c1f4733c485f">
+				<Bezeichnung>Trockenmauer</Bezeichnung>
+				<Darstellungscode>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+						<Reference REF="standard"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+				</Darstellungscode>
+				<KantArt>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.NH_KantArt_CatalogueReference>
+						<Reference REF="nh_kantart.35"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.NH_KantArt_CatalogueReference>
+				</KantArt>
+				<Verbindlichkeit>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+						<Reference REF="verbindlichkeit.1"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+				</Verbindlichkeit>
+				<ZustaendigeStelle REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.NH_Typ>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.NH_RV TID="03ab9499-046f-4a31-b2dc-bf23f39e3cf8">
+				<Vorschrift REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
+				<Typ REF="fc3ca8b6-917d-49cb-8255-c1f4733c485f"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.NH_RV>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.NH_Linie TID="f4aba785-302c-4800-a90c-c897946fbf29">
+				<Geometrie>
+					<POLYLINE>
+						<COORD>
+							<C1>2600000.0</C1>
+							<C2>1200030.0</C2>
+						</COORD>
+						<COORD>
+							<C1>2600010.0</C1>
+							<C2>1200040.0</C2>
+						</COORD>
+					</POLYLINE>
+				</Geometrie>
+				<Typ REF="fc3ca8b6-917d-49cb-8255-c1f4733c485f"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.NH_Linie>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.NH_Typ TID="fe7f7d9f-657b-4952-b098-9d0f1870dc58">
+				<Bezeichnung>Landschaftsschutzgebiet</Bezeichnung>
+				<Abkuerzung>LSG</Abkuerzung>
+				<Darstellungscode>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+						<Reference REF="standard"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+				</Darstellungscode>
+				<KantArt>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.NH_KantArt_CatalogueReference>
+						<Reference REF="nh_kantart.1"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.NH_KantArt_CatalogueReference>
+				</KantArt>
+				<Verbindlichkeit>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+						<Reference REF="verbindlichkeit.1"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+				</Verbindlichkeit>
+				<ZustaendigeStelle REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.NH_Typ>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.NH_RV TID="a61d9d8e-1239-4a0b-b74b-6cc2ba8d4f49">
+				<Vorschrift REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
+				<Typ REF="fe7f7d9f-657b-4952-b098-9d0f1870dc58"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.NH_RV>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.NH_Flaeche TID="5c1a5e13-666b-4342-a58b-98459bdd313c">
+				<Geometrie>
+					<SURFACE>
+						<BOUNDARY>
+							<POLYLINE>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200000.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600010.0</C1>
+									<C2>1200000.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200010.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200000.0</C2>
+								</COORD>
+							</POLYLINE>
+						</BOUNDARY>
+					</SURFACE>
+				</Geometrie>
+				<Typ REF="fe7f7d9f-657b-4952-b098-9d0f1870dc58"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.NH_Flaeche>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.BL_Typ TID="af84034d-7094-4cba-9dba-11052d266808">
+				<Bezeichnung>Baulinie</Bezeichnung>
+				<Darstellungscode>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+						<Reference REF="standard"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+				</Darstellungscode>
+				<KantArt>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.BL_KantArt_CatalogueReference>
+						<Reference REF="bl_kantart.1"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.BL_KantArt_CatalogueReference>
+				</KantArt>
+				<Verbindlichkeit>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+						<Reference REF="verbindlichkeit.1"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+				</Verbindlichkeit>
+				<ZustaendigeStelle REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.BL_Typ>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.BL_RV TID="c659eb5e-876d-4c41-aa14-50624ff9ddf3">
+				<Vorschrift REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
+				<Typ REF="af84034d-7094-4cba-9dba-11052d266808"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.BL_RV>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.BL_Linie TID="2d8d0425-529d-4004-bc49-4607ba7afd81">
+				<Geometrie>
+					<POLYLINE>
+						<COORD>
+							<C1>2600000.0</C1>
+							<C2>1200000.0</C2>
+						</COORD>
+						<COORD>
+							<C1>2600010.0</C1>
+							<C2>1200010.0</C2>
+						</COORD>
+						<COORD>
+							<C1>2600020.0</C1>
+							<C2>1200020.0</C2>
+						</COORD>
+					</POLYLINE>
+				</Geometrie>
+				<Typ REF="af84034d-7094-4cba-9dba-11052d266808"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.BL_Linie>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.BL_Typ TID="443d237d-881c-4cba-bf4b-63fef1d3c45c">
+				<Bezeichnung>Baulinie (Wirkungsbereich)</Bezeichnung>
+				<Darstellungscode>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+						<Reference REF="standard"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+				</Darstellungscode>
+				<KantArt>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.BL_KantArt_CatalogueReference>
+						<Reference REF="bl_kantart.11"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.BL_KantArt_CatalogueReference>
+				</KantArt>
+				<Verbindlichkeit>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+						<Reference REF="verbindlichkeit.1"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+				</Verbindlichkeit>
+				<ZustaendigeStelle REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.BL_Typ>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.BL_RV TID="afa982df-9def-4833-9e85-882baac2d489">
+				<Vorschrift REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
+				<Typ REF="443d237d-881c-4cba-bf4b-63fef1d3c45c"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.BL_RV>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.BL_Flaeche TID="e906ac50-b187-4f8a-83e5-084b680adc47">
+				<Geometrie>
+					<SURFACE>
+						<BOUNDARY>
+							<POLYLINE>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200030.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600010.0</C1>
+									<C2>1200030.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600010.0</C1>
+									<C2>1200040.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200040.0</C2>
+								</COORD>
+								<COORD>
+									<C1>2600000.0</C1>
+									<C2>1200030.0</C2>
+								</COORD>
+							</POLYLINE>
+						</BOUNDARY>
+					</SURFACE>
+				</Geometrie>
+				<Typ REF="443d237d-881c-4cba-bf4b-63fef1d3c45c"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.BL_Flaeche>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.WE_Typ TID="e4f0db2f-a1d3-4f02-a00b-41761601197b">
+				<Bezeichnung>Wanderweg</Bezeichnung>
+				<Darstellungscode>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+						<Reference REF="standard"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+				</Darstellungscode>
+				<KantArt>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.WE_KantArt_CatalogueReference>
+						<Reference REF="we_kantart.2"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.WE_KantArt_CatalogueReference>
+				</KantArt>
+				<Verbindlichkeit>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+						<Reference REF="verbindlichkeit.1"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+				</Verbindlichkeit>
+				<ZustaendigeStelle REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.WE_Typ>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.WE_RV TID="627dbc18-8cea-45b4-a1bb-ced36e325b8a">
+				<Vorschrift REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
+				<Typ REF="e4f0db2f-a1d3-4f02-a00b-41761601197b"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.WE_RV>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.WE_RV TID="627dbc18-8cea-45b4-a1bb-ced36e325b8b">
+				<Vorschrift REF="6524629b-34c9-4384-bbdb-2578506a5251"/>
+				<Typ REF="e4f0db2f-a1d3-4f02-a00b-41761601197b"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.WE_RV>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.WE_Linie TID="fd4b75d2-44d0-418a-bacf-e7de6f7abc6f">
+				<Geometrie>
+					<POLYLINE>
+						<COORD>
+							<C1>2600000.0</C1>
+							<C2>1200010.0</C2>
+						</COORD>
+						<COORD>
+							<C1>2600010.0</C1>
+							<C2>1200020.0</C2>
+						</COORD>
+					</POLYLINE>
+				</Geometrie>
+				<Typ REF="e4f0db2f-a1d3-4f02-a00b-41761601197b"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.WE_Linie>
+			<Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.WF_Typ TID="4ba78ae1-4d6c-41d4-b697-89c04ee2f588">
+				<Bezeichnung>Statische Waldgrenze</Bezeichnung>
+				<Abkuerzung>WGR</Abkuerzung>
+				<Darstellungscode>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+						<Reference REF="standard"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+				</Darstellungscode>
+				<KantArt>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.WF_KantArt_CatalogueReference>
+						<Reference REF="wf_kantart.1"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.WF_KantArt_CatalogueReference>
+				</KantArt>
+				<Verbindlichkeit>
+					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+						<Reference REF="verbindlichkeit.1"/>
+					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+				</Verbindlichkeit>
+				<ZustaendigeStelle REF="82aab446-9dc3-40df-90d8-ccfa7d8aba96"/>
+			</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung.WF_Typ>
+		</Nutzungsplanung_BE_V2_Test03.Nutzungsplanung>
+	</DATASECTION>
+</TRANSFER>
