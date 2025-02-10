@@ -36,7 +36,7 @@ MODEL Nutzungsplanung_BE_V2_Test03_Metainfo
     !! Informations cantonales sur les projet d'aménagement
     !! -----------------------------------------------
     CLASS Dossier_cantonal =
-      DossierNr : TEXT*256          !! (z.B. Axioma-Nr. oder ePlan-Geschäftsnummer)
+      DossierNr : TEXT*256;         !! (z.B. Axioma-Nr. oder ePlan-Geschäftsnummer)
       Title : TEXT*256;
       Process_step : TEXT*256;      !! (Voranfrage, Vorprüfung, Öffentliche Auflage, Genehmigung, etc.)
       Process_type : TEXT*256;      !! (Ordentliches Verfahren, Geringfügiges Verfahren, etc.)
@@ -189,6 +189,7 @@ MODEL Nutzungsplanung_BE_V2_Test03_Metainfo
       Geom_TID_NewValue : TEXT*36;
       Geom_AttributeID : TEXT*36;
       Geom_Size : MANDATORY TEXT*256;
+      Geom_CorrelationID : TEXT*36;
       Geometrie : MANDATORY Surface;
     END Delta_Polygon;
 
