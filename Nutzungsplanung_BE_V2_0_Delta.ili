@@ -1,6 +1,6 @@
 INTERLIS 2.3;
 /*
-Teilmodell für Geschäfts- und Änderungsinformationen                            Modèle partiel pour les informations du dossier et des modifications
+Teilmodell für Änderungsinformationen                                           Modèle partiel pour les informations des modifications
   Hauptmodell       : Nutzungsplanung_BE_V2_Test03                                     Modèle principal       : PlanDAffectation_BE_V2_Test03
   Datenverwaltung   : ePlan                                                       Gestion des données    : ePlan
   Sprachversion     : DE und FR                                                   Version de langue      : DE et FR
@@ -69,9 +69,6 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
     !! -----------------------------------------------
     CLASS AD_Planungsgeschaeft =
       Existence : (added,deleted,existing);
-      Rating : (ToApprove,ToCheck,ToLog,None);
-      Rating_Existence : (ToApprove,ToCheck,ToLog,None);
-      Rating_Attributes : (ToApprove,ToCheck,ToLog,None);
       Geschaeft_Nummer_OldValue : TEXT*50;
       Geschaeft_Nummer_NewValue : TEXT*50;
       Geschaeft_Titel_OldValue : TEXT*250;
@@ -98,21 +95,6 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
       Datensatz -- {0..1} AD_Datensatz;
     END Datensatz_Planungsgeschaeft;
 
-    !! Amt (Zuständige Stellen)
-    !! -----------------------------------------------
-    CLASS AD_Amt =
-      Existence : (added,deleted,existing);
-      Rating : (ToApprove,ToCheck,ToLog,None);
-      Rating_Existence : (ToApprove,ToCheck,ToLog,None);
-      Rating_Attributes : (ToApprove,ToCheck,ToLog,None);
-      Name_OldValue : TEXT*200;
-      Name_NewValue : TEXT*200;
-      UID_OldValue : TEXT*15;
-      UID_NewValue : TEXT*15;
-      AmtImWeb_OldValue : URI;
-      AmtImWeb_NewValue : URI;
-    END AD_Amt;
-
     !! ***********************
     !! DO = Dokumente
     !! ***********************
@@ -125,47 +107,52 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
       Rating_Existence : (ToApprove,ToCheck,ToLog,None);
       Rating_Attributes : (ToApprove,ToCheck,ToLog,None);
       Rating_DocumentRevisions : (ToApprove,ToCheck,ToLog,None);
-      Titel_OldValue : TEXT*500;
-      Titel_NewValue : TEXT*500;
-      Titel_Rating : (ToApprove,ToCheck,ToLog,None);
-      Abkuerzung_OldValue : TEXT*50;
-      Abkuerzung_NewValue : TEXT*50;
-      Abkuerzung_Rating : (ToApprove,ToCheck,ToLog,None);
-      OffizielleNr_OldValue : TEXT*50;
-      OffizielleNr_NewValue : TEXT*50;
-      OffizielleNr_Rating : (ToApprove,ToCheck,ToLog,None);
-      PDF_Dateiname_OldValue : TEXT*200;
-      PDF_Dateiname_NewValue : TEXT*200;
-      PDF_Dateiname_Rating : (ToApprove,ToCheck,ToLog,None);
-      Dokumentart_OldValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Dokumentart_CatalogueReference;
-      Dokumentart_NewValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Dokumentart_CatalogueReference;
-      Dokumentart_Rating : (ToApprove,ToCheck,ToLog,None);
-      Dokumentverbindlichkeit_OldValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Dokumentverbindlichkeit_CatalogueReference;
-      Dokumentverbindlichkeit_NewValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Dokumentverbindlichkeit_CatalogueReference;
-      Dokumentverbindlichkeit_Rating : (ToApprove,ToCheck,ToLog,None);
-      Planungsgeschaeft_Rating : (ToApprove,ToCheck,ToLog,None);
-      ZustaendigeStelle_Rating : (ToApprove,ToCheck,ToLog,None);
+      Dokument_Titel_OldValue : TEXT*500;
+      Dokument_Titel_NewValue : TEXT*500;
+      Dokument_Titel_Rating : (ToApprove,ToCheck,ToLog,None);
+      Dokument_Abkuerzung_OldValue : TEXT*50;
+      Dokument_Abkuerzung_NewValue : TEXT*50;
+      Dokument_Abkuerzung_Rating : (ToApprove,ToCheck,ToLog,None);
+      Dokument_OffizielleNr_OldValue : TEXT*50;
+      Dokument_OffizielleNr_NewValue : TEXT*50;
+      Dokument_OffizielleNr_Rating : (ToApprove,ToCheck,ToLog,None);
+      Dokument_PDF_Dateiname_OldValue : TEXT*200;
+      Dokument_PDF_Dateiname_NewValue : TEXT*200;
+      Dokument_PDF_Dateiname_Rating : (ToApprove,ToCheck,ToLog,None);
+      Dokument_Dokumentart_OldValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Dokumentart_CatalogueReference;
+      Dokument_Dokumentart_NewValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Dokumentart_CatalogueReference;
+      Dokument_Dokumentart_Rating : (ToApprove,ToCheck,ToLog,None);
+      Dokument_Dokumentverbindlichkeit_OldValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Dokumentverbindlichkeit_CatalogueReference;
+      Dokument_Dokumentverbindlichkeit_NewValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Dokumentverbindlichkeit_CatalogueReference;
+      Dokument_Dokumentverbindlichkeit_Rating : (ToApprove,ToCheck,ToLog,None);
+      Dokument_Planungsgeschaeft_OldValue : TEXT*36;
+      Dokument_Planungsgeschaeft_NewValue : TEXT*36;
+      Dokument_Planungsgeschaeft_Rating : (ToApprove,ToCheck,ToLog,None);
+      Dokument_ZustaendigeStelle_OldValue : TEXT*36;
+      Dokument_ZustaendigeStelle_NewValue : TEXT*36;
+      Dokument_ZustaendigeStelle_Rating : (ToApprove,ToCheck,ToLog,None);
+      Amt_Name_OldValue : TEXT*200;
+      Amt_Name_NewValue : TEXT*200;
+      Amt_Name_Rating : (ToApprove,ToCheck,ToLog,None);
+      Amt_UID_OldValue : TEXT*15;
+      Amt_UID_NewValue : TEXT*15;
+      Amt_UID_Rating : (ToApprove,ToCheck,ToLog,None);
+      Amt_AmtImWeb_OldValue : URI;
+      Amt_AmtImWeb_NewValue : URI;
+      Amt_AmtImWeb_Rating : (ToApprove,ToCheck,ToLog,None);
+      Planungsgeschaeft_Geschaeft_Nummer_OldValue : TEXT*50;
+      Planungsgeschaeft_Geschaeft_Nummer_NewValue : TEXT*50;
+      Planungsgeschaeft_Geschaeft_Nummer_Rating : (ToApprove,ToCheck,ToLog,None);
+      Planungsgeschaeft_Geschaeft_Titel_OldValue : TEXT*250;
+      Planungsgeschaeft_Geschaeft_Titel_NewValue : TEXT*250;
+      Planungsgeschaeft_Geschaeft_Titel_Rating : (ToApprove,ToCheck,ToLog,None);
+      Planungsgeschaeft_Geschaeft_ErstelltAm_OldValue : Datum;
+      Planungsgeschaeft_Geschaeft_ErstelltAm_NewValue : Datum;
+      Planungsgeschaeft_Geschaeft_ErstelltAm_Rating : (ToApprove,ToCheck,ToLog,None);
+      Planungsgeschaeft_Ortsplanungsrevision_OldValue : BOOLEAN;
+      Planungsgeschaeft_Ortsplanungsrevision_NewValue : BOOLEAN;
+      Planungsgeschaeft_Ortsplanungsrevision_Rating : (ToApprove,ToCheck,ToLog,None);
     END DO_Dokument;
-
-    ASSOCIATION Dokument_Geschaeft_OldValue =
-      Planungsgeschaeft_OldValue -- {0..1} AD_Planungsgeschaeft;
-      Dokument_OldValue -- {0..*} DO_Dokument;
-    END Dokument_Geschaeft_OldValue;
-
-    ASSOCIATION Dokument_Geschaeft_NewValue =
-      Planungsgeschaeft_NewValue -- {0..1} AD_Planungsgeschaeft;
-      Dokument_NewValue -- {0..*} DO_Dokument;
-    END Dokument_Geschaeft_NewValue;
-
-    ASSOCIATION Dokument_ZustaendigeStelle_OldValue =
-      ZustaendigeStelle_OldValue -- {0..1} AD_Amt;
-      Dokument_OldValue -- {0..*} DO_Dokument;
-    END Dokument_ZustaendigeStelle_OldValue;
-
-    ASSOCIATION Dokument_ZustaendigeStelle_NewValue =
-      ZustaendigeStelle_NewValue -- {0..1} AD_Amt;
-      Dokument_NewValue -- {0..*} DO_Dokument;
-    END Dokument_ZustaendigeStelle_NewValue;
 
     !! Änderungsdokumente (Änderungen an Rechtsvorschriften)
     !! -----------------------------------------------
@@ -174,31 +161,34 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
       Rating : (ToApprove,ToCheck,ToLog,None);
       Rating_Existence : (ToApprove,ToCheck,ToLog,None);
       Rating_Attributes : (ToApprove,ToCheck,ToLog,None);
-      Titel_OldValue : TEXT*500;
-      Titel_NewValue : TEXT*500;
-      Titel_Rating : (ToApprove,ToCheck,ToLog,None);
-      Abkuerzung_OldValue : TEXT*50;
-      Abkuerzung_NewValue : TEXT*50;
-      Abkuerzung_Rating : (ToApprove,ToCheck,ToLog,None);
-      OffizielleNr_OldValue : TEXT*50;
-      OffizielleNr_NewValue : TEXT*50;
-      OffizielleNr_Rating : (ToApprove,ToCheck,ToLog,None);
-      PDF_Dateiname_OldValue : TEXT*200;
-      PDF_Dateiname_NewValue : TEXT*200;
-      PDF_Dateiname_Rating : (ToApprove,ToCheck,ToLog,None);
-      Erstversion_Rating : (ToApprove,ToCheck,ToLog,None);
-      Planungsgeschaeft_Rating : (ToApprove,ToCheck,ToLog,None);
+      DokumentRevision_Titel_OldValue : TEXT*500;
+      DokumentRevision_Titel_NewValue : TEXT*500;
+      DokumentRevision_Titel_Rating : (ToApprove,ToCheck,ToLog,None);
+      DokumentRevision_Abkuerzung_OldValue : TEXT*50;
+      DokumentRevision_Abkuerzung_NewValue : TEXT*50;
+      DokumentRevision_Abkuerzung_Rating : (ToApprove,ToCheck,ToLog,None);
+      DokumentRevision_OffizielleNr_OldValue : TEXT*50;
+      DokumentRevision_OffizielleNr_NewValue : TEXT*50;
+      DokumentRevision_OffizielleNr_Rating : (ToApprove,ToCheck,ToLog,None);
+      DokumentRevision_PDF_Dateiname_OldValue : TEXT*200;
+      DokumentRevision_PDF_Dateiname_NewValue : TEXT*200;
+      DokumentRevision_PDF_Dateiname_Rating : (ToApprove,ToCheck,ToLog,None);
+      DokumentRevision_Planungsgeschaeft_OldValue : TEXT*200;
+      DokumentRevision_Planungsgeschaeft_NewValue : TEXT*200;
+      DokumentRevision_Planungsgeschaeft_Rating : (ToApprove,ToCheck,ToLog,None);
+      Planungsgeschaeft_Geschaeft_Nummer_OldValue : TEXT*50;
+      Planungsgeschaeft_Geschaeft_Nummer_NewValue : TEXT*50;
+      Planungsgeschaeft_Geschaeft_Nummer_Rating : (ToApprove,ToCheck,ToLog,None);
+      Planungsgeschaeft_Geschaeft_Titel_OldValue : TEXT*250;
+      Planungsgeschaeft_Geschaeft_Titel_NewValue : TEXT*250;
+      Planungsgeschaeft_Geschaeft_Titel_Rating : (ToApprove,ToCheck,ToLog,None);
+      Planungsgeschaeft_Geschaeft_ErstelltAm_OldValue : Datum;
+      Planungsgeschaeft_Geschaeft_ErstelltAm_NewValue : Datum;
+      Planungsgeschaeft_Geschaeft_ErstelltAm_Rating : (ToApprove,ToCheck,ToLog,None);
+      Planungsgeschaeft_Ortsplanungsrevision_OldValue : BOOLEAN;
+      Planungsgeschaeft_Ortsplanungsrevision_NewValue : BOOLEAN;
+      Planungsgeschaeft_Ortsplanungsrevision_Rating : (ToApprove,ToCheck,ToLog,None);
     END DO_DokumentRevision;
-
-    ASSOCIATION DokumentRevision_Geschaeft_OldValue =
-      Planungsgeschaeft_OldValue -- {0..1} AD_Planungsgeschaeft;
-      Aenderungsdokument_OldValue -- {0..*} DO_DokumentRevision;
-    END DokumentRevision_Geschaeft_OldValue;
-
-    ASSOCIATION DokumentRevision_Geschaeft_NewValue =
-      Planungsgeschaeft_NewValue -- {0..1} AD_Planungsgeschaeft;
-      Aenderungsdokument_NewValue -- {0..*} DO_DokumentRevision;
-    END DokumentRevision_Geschaeft_NewValue;
 
     ASSOCIATION DokumentRevision_Dokument =
       Erstversion -- {1} DO_Dokument;
@@ -209,63 +199,69 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
     !! Geodaten
     !! ***********************
 
-    !! Basis-Klasse Typ
-    !! -----------------------------------------------
-    CLASS BaseClassType (ABSTRACT) =
-      Bezeichnung_OldValue : TEXT*500;
-      Bezeichnung_NewValue : TEXT*500;
-      Bezeichnung_Rating : (ToApprove,ToCheck,ToLog,None);
-      Abkuerzung_OldValue : TEXT*50;
-      Abkuerzung_NewValue : TEXT*50;
-      Abkuerzung_Rating : (ToApprove,ToCheck,ToLog,None);
-      Kategorie_OldValue : TEXT*100;
-      Kategorie_NewValue : TEXT*100;
-      Kategorie_Rating : (ToApprove,ToCheck,ToLog,None);
-      Darstellungscode_OldValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference;
-      Darstellungscode_NewValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference;
-      Darstellungscode_Rating : (ToApprove,ToCheck,ToLog,None);
-      KantArt_OldValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Typ_CatalogueReference;
-      KantArt_NewValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Typ_CatalogueReference;
-      KantArt_Rating : (ToApprove,ToCheck,ToLog,None);
-      Verbindlichkeit_OldValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference;
-      Verbindlichkeit_NewValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference;
-      Verbindlichkeit_Rating : (ToApprove,ToCheck,ToLog,None);
-      ZustaendigeStelle_Rating : (ToApprove,ToCheck,ToLog,None);
-    END BaseClassType;
-
-    ASSOCIATION BaseClass_ZustaendigeStelle_OldValue =
-      ZustaendigeStelle_OldValue -- {0..1} AD_Amt;
-      Typ_OldValue -- {0..*} BaseClassType;
-    END BaseClass_ZustaendigeStelle_OldValue;
-
-    ASSOCIATION BaseClass_ZustaendigeStelle_NewValue =
-      ZustaendigeStelle_NewValue -- {0..1} AD_Amt;
-      Typ_NewValue -- {0..*} BaseClassType;
-    END BaseClass_ZustaendigeStelle_NewValue;
-
-    ASSOCIATION BaseClass_RV (ABSTRACT) =
-    OID AS INTERLIS.UUIDOID;
-      Vorschrift (ABSTRACT) -- {0..*} DO_Dokument;
-      Typ (ABSTRACT) -- {0..*} BaseClassType;
-      Existence : (added,deleted,existing);
-      Rating_Existence : (ToApprove,ToCheck,ToLog,None);
-    END BaseClass_RV;
-
     !! Basis-Klassen Geometrie
     !! -----------------------------------------------
     CLASS BaseClassPoint (ABSTRACT) =
       Existence : (added,deleted,existing);
       Rating : (ToApprove,ToCheck,ToLog,None);
       Rating_Existence : (ToApprove,ToCheck,ToLog,None);
-      Rating_Attributes : (ToApprove,ToCheck,ToLog,None);
+      Rating_Geom_Attributes : (ToApprove,ToCheck,ToLog,None);
+      Rating_Typ_Attributes : (ToApprove,ToCheck,ToLog,None);
       Rating_RVLinks : (ToApprove,ToCheck,ToLog,None);
-      Label_OldValue : TEXT*50;
-      Label_NewValue : TEXT*50;
-      Label_Rating : (ToApprove,ToCheck,ToLog,None);
-      TID_OldValue : TEXT*36;
-      TID_NewValue : TEXT*36;
-      TID_Rating : (ToApprove,ToCheck,ToLog,None);
-      Planungsgeschaeft_Rating : (ToApprove,ToCheck,ToLog,None);
+      Geom_TID_OldValue : TEXT*36;
+      Geom_TID_NewValue : TEXT*36;
+      Geom_TID_Rating : (ToApprove,ToCheck,ToLog,None);
+      Geom_Label_OldValue : TEXT*50;
+      Geom_Label_NewValue : TEXT*50;
+      Geom_Label_Rating : (ToApprove,ToCheck,ToLog,None);
+      Geom_Planungsgeschaeft_OldValue : TEXT*36;
+      Geom_Planungsgeschaeft_NewValue : TEXT*36;
+      Geom_Planungsgeschaeft_Rating : (ToApprove,ToCheck,ToLog,None);
+      Geom_Typ_OldValue : TEXT*36;
+      Geom_Typ_NewValue : TEXT*36;
+      Geom_Typ_Rating : (ToApprove,ToCheck,ToLog,None);
+      Typ_Bezeichnung_OldValue : TEXT*500;
+      Typ_Bezeichnung_NewValue : TEXT*500;
+      Typ_Bezeichnung_Rating : (ToApprove,ToCheck,ToLog,None);
+      Typ_Abkuerzung_OldValue : TEXT*50;
+      Typ_Abkuerzung_NewValue : TEXT*50;
+      Typ_Abkuerzung_Rating : (ToApprove,ToCheck,ToLog,None);
+      Typ_Kategorie_OldValue : TEXT*100;
+      Typ_Kategorie_NewValue : TEXT*100;
+      Typ_Kategorie_Rating : (ToApprove,ToCheck,ToLog,None);
+      Typ_Darstellungscode_OldValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference;
+      Typ_Darstellungscode_NewValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference;
+      Typ_Darstellungscode_Rating : (ToApprove,ToCheck,ToLog,None);
+      Typ_KantArt_OldValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Typ_CatalogueReference;
+      Typ_KantArt_NewValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Typ_CatalogueReference;
+      Typ_KantArt_Rating : (ToApprove,ToCheck,ToLog,None);
+      Typ_Verbindlichkeit_OldValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference;
+      Typ_Verbindlichkeit_NewValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference;
+      Typ_Verbindlichkeit_Rating : (ToApprove,ToCheck,ToLog,None);
+      Typ_ZustaendigeStelle_OldValue : TEXT*36;
+      Typ_ZustaendigeStelle_NewValue : TEXT*36;
+      Typ_ZustaendigeStelle_Rating : (ToApprove,ToCheck,ToLog,None);
+      Amt_Name_OldValue : TEXT*200;
+      Amt_Name_NewValue : TEXT*200;
+      Amt_Name_Rating : (ToApprove,ToCheck,ToLog,None);
+      Amt_UID_OldValue : TEXT*15;
+      Amt_UID_NewValue : TEXT*15;
+      Amt_UID_Rating : (ToApprove,ToCheck,ToLog,None);
+      Amt_AmtImWeb_OldValue : URI;
+      Amt_AmtImWeb_NewValue : URI;
+      Amt_AmtImWeb_Rating : (ToApprove,ToCheck,ToLog,None);
+      Planungsgeschaeft_Geschaeft_Nummer_OldValue : TEXT*50;
+      Planungsgeschaeft_Geschaeft_Nummer_NewValue : TEXT*50;
+      Planungsgeschaeft_Geschaeft_Nummer_Rating : (ToApprove,ToCheck,ToLog,None);
+      Planungsgeschaeft_Geschaeft_Titel_OldValue : TEXT*250;
+      Planungsgeschaeft_Geschaeft_Titel_NewValue : TEXT*250;
+      Planungsgeschaeft_Geschaeft_Titel_Rating : (ToApprove,ToCheck,ToLog,None);
+      Planungsgeschaeft_Geschaeft_ErstelltAm_OldValue : Datum;
+      Planungsgeschaeft_Geschaeft_ErstelltAm_NewValue : Datum;
+      Planungsgeschaeft_Geschaeft_ErstelltAm_Rating : (ToApprove,ToCheck,ToLog,None);
+      Planungsgeschaeft_Ortsplanungsrevision_OldValue : BOOLEAN;
+      Planungsgeschaeft_Ortsplanungsrevision_NewValue : BOOLEAN;
+      Planungsgeschaeft_Ortsplanungsrevision_Rating : (ToApprove,ToCheck,ToLog,None);
       Geometrie : MANDATORY LKoord;
     END BaseClassPoint;
 
@@ -273,15 +269,63 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
       Existence : (added,deleted,existing);
       Rating : (ToApprove,ToCheck,ToLog,None);
       Rating_Existence : (ToApprove,ToCheck,ToLog,None);
-      Rating_Attributes : (ToApprove,ToCheck,ToLog,None);
+      Rating_Geom_Attributes : (ToApprove,ToCheck,ToLog,None);
+      Rating_Typ_Attributes : (ToApprove,ToCheck,ToLog,None);
       Rating_RVLinks : (ToApprove,ToCheck,ToLog,None);
-      Label_OldValue : TEXT*50;
-      Label_NewValue : TEXT*50;
-      Label_Rating : (ToApprove,ToCheck,ToLog,None);
-      TID_OldValue : TEXT*36;
-      TID_NewValue : TEXT*36;
-      TID_Rating : (ToApprove,ToCheck,ToLog,None);
-      Planungsgeschaeft_Rating : (ToApprove,ToCheck,ToLog,None);
+      Geom_TID_OldValue : TEXT*36;
+      Geom_TID_NewValue : TEXT*36;
+      Geom_TID_Rating : (ToApprove,ToCheck,ToLog,None);
+      Geom_Label_OldValue : TEXT*50;
+      Geom_Label_NewValue : TEXT*50;
+      Geom_Label_Rating : (ToApprove,ToCheck,ToLog,None);
+      Geom_Planungsgeschaeft_OldValue : TEXT*36;
+      Geom_Planungsgeschaeft_NewValue : TEXT*36;
+      Geom_Planungsgeschaeft_Rating : (ToApprove,ToCheck,ToLog,None);
+      Geom_Typ_OldValue : TEXT*36;
+      Geom_Typ_NewValue : TEXT*36;
+      Geom_Typ_Rating : (ToApprove,ToCheck,ToLog,None);
+      Typ_Bezeichnung_OldValue : TEXT*500;
+      Typ_Bezeichnung_NewValue : TEXT*500;
+      Typ_Bezeichnung_Rating : (ToApprove,ToCheck,ToLog,None);
+      Typ_Abkuerzung_OldValue : TEXT*50;
+      Typ_Abkuerzung_NewValue : TEXT*50;
+      Typ_Abkuerzung_Rating : (ToApprove,ToCheck,ToLog,None);
+      Typ_Kategorie_OldValue : TEXT*100;
+      Typ_Kategorie_NewValue : TEXT*100;
+      Typ_Kategorie_Rating : (ToApprove,ToCheck,ToLog,None);
+      Typ_Darstellungscode_OldValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference;
+      Typ_Darstellungscode_NewValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference;
+      Typ_Darstellungscode_Rating : (ToApprove,ToCheck,ToLog,None);
+      Typ_KantArt_OldValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Typ_CatalogueReference;
+      Typ_KantArt_NewValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Typ_CatalogueReference;
+      Typ_KantArt_Rating : (ToApprove,ToCheck,ToLog,None);
+      Typ_Verbindlichkeit_OldValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference;
+      Typ_Verbindlichkeit_NewValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference;
+      Typ_Verbindlichkeit_Rating : (ToApprove,ToCheck,ToLog,None);
+      Typ_ZustaendigeStelle_OldValue : TEXT*36;
+      Typ_ZustaendigeStelle_NewValue : TEXT*36;
+      Typ_ZustaendigeStelle_Rating : (ToApprove,ToCheck,ToLog,None);
+      Amt_Name_OldValue : TEXT*200;
+      Amt_Name_NewValue : TEXT*200;
+      Amt_Name_Rating : (ToApprove,ToCheck,ToLog,None);
+      Amt_UID_OldValue : TEXT*15;
+      Amt_UID_NewValue : TEXT*15;
+      Amt_UID_Rating : (ToApprove,ToCheck,ToLog,None);
+      Amt_AmtImWeb_OldValue : URI;
+      Amt_AmtImWeb_NewValue : URI;
+      Amt_AmtImWeb_Rating : (ToApprove,ToCheck,ToLog,None);
+      Planungsgeschaeft_Geschaeft_Nummer_OldValue : TEXT*50;
+      Planungsgeschaeft_Geschaeft_Nummer_NewValue : TEXT*50;
+      Planungsgeschaeft_Geschaeft_Nummer_Rating : (ToApprove,ToCheck,ToLog,None);
+      Planungsgeschaeft_Geschaeft_Titel_OldValue : TEXT*250;
+      Planungsgeschaeft_Geschaeft_Titel_NewValue : TEXT*250;
+      Planungsgeschaeft_Geschaeft_Titel_Rating : (ToApprove,ToCheck,ToLog,None);
+      Planungsgeschaeft_Geschaeft_ErstelltAm_OldValue : Datum;
+      Planungsgeschaeft_Geschaeft_ErstelltAm_NewValue : Datum;
+      Planungsgeschaeft_Geschaeft_ErstelltAm_Rating : (ToApprove,ToCheck,ToLog,None);
+      Planungsgeschaeft_Ortsplanungsrevision_OldValue : BOOLEAN;
+      Planungsgeschaeft_Ortsplanungsrevision_NewValue : BOOLEAN;
+      Planungsgeschaeft_Ortsplanungsrevision_Rating : (ToApprove,ToCheck,ToLog,None);
       Geometrie : MANDATORY Polyline;
     END BaseClassPolyline;
 
@@ -289,66 +333,94 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
       Existence : (added,deleted,existing);
       Rating : (ToApprove,ToCheck,ToLog,None);
       Rating_Existence : (ToApprove,ToCheck,ToLog,None);
-      Rating_Attributes : (ToApprove,ToCheck,ToLog,None);
+      Rating_Geom_Attributes : (ToApprove,ToCheck,ToLog,None);
+      Rating_Typ_Attributes : (ToApprove,ToCheck,ToLog,None);
       Rating_RVLinks : (ToApprove,ToCheck,ToLog,None);
-      Label_OldValue : TEXT*50;
-      Label_NewValue : TEXT*50;
-      Label_Rating : (ToApprove,ToCheck,ToLog,None);
-      TID_OldValue : TEXT*36;
-      TID_NewValue : TEXT*36;
-      TID_Rating : (ToApprove,ToCheck,ToLog,None);
-      Planungsgeschaeft_Rating : (ToApprove,ToCheck,ToLog,None);
+      Geom_TID_OldValue : TEXT*36;
+      Geom_TID_NewValue : TEXT*36;
+      Geom_TID_Rating : (ToApprove,ToCheck,ToLog,None);
+      Geom_Label_OldValue : TEXT*50;
+      Geom_Label_NewValue : TEXT*50;
+      Geom_Label_Rating : (ToApprove,ToCheck,ToLog,None);
+      Geom_Planungsgeschaeft_OldValue : TEXT*36;
+      Geom_Planungsgeschaeft_NewValue : TEXT*36;
+      Geom_Planungsgeschaeft_Rating : (ToApprove,ToCheck,ToLog,None);
+      Geom_Typ_OldValue : TEXT*36;
+      Geom_Typ_NewValue : TEXT*36;
+      Geom_Typ_Rating : (ToApprove,ToCheck,ToLog,None);
+      Typ_Bezeichnung_OldValue : TEXT*500;
+      Typ_Bezeichnung_NewValue : TEXT*500;
+      Typ_Bezeichnung_Rating : (ToApprove,ToCheck,ToLog,None);
+      Typ_Abkuerzung_OldValue : TEXT*50;
+      Typ_Abkuerzung_NewValue : TEXT*50;
+      Typ_Abkuerzung_Rating : (ToApprove,ToCheck,ToLog,None);
+      Typ_Kategorie_OldValue : TEXT*100;
+      Typ_Kategorie_NewValue : TEXT*100;
+      Typ_Kategorie_Rating : (ToApprove,ToCheck,ToLog,None);
+      Typ_Darstellungscode_OldValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference;
+      Typ_Darstellungscode_NewValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference;
+      Typ_Darstellungscode_Rating : (ToApprove,ToCheck,ToLog,None);
+      Typ_KantArt_OldValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Typ_CatalogueReference;
+      Typ_KantArt_NewValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Typ_CatalogueReference;
+      Typ_KantArt_Rating : (ToApprove,ToCheck,ToLog,None);
+      Typ_Verbindlichkeit_OldValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference;
+      Typ_Verbindlichkeit_NewValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference;
+      Typ_Verbindlichkeit_Rating : (ToApprove,ToCheck,ToLog,None);
+      Typ_ZustaendigeStelle_OldValue : TEXT*36;
+      Typ_ZustaendigeStelle_NewValue : TEXT*36;
+      Typ_ZustaendigeStelle_Rating : (ToApprove,ToCheck,ToLog,None);
+      Amt_Name_OldValue : TEXT*200;
+      Amt_Name_NewValue : TEXT*200;
+      Amt_Name_Rating : (ToApprove,ToCheck,ToLog,None);
+      Amt_UID_OldValue : TEXT*15;
+      Amt_UID_NewValue : TEXT*15;
+      Amt_UID_Rating : (ToApprove,ToCheck,ToLog,None);
+      Amt_AmtImWeb_OldValue : URI;
+      Amt_AmtImWeb_NewValue : URI;
+      Amt_AmtImWeb_Rating : (ToApprove,ToCheck,ToLog,None);
+      Planungsgeschaeft_Geschaeft_Nummer_OldValue : TEXT*50;
+      Planungsgeschaeft_Geschaeft_Nummer_NewValue : TEXT*50;
+      Planungsgeschaeft_Geschaeft_Nummer_Rating : (ToApprove,ToCheck,ToLog,None);
+      Planungsgeschaeft_Geschaeft_Titel_OldValue : TEXT*250;
+      Planungsgeschaeft_Geschaeft_Titel_NewValue : TEXT*250;
+      Planungsgeschaeft_Geschaeft_Titel_Rating : (ToApprove,ToCheck,ToLog,None);
+      Planungsgeschaeft_Geschaeft_ErstelltAm_OldValue : Datum;
+      Planungsgeschaeft_Geschaeft_ErstelltAm_NewValue : Datum;
+      Planungsgeschaeft_Geschaeft_ErstelltAm_Rating : (ToApprove,ToCheck,ToLog,None);
+      Planungsgeschaeft_Ortsplanungsrevision_OldValue : BOOLEAN;
+      Planungsgeschaeft_Ortsplanungsrevision_NewValue : BOOLEAN;
+      Planungsgeschaeft_Ortsplanungsrevision_Rating : (ToApprove,ToCheck,ToLog,None);
       CorrelationID : TEXT*36;
       Geometrie : MANDATORY Surface;
     END BaseClassPolygon;
 
-    ASSOCIATION BaseClassPoint_Geschaeft_OldValue =
-      Planungsgeschaeft_OldValue -- {0..1} AD_Planungsgeschaeft;
-      BaseClassPoint_OldValue -- {0..*} BaseClassPoint;
-    END BaseClassPoint_Geschaeft_OldValue;
+    ASSOCIATION BaseClassPoint_RV (ABSTRACT) =
+    OID AS INTERLIS.UUIDOID;
+      Vorschrift (ABSTRACT) -- {0..*} DO_Dokument;
+      Point (ABSTRACT) -- {0..*} BaseClassPoint;
+      Existence : (added,deleted,existing);
+      Rating_Existence : (ToApprove,ToCheck,ToLog,None);
+    END BaseClassPoint_RV;
 
-    ASSOCIATION BaseClassPoint_Geschaeft_NewValue =
-      Planungsgeschaeft_NewValue -- {0..1} AD_Planungsgeschaeft;
-      BaseClassPoint_NewValue -- {0..*} BaseClassPoint;
-    END BaseClassPoint_Geschaeft_NewValue;
+    ASSOCIATION BaseClassPolyline_RV (ABSTRACT) =
+    OID AS INTERLIS.UUIDOID;
+      Vorschrift (ABSTRACT) -- {0..*} DO_Dokument;
+      Polyline (ABSTRACT) -- {0..*} BaseClassPolyline;
+      Existence : (added,deleted,existing);
+      Rating_Existence : (ToApprove,ToCheck,ToLog,None);
+    END BaseClassPolyline_RV;
 
-    ASSOCIATION BaseClassPolyline_Geschaeft_OldValue =
-      Planungsgeschaeft_OldValue -- {0..1} AD_Planungsgeschaeft;
-      BaseClassPolyline_OldValue -- {0..*} BaseClassPolyline;
-    END BaseClassPolyline_Geschaeft_OldValue;
-
-    ASSOCIATION BaseClassPolyline_Geschaeft_NewValue =
-      Planungsgeschaeft_NewValue -- {0..1} AD_Planungsgeschaeft;
-      BaseClassPolyline_NewValue -- {0..*} BaseClassPolyline;
-    END BaseClassPolyline_Geschaeft_NewValue;
-
-    ASSOCIATION BaseClassPolygon_Geschaeft_OldValue =
-      Planungsgeschaeft_OldValue -- {0..1} AD_Planungsgeschaeft;
-      BaseClassPolygon_OldValue -- {0..*} BaseClassPolygon;
-    END BaseClassPolygon_Geschaeft_OldValue;
-
-    ASSOCIATION BaseClassPolygon_Geschaeft_NewValue =
-      Planungsgeschaeft_NewValue -- {0..1} AD_Planungsgeschaeft;
-      BaseClassPolygon_NewValue -- {0..*} BaseClassPolygon;
-    END BaseClassPolygon_Geschaeft_NewValue;
+    ASSOCIATION BaseClassPolygon_RV (ABSTRACT) =
+    OID AS INTERLIS.UUIDOID;
+      Vorschrift (ABSTRACT) -- {0..*} DO_Dokument;
+      Polygon (ABSTRACT) -- {0..*} BaseClassPolygon;
+      Existence : (added,deleted,existing);
+      Rating_Existence : (ToApprove,ToCheck,ToLog,None);
+    END BaseClassPolygon_RV;
 
     !! ***********************
     !! GN = Grundnutzung
     !! ***********************
-
-    !! GN_Typ
-    !! -----------------------------------------------
-    CLASS GN_Typ
-    EXTENDS BaseClassType =
-      KantArt_OldValue (EXTENDED) : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.GN_KantArt_CatalogueReference;
-      KantArt_NewValue (EXTENDED) : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.GN_KantArt_CatalogueReference;
-    END GN_Typ;
-
-    ASSOCIATION GN_RV
-    EXTENDS BaseClass_RV =
-      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
-      Typ (EXTENDED) -- {0..*} GN_Typ;
-    END GN_RV;
 
     !! GN_Flaeche (AREA)
     !! -----------------------------------------------
@@ -356,28 +428,15 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
     EXTENDS BaseClassPolygon =
     END GN_Flaeche;
 
-    ASSOCIATION GN_Flaeche_Typ =
-      Typ -- {1} GN_Typ;
-      GN_Flaeche -- {0..*} GN_Flaeche;
-    END GN_Flaeche_Typ;
+    ASSOCIATION GN_Flaeche_RV
+    EXTENDS BaseClassPolygon_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Polygon (EXTENDED) -- {0..*} GN_Flaeche;
+    END GN_Flaeche_RV;
 
     !! ***********************
     !! NZ = Nutzungszone
     !! ***********************
-
-    !! NZ_Typ
-    !! -----------------------------------------------
-    CLASS NZ_Typ
-    EXTENDS BaseClassType =
-      KantArt_OldValue (EXTENDED) : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.NZ_KantArt_CatalogueReference;
-      KantArt_NewValue (EXTENDED) : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.NZ_KantArt_CatalogueReference;
-    END NZ_Typ;
-
-    ASSOCIATION NZ_RV
-    EXTENDS BaseClass_RV =
-      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
-      Typ (EXTENDED) -- {0..*} NZ_Typ;
-    END NZ_RV;
 
     !! NZ_Flaeche (AREA)
     !! -----------------------------------------------
@@ -385,28 +444,15 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
     EXTENDS BaseClassPolygon =
     END NZ_Flaeche;
 
-    ASSOCIATION NZ_Flaeche_Typ =
-      Typ -- {1} NZ_Typ;
-      NZ_Flaeche -- {0..*} NZ_Flaeche;
-    END NZ_Flaeche_Typ;
+    ASSOCIATION NZ_Flaeche_RV
+    EXTENDS BaseClassPolygon_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Polygon (EXTENDED) -- {0..*} NZ_Flaeche;
+    END NZ_Flaeche_RV;
 
     !! ***********************
     !! BK = Bauklasse/Bauzone
     !! ***********************
-
-    !! BK_Typ
-    !! -----------------------------------------------
-    CLASS BK_Typ
-    EXTENDS BaseClassType =
-      KantArt_OldValue (EXTENDED) : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.BK_KantArt_CatalogueReference;
-      KantArt_NewValue (EXTENDED) : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.BK_KantArt_CatalogueReference;
-    END BK_Typ;
-
-    ASSOCIATION BK_RV
-    EXTENDS BaseClass_RV =
-      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
-      Typ (EXTENDED) -- {0..*} BK_Typ;
-    END BK_RV;
 
     !! BK_Flaeche (AREA)
     !! -----------------------------------------------
@@ -414,28 +460,15 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
     EXTENDS BaseClassPolygon =
     END BK_Flaeche;
 
-    ASSOCIATION BK_Flaeche_Typ =
-      Typ -- {1} BK_Typ;
-      BK_Flaeche -- {0..*} BK_Flaeche;
-    END BK_Flaeche_Typ;
+    ASSOCIATION BK_Flaeche_RV
+    EXTENDS BaseClassPolygon_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Polygon (EXTENDED) -- {0..*} BK_Flaeche;
+    END BK_Flaeche_RV;
 
     !! ***********************
     !! IN = Innere Nutzung (von ZPP,UeO,USP,SBV)
     !! ***********************
-
-    !! IN_Typ
-    !! -----------------------------------------------
-    CLASS IN_Typ
-    EXTENDS BaseClassType =
-      KantArt_OldValue (EXTENDED) : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.IN_KantArt_CatalogueReference;
-      KantArt_NewValue (EXTENDED) : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.IN_KantArt_CatalogueReference;
-    END IN_Typ;
-
-    ASSOCIATION IN_RV
-    EXTENDS BaseClass_RV =
-      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
-      Typ (EXTENDED) -- {0..*} IN_Typ;
-    END IN_RV;
 
     !! IN_Flaeche (AREA)
     !! -----------------------------------------------
@@ -443,28 +476,15 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
     EXTENDS BaseClassPolygon =
     END IN_Flaeche;
 
-    ASSOCIATION IN_Flaeche_Typ =
-      Typ -- {1} IN_Typ;
-      IN_Flaeche -- {0..*} IN_Flaeche;
-    END IN_Flaeche_Typ;
+    ASSOCIATION IN_Flaeche_RV
+    EXTENDS BaseClassPolygon_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Polygon (EXTENDED) -- {0..*} IN_Flaeche;
+    END IN_Flaeche_RV;
 
     !! ***********************
     !! SN = Überlagernde Sondernutzungsplanung
     !! ***********************
-
-    !! SN_Typ
-    !! -----------------------------------------------
-    CLASS SN_Typ
-    EXTENDS BaseClassType =
-      KantArt_OldValue (EXTENDED) : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.SN_KantArt_CatalogueReference;
-      KantArt_NewValue (EXTENDED) : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.SN_KantArt_CatalogueReference;
-    END SN_Typ;
-
-    ASSOCIATION SN_RV
-    EXTENDS BaseClass_RV =
-      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
-      Typ (EXTENDED) -- {0..*} SN_Typ;
-    END SN_RV;
 
     !! SN_Flaeche (SURFACE)
     !! -----------------------------------------------
@@ -472,28 +492,15 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
     EXTENDS BaseClassPolygon =
     END SN_Flaeche;
 
-    ASSOCIATION SN_Flaeche_Typ =
-      Typ -- {1} SN_Typ;
-      SN_Flaeche -- {0..*} SN_Flaeche;
-    END SN_Flaeche_Typ;
+    ASSOCIATION SN_Flaeche_RV
+    EXTENDS BaseClassPolygon_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Polygon (EXTENDED) -- {0..*} SN_Flaeche;
+    END SN_Flaeche_RV;
 
     !! ***********************
     !! UE = Ueberlagerung
     !! ***********************
-
-    !! UE_Typ
-    !! -----------------------------------------------
-    CLASS UE_Typ
-    EXTENDS BaseClassType =
-      KantArt_OldValue (EXTENDED) : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.UE_KantArt_CatalogueReference;
-      KantArt_NewValue (EXTENDED) : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.UE_KantArt_CatalogueReference;
-    END UE_Typ;
-
-    ASSOCIATION UE_RV
-    EXTENDS BaseClass_RV =
-      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
-      Typ (EXTENDED) -- {0..*} UE_Typ;
-    END UE_RV;
 
     !! UE_Punkt (COORD)
     !! -----------------------------------------------
@@ -501,10 +508,11 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
     EXTENDS BaseClassPoint =
     END UE_Punkt;
 
-    ASSOCIATION UE_Punkt_Typ =
-      Typ -- {1} UE_Typ;
-      UE_Punkt -- {0..*} UE_Punkt;
-    END UE_Punkt_Typ;
+    ASSOCIATION UE_Punkt_RV
+    EXTENDS BaseClassPoint_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Point (EXTENDED) -- {0..*} UE_Punkt;
+    END UE_Punkt_RV;
 
     !! UE_Linie (POLYLINE)
     !! -----------------------------------------------
@@ -512,10 +520,11 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
     EXTENDS BaseClassPolyline =
     END UE_Linie;
 
-    ASSOCIATION UE_Linie_Typ =
-      Typ -- {1} UE_Typ;
-      UE_Linie -- {0..*} UE_Linie;
-    END UE_Linie_Typ;
+    ASSOCIATION UE_Linie_RV
+    EXTENDS BaseClassPolyline_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Polyline (EXTENDED) -- {0..*} UE_Linie;
+    END UE_Linie_RV;
 
     !! UE_Flaeche (SURFACE)
     !! -----------------------------------------------
@@ -523,28 +532,15 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
     EXTENDS BaseClassPolygon =
     END UE_Flaeche;
 
-    ASSOCIATION UE_Flaeche_Typ =
-      Typ -- {1} UE_Typ;
-      UE_Flaeche -- {0..*} UE_Flaeche;
-    END UE_Flaeche_Typ;
+    ASSOCIATION UE_Flaeche_RV
+    EXTENDS BaseClassPolygon_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Polygon (EXTENDED) -- {0..*} UE_Flaeche;
+    END UE_Flaeche_RV;
 
     !! *********************************
     !! ES = Laermempfindlichkeitsstufen
     !! *********************************
-
-    !! ES_Typ
-    !! -----------------------------------------------
-    CLASS ES_Typ
-    EXTENDS BaseClassType =
-      KantArt_OldValue (EXTENDED) : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.ES_KantArt_CatalogueReference;
-      KantArt_NewValue (EXTENDED) : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.ES_KantArt_CatalogueReference;
-    END ES_Typ;
-
-    ASSOCIATION ES_RV
-    EXTENDS BaseClass_RV =
-      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
-      Typ (EXTENDED) -- {0..*} ES_Typ;
-    END ES_RV;
 
     !! ES_Flaeche (AREA)
     !! -----------------------------------------------
@@ -552,28 +548,15 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
     EXTENDS BaseClassPolygon =
     END ES_Flaeche;
 
-    ASSOCIATION ES_Flaeche_Typ =
-      Typ -- {1} ES_Typ;
-      ES_Flaeche -- {0..*} ES_Flaeche;
-    END ES_Flaeche_Typ;
+    ASSOCIATION ES_Flaeche_RV
+    EXTENDS BaseClassPolygon_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Polygon (EXTENDED) -- {0..*} ES_Flaeche;
+    END ES_Flaeche_RV;
 
     !! ***********************
     !! GG = Gefahrengebiete
     !! ***********************
-
-    !! GG_Typ
-    !! -----------------------------------------------
-    CLASS GG_Typ
-    EXTENDS BaseClassType =
-      KantArt_OldValue (EXTENDED) : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.GG_KantArt_CatalogueReference;
-      KantArt_NewValue (EXTENDED) : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.GG_KantArt_CatalogueReference;
-    END GG_Typ;
-
-    ASSOCIATION GG_RV
-    EXTENDS BaseClass_RV =
-      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
-      Typ (EXTENDED) -- {0..*} GG_Typ;
-    END GG_RV;
 
     !! GG_Flaeche (AREA)
     !! -----------------------------------------------
@@ -581,28 +564,15 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
     EXTENDS BaseClassPolygon =
     END GG_Flaeche;
 
-    ASSOCIATION GG_Flaeche_Typ =
-      Typ -- {1} GG_Typ;
-      GG_Flaeche -- {0..*} GG_Flaeche;
-    END GG_Flaeche_Typ;
+    ASSOCIATION GG_Flaeche_RV
+    EXTENDS BaseClassPolygon_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Polygon (EXTENDED) -- {0..*} GG_Flaeche;
+    END GG_Flaeche_RV;
 
     !! ***********************
     !! GR = Gewaesserraum
     !! ***********************
-
-    !! GR_Typ
-    !! -----------------------------------------------
-    CLASS GR_Typ
-    EXTENDS BaseClassType =
-      KantArt_OldValue (EXTENDED) : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.GR_KantArt_CatalogueReference;
-      KantArt_NewValue (EXTENDED) : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.GR_KantArt_CatalogueReference;
-    END GR_Typ;
-
-    ASSOCIATION GR_RV
-    EXTENDS BaseClass_RV =
-      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
-      Typ (EXTENDED) -- {0..*} GR_Typ;
-    END GR_RV;
 
     !! GR_Flaeche (AREA)
     !! -----------------------------------------------
@@ -610,28 +580,15 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
     EXTENDS BaseClassPolygon =
     END GR_Flaeche;
 
-    ASSOCIATION GR_Flaeche_Typ =
-      Typ -- {1} GR_Typ;
-      GR_Flaeche -- {0..*} GR_Flaeche;
-    END GR_Flaeche_Typ;
+    ASSOCIATION GR_Flaeche_RV
+    EXTENDS BaseClassPolygon_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Polygon (EXTENDED) -- {0..*} GR_Flaeche;
+    END GR_Flaeche_RV;
 
     !! ****************************
     !! NH = Natur- und Heimatschutz
     !! ****************************
-
-    !! NH_Typ
-    !! -----------------------------------------------
-    CLASS NH_Typ
-    EXTENDS BaseClassType =
-      KantArt_OldValue (EXTENDED) : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.NH_KantArt_CatalogueReference;
-      KantArt_NewValue (EXTENDED) : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.NH_KantArt_CatalogueReference;
-    END NH_Typ;
-
-    ASSOCIATION NH_RV
-    EXTENDS BaseClass_RV =
-      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
-      Typ (EXTENDED) -- {0..*} NH_Typ;
-    END NH_RV;
 
     !! NH_Punkt (COORD)
     !! -----------------------------------------------
@@ -639,10 +596,11 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
     EXTENDS BaseClassPoint =
     END NH_Punkt;
 
-    ASSOCIATION NH_Punkt_Typ =
-      Typ -- {1} NH_Typ;
-      NH_Punkt -- {0..*} NH_Punkt;
-    END NH_Punkt_Typ;
+    ASSOCIATION NH_Punkt_RV
+    EXTENDS BaseClassPoint_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Point (EXTENDED) -- {0..*} NH_Punkt;
+    END NH_Punkt_RV;
 
     !! NH_Linie (POLYLINE)
     !! -----------------------------------------------
@@ -650,10 +608,11 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
     EXTENDS BaseClassPolyline =
     END NH_Linie;
 
-    ASSOCIATION NH_Linie_Typ =
-      Typ -- {1} NH_Typ;
-      NH_Linie -- {0..*} NH_Linie;
-    END NH_Linie_Typ;
+    ASSOCIATION NH_Linie_RV
+    EXTENDS BaseClassPolyline_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Polyline (EXTENDED) -- {0..*} NH_Linie;
+    END NH_Linie_RV;
 
     !! NH_Flaeche (SURFACE)
     !! -----------------------------------------------
@@ -661,28 +620,15 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
     EXTENDS BaseClassPolygon =
     END NH_Flaeche;
 
-    ASSOCIATION NH_Flaeche_Typ =
-      Typ -- {1} NH_Typ;
-      NH_Flaeche -- {0..*} NH_Flaeche;
-    END NH_Flaeche_Typ;
+    ASSOCIATION NH_Flaeche_RV
+    EXTENDS BaseClassPolygon_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Polygon (EXTENDED) -- {0..*} NH_Flaeche;
+    END NH_Flaeche_RV;
 
     !! ***********************
     !! BL = Baulinien
     !! ***********************
-
-    !! BL_Typ
-    !! -----------------------------------------------
-    CLASS BL_Typ
-    EXTENDS BaseClassType =
-      KantArt_OldValue (EXTENDED) : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.BL_KantArt_CatalogueReference;
-      KantArt_NewValue (EXTENDED) : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.BL_KantArt_CatalogueReference;
-    END BL_Typ;
-
-    ASSOCIATION BL_RV
-    EXTENDS BaseClass_RV =
-      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
-      Typ (EXTENDED) -- {0..*} BL_Typ;
-    END BL_RV;
 
     !! BL_Linie (POLYLINE)
     !! -----------------------------------------------
@@ -690,10 +636,11 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
     EXTENDS BaseClassPolyline =
     END BL_Linie;
 
-    ASSOCIATION BL_Linie_Typ =
-      Typ -- {1} BL_Typ;
-      BL_Linie -- {0..*} BL_Linie;
-    END BL_Linie_Typ;
+    ASSOCIATION BL_Linie_RV
+    EXTENDS BaseClassPolyline_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Polyline (EXTENDED) -- {0..*} BL_Linie;
+    END BL_Linie_RV;
 
     !! BL_Flaeche (SURFACE)
     !! -----------------------------------------------
@@ -701,28 +648,15 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
     EXTENDS BaseClassPolygon =
     END BL_Flaeche;
 
-    ASSOCIATION BL_Flaeche_Typ =
-      Typ -- {1} BL_Typ;
-      BL_Flaeche -- {0..*} BL_Flaeche;
-    END BL_Flaeche_Typ;
+    ASSOCIATION BL_Flaeche_RV
+    EXTENDS BaseClassPolygon_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Polygon (EXTENDED) -- {0..*} BL_Flaeche;
+    END BL_Flaeche_RV;
 
     !! ***********************
     !! WE = Wege
     !! ***********************
-
-    !! WE_Typ
-    !! -----------------------------------------------
-    CLASS WE_Typ
-    EXTENDS BaseClassType =
-      KantArt_OldValue (EXTENDED) : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.WE_KantArt_CatalogueReference;
-      KantArt_NewValue (EXTENDED) : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.WE_KantArt_CatalogueReference;
-    END WE_Typ;
-
-    ASSOCIATION WE_RV
-    EXTENDS BaseClass_RV =
-      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
-      Typ (EXTENDED) -- {0..*} WE_Typ;
-    END WE_RV;
 
     !! WE_Linie (POLYLINE)
     !! -----------------------------------------------
@@ -730,10 +664,11 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
     EXTENDS BaseClassPolyline =
     END WE_Linie;
 
-    ASSOCIATION WE_Linie_Typ =
-      Typ -- {1} WE_Typ;
-      WE_Linie -- {0..*} WE_Linie;
-    END WE_Linie_Typ;
+    ASSOCIATION WE_Linie_RV
+    EXTENDS BaseClassPolyline_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Polyline (EXTENDED) -- {0..*} WE_Linie;
+    END WE_Linie_RV;
 
     !! WE_Flaeche (SURFACE)
     !! -----------------------------------------------
@@ -741,28 +676,15 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
     EXTENDS BaseClassPolygon =
     END WE_Flaeche;
 
-    ASSOCIATION WE_Flaeche_Typ =
-      Typ -- {1} WE_Typ;
-      WE_Flaeche -- {0..*} WE_Flaeche;
-    END WE_Flaeche_Typ;
+    ASSOCIATION WE_Flaeche_RV
+    EXTENDS BaseClassPolygon_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Polygon (EXTENDED) -- {0..*} WE_Flaeche;
+    END WE_Flaeche_RV;
 
     !! ***********************
     !! WF = Waldfeststellung
     !! ***********************
-
-    !! WF_Typ
-    !! -----------------------------------------------
-    CLASS WF_Typ
-    EXTENDS BaseClassType =
-      KantArt_OldValue (EXTENDED) : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.WF_KantArt_CatalogueReference;
-      KantArt_NewValue (EXTENDED) : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.WF_KantArt_CatalogueReference;
-    END WF_Typ;
-
-    ASSOCIATION WF_RV
-    EXTENDS BaseClass_RV =
-      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
-      Typ (EXTENDED) -- {0..*} WF_Typ;
-    END WF_RV;
 
     !! WF_Linie (POLYLINE)
     !! -----------------------------------------------
@@ -770,10 +692,11 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
     EXTENDS BaseClassPolyline =
     END WF_Linie;
 
-    ASSOCIATION WF_Linie_Typ =
-      Typ -- {1} WF_Typ;
-      WF_Linie -- {0..*} WF_Linie;
-    END WF_Linie_Typ;
+    ASSOCIATION WF_Linie_RV
+    EXTENDS BaseClassPolyline_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Polyline (EXTENDED) -- {0..*} WF_Linie;
+    END WF_Linie_RV;
 
  END Nutzungsplanung;
 
