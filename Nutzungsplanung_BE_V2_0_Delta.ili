@@ -326,7 +326,7 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
       Planungsgeschaeft_Ortsplanungsrevision_OldValue : BOOLEAN;
       Planungsgeschaeft_Ortsplanungsrevision_NewValue : BOOLEAN;
       Planungsgeschaeft_Ortsplanungsrevision_Rating : (ToApprove,ToCheck,ToLog,None);
-      Geom_Size : MANDATORY 0.00 .. 99999.99;
+      Geom_Size : MANDATORY 0.00 .. 9999999999.99;
       Geometrie : MANDATORY Polyline;
     END BaseClassPolyline;
 
@@ -392,7 +392,7 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
       Planungsgeschaeft_Ortsplanungsrevision_NewValue : BOOLEAN;
       Planungsgeschaeft_Ortsplanungsrevision_Rating : (ToApprove,ToCheck,ToLog,None);
       CorrelationID : TEXT*36;
-      Geom_Size : MANDATORY 0.00 .. 99999.99;
+      Geom_Size : MANDATORY 0.00 .. 9999999999.99;
       Geometrie : MANDATORY Surface;
     END BaseClassPolygon;
 
