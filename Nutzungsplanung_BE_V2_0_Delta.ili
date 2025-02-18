@@ -84,8 +84,8 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
     CLASS AD_Datensatz =
       Planungsbehoerde : MANDATORY 101..999;
       Sprache : MANDATORY (de,fr,de_fr);
-      BasketId_BeforeChange : MANDATORY TEXT*36;
-      BasketId_AfterChange : MANDATORY TEXT*36;
+      XTF_BeforeChange : MANDATORY TEXT*256;
+      XTF_AfterChange : MANDATORY TEXT*256;
       creation_date : MANDATORY Datum;
       creation_time : MANDATORY Zeit;
     END AD_Datensatz;

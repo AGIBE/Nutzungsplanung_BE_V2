@@ -47,9 +47,9 @@ MODEL Nutzungsplanung_BE_V2_Test03_Dossier
       Date_approved : Date;
       Date_inForce : Date;
       TID_ActiveBusiness : TEXT*36;     !! (Aktives_Geschaeft)
-      BasketId_BeforeChange : TEXT*36;
-      BasketId_AfterChange : TEXT*36;
-      BasketId_DeltaObjects : TEXT*36;  !! => nur falls einfach möglich. Ansonsten findet man auch vom Delta aus den Weg zum Geschäft.
+      XTF_BeforeChange : TEXT*256;
+      XTF_AfterChange : TEXT*256;
+      XTF_DeltaObjects : TEXT*256;  !! => nur falls einfach möglich. Ansonsten findet man auch vom Delta aus den Weg zum Geschäft.
       creation_date : Date;
       creation_time : Time;
       last_update : Date;               !! => nur falls sinnvoll.
