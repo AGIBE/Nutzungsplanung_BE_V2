@@ -106,6 +106,7 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
       Rating : (ToApprove,ToCheck,ToLog,None);
       Rating_Existence : (ToApprove,ToCheck,ToLog,None);
       Rating_Attributes : (ToApprove,ToCheck,ToLog,None);
+      Rating_RVLinks : (ToApprove,ToCheck,ToLog,None);
       Rating_DocumentRevisions : (ToApprove,ToCheck,ToLog,None);
       Dokument_Titel_OldValue : TEXT*500;
       Dokument_Titel_NewValue : TEXT*500;
