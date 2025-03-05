@@ -182,18 +182,12 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
       Planungsgeschaeft_OldValue : TEXT*200;
       Planungsgeschaeft_NewValue : TEXT*200;
       Planungsgeschaeft_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
-      Erstversion_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
     END DO_DokumentRevision;
 
-    ASSOCIATION DokumentRevision_Dokument_OldValue =
-      Erstversion_OldValue -- {1} DO_Dokument;
-      Aenderungsdokument_OldValue -- {0..*} DO_DokumentRevision;
-    END DokumentRevision_Dokument_OldValue;
-
-    ASSOCIATION DokumentRevision_Dokument_NewValue =
-      Erstversion_NewValue -- {1} DO_Dokument;
-      Aenderungsdokument_NewValue -- {0..*} DO_DokumentRevision;
-    END DokumentRevision_Dokument_NewValue;
+    ASSOCIATION DokumentRevision_Dokument =
+      Erstversion -- {0..1} DO_Dokument;
+      Aenderungsdokument -- {0..*} DO_DokumentRevision;
+    END DokumentRevision_Dokument;
 
     !! ***********************
     !! Geodaten
