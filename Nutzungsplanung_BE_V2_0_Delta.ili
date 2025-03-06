@@ -228,7 +228,6 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
       Delta_Rating_DocumentLinks : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
       TID_OldValue : INTERLIS.UUIDOID;
       TID_NewValue : INTERLIS.UUIDOID;
-      TID_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
       Label_OldValue : TEXT*50;
       Label_NewValue : TEXT*50;
       Label_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
@@ -267,7 +266,6 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
       Delta_Size : MANDATORY 0.00 .. 9999999999.99;
       TID_OldValue : INTERLIS.UUIDOID;
       TID_NewValue : INTERLIS.UUIDOID;
-      TID_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
       Label_OldValue : TEXT*50;
       Label_NewValue : TEXT*50;
       Label_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
