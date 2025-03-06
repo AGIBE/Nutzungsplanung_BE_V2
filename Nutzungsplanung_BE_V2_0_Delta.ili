@@ -152,13 +152,29 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
       Dokumentverbindlichkeit_OldValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Dokumentverbindlichkeit_CatalogueReference;
       Dokumentverbindlichkeit_NewValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Dokumentverbindlichkeit_CatalogueReference;
       Dokumentverbindlichkeit_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
-      Planungsgeschaeft_OldValue : TEXT*36;
-      Planungsgeschaeft_NewValue : TEXT*36;
       Planungsgeschaeft_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
-      ZustaendigeStelle_OldValue : TEXT*36;
-      ZustaendigeStelle_NewValue : TEXT*36;
       ZustaendigeStelle_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
     END DO_Dokument;
+
+    ASSOCIATION Dokument_Geschaeft_OldValue =
+      Planungsgeschaeft_OldValue -- {0..1} AD_Planungsgeschaeft;
+      Dokument_OldValue -- {0..*} DO_Dokument;
+    END Dokument_Geschaeft_OldValue;
+
+    ASSOCIATION Dokument_Geschaeft_NewValue =
+      Planungsgeschaeft_NewValue -- {0..1} AD_Planungsgeschaeft;
+      Dokument_NewValue -- {0..*} DO_Dokument;
+    END Dokument_Geschaeft_NewValue;
+
+    ASSOCIATION Dokument_ZustaendigeStelle_OldValue  =
+      ZustaendigeStelle_OldValue -- {0..1} AD_Amt;
+      Dokument_OldValue -- {0..*} DO_Dokument;
+    END Dokument_ZustaendigeStelle_OldValue;
+
+    ASSOCIATION Dokument_ZustaendigeStelle_NewValue  =
+      ZustaendigeStelle_NewValue -- {0..1} AD_Amt;
+      Dokument_NewValue -- {0..*} DO_Dokument;
+    END Dokument_ZustaendigeStelle_NewValue;
 
     !! Änderungsdokumente (Änderungen an Rechtsvorschriften)
     !! -----------------------------------------------
@@ -179,10 +195,18 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
       PDF_Dateiname_OldValue : TEXT*200;
       PDF_Dateiname_NewValue : TEXT*200;
       PDF_Dateiname_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
-      Planungsgeschaeft_OldValue : TEXT*200;
-      Planungsgeschaeft_NewValue : TEXT*200;
       Planungsgeschaeft_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
     END DO_DokumentRevision;
+
+    ASSOCIATION DokumentRevision_Geschaeft_OldValue =
+      Planungsgeschaeft_OldValue -- {0..1} AD_Planungsgeschaeft;
+      Aenderungsdokument_OldValue -- {0..*} DO_DokumentRevision;
+    END DokumentRevision_Geschaeft_OldValue;
+
+    ASSOCIATION DokumentRevision_Geschaeft_NewValue =
+      Planungsgeschaeft_NewValue -- {0..1} AD_Planungsgeschaeft;
+      Aenderungsdokument_NewValue -- {0..*} DO_DokumentRevision;
+    END DokumentRevision_Geschaeft_NewValue;
 
     ASSOCIATION DokumentRevision_Dokument =
       Erstversion -- {0..1} DO_Dokument;
@@ -208,8 +232,6 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
       Label_OldValue : TEXT*50;
       Label_NewValue : TEXT*50;
       Label_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
-      Planungsgeschaeft_OldValue : TEXT*36;
-      Planungsgeschaeft_NewValue : TEXT*36;
       Planungsgeschaeft_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
       Typ_REF_INFO_OldValue : INTERLIS.UUIDOID;
       Typ_REF_INFO_NewValue : INTERLIS.UUIDOID;
@@ -231,8 +253,6 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
       Type_Verbindlichkeit_OldValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference;
       Type_Verbindlichkeit_NewValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference;
       Type_Verbindlichkeit_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
-      Type_ZustaendigeStelle_OldValue : TEXT*36;
-      Type_ZustaendigeStelle_NewValue : TEXT*36;
       Type_ZustaendigeStelle_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
       Geometrie : MANDATORY LKoord;
     END BaseClassPoint;
@@ -251,8 +271,6 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
       Label_OldValue : TEXT*50;
       Label_NewValue : TEXT*50;
       Label_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
-      Planungsgeschaeft_OldValue : TEXT*36;
-      Planungsgeschaeft_NewValue : TEXT*36;
       Planungsgeschaeft_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
       Typ_REF_INFO_OldValue : INTERLIS.UUIDOID;
       Typ_REF_INFO_NewValue : INTERLIS.UUIDOID;
@@ -274,8 +292,6 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
       Type_Verbindlichkeit_OldValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference;
       Type_Verbindlichkeit_NewValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference;
       Type_Verbindlichkeit_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
-      Type_ZustaendigeStelle_OldValue : TEXT*36;
-      Type_ZustaendigeStelle_NewValue : TEXT*36;
       Type_ZustaendigeStelle_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
       Geometrie : MANDATORY Polyline;
     END BaseClassPolyline;
@@ -291,14 +307,10 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
       Delta_CorrelationID : TEXT*36;
       TID_OldValue : INTERLIS.UUIDOID;
       TID_NewValue : INTERLIS.UUIDOID;
-      TID_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
       Label_OldValue : TEXT*50;
       Label_NewValue : TEXT*50;
       Label_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
-      Planungsgeschaeft_OldValue : TEXT*36;
-      Planungsgeschaeft_NewValue : TEXT*36;
       Planungsgeschaeft_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
-      NZ_Flaeche_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
       Typ_REF_INFO_OldValue : INTERLIS.UUIDOID;
       Typ_REF_INFO_NewValue : INTERLIS.UUIDOID;
       Type_Bezeichnung_OldValue : TEXT*500;
@@ -319,12 +331,7 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
       Type_Verbindlichkeit_OldValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference;
       Type_Verbindlichkeit_NewValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference;
       Type_Verbindlichkeit_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
-      Type_ZustaendigeStelle_OldValue : TEXT*36;
-      Type_ZustaendigeStelle_NewValue : TEXT*36;
       Type_ZustaendigeStelle_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
-      Type_NZ_Typ_OldValue : TEXT*36;
-      Type_NZ_Typ_NewValue : TEXT*36;
-      Type_NZ_Typ_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
       Geometrie : MANDATORY Surface;
     END BaseClassPolygon;
 
@@ -351,6 +358,66 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
       Delta_Existence : MANDATORY (Existing,Added,Removed);
       Delta_Rating_Existence : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
     END BaseClassPolygon_RV;
+
+    ASSOCIATION BaseClassPoint_Geschaeft_OldValue =
+      Planungsgeschaeft_OldValue -- {0..1} AD_Planungsgeschaeft;
+      BaseClassPoint_OldValue -- {0..*} BaseClassPoint;
+    END BaseClassPoint_Geschaeft_OldValue;
+
+    ASSOCIATION BaseClassPoint_Geschaeft_NewValue =
+      Planungsgeschaeft_NewValue -- {0..1} AD_Planungsgeschaeft;
+      BaseClassPoint_NewValue -- {0..*} BaseClassPoint;
+    END BaseClassPoint_Geschaeft_NewValue;
+
+    ASSOCIATION BaseClassPolyline_Geschaeft_OldValue =
+      Planungsgeschaeft_OldValue -- {0..1} AD_Planungsgeschaeft;
+      BaseClassPolyline_OldValue -- {0..*} BaseClassPolyline;
+    END BaseClassPolyline_Geschaeft_OldValue;
+
+    ASSOCIATION BaseClassPolyline_Geschaeft_NewValue =
+      Planungsgeschaeft_NewValue -- {0..1} AD_Planungsgeschaeft;
+      BaseClassPolyline_NewValue -- {0..*} BaseClassPolyline;
+    END BaseClassPolyline_Geschaeft_NewValue;
+
+    ASSOCIATION BaseClassPolygon_Geschaeft_OldValue =
+      Planungsgeschaeft_OldValue -- {0..1} AD_Planungsgeschaeft;
+      BaseClassPolygon_OldValue -- {0..*} BaseClassPolygon;
+    END BaseClassPolygon_Geschaeft_OldValue;
+
+    ASSOCIATION BaseClassPolygon_Geschaeft_NewValue =
+      Planungsgeschaeft_NewValue -- {0..1} AD_Planungsgeschaeft;
+      BaseClassPolygon_NewValue -- {0..*} BaseClassPolygon;
+    END BaseClassPolygon_Geschaeft_NewValue;
+
+    ASSOCIATION BaseClassPoint_ZustaendigeStelle_OldValue =
+      Type_ZustaendigeStelle_OldValue -- {0..1} AD_Amt;
+      BaseClassPoint_OldValue -- {0..*} BaseClassPoint;
+    END BaseClassPoint_ZustaendigeStelle_OldValue;
+
+    ASSOCIATION BaseClassPoint_ZustaendigeStelle_NewValue =
+      Type_ZustaendigeStelle_NewValue -- {0..1} AD_Amt;
+      BaseClassPoint_NewValue -- {0..*} BaseClassPoint;
+    END BaseClassPoint_ZustaendigeStelle_NewValue;
+
+    ASSOCIATION BaseClassPolyline_ZustaendigeStelle_OldValue =
+      Type_ZustaendigeStelle_OldValue -- {0..1} AD_Amt;
+      BaseClassPolyline_OldValue -- {0..*} BaseClassPolyline;
+    END BaseClassPolyline_ZustaendigeStelle_OldValue;
+
+    ASSOCIATION BaseClassPolyline_ZustaendigeStelle_NewValue =
+      Type_ZustaendigeStelle_NewValue -- {0..1} AD_Amt;
+      BaseClassPolyline_NewValue -- {0..*} BaseClassPolyline;
+    END BaseClassPolyline_ZustaendigeStelle_NewValue;
+
+    ASSOCIATION BaseClassPolygon_ZustaendigeStelle_OldValue =
+      Type_ZustaendigeStelle_OldValue -- {0..1} AD_Amt;
+      BaseClassPolygon_OldValue -- {0..*} BaseClassPolygon;
+    END BaseClassPolygon_ZustaendigeStelle_OldValue;
+
+    ASSOCIATION BaseClassPolygon_ZustaendigeStelle_NewValue =
+      Type_ZustaendigeStelle_NewValue -- {0..1} AD_Amt;
+      BaseClassPolygon_NewValue -- {0..*} BaseClassPolygon;
+    END BaseClassPolygon_ZustaendigeStelle_NewValue;
 
     !! ***********************
     !! GN = Grundnutzung
@@ -392,6 +459,10 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
     !! -----------------------------------------------
     CLASS BK_Flaeche
     EXTENDS BaseClassPolygon =
+      NZ_Flaeche_REF_INFO_OldValue : INTERLIS.UUIDOID;
+      NZ_Flaeche_REF_INFO_NewValue : INTERLIS.UUIDOID;
+      Type_NZ_Typ_REF_INFO_OldValue : INTERLIS.UUIDOID;
+      Type_NZ_Typ_REF_INFO_NewValue : INTERLIS.UUIDOID;
     END BK_Flaeche;
 
     ASSOCIATION BK_Flaeche_RV
@@ -399,16 +470,6 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
       Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
       Polygon (EXTENDED) -- {0..*} BK_Flaeche;
     END BK_Flaeche_RV;
-
-    ASSOCIATION BK_NZ_Flaeche_OldValue =
-      NZ_Flaeche_OldValue -- {0..1} NZ_Flaeche;
-      BK_Flaeche_OldValue -- {0..*} BK_Flaeche;
-    END BK_NZ_Flaeche_OldValue;
-
-    ASSOCIATION BK_NZ_Flaeche_NewValue =
-      NZ_Flaeche_NewValue -- {0..1} NZ_Flaeche;
-      BK_Flaeche_NewValue -- {0..*} BK_Flaeche;
-    END BK_NZ_Flaeche_NewValue;
 
     !! ***********************
     !! IN = Innere Nutzung (von ZPP,UeO,USP,SBV)
