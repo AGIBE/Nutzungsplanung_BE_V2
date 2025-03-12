@@ -132,7 +132,6 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
       Delta_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
       Delta_Rating_Existence : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
       Delta_Rating_Attributes : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
-      Delta_Rating_DocumentLinks : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
       Delta_Rating_DocumentRevisions : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
       Titel_OldValue : TEXT*500;
       Titel_NewValue : TEXT*500;
