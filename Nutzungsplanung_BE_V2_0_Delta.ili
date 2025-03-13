@@ -109,14 +109,14 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
       Delta_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
       Delta_Rating_Existence : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
       Delta_Rating_Attributes : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
-      Name_OldValue : MANDATORY TEXT*200;
-      Name_NewValue : MANDATORY TEXT*200;
+      Name_OldValue : TEXT*200;
+      Name_NewValue : TEXT*200;
       Name_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
       UID_OldValue : TEXT*15;
       UID_NewValue : TEXT*15;
       UID_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
-      AmtImWeb_OldValue : MANDATORY URI;
-      AmtImWeb_NewValue : MANDATORY URI;
+      AmtImWeb_OldValue : URI;
+      AmtImWeb_NewValue : URI;
       AmtImWeb_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
     END AD_Amt;
 
