@@ -70,8 +70,8 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
     CLASS AD_Planungsgeschaeft =
       Delta_Existence : MANDATORY (Existing,Added,Removed);
       Delta_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove,ToReject);
-      Delta_Rating_Info_DE TEXT*200;
-      Delta_Rating_Info_FR TEXT*200;
+      Delta_Rating_Info_DE : TEXT*200;
+      Delta_Rating_Info_FR : TEXT*200;
       Delta_Rating_Existence : MANDATORY (NoChange,ToLog,ToCheck,ToApprove,ToReject);
       Delta_Rating_Attributes : MANDATORY (NoChange,ToLog,ToCheck,ToApprove,ToReject);
       Geschaeft_Nummer_OldValue : TEXT*50;
@@ -109,8 +109,8 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
     CLASS AD_Amt =
       Delta_Existence : MANDATORY (Existing,Added,Removed);
       Delta_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove,ToReject);
-      Delta_Rating_Info_DE TEXT*200;
-      Delta_Rating_Info_FR TEXT*200;
+      Delta_Rating_Info_DE : TEXT*200;
+      Delta_Rating_Info_FR : TEXT*200;
       Delta_Rating_Existence : MANDATORY (NoChange,ToLog,ToCheck,ToApprove,ToReject);
       Delta_Rating_Attributes : MANDATORY (NoChange,ToLog,ToCheck,ToApprove,ToReject);
       Name_OldValue : TEXT*200;
@@ -134,8 +134,8 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
     CLASS DO_Dokument =
       Delta_Existence : MANDATORY (Existing,Added,Removed);
       Delta_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove,ToReject);
-      Delta_Rating_Info_DE TEXT*200;
-      Delta_Rating_Info_FR TEXT*200;
+      Delta_Rating_Info_DE : TEXT*200;
+      Delta_Rating_Info_FR : TEXT*200;
       Delta_Rating_Existence : MANDATORY (NoChange,ToLog,ToCheck,ToApprove,ToReject);
       Delta_Rating_Attributes : MANDATORY (NoChange,ToLog,ToCheck,ToApprove,ToReject);
       Delta_Rating_DocumentRevisions : MANDATORY (NoChange,ToLog,ToCheck,ToApprove,ToReject);
@@ -186,8 +186,8 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
     CLASS DO_DokumentRevision =
       Delta_Existence : MANDATORY (Existing,Added,Removed);
       Delta_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove,ToReject);
-      Delta_Rating_Info_DE TEXT*200;
-      Delta_Rating_Info_FR TEXT*200;
+      Delta_Rating_Info_DE : TEXT*200;
+      Delta_Rating_Info_FR : TEXT*200;
       Delta_Rating_Existence : MANDATORY (NoChange,ToLog,ToCheck,ToApprove,ToReject);
       Delta_Rating_Attributes : MANDATORY (NoChange,ToLog,ToCheck,ToApprove,ToReject);
       Titel_OldValue : TEXT*500;
@@ -229,13 +229,13 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
     CLASS BaseClassPoint (ABSTRACT) =
       Delta_Existence : MANDATORY (Existing,Added,Removed);
       Delta_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove,ToReject);
-      Delta_Rating_Info_DE TEXT*200;
-      Delta_Rating_Info_FR TEXT*200;
+      Delta_Rating_Info_DE : TEXT*200;
+      Delta_Rating_Info_FR : TEXT*200;
       Delta_Rating_Existence : MANDATORY (NoChange,ToLog,ToCheck,ToApprove,ToReject);
       Delta_Rating_Geom_Attributes : MANDATORY (NoChange,ToLog,ToCheck,ToApprove,ToReject);
       Delta_Rating_Type_Attributes : MANDATORY (NoChange,ToLog,ToCheck,ToApprove,ToReject);
       Delta_Rating_DocumentLinks : MANDATORY (NoChange,ToLog,ToCheck,ToApprove,ToReject);
-      Delta_Tolerance : 0.000 .. 0.100;
+      Delta_Tolerance : MANDATORY 0.000 .. 0.100;
       TID_OldValue : INTERLIS.UUIDOID;
       TID_NewValue : INTERLIS.UUIDOID;
       Label_OldValue : TEXT*50;
@@ -269,13 +269,13 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
     CLASS BaseClassPolyline (ABSTRACT) =
       Delta_Existence : MANDATORY (Existing,Added,Removed);
       Delta_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove,ToReject);
-      Delta_Rating_Info_DE TEXT*200;
-      Delta_Rating_Info_FR TEXT*200;
+      Delta_Rating_Info_DE : TEXT*200;
+      Delta_Rating_Info_FR : TEXT*200;
       Delta_Rating_Existence : MANDATORY (NoChange,ToLog,ToCheck,ToApprove,ToReject);
       Delta_Rating_Geom_Attributes : MANDATORY (NoChange,ToLog,ToCheck,ToApprove,ToReject);
       Delta_Rating_Type_Attributes : MANDATORY (NoChange,ToLog,ToCheck,ToApprove,ToReject);
       Delta_Rating_DocumentLinks : MANDATORY (NoChange,ToLog,ToCheck,ToApprove,ToReject);
-      Delta_Tolerance : 0.000 .. 0.100;
+      Delta_Tolerance : MANDATORY 0.000 .. 0.100;
       Delta_Size : MANDATORY 0.00 .. 9999999999.99;
       TID_OldValue : INTERLIS.UUIDOID;
       TID_NewValue : INTERLIS.UUIDOID;
@@ -310,13 +310,13 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
     CLASS BaseClassPolygon (ABSTRACT) =
       Delta_Existence : MANDATORY (Existing,Added,Removed);
       Delta_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove,ToReject);
-      Delta_Rating_Info_DE TEXT*200;
-      Delta_Rating_Info_FR TEXT*200;
+      Delta_Rating_Info_DE : TEXT*200;
+      Delta_Rating_Info_FR : TEXT*200;
       Delta_Rating_Existence : MANDATORY (NoChange,ToLog,ToCheck,ToApprove,ToReject);
       Delta_Rating_Geom_Attributes : MANDATORY (NoChange,ToLog,ToCheck,ToApprove,ToReject);
       Delta_Rating_Type_Attributes : MANDATORY (NoChange,ToLog,ToCheck,ToApprove,ToReject);
       Delta_Rating_DocumentLinks : MANDATORY (NoChange,ToLog,ToCheck,ToApprove,ToReject);
-      Delta_Tolerance : 0.000 .. 0.100;
+      Delta_Tolerance : MANDATORY 0.000 .. 0.100;
       Delta_Size : MANDATORY 0.00 .. 9999999999.99;
       Delta_CorrelationID : TEXT*36;
       TID_OldValue : INTERLIS.UUIDOID;
