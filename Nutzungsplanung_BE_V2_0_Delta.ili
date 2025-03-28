@@ -279,6 +279,25 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
       Planungsgeschaeft_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
       Typ_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
       Geometrie : MANDATORY LKoord;
+      Type_Bezeichnung_OldValue : TEXT*500;
+      Type_Bezeichnung_NewValue : TEXT*500;
+      Type_Bezeichnung_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Type_Abkuerzung_OldValue : TEXT*50;
+      Type_Abkuerzung_NewValue : TEXT*50;
+      Type_Abkuerzung_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Type_Kategorie_OldValue : TEXT*100;
+      Type_Kategorie_NewValue : TEXT*100;
+      Type_Kategorie_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Type_Darstellungscode_OldValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference;
+      Type_Darstellungscode_NewValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference;
+      Type_Darstellungscode_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Type_KantArt_OldValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Typ_CatalogueReference;
+      Type_KantArt_NewValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Typ_CatalogueReference;
+      Type_KantArt_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Type_Verbindlichkeit_OldValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference;
+      Type_Verbindlichkeit_NewValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference;
+      Type_Verbindlichkeit_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Type_ZustaendigeStelle_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
     END BaseClassPoint;
 
     CLASS BaseClassPolyline (ABSTRACT) =
@@ -296,6 +315,25 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
       Planungsgeschaeft_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
       Typ_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
       Geometrie : MANDATORY Polyline;
+      Type_Bezeichnung_OldValue : TEXT*500;
+      Type_Bezeichnung_NewValue : TEXT*500;
+      Type_Bezeichnung_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Type_Abkuerzung_OldValue : TEXT*50;
+      Type_Abkuerzung_NewValue : TEXT*50;
+      Type_Abkuerzung_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Type_Kategorie_OldValue : TEXT*100;
+      Type_Kategorie_NewValue : TEXT*100;
+      Type_Kategorie_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Type_Darstellungscode_OldValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference;
+      Type_Darstellungscode_NewValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference;
+      Type_Darstellungscode_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Type_KantArt_OldValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Typ_CatalogueReference;
+      Type_KantArt_NewValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Typ_CatalogueReference;
+      Type_KantArt_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Type_Verbindlichkeit_OldValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference;
+      Type_Verbindlichkeit_NewValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference;
+      Type_Verbindlichkeit_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Type_ZustaendigeStelle_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
     END BaseClassPolyline;
 
     CLASS BaseClassPolygon (ABSTRACT) =
@@ -314,6 +352,25 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
       Planungsgeschaeft_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
       Typ_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
       Geometrie : MANDATORY Surface;
+      Type_Bezeichnung_OldValue : TEXT*500;
+      Type_Bezeichnung_NewValue : TEXT*500;
+      Type_Bezeichnung_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Type_Abkuerzung_OldValue : TEXT*50;
+      Type_Abkuerzung_NewValue : TEXT*50;
+      Type_Abkuerzung_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Type_Kategorie_OldValue : TEXT*100;
+      Type_Kategorie_NewValue : TEXT*100;
+      Type_Kategorie_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Type_Darstellungscode_OldValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference;
+      Type_Darstellungscode_NewValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference;
+      Type_Darstellungscode_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Type_KantArt_OldValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Typ_CatalogueReference;
+      Type_KantArt_NewValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Typ_CatalogueReference;
+      Type_KantArt_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Type_Verbindlichkeit_OldValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference;
+      Type_Verbindlichkeit_NewValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference;
+      Type_Verbindlichkeit_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Type_ZustaendigeStelle_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
     END BaseClassPolygon;
 
     ASSOCIATION BaseClassPoint_Geschaeft_OldValue =
@@ -368,10 +425,15 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
     EXTENDS BaseClassPolygon =
     END GN_Flaeche;
 
-    ASSOCIATION GN_Flaeche_Typ =
-      Typ -- {1} GN_Typ;
-      GN_Flaeche -- {0..*} GN_Flaeche;
-    END GN_Flaeche_Typ;
+    ASSOCIATION GN_Flaeche_Typ_OldValue =
+      Typ_OldValue -- {0..1} GN_Typ;
+      GN_Flaeche_OldValue -- {0..*} GN_Flaeche;
+    END GN_Flaeche_Typ_OldValue;
+
+    ASSOCIATION GN_Flaeche_Typ_NewValue =
+      Typ_NewValue -- {0..1} GN_Typ;
+      GN_Flaeche_NewValue -- {0..*} GN_Flaeche;
+    END GN_Flaeche_Typ_NewValue;
 
     !! ***********************
     !! NZ = Nutzungszone
@@ -395,10 +457,15 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
     EXTENDS BaseClassPolygon =
     END NZ_Flaeche;
 
-    ASSOCIATION NZ_Flaeche_Typ =
-      Typ -- {1} NZ_Typ;
-      NZ_Flaeche -- {0..*} NZ_Flaeche;
-    END NZ_Flaeche_Typ;
+    ASSOCIATION NZ_Flaeche_Typ_OldValue =
+      Typ_OldValue -- {0..1} NZ_Typ;
+      NZ_Flaeche_OldValue -- {0..*} NZ_Flaeche;
+    END NZ_Flaeche_Typ_OldValue;
+
+    ASSOCIATION NZ_Flaeche_Typ_NewValue =
+      Typ_NewValue -- {0..1} NZ_Typ;
+      NZ_Flaeche_NewValue -- {0..*} NZ_Flaeche;
+    END NZ_Flaeche_Typ_NewValue;
 
     !! ***********************
     !! BK = Bauklasse/Bauzone
@@ -426,10 +493,15 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
       NZ_Flaeche_REF_INFO_NewValue : INTERLIS.UUIDOID;
     END BK_Flaeche;
 
-    ASSOCIATION BK_Flaeche_Typ =
-      Typ -- {1} BK_Typ;
-      BK_Flaeche -- {0..*} BK_Flaeche;
-    END BK_Flaeche_Typ;
+    ASSOCIATION BK_Flaeche_Typ_OldValue =
+      Typ_OldValue -- {0..1} BK_Typ;
+      BK_Flaeche_OldValue -- {0..*} BK_Flaeche;
+    END BK_Flaeche_Typ_OldValue;
+
+    ASSOCIATION BK_Flaeche_Typ_NewValue =
+      Typ_NewValue -- {0..1} BK_Typ;
+      BK_Flaeche_NewValue -- {0..*} BK_Flaeche;
+    END BK_Flaeche_Typ_NewValue;
 
     !! ***********************
     !! IN = Innere Nutzung (von ZPP,UeO,USP,SBV)
@@ -453,10 +525,15 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
     EXTENDS BaseClassPolygon =
     END IN_Flaeche;
 
-    ASSOCIATION IN_Flaeche_Typ =
-      Typ -- {1} IN_Typ;
-      IN_Flaeche -- {0..*} IN_Flaeche;
-    END IN_Flaeche_Typ;
+    ASSOCIATION IN_Flaeche_Typ_OldValue =
+      Typ_OldValue -- {0..1} IN_Typ;
+      IN_Flaeche_OldValue -- {0..*} IN_Flaeche;
+    END IN_Flaeche_Typ_OldValue;
+
+    ASSOCIATION IN_Flaeche_Typ_NewValue =
+      Typ_NewValue -- {0..1} IN_Typ;
+      IN_Flaeche_NewValue -- {0..*} IN_Flaeche;
+    END IN_Flaeche_Typ_NewValue;
 
     !! ***********************
     !! SN = Überlagernde Sondernutzungsplanung
@@ -480,10 +557,15 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
     EXTENDS BaseClassPolygon =
     END SN_Flaeche;
 
-    ASSOCIATION SN_Flaeche_Typ =
-      Typ -- {1} SN_Typ;
-      SN_Flaeche -- {0..*} SN_Flaeche;
-    END SN_Flaeche_Typ;
+    ASSOCIATION SN_Flaeche_Typ_OldValue =
+      Typ_OldValue -- {0..1} SN_Typ;
+      SN_Flaeche_OldValue -- {0..*} SN_Flaeche;
+    END SN_Flaeche_Typ_OldValue;
+
+    ASSOCIATION SN_Flaeche_Typ_NewValue =
+      Typ_NewValue -- {0..1} SN_Typ;
+      SN_Flaeche_NewValue -- {0..*} SN_Flaeche;
+    END SN_Flaeche_Typ_NewValue;
 
     !! ***********************
     !! UE = Ueberlagerung
@@ -507,10 +589,15 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
     EXTENDS BaseClassPoint =
     END UE_Punkt;
 
-    ASSOCIATION UE_Punkt_Typ =
-      Typ -- {1} UE_Typ;
-      UE_Punkt -- {0..*} UE_Punkt;
-    END UE_Punkt_Typ;
+    ASSOCIATION UE_Punkt_Typ_OldValue =
+      Typ_OldValue -- {0..1} UE_Typ;
+      UE_Punkt_OldValue -- {0..*} UE_Punkt;
+    END UE_Punkt_Typ_OldValue;
+
+    ASSOCIATION UE_Punkt_Typ_NewValue =
+      Typ_NewValue -- {0..1} UE_Typ;
+      UE_Punkt_NewValue -- {0..*} UE_Punkt;
+    END UE_Punkt_Typ_NewValue;
 
     !! UE_Linie (POLYLINE)
     !! -----------------------------------------------
@@ -518,10 +605,15 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
     EXTENDS BaseClassPolyline =
     END UE_Linie;
 
-    ASSOCIATION UE_Linie_Typ =
-      Typ -- {1} UE_Typ;
-      UE_Linie -- {0..*} UE_Linie;
-    END UE_Linie_Typ;
+    ASSOCIATION UE_Linie_Typ_OldValue =
+      Typ_OldValue -- {0..1} UE_Typ;
+      UE_Linie_OldValue -- {0..*} UE_Linie;
+    END UE_Linie_Typ_OldValue;
+
+    ASSOCIATION UE_Linie_Typ_NewValue =
+      Typ_NewValue -- {0..1} UE_Typ;
+      UE_Linie_NewValue -- {0..*} UE_Linie;
+    END UE_Linie_Typ_NewValue;
 
     !! UE_Flaeche (SURFACE)
     !! -----------------------------------------------
@@ -529,10 +621,15 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
     EXTENDS BaseClassPolygon =
     END UE_Flaeche;
 
-    ASSOCIATION UE_Flaeche_Typ =
-      Typ -- {1} UE_Typ;
-      UE_Flaeche -- {0..*} UE_Flaeche;
-    END UE_Flaeche_Typ;
+    ASSOCIATION UE_Flaeche_Typ_OldValue =
+      Typ_OldValue -- {0..1} UE_Typ;
+      UE_Flaeche_OldValue -- {0..*} UE_Flaeche;
+    END UE_Flaeche_Typ_OldValue;
+
+    ASSOCIATION UE_Flaeche_Typ_NewValue =
+      Typ_NewValue -- {0..1} UE_Typ;
+      UE_Flaeche_NewValue -- {0..*} UE_Flaeche;
+    END UE_Flaeche_Typ_NewValue;
 
     !! *********************************
     !! ES = Laermempfindlichkeitsstufen
@@ -556,10 +653,15 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
     EXTENDS BaseClassPolygon =
     END ES_Flaeche;
 
-    ASSOCIATION ES_Flaeche_Typ =
-      Typ -- {1} ES_Typ;
-      ES_Flaeche -- {0..*} ES_Flaeche;
-    END ES_Flaeche_Typ;
+    ASSOCIATION ES_Flaeche_Typ_OldValue =
+      Typ_OldValue -- {0..1} ES_Typ;
+      ES_Flaeche_OldValue -- {0..*} ES_Flaeche;
+    END ES_Flaeche_Typ_OldValue;
+
+    ASSOCIATION ES_Flaeche_Typ_NewValue =
+      Typ_NewValue -- {0..1} ES_Typ;
+      ES_Flaeche_NewValue -- {0..*} ES_Flaeche;
+    END ES_Flaeche_Typ_NewValue;
 
     !! ***********************
     !! GG = Gefahrengebiete
@@ -583,10 +685,15 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
     EXTENDS BaseClassPolygon =
     END GG_Flaeche;
 
-    ASSOCIATION GG_Flaeche_Typ =
-      Typ -- {1} GG_Typ;
-      GG_Flaeche -- {0..*} GG_Flaeche;
-    END GG_Flaeche_Typ;
+    ASSOCIATION GG_Flaeche_Typ_OldValue =
+      Typ_OldValue -- {0..1} GG_Typ;
+      GG_Flaeche_OldValue -- {0..*} GG_Flaeche;
+    END GG_Flaeche_Typ_OldValue;
+
+    ASSOCIATION GG_Flaeche_Typ_NewValue =
+      Typ_NewValue -- {0..1} GG_Typ;
+      GG_Flaeche_NewValue -- {0..*} GG_Flaeche;
+    END GG_Flaeche_Typ_NewValue;
 
     !! ***********************
     !! GR = Gewaesserraum
@@ -610,10 +717,15 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
     EXTENDS BaseClassPolygon =
     END GR_Flaeche;
 
-    ASSOCIATION GR_Flaeche_Typ =
-      Typ -- {1} GR_Typ;
-      GR_Flaeche -- {0..*} GR_Flaeche;
-    END GR_Flaeche_Typ;
+    ASSOCIATION GR_Flaeche_Typ_OldValue =
+      Typ_OldValue -- {0..1} GR_Typ;
+      GR_Flaeche_OldValue -- {0..*} GR_Flaeche;
+    END GR_Flaeche_Typ_OldValue;
+
+    ASSOCIATION GR_Flaeche_Typ_NewValue =
+      Typ_NewValue -- {0..1} GR_Typ;
+      GR_Flaeche_NewValue -- {0..*} GR_Flaeche;
+    END GR_Flaeche_Typ_NewValue;
 
     !! ****************************
     !! NH = Natur- und Heimatschutz
@@ -637,10 +749,15 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
     EXTENDS BaseClassPoint =
     END NH_Punkt;
 
-    ASSOCIATION NH_Punkt_Typ =
-      Typ -- {1} NH_Typ;
-      NH_Punkt -- {0..*} NH_Punkt;
-    END NH_Punkt_Typ;
+    ASSOCIATION NH_Punkt_Typ_OldValue =
+      Typ_OldValue -- {0..1} NH_Typ;
+      NH_Punkt_OldValue -- {0..*} NH_Punkt;
+    END NH_Punkt_Typ_OldValue;
+
+    ASSOCIATION NH_Punkt_Typ_NewValue =
+      Typ_NewValue -- {0..1} NH_Typ;
+      NH_Punkt_NewValue -- {0..*} NH_Punkt;
+    END NH_Punkt_Typ_NewValue;
 
     !! NH_Linie (POLYLINE)
     !! -----------------------------------------------
@@ -648,10 +765,15 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
     EXTENDS BaseClassPolyline =
     END NH_Linie;
 
-    ASSOCIATION NH_Linie_Typ =
-      Typ -- {1} NH_Typ;
-      NH_Linie -- {0..*} NH_Linie;
-    END NH_Linie_Typ;
+    ASSOCIATION NH_Linie_Typ_OldValue =
+      Typ_OldValue -- {0..1} NH_Typ;
+      NH_Linie_OldValue -- {0..*} NH_Linie;
+    END NH_Linie_Typ_OldValue;
+
+    ASSOCIATION NH_Linie_Typ_NewValue =
+      Typ_NewValue -- {0..1} NH_Typ;
+      NH_Linie_NewValue -- {0..*} NH_Linie;
+    END NH_Linie_Typ_NewValue;
 
     !! NH_Flaeche (SURFACE)
     !! -----------------------------------------------
@@ -659,10 +781,15 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
     EXTENDS BaseClassPolygon =
     END NH_Flaeche;
 
-    ASSOCIATION NH_Flaeche_Typ =
-      Typ -- {1} NH_Typ;
-      NH_Flaeche -- {0..*} NH_Flaeche;
-    END NH_Flaeche_Typ;
+    ASSOCIATION NH_Flaeche_Typ_OldValue =
+      Typ_OldValue -- {0..1} NH_Typ;
+      NH_Flaeche_OldValue -- {0..*} NH_Flaeche;
+    END NH_Flaeche_Typ_OldValue;
+
+    ASSOCIATION NH_Flaeche_Typ_NewValue =
+      Typ_NewValue -- {0..1} NH_Typ;
+      NH_Flaeche_NewValue -- {0..*} NH_Flaeche;
+    END NH_Flaeche_Typ_NewValue;
 
     !! ***********************
     !! BL = Baulinien
@@ -686,10 +813,15 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
     EXTENDS BaseClassPolyline =
     END BL_Linie;
 
-    ASSOCIATION BL_Linie_Typ =
-      Typ -- {1} BL_Typ;
-      BL_Linie -- {0..*} BL_Linie;
-    END BL_Linie_Typ;
+    ASSOCIATION BL_Linie_Typ_OldValue =
+      Typ_OldValue -- {0..1} BL_Typ;
+      BL_Linie_OldValue -- {0..*} BL_Linie;
+    END BL_Linie_Typ_OldValue;
+
+    ASSOCIATION BL_Linie_Typ_NewValue =
+      Typ_NewValue -- {0..1} BL_Typ;
+      BL_Linie_NewValue -- {0..*} BL_Linie;
+    END BL_Linie_Typ_NewValue;
 
     !! BL_Flaeche (SURFACE)
     !! -----------------------------------------------
@@ -697,10 +829,15 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
     EXTENDS BaseClassPolygon =
     END BL_Flaeche;
 
-    ASSOCIATION BL_Flaeche_Typ =
-      Typ -- {1} BL_Typ;
-      BL_Flaeche -- {0..*} BL_Flaeche;
-    END BL_Flaeche_Typ;
+    ASSOCIATION BL_Flaeche_Typ_OldValue =
+      Typ_OldValue -- {0..1} BL_Typ;
+      BL_Flaeche_OldValue -- {0..*} BL_Flaeche;
+    END BL_Flaeche_Typ_OldValue;
+
+    ASSOCIATION BL_Flaeche_Typ_NewValue =
+      Typ_NewValue -- {0..1} BL_Typ;
+      BL_Flaeche_NewValue -- {0..*} BL_Flaeche;
+    END BL_Flaeche_Typ_NewValue;
 
     !! ***********************
     !! WE = Wege
@@ -724,10 +861,15 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
     EXTENDS BaseClassPolyline =
     END WE_Linie;
 
-    ASSOCIATION WE_Linie_Typ =
-      Typ -- {1} WE_Typ;
-      WE_Linie -- {0..*} WE_Linie;
-    END WE_Linie_Typ;
+    ASSOCIATION WE_Linie_Typ_OldValue =
+      Typ_OldValue -- {0..1} WE_Typ;
+      WE_Linie_OldValue -- {0..*} WE_Linie;
+    END WE_Linie_Typ_OldValue;
+
+    ASSOCIATION WE_Linie_Typ_NewValue =
+      Typ_NewValue -- {0..1} WE_Typ;
+      WE_Linie_NewValue -- {0..*} WE_Linie;
+    END WE_Linie_Typ_NewValue;
 
     !! WE_Flaeche (SURFACE)
     !! -----------------------------------------------
@@ -735,10 +877,15 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
     EXTENDS BaseClassPolygon =
     END WE_Flaeche;
 
-    ASSOCIATION WE_Flaeche_Typ =
-      Typ -- {1} WE_Typ;
-      WE_Flaeche -- {0..*} WE_Flaeche;
-    END WE_Flaeche_Typ;
+    ASSOCIATION WE_Flaeche_Typ_OldValue =
+      Typ_OldValue -- {0..1} WE_Typ;
+      WE_Flaeche_OldValue -- {0..*} WE_Flaeche;
+    END WE_Flaeche_Typ_OldValue;
+
+    ASSOCIATION WE_Flaeche_Typ_NewValue =
+      Typ_NewValue -- {0..1} WE_Typ;
+      WE_Flaeche_NewValue -- {0..*} WE_Flaeche;
+    END WE_Flaeche_Typ_NewValue;
 
     !! ***********************
     !! WF = Waldfeststellung
@@ -762,10 +909,15 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
     EXTENDS BaseClassPolyline =
     END WF_Linie;
 
-    ASSOCIATION WF_Linie_Typ =
-      Typ -- {1} WF_Typ;
-      WF_Linie -- {0..*} WF_Linie;
-    END WF_Linie_Typ;
+    ASSOCIATION WF_Linie_Typ_OldValue =
+      Typ_OldValue -- {0..1} WF_Typ;
+      WF_Linie_OldValue -- {0..*} WF_Linie;
+    END WF_Linie_Typ_OldValue;
+
+    ASSOCIATION WF_Linie_Typ_NewValue =
+      Typ_NewValue -- {0..1} WF_Typ;
+      WF_Linie_NewValue -- {0..*} WF_Linie;
+    END WF_Linie_Typ_NewValue;
 
  END Nutzungsplanung;
 
