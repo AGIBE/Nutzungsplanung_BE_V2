@@ -195,6 +195,7 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
       PDF_Dateiname_NewValue : TEXT*200;
       PDF_Dateiname_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
       Planungsgeschaeft_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Erstversion_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
     END DO_DokumentRevision;
 
     ASSOCIATION DokumentRevision_Geschaeft_OldValue =
@@ -207,10 +208,15 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
       Aenderungsdokument_NewValue -- {0..*} DO_DokumentRevision;
     END DokumentRevision_Geschaeft_NewValue;
 
-    ASSOCIATION DokumentRevision_Dokument =
-      Erstversion -- {0..1} DO_Dokument;
-      Aenderungsdokument -- {0..*} DO_DokumentRevision;
-    END DokumentRevision_Dokument;
+    ASSOCIATION DokumentRevision_Dokument_OldValue =
+      Erstversion_OldValue -- {0..1} DO_Dokument;
+      Aenderungsdokument_OldValue -- {0..*} DO_DokumentRevision;
+    END DokumentRevision_Dokument_OldValue;
+
+    ASSOCIATION DokumentRevision_Dokument_NewValue =
+      Erstversion_NewValue -- {0..1} DO_Dokument;
+      Aenderungsdokument_NewValue -- {0..*} DO_DokumentRevision;
+    END DokumentRevision_Dokument_NewValue;
 
     !! ***********************
     !! Geodaten
@@ -279,25 +285,6 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
       Planungsgeschaeft_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
       Typ_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
       Geometrie : MANDATORY LKoord;
-      Type_Bezeichnung_OldValue : TEXT*500;
-      Type_Bezeichnung_NewValue : TEXT*500;
-      Type_Bezeichnung_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
-      Type_Abkuerzung_OldValue : TEXT*50;
-      Type_Abkuerzung_NewValue : TEXT*50;
-      Type_Abkuerzung_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
-      Type_Kategorie_OldValue : TEXT*100;
-      Type_Kategorie_NewValue : TEXT*100;
-      Type_Kategorie_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
-      Type_Darstellungscode_OldValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference;
-      Type_Darstellungscode_NewValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference;
-      Type_Darstellungscode_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
-      Type_KantArt_OldValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Typ_CatalogueReference;
-      Type_KantArt_NewValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Typ_CatalogueReference;
-      Type_KantArt_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
-      Type_Verbindlichkeit_OldValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference;
-      Type_Verbindlichkeit_NewValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference;
-      Type_Verbindlichkeit_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
-      Type_ZustaendigeStelle_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
     END BaseClassPoint;
 
     CLASS BaseClassPolyline (ABSTRACT) =
@@ -315,25 +302,6 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
       Planungsgeschaeft_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
       Typ_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
       Geometrie : MANDATORY Polyline;
-      Type_Bezeichnung_OldValue : TEXT*500;
-      Type_Bezeichnung_NewValue : TEXT*500;
-      Type_Bezeichnung_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
-      Type_Abkuerzung_OldValue : TEXT*50;
-      Type_Abkuerzung_NewValue : TEXT*50;
-      Type_Abkuerzung_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
-      Type_Kategorie_OldValue : TEXT*100;
-      Type_Kategorie_NewValue : TEXT*100;
-      Type_Kategorie_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
-      Type_Darstellungscode_OldValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference;
-      Type_Darstellungscode_NewValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference;
-      Type_Darstellungscode_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
-      Type_KantArt_OldValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Typ_CatalogueReference;
-      Type_KantArt_NewValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Typ_CatalogueReference;
-      Type_KantArt_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
-      Type_Verbindlichkeit_OldValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference;
-      Type_Verbindlichkeit_NewValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference;
-      Type_Verbindlichkeit_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
-      Type_ZustaendigeStelle_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
     END BaseClassPolyline;
 
     CLASS BaseClassPolygon (ABSTRACT) =
@@ -343,7 +311,7 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
       Delta_Rating_Attributes : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
       !!Delta_Tolerance : 0.000 .. 0.100;
       Delta_Size : MANDATORY 0.00 .. 9999999999.99;
-      Delta_CorrelationID : TEXT*36;
+      !!Delta_CorrelationID : TEXT*36;
       TID_OldValue : INTERLIS.UUIDOID;
       TID_NewValue : INTERLIS.UUIDOID;
       Label_OldValue : TEXT*50;
@@ -352,25 +320,6 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
       Planungsgeschaeft_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
       Typ_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
       Geometrie : MANDATORY Surface;
-      Type_Bezeichnung_OldValue : TEXT*500;
-      Type_Bezeichnung_NewValue : TEXT*500;
-      Type_Bezeichnung_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
-      Type_Abkuerzung_OldValue : TEXT*50;
-      Type_Abkuerzung_NewValue : TEXT*50;
-      Type_Abkuerzung_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
-      Type_Kategorie_OldValue : TEXT*100;
-      Type_Kategorie_NewValue : TEXT*100;
-      Type_Kategorie_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
-      Type_Darstellungscode_OldValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference;
-      Type_Darstellungscode_NewValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference;
-      Type_Darstellungscode_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
-      Type_KantArt_OldValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Typ_CatalogueReference;
-      Type_KantArt_NewValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Typ_CatalogueReference;
-      Type_KantArt_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
-      Type_Verbindlichkeit_OldValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference;
-      Type_Verbindlichkeit_NewValue : Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference;
-      Type_Verbindlichkeit_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
-      Type_ZustaendigeStelle_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
     END BaseClassPolygon;
 
     ASSOCIATION BaseClassPoint_Geschaeft_OldValue =
@@ -402,6 +351,32 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
       Planungsgeschaeft_NewValue -- {0..1} AD_Planungsgeschaeft;
       BaseClassPolygon_NewValue -- {0..*} BaseClassPolygon;
     END BaseClassPolygon_Geschaeft_NewValue;
+
+    CLASS TypeAttributeRatings =
+      Delta_Rating_TypeAttributes : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Type_Bezeichnung_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Type_Abkuerzung_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Type_Kategorie_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Type_Darstellungscode_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Type_KantArt_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Type_Verbindlichkeit_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Type_ZustaendigeStelle_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+    END TypeAttributeRatings;
+
+    ASSOCIATION BaseClassPoint_TypeAttributeRatings =
+      TypeAttributeRatings -- {1} TypeAttributeRatings;
+      BaseClassPoint -- {0..*} BaseClassPoint;
+    END BaseClassPoint_TypeAttributeRatings;
+
+    ASSOCIATION BaseClassPolyline_TypeAttributeRatings =
+      TypeAttributeRatings -- {1} TypeAttributeRatings;
+      BaseClassPolyline -- {0..*} BaseClassPolyline;
+    END BaseClassPolyline_TypeAttributeRatings;
+
+    ASSOCIATION BaseClassPolygon_TypeAttributeRatings =
+      TypeAttributeRatings -- {1} TypeAttributeRatings;
+      BaseClassPolygon -- {0..*} BaseClassPolygon;
+    END BaseClassPolygon_TypeAttributeRatings;
 
     !! ***********************
     !! GN = Grundnutzung
