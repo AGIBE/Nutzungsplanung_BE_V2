@@ -117,7 +117,7 @@ MODEL Nutzungsplanung_BE_V2_Test03 (de)
     CLASS AD_Amt =
       Name : MANDATORY TEXT*200;
       UID : TEXT*15;
-      AmtImWeb : MANDATORY URI;
+      AmtImWeb : URI;
       Zusatz_Attribute : BAG {0..*} OF CustomAttribute;
     END AD_Amt;
 
@@ -144,7 +144,7 @@ MODEL Nutzungsplanung_BE_V2_Test03 (de)
     END Dokument_Geschaeft;
 
     ASSOCIATION Dokument_ZustaendigeStelle =
-      ZustaendigeStelle -- {1} AD_Amt;
+      ZustaendigeStelle -- {0..1} AD_Amt;
       Dokument -- {0..*} DO_Dokument;
     END Dokument_ZustaendigeStelle;
 
@@ -194,7 +194,7 @@ MODEL Nutzungsplanung_BE_V2_Test03 (de)
     END BaseClassType;
 
     ASSOCIATION BaseClass_ZustaendigeStelle =
-      ZustaendigeStelle -- {1} AD_Amt;
+      ZustaendigeStelle -- {0..1} AD_Amt;
       Typ -- {0..*} BaseClassType;
     END BaseClass_ZustaendigeStelle;
 

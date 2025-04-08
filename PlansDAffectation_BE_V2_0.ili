@@ -118,7 +118,7 @@ MODEL PlansDAffectation_BE_V2_Test03 (fr)
     CLASS AD_Office =
       Nom : MANDATORY TEXT*200;
       IDE : TEXT*15;
-      GuichetEnLigne : MANDATORY URI;
+      GuichetEnLigne : URI;
       Supplement_Attributs : BAG {0..*} OF CustomAttribute;
     END AD_Office;
 
@@ -145,7 +145,7 @@ MODEL PlansDAffectation_BE_V2_Test03 (fr)
     END Document_Projet;
 
     ASSOCIATION Document_Service_competent =
-      Service_competent -- {1} AD_Office;
+      Service_competent -- {0..1} AD_Office;
       Document -- {0..*} DO_Document;
     END Document_Service_competent;
 
@@ -195,7 +195,7 @@ MODEL PlansDAffectation_BE_V2_Test03 (fr)
     END BaseClassType;
 
     ASSOCIATION BaseClass_Service_competent =
-      Service_competent -- {1} AD_Office;
+      Service_competent -- {0..1} AD_Office;
       Type -- {0..*} BaseClassType;
     END BaseClass_Service_competent;
 
