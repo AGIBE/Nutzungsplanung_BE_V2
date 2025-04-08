@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Données de test fictives, correspondant au modèle de données PlansDAffectation_BE_V2_Test03 -->
+<!-- Données de test fictives, correspondant au modèle de données PlansDAffectation_BE_V2_0 -->
 
 <TRANSFER xmlns="http://www.interlis.ch/INTERLIS2.3">
     <HEADERSECTION SENDER="OACOT du canton de Berne" VERSION="2.3">
         <MODELS>
-            <MODEL NAME="PlansDAffectation_BE_V2_Test03" VERSION="2025-01-23" URI="http://models.geo.be.ch/Grundlagen_und_Planung/Raumplanung_Grundstueckskataster/"/>
+            <MODEL NAME="PlansDAffectation_BE_V2_0" VERSION="2025-04-10" URI="http://models.geo.be.ch/Grundlagen_und_Planung/Raumplanung_Grundstueckskataster/"/>
         </MODELS>
     </HEADERSECTION>
 	<DATASECTION>
-		<PlansDAffectation_BE_V2_Test03.PlansDAffectation BID="f9fff5ec-eb43-4725-9e0d-b2d1991bc117">
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.AD_Jeu_de_donnes TID="9a717257-d148-4277-aa1f-0df737711180">
+		<PlansDAffectation_BE_V2_0.PlansDAffectation BID="f9fff5ec-eb43-4725-9e0d-b2d1991bc117">
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.AD_Jeu_de_donnes TID="9a717257-d148-4277-aa1f-0df737711180">
 				<Autorite_de_planification>301</Autorite_de_planification>
 				<Langage>fr</Langage>
 				<Projet_actif REF="6440cc9e-789c-482e-9b8f-3926b11a0708"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.AD_Jeu_de_donnes>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.AD_Projet_d_amenagement TID="334a102b-f56f-4a22-90cf-8cfcf336ca30">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.AD_Jeu_de_donnes>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.AD_Projet_d_amenagement TID="334a102b-f56f-4a22-90cf-8cfcf336ca30">
 				<Projet_Numero>301_2026_001</Projet_Numero>
 				<Projet_Titre>Einführung ePlan</Projet_Titre>
 				<Projet_cree_le>2026-01-01</Projet_cree_le>
 				<Revision_de_PAL>false</Revision_de_PAL>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.AD_Projet_d_amenagement>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.AD_Projet_d_amenagement TID="c230dac5-2372-40c6-aaf1-2efef15a3944">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.AD_Projet_d_amenagement>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.AD_Projet_d_amenagement TID="c230dac5-2372-40c6-aaf1-2efef15a3944">
 				<Projet_Numero>301_2026_002</Projet_Numero>
 				<Projet_Titre>Änderung Baureglement</Projet_Titre>
 				<Projet_cree_le>2026-07-01</Projet_cree_le>
 				<Revision_de_PAL>false</Revision_de_PAL>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.AD_Projet_d_amenagement>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.AD_Projet_d_amenagement TID="6440cc9e-789c-482e-9b8f-3926b11a0708">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.AD_Projet_d_amenagement>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.AD_Projet_d_amenagement TID="6440cc9e-789c-482e-9b8f-3926b11a0708">
 				<Projet_Numero>301_2027_001</Projet_Numero>
 				<Projet_Titre>Neue Waldfeststellung</Projet_Titre>
 				<Projet_cree_le>2027-02-01</Projet_cree_le>
 				<Revision_de_PAL>false</Revision_de_PAL>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.AD_Projet_d_amenagement>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.AD_Perimetre_des_donnees TID="ea9f95b2-3800-45ec-b81f-c7dbb94c5a7f">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.AD_Projet_d_amenagement>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.AD_Perimetre_des_donnees TID="ea9f95b2-3800-45ec-b81f-c7dbb94c5a7f">
 				<Perimetre_Nom>Gemeinde Muster an der Aare</Perimetre_Nom>
 				<Perimetre_mise_a_jour>2026-01-01</Perimetre_mise_a_jour>
 				<Geometrie>
@@ -87,137 +87,137 @@
 						</BOUNDARY>
 					</SURFACE>
 				</Geometrie>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.AD_Perimetre_des_donnees>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.AD_Geoservice TID="b4ee57d1-db2c-4fe8-888f-d5d1968c39a4">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.AD_Perimetre_des_donnees>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.AD_Geoservice TID="b4ee57d1-db2c-4fe8-888f-d5d1968c39a4">
 				<Geoservice_Nom>Kantonale Richtpläne (WMS)</Geoservice_Nom>
 				<Geoservice_URL>https://www.geoservice.apps.be.ch/geoservice3/services/a42geo/of_planningcadastre03_de_ms_wms/MapServer/WMSServer?</Geoservice_URL>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.AD_Geoservice>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.AD_Office TID="ac16fb03-a846-4c13-b519-fe1e1e3c28c2">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.AD_Geoservice>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.AD_Office TID="ac16fb03-a846-4c13-b519-fe1e1e3c28c2">
 				<Nom>Gemeinde Muster an der Aare</Nom>
 				<IDE>CHE-114.809.379</IDE>
 				<GuichetEnLigne>https://www.muster.ch</GuichetEnLigne>
 				<Supplement_Attributs>
-					<PlansDAffectation_BE_V2_Test03.PlansDAffectation.CustomAttribute>
+					<PlansDAffectation_BE_V2_0.PlansDAffectation.CustomAttribute>
 						<AttributeName>Adresse</AttributeName>
 						<AttributeValue>Musterweg 123</AttributeValue>
-					</PlansDAffectation_BE_V2_Test03.PlansDAffectation.CustomAttribute>
-					<PlansDAffectation_BE_V2_Test03.PlansDAffectation.CustomAttribute>
+					</PlansDAffectation_BE_V2_0.PlansDAffectation.CustomAttribute>
+					<PlansDAffectation_BE_V2_0.PlansDAffectation.CustomAttribute>
 						<AttributeName>Telefonnummer</AttributeName>
 						<AttributeValue>123 456 78 90</AttributeValue>
-					</PlansDAffectation_BE_V2_Test03.PlansDAffectation.CustomAttribute>
+					</PlansDAffectation_BE_V2_0.PlansDAffectation.CustomAttribute>
 				</Supplement_Attributs>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.AD_Office>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.AD_Office TID="82aab446-9dc3-40df-90d8-ccfa7d8aba96">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.AD_Office>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.AD_Office TID="82aab446-9dc3-40df-90d8-ccfa7d8aba96">
 				<Nom>Amt für Wald und Naturgefahren des Kantons Bern</Nom>
 				<IDE>CHE-108.957.267</IDE>
 				<GuichetEnLigne>https://www.be.ch/awn</GuichetEnLigne>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.AD_Office>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.DO_Document TID="69471826-1027-46cf-a7ca-12f64d1f1d81">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.AD_Office>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.DO_Document TID="69471826-1027-46cf-a7ca-12f64d1f1d81">
 				<Titre>Baureglement</Titre>
 				<Abreviation>BauR</Abreviation>
 				<Nom_du_fichier_PDF>Baureglement.pdf</Nom_du_fichier_PDF>
 				<GenreDocument>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Dokumentart_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Dokumentart_CatalogueReference>
 						<Reference REF="dokumentart.1"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Dokumentart_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Dokumentart_CatalogueReference>
 				</GenreDocument>
 				<ForceObligatoireDocument>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Dokumentverbindlichkeit_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Dokumentverbindlichkeit_CatalogueReference>
 						<Reference REF="dokumentverbindlichkeit.1"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Dokumentverbindlichkeit_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Dokumentverbindlichkeit_CatalogueReference>
 				</ForceObligatoireDocument>
 				<Projet_d_amenagement REF="334a102b-f56f-4a22-90cf-8cfcf336ca30"/>
 				<Service_competent REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.DO_Document>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.DO_Document TID="ab2927a9-35e4-4c91-9d97-136d646b1906">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.DO_Document>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.DO_Document TID="ab2927a9-35e4-4c91-9d97-136d646b1906">
 				<Titre>Überbauungsordnung 1 "Nord" (Vorschrift)</Titre>
 				<Abreviation>UeV 1</Abreviation>
 				<Nom_du_fichier_PDF>UEO_1_Vorschrift.pdf</Nom_du_fichier_PDF>
 				<GenreDocument>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Dokumentart_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Dokumentart_CatalogueReference>
 						<Reference REF="dokumentart.2"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Dokumentart_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Dokumentart_CatalogueReference>
 				</GenreDocument>
 				<ForceObligatoireDocument>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Dokumentverbindlichkeit_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Dokumentverbindlichkeit_CatalogueReference>
 						<Reference REF="dokumentverbindlichkeit.1"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Dokumentverbindlichkeit_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Dokumentverbindlichkeit_CatalogueReference>
 				</ForceObligatoireDocument>
 				<Projet_d_amenagement REF="334a102b-f56f-4a22-90cf-8cfcf336ca30"/>
 				<Service_competent REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.DO_Document>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.DO_Document TID="5ef6e978-f78a-447b-8dab-d1e21c7a3c9a">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.DO_Document>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.DO_Document TID="5ef6e978-f78a-447b-8dab-d1e21c7a3c9a">
 				<Titre>Überbauungsordnung 1 "Nord" (Plan)</Titre>
 				<Abreviation>UeP 1</Abreviation>
 				<Nom_du_fichier_PDF>UEO_1_Plan.pdf</Nom_du_fichier_PDF>
 				<GenreDocument>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Dokumentart_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Dokumentart_CatalogueReference>
 						<Reference REF="dokumentart.2"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Dokumentart_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Dokumentart_CatalogueReference>
 				</GenreDocument>
 				<ForceObligatoireDocument>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Dokumentverbindlichkeit_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Dokumentverbindlichkeit_CatalogueReference>
 						<Reference REF="dokumentverbindlichkeit.1"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Dokumentverbindlichkeit_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Dokumentverbindlichkeit_CatalogueReference>
 				</ForceObligatoireDocument>
 				<Projet_d_amenagement REF="334a102b-f56f-4a22-90cf-8cfcf336ca30"/>
 				<Service_competent REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.DO_Document>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.DO_Document TID="6524629b-34c9-4384-bbdb-2578506a5250">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.DO_Document>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.DO_Document TID="6524629b-34c9-4384-bbdb-2578506a5250">
 				<Titre>Erläuterungsbericht</Titre>
 				<Nom_du_fichier_PDF>Erlaeuterungsbericht.pdf</Nom_du_fichier_PDF>
 				<GenreDocument>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Dokumentart_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Dokumentart_CatalogueReference>
 						<Reference REF="dokumentart.99"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Dokumentart_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Dokumentart_CatalogueReference>
 				</GenreDocument>
 				<ForceObligatoireDocument>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Dokumentverbindlichkeit_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Dokumentverbindlichkeit_CatalogueReference>
 						<Reference REF="dokumentverbindlichkeit.2"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Dokumentverbindlichkeit_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Dokumentverbindlichkeit_CatalogueReference>
 				</ForceObligatoireDocument>
 				<Service_competent REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.DO_Document>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.DO_AutresDocuments TID="82349b0b-52f3-4fd8-9d93-1557edd9db03">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.DO_Document>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.DO_AutresDocuments TID="82349b0b-52f3-4fd8-9d93-1557edd9db03">
 				<Document REF="ab2927a9-35e4-4c91-9d97-136d646b1906"/>
 				<AutreDocument REF="5ef6e978-f78a-447b-8dab-d1e21c7a3c9a"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.DO_AutresDocuments>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.DO_AutresDocuments TID="9b23b484-5936-4b5b-a53b-9d97d95095c2">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.DO_AutresDocuments>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.DO_AutresDocuments TID="9b23b484-5936-4b5b-a53b-9d97d95095c2">
 				<Document REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
 				<AutreDocument REF="6524629b-34c9-4384-bbdb-2578506a5250"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.DO_AutresDocuments>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.DO_DocumentRevision TID="84e6d1c4-2651-4f5d-8352-7d85b3272d89">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.DO_AutresDocuments>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.DO_DocumentRevision TID="84e6d1c4-2651-4f5d-8352-7d85b3272d89">
 				<Titre>Baureglement - Änderung Nr. 1</Titre>
 				<Abreviation>BauR A1</Abreviation>
 				<Nom_du_fichier_PDF>Baureglement_A1.pdf</Nom_du_fichier_PDF>
 				<Projet_d_amenagement REF="c230dac5-2372-40c6-aaf1-2efef15a3944"/>
 				<VersionInitiale REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.DO_DocumentRevision>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.AP_Type TID="66a93d45-bc8f-45a4-a281-7a5ce3b2de86">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.DO_DocumentRevision>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.AP_Type TID="66a93d45-bc8f-45a4-a281-7a5ce3b2de86">
 				<Designation>Landwirtschaftszone</Designation>
 				<Abreviation>LWZ</Abreviation>
 				<Code_de_representation>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 						<Reference REF="standard"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 				</Code_de_representation>
 				<GenreCant>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.GN_KantArt_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.GN_KantArt_CatalogueReference>
 						<Reference REF="gn_kantart.27"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.GN_KantArt_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.GN_KantArt_CatalogueReference>
 				</GenreCant>
 				<ForceObligatoire>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
 						<Reference REF="verbindlichkeit.1"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
 				</ForceObligatoire>
 				<Service_competent REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.AP_Type>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.AP_DJ TID="0e5c18c2-8c92-4664-91c8-89ec1feb0a85">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.AP_Type>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.AP_DJ TID="0e5c18c2-8c92-4664-91c8-89ec1feb0a85">
 				<Disposition REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
 				<Type REF="66a93d45-bc8f-45a4-a281-7a5ce3b2de86"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.AP_DJ>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.AP_Surface TID="0f1e875f-82b4-48b1-b7ff-b851f7318f2d">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.AP_DJ>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.AP_Surface TID="0f1e875f-82b4-48b1-b7ff-b851f7318f2d">
 				<Geometrie>
 					<SURFACE>
 						<BOUNDARY>
@@ -247,33 +247,33 @@
 					</SURFACE>
 				</Geometrie>
 				<Type REF="66a93d45-bc8f-45a4-a281-7a5ce3b2de86"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.AP_Surface>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.AP_Type TID="3cb8fdfa-0bdd-4d5c-94bc-b62234a782f7">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.AP_Surface>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.AP_Type TID="3cb8fdfa-0bdd-4d5c-94bc-b62234a782f7">
 				<Designation>Zone für öffentliche Nutzung Nr. X</Designation>
 				<Abreviation>ZöN X</Abreviation>
 				<Categorie>ZöN</Categorie>
 				<Code_de_representation>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 						<Reference REF="standard"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 				</Code_de_representation>
 				<GenreCant>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.GN_KantArt_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.GN_KantArt_CatalogueReference>
 						<Reference REF="gn_kantart.22"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.GN_KantArt_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.GN_KantArt_CatalogueReference>
 				</GenreCant>
 				<ForceObligatoire>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
 						<Reference REF="verbindlichkeit.1"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
 				</ForceObligatoire>
 				<Service_competent REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.AP_Type>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.AP_DJ TID="c554278b-4c06-49c0-927f-4a4d1427ec49">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.AP_Type>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.AP_DJ TID="c554278b-4c06-49c0-927f-4a4d1427ec49">
 				<Disposition REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
 				<Type REF="3cb8fdfa-0bdd-4d5c-94bc-b62234a782f7"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.AP_DJ>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.AP_Surface TID="bf3a09e8-15bf-43be-9cea-ba9297ae596e">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.AP_DJ>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.AP_Surface TID="bf3a09e8-15bf-43be-9cea-ba9297ae596e">
 				<Label>X</Label>
 				<Geometrie>
 					<SURFACE>
@@ -304,33 +304,33 @@
 					</SURFACE>
 				</Geometrie>
 				<Type REF="3cb8fdfa-0bdd-4d5c-94bc-b62234a782f7"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.AP_Surface>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.AP_Type TID="a925bec1-6368-43e4-a404-44a9fdf83e9a">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.AP_Surface>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.AP_Type TID="a925bec1-6368-43e4-a404-44a9fdf83e9a">
 				<Designation>Zone für öffentliche Nutzung Nr. XII</Designation>
 				<Abreviation>ZöN XII</Abreviation>
 				<Categorie>ZöN</Categorie>
 				<Code_de_representation>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 						<Reference REF="standard"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 				</Code_de_representation>
 				<GenreCant>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.GN_KantArt_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.GN_KantArt_CatalogueReference>
 						<Reference REF="gn_kantart.22"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.GN_KantArt_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.GN_KantArt_CatalogueReference>
 				</GenreCant>
 				<ForceObligatoire>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
 						<Reference REF="verbindlichkeit.1"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
 				</ForceObligatoire>
 				<Service_competent REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.AP_Type>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.AP_DJ TID="22bc089a-2058-42eb-8cc6-1455085f7a88">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.AP_Type>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.AP_DJ TID="22bc089a-2058-42eb-8cc6-1455085f7a88">
 				<Disposition REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
 				<Type REF="a925bec1-6368-43e4-a404-44a9fdf83e9a"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.AP_DJ>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.AP_Surface TID="d0e783db-1156-4998-be93-353cc74bdeed">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.AP_DJ>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.AP_Surface TID="d0e783db-1156-4998-be93-353cc74bdeed">
 				<Label>XII</Label>
 				<Geometrie>
 					<SURFACE>
@@ -361,32 +361,32 @@
 					</SURFACE>
 				</Geometrie>
 				<Type REF="a925bec1-6368-43e4-a404-44a9fdf83e9a"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.AP_Surface>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.AP_Type TID="fd733b24-f0fc-470f-bb4c-2935a16ebf1e">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.AP_Surface>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.AP_Type TID="fd733b24-f0fc-470f-bb4c-2935a16ebf1e">
 				<Designation>Überbauungsordnung 1 "Nord"</Designation>
 				<Abreviation>UeO 1</Abreviation>
 				<Code_de_representation>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 						<Reference REF="standard"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 				</Code_de_representation>
 				<GenreCant>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.GN_KantArt_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.GN_KantArt_CatalogueReference>
 						<Reference REF="gn_kantart.31"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.GN_KantArt_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.GN_KantArt_CatalogueReference>
 				</GenreCant>
 				<ForceObligatoire>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
 						<Reference REF="verbindlichkeit.1"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
 				</ForceObligatoire>
 				<Service_competent REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.AP_Type>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.AP_DJ TID="41ea4a03-c1cd-4bf1-bbda-1153914e3409">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.AP_Type>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.AP_DJ TID="41ea4a03-c1cd-4bf1-bbda-1153914e3409">
 				<Disposition REF="ab2927a9-35e4-4c91-9d97-136d646b1906"/>
 				<Type REF="fd733b24-f0fc-470f-bb4c-2935a16ebf1e"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.AP_DJ>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.AP_Surface TID="bd7c1c70-e540-45ed-ab74-b03a3c5b1a6d">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.AP_DJ>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.AP_Surface TID="bd7c1c70-e540-45ed-ab74-b03a3c5b1a6d">
 				<Label>1</Label>
 				<Geometrie>
 					<SURFACE>
@@ -417,32 +417,32 @@
 					</SURFACE>
 				</Geometrie>
 				<Type REF="fd733b24-f0fc-470f-bb4c-2935a16ebf1e"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.AP_Surface>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.UI_Type TID="0c9fcfd4-ce3f-4c3d-864f-ec99f61d6fa4">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.AP_Surface>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.UI_Type TID="0c9fcfd4-ce3f-4c3d-864f-ec99f61d6fa4">
 				<Designation>Wohnzone 1</Designation>
 				<Abreviation>W1</Abreviation>
 				<Code_de_representation>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 						<Reference REF="standard"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 				</Code_de_representation>
 				<GenreCant>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.IN_KantArt_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.IN_KantArt_CatalogueReference>
 						<Reference REF="in_kantart.1"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.IN_KantArt_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.IN_KantArt_CatalogueReference>
 				</GenreCant>
 				<ForceObligatoire>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
 						<Reference REF="verbindlichkeit.1"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
 				</ForceObligatoire>
 				<Service_competent REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.UI_Type>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.UI_DJ TID="6a4e32d5-5422-4143-be7c-bf8cc5036eeb">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.UI_Type>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.UI_DJ TID="6a4e32d5-5422-4143-be7c-bf8cc5036eeb">
 				<Disposition REF="ab2927a9-35e4-4c91-9d97-136d646b1906"/>
 				<Type REF="0c9fcfd4-ce3f-4c3d-864f-ec99f61d6fa4"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.UI_DJ>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.UI_Surface TID="c96a1a4c-99f9-47e1-956d-dc176765acde">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.UI_DJ>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.UI_Surface TID="c96a1a4c-99f9-47e1-956d-dc176765acde">
 				<Geometrie>
 					<SURFACE>
 						<BOUNDARY>
@@ -472,32 +472,32 @@
 					</SURFACE>
 				</Geometrie>
 				<Type REF="0c9fcfd4-ce3f-4c3d-864f-ec99f61d6fa4"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.UI_Surface>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.SU_Type TID="6ca04d5f-42ce-4167-92ff-70236de5406e">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.UI_Surface>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.SU_Type TID="6ca04d5f-42ce-4167-92ff-70236de5406e">
 				<Designation>Zone für öffentliche Nutzung Nr. X - Sektor A</Designation>
 				<Abreviation>ZöN Xa</Abreviation>
 				<Code_de_representation>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 						<Reference REF="standard"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 				</Code_de_representation>
 				<GenreCant>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
 						<Reference REF="ue_kantart.201"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
 				</GenreCant>
 				<ForceObligatoire>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
 						<Reference REF="verbindlichkeit.1"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
 				</ForceObligatoire>
 				<Service_competent REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.SU_Type>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.SU_DJ TID="6e48cd20-0f14-4260-b754-7088af3527a6">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.SU_Type>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.SU_DJ TID="6e48cd20-0f14-4260-b754-7088af3527a6">
 				<Disposition REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
 				<Type REF="6ca04d5f-42ce-4167-92ff-70236de5406e"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.SU_DJ>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.SU_Surface TID="d3af9443-f3df-46e3-bd5a-39283ba7e29b">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.SU_DJ>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.SU_Surface TID="d3af9443-f3df-46e3-bd5a-39283ba7e29b">
 				<Label>A</Label>
 				<Geometrie>
 					<SURFACE>
@@ -528,32 +528,32 @@
 					</SURFACE>
 				</Geometrie>
 				<Type REF="6ca04d5f-42ce-4167-92ff-70236de5406e"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.SU_Surface>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.SU_Type TID="91421931-72cb-4727-9e25-016f81640efe">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.SU_Surface>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.SU_Type TID="91421931-72cb-4727-9e25-016f81640efe">
 				<Designation>Zone für öffentliche Nutzung Nr. X - Sektor B</Designation>
 				<Abreviation>ZöN Xb</Abreviation>
 				<Code_de_representation>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 						<Reference REF="standard"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 				</Code_de_representation>
 				<GenreCant>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
 						<Reference REF="ue_kantart.201"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
 				</GenreCant>
 				<ForceObligatoire>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
 						<Reference REF="verbindlichkeit.1"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
 				</ForceObligatoire>
 				<Service_competent REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.SU_Type>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.SU_DJ TID="894944f2-7d90-4e54-be2d-50a4d517489b">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.SU_Type>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.SU_DJ TID="894944f2-7d90-4e54-be2d-50a4d517489b">
 				<Disposition REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
 				<Type REF="91421931-72cb-4727-9e25-016f81640efe"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.SU_DJ>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.SU_Surface TID="1b9e6c5d-31cd-4a3f-8032-76c762ed0ff6">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.SU_DJ>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.SU_Surface TID="1b9e6c5d-31cd-4a3f-8032-76c762ed0ff6">
 				<Label>B</Label>
 				<Geometrie>
 					<SURFACE>
@@ -584,32 +584,32 @@
 					</SURFACE>
 				</Geometrie>
 				<Type REF="91421931-72cb-4727-9e25-016f81640efe"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.SU_Surface>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.DS_Type TID="94abeaaa-4ee5-4539-bfa7-2be89e33782b">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.SU_Surface>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.DS_Type TID="94abeaaa-4ee5-4539-bfa7-2be89e33782b">
 				<Designation>Lärmempfindlichkeitsstufe II</Designation>
 				<Abreviation>ES II</Abreviation>
 				<Code_de_representation>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 						<Reference REF="standard"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 				</Code_de_representation>
 				<GenreCant>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.ES_KantArt_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.ES_KantArt_CatalogueReference>
 						<Reference REF="es_kantart.3"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.ES_KantArt_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.ES_KantArt_CatalogueReference>
 				</GenreCant>
 				<ForceObligatoire>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
 						<Reference REF="verbindlichkeit.2"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
 				</ForceObligatoire>
 				<Service_competent REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.DS_Type>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.DS_DJ TID="7af1a571-9ccc-4fb5-b8d5-d25989d00b2b">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.DS_Type>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.DS_DJ TID="7af1a571-9ccc-4fb5-b8d5-d25989d00b2b">
 				<Disposition REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
 				<Type REF="94abeaaa-4ee5-4539-bfa7-2be89e33782b"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.DS_DJ>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.DS_Surface TID="0d70c963-5122-42b9-9c93-9bba98926c1d">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.DS_DJ>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.DS_Surface TID="0d70c963-5122-42b9-9c93-9bba98926c1d">
 				<Geometrie>
 					<SURFACE>
 						<BOUNDARY>
@@ -639,31 +639,31 @@
 					</SURFACE>
 				</Geometrie>
 				<Type REF="94abeaaa-4ee5-4539-bfa7-2be89e33782b"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.DS_Surface>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.ZD_Type TID="692c747e-82a6-4e2a-915d-51b5ced42513">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.DS_Surface>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.ZD_Type TID="692c747e-82a6-4e2a-915d-51b5ced42513">
 				<Designation>Erhebliche Gefährdung</Designation>
 				<Code_de_representation>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 						<Reference REF="standard"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 				</Code_de_representation>
 				<GenreCant>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.GG_KantArt_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.GG_KantArt_CatalogueReference>
 						<Reference REF="gg_kantart.1"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.GG_KantArt_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.GG_KantArt_CatalogueReference>
 				</GenreCant>
 				<ForceObligatoire>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
 						<Reference REF="verbindlichkeit.1"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
 				</ForceObligatoire>
 				<Service_competent REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.ZD_Type>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.ZD_DJ TID="5afb423c-07f9-44ad-87c4-4544494a0193">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.ZD_Type>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.ZD_DJ TID="5afb423c-07f9-44ad-87c4-4544494a0193">
 				<Disposition REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
 				<Type REF="692c747e-82a6-4e2a-915d-51b5ced42513"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.ZD_DJ>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.ZD_Surface TID="06f418bb-440a-46e9-b70b-0994c1cbbaf2">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.ZD_DJ>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.ZD_Surface TID="06f418bb-440a-46e9-b70b-0994c1cbbaf2">
 				<Geometrie>
 					<SURFACE>
 						<BOUNDARY>
@@ -693,31 +693,31 @@
 					</SURFACE>
 				</Geometrie>
 				<Type REF="692c747e-82a6-4e2a-915d-51b5ced42513"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.ZD_Surface>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.EE_Type TID="586392da-d7d4-474b-aedd-fff9ca392308">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.ZD_Surface>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.EE_Type TID="586392da-d7d4-474b-aedd-fff9ca392308">
 				<Designation>Gewässerraum</Designation>
 				<Code_de_representation>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 						<Reference REF="standard"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 				</Code_de_representation>
 				<GenreCant>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.GR_KantArt_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.GR_KantArt_CatalogueReference>
 						<Reference REF="gr_kantart.1"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.GR_KantArt_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.GR_KantArt_CatalogueReference>
 				</GenreCant>
 				<ForceObligatoire>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
 						<Reference REF="verbindlichkeit.1"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
 				</ForceObligatoire>
 				<Service_competent REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.EE_Type>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.EE_DJ TID="45a91c93-7c06-4085-896f-aaa14cf1b7a5">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.EE_Type>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.EE_DJ TID="45a91c93-7c06-4085-896f-aaa14cf1b7a5">
 				<Disposition REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
 				<Type REF="586392da-d7d4-474b-aedd-fff9ca392308"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.EE_DJ>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.EE_Surface TID="b8357f52-1f84-4f80-8fed-892b93885552">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.EE_DJ>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.EE_Surface TID="b8357f52-1f84-4f80-8fed-892b93885552">
 				<Geometrie>
 					<SURFACE>
 						<BOUNDARY>
@@ -747,31 +747,31 @@
 					</SURFACE>
 				</Geometrie>
 				<Type REF="586392da-d7d4-474b-aedd-fff9ca392308"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.EE_Surface>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.SU_Type TID="edcb1dbb-83ed-457e-bef0-fc992eaf4ec6">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.EE_Surface>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.SU_Type TID="edcb1dbb-83ed-457e-bef0-fc992eaf4ec6">
 				<Designation>Besondere Lärmquelle</Designation>
 				<Code_de_representation>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 						<Reference REF="standard"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 				</Code_de_representation>
 				<GenreCant>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
 						<Reference REF="ue_kantart.108"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
 				</GenreCant>
 				<ForceObligatoire>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
 						<Reference REF="verbindlichkeit.1"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
 				</ForceObligatoire>
 				<Service_competent REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.SU_Type>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.SU_DJ TID="cb88d575-48b2-4bd2-9dbf-2b2346cd44e3">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.SU_Type>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.SU_DJ TID="cb88d575-48b2-4bd2-9dbf-2b2346cd44e3">
 				<Disposition REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
 				<Type REF="edcb1dbb-83ed-457e-bef0-fc992eaf4ec6"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.SU_DJ>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.SU_Point TID="9276b3b4-ee7e-440d-9063-4b48692b4963">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.SU_DJ>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.SU_Point TID="9276b3b4-ee7e-440d-9063-4b48692b4963">
 				<Geometrie>
 					<COORD>
 						<C1>2600005.0</C1>
@@ -779,31 +779,31 @@
 					</COORD>
 				</Geometrie>
 				<Type REF="edcb1dbb-83ed-457e-bef0-fc992eaf4ec6"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.SU_Point>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.SU_Type TID="d1588f50-0199-47c2-92c9-621628143acb">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.SU_Point>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.SU_Type TID="d1588f50-0199-47c2-92c9-621628143acb">
 				<Designation>Besondere Gefahrenquelle</Designation>
 				<Code_de_representation>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 						<Reference REF="standard"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 				</Code_de_representation>
 				<GenreCant>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
 						<Reference REF="ue_kantart.107"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
 				</GenreCant>
 				<ForceObligatoire>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
 						<Reference REF="verbindlichkeit.1"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
 				</ForceObligatoire>
 				<Service_competent REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.SU_Type>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.SU_DJ TID="53f400ea-253d-4520-9846-5316f2f67b0d">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.SU_Type>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.SU_DJ TID="53f400ea-253d-4520-9846-5316f2f67b0d">
 				<Disposition REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
 				<Type REF="d1588f50-0199-47c2-92c9-621628143acb"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.SU_DJ>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.SU_Point TID="152d3561-63a5-4348-9813-912d0662602e">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.SU_DJ>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.SU_Point TID="152d3561-63a5-4348-9813-912d0662602e">
 				<Geometrie>
 					<COORD>
 						<C1>2600005.0</C1>
@@ -811,31 +811,31 @@
 					</COORD>
 				</Geometrie>
 				<Type REF="d1588f50-0199-47c2-92c9-621628143acb"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.SU_Point>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.SU_Type TID="2e73c259-81d5-42df-915a-c55c8ec03233">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.SU_Point>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.SU_Type TID="2e73c259-81d5-42df-915a-c55c8ec03233">
 				<Designation>Lärmschutzmauer</Designation>
 				<Code_de_representation>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 						<Reference REF="standard"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 				</Code_de_representation>
 				<GenreCant>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
 						<Reference REF="ue_kantart.106"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
 				</GenreCant>
 				<ForceObligatoire>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
 						<Reference REF="verbindlichkeit.1"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
 				</ForceObligatoire>
 				<Service_competent REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.SU_Type>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.SU_DJ TID="9c9ebccc-bc1b-47d4-8f10-1a76977cb6a3">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.SU_Type>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.SU_DJ TID="9c9ebccc-bc1b-47d4-8f10-1a76977cb6a3">
 				<Disposition REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
 				<Type REF="2e73c259-81d5-42df-915a-c55c8ec03233"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.SU_DJ>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.SU_Ligne TID="208e0af5-500b-4e92-bbc3-580a34fe396a">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.SU_DJ>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.SU_Ligne TID="208e0af5-500b-4e92-bbc3-580a34fe396a">
 				<Geometrie>
 					<POLYLINE>
 						<COORD>
@@ -849,33 +849,33 @@
 					</POLYLINE>
 				</Geometrie>
 				<Type REF="2e73c259-81d5-42df-915a-c55c8ec03233"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.SU_Ligne>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.SU_Type TID="9fc4f7c7-592b-4f7e-87c0-157e668986ca">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.SU_Ligne>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.SU_Type TID="9fc4f7c7-592b-4f7e-87c0-157e668986ca">
 				<Designation>Geschossflächenziffer (GFZo 0.5)</Designation>
 				<Abreviation>GFZo 0.5</Abreviation>
 				<Categorie>Geschossflächenziffer</Categorie>
 				<Code_de_representation>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 						<Reference REF="standard"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 				</Code_de_representation>
 				<GenreCant>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
 						<Reference REF="ue_kantart.1"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
 				</GenreCant>
 				<ForceObligatoire>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
 						<Reference REF="verbindlichkeit.1"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
 				</ForceObligatoire>
 				<Service_competent REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.SU_Type>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.SU_DJ TID="c181c054-f0c4-4fc4-b6c5-0be32eab91b9">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.SU_Type>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.SU_DJ TID="c181c054-f0c4-4fc4-b6c5-0be32eab91b9">
 				<Disposition REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
 				<Type REF="9fc4f7c7-592b-4f7e-87c0-157e668986ca"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.SU_DJ>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.SU_Surface TID="9e4c9733-01d5-42d4-812b-6daa922a749e">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.SU_DJ>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.SU_Surface TID="9e4c9733-01d5-42d4-812b-6daa922a749e">
 				<Label>GFZo 0.5</Label>
 				<Geometrie>
 					<SURFACE>
@@ -906,33 +906,33 @@
 					</SURFACE>
 				</Geometrie>
 				<Type REF="9fc4f7c7-592b-4f7e-87c0-157e668986ca"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.SU_Surface>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.SU_Type TID="718f9c1e-176b-4f50-b3f0-ed000cfd4013">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.SU_Surface>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.SU_Type TID="718f9c1e-176b-4f50-b3f0-ed000cfd4013">
 				<Designation>Geschossflächenziffer (GFZo 0.6)</Designation>
 				<Abreviation>GFZo 0.6</Abreviation>
 				<Categorie>Geschossflächenziffer</Categorie>
 				<Code_de_representation>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 						<Reference REF="standard"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 				</Code_de_representation>
 				<GenreCant>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
 						<Reference REF="ue_kantart.1"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
 				</GenreCant>
 				<ForceObligatoire>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
 						<Reference REF="verbindlichkeit.1"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
 				</ForceObligatoire>
 				<Service_competent REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.SU_Type>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.SU_DJ TID="c45189f3-e684-4a54-b619-364347ff72c4">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.SU_Type>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.SU_DJ TID="c45189f3-e684-4a54-b619-364347ff72c4">
 				<Disposition REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
 				<Type REF="718f9c1e-176b-4f50-b3f0-ed000cfd4013"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.SU_DJ>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.SU_Surface TID="51777ee1-fee8-435c-905e-72d5fc1bbaad">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.SU_DJ>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.SU_Surface TID="51777ee1-fee8-435c-905e-72d5fc1bbaad">
 				<Label>GFZo 0.6</Label>
 				<Geometrie>
 					<SURFACE>
@@ -963,31 +963,31 @@
 					</SURFACE>
 				</Geometrie>
 				<Type REF="718f9c1e-176b-4f50-b3f0-ed000cfd4013"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.SU_Surface>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.NP_Type TID="127b10ac-0b8e-4286-aa2c-3cdfc5bb9af7">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.SU_Surface>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.NP_Type TID="127b10ac-0b8e-4286-aa2c-3cdfc5bb9af7">
 				<Designation>Einzelbaum</Designation>
 				<Code_de_representation>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 						<Reference REF="standard"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 				</Code_de_representation>
 				<GenreCant>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.NH_KantArt_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.NH_KantArt_CatalogueReference>
 						<Reference REF="nh_kantart.51"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.NH_KantArt_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.NH_KantArt_CatalogueReference>
 				</GenreCant>
 				<ForceObligatoire>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
 						<Reference REF="verbindlichkeit.1"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
 				</ForceObligatoire>
 				<Service_competent REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.NP_Type>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.NP_DJ TID="d25dd836-32c3-4242-9355-7fe1d96b1b4a">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.NP_Type>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.NP_DJ TID="d25dd836-32c3-4242-9355-7fe1d96b1b4a">
 				<Disposition REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
 				<Type REF="127b10ac-0b8e-4286-aa2c-3cdfc5bb9af7"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.NP_DJ>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.NP_Point TID="92ae1083-5531-46ec-82a1-2a274ee84a45">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.NP_DJ>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.NP_Point TID="92ae1083-5531-46ec-82a1-2a274ee84a45">
 				<Label>E1</Label>
 				<Geometrie>
 					<COORD>
@@ -996,31 +996,31 @@
 					</COORD>
 				</Geometrie>
 				<Type REF="127b10ac-0b8e-4286-aa2c-3cdfc5bb9af7"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.NP_Point>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.NP_Type TID="fc3ca8b6-917d-49cb-8255-c1f4733c485f">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.NP_Point>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.NP_Type TID="fc3ca8b6-917d-49cb-8255-c1f4733c485f">
 				<Designation>Trockenmauer</Designation>
 				<Code_de_representation>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 						<Reference REF="standard"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 				</Code_de_representation>
 				<GenreCant>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.NH_KantArt_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.NH_KantArt_CatalogueReference>
 						<Reference REF="nh_kantart.35"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.NH_KantArt_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.NH_KantArt_CatalogueReference>
 				</GenreCant>
 				<ForceObligatoire>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
 						<Reference REF="verbindlichkeit.1"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
 				</ForceObligatoire>
 				<Service_competent REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.NP_Type>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.NP_DJ TID="03ab9499-046f-4a31-b2dc-bf23f39e3cf8">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.NP_Type>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.NP_DJ TID="03ab9499-046f-4a31-b2dc-bf23f39e3cf8">
 				<Disposition REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
 				<Type REF="fc3ca8b6-917d-49cb-8255-c1f4733c485f"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.NP_DJ>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.NP_Ligne TID="f4aba785-302c-4800-a90c-c897946fbf29">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.NP_DJ>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.NP_Ligne TID="f4aba785-302c-4800-a90c-c897946fbf29">
 				<Geometrie>
 					<POLYLINE>
 						<COORD>
@@ -1034,32 +1034,32 @@
 					</POLYLINE>
 				</Geometrie>
 				<Type REF="fc3ca8b6-917d-49cb-8255-c1f4733c485f"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.NP_Ligne>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.NP_Type TID="fe7f7d9f-657b-4952-b098-9d0f1870dc58">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.NP_Ligne>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.NP_Type TID="fe7f7d9f-657b-4952-b098-9d0f1870dc58">
 				<Designation>Landschaftsschutzgebiet</Designation>
 				<Abreviation>LSG</Abreviation>
 				<Code_de_representation>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 						<Reference REF="standard"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 				</Code_de_representation>
 				<GenreCant>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.NH_KantArt_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.NH_KantArt_CatalogueReference>
 						<Reference REF="nh_kantart.1"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.NH_KantArt_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.NH_KantArt_CatalogueReference>
 				</GenreCant>
 				<ForceObligatoire>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
 						<Reference REF="verbindlichkeit.1"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
 				</ForceObligatoire>
 				<Service_competent REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.NP_Type>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.NP_DJ TID="a61d9d8e-1239-4a0b-b74b-6cc2ba8d4f49">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.NP_Type>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.NP_DJ TID="a61d9d8e-1239-4a0b-b74b-6cc2ba8d4f49">
 				<Disposition REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
 				<Type REF="fe7f7d9f-657b-4952-b098-9d0f1870dc58"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.NP_DJ>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.NP_Surface TID="5c1a5e13-666b-4342-a58b-98459bdd313c">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.NP_DJ>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.NP_Surface TID="5c1a5e13-666b-4342-a58b-98459bdd313c">
 				<Geometrie>
 					<SURFACE>
 						<BOUNDARY>
@@ -1089,31 +1089,31 @@
 					</SURFACE>
 				</Geometrie>
 				<Type REF="fe7f7d9f-657b-4952-b098-9d0f1870dc58"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.NP_Surface>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.AL_Type TID="af84034d-7094-4cba-9dba-11052d266808">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.NP_Surface>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.AL_Type TID="af84034d-7094-4cba-9dba-11052d266808">
 				<Designation>Baulinie</Designation>
 				<Code_de_representation>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 						<Reference REF="standard"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 				</Code_de_representation>
 				<GenreCant>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.BL_KantArt_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.BL_KantArt_CatalogueReference>
 						<Reference REF="bl_kantart.1"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.BL_KantArt_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.BL_KantArt_CatalogueReference>
 				</GenreCant>
 				<ForceObligatoire>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
 						<Reference REF="verbindlichkeit.1"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
 				</ForceObligatoire>
 				<Service_competent REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.AL_Type>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.AL_DJ TID="c659eb5e-876d-4c41-aa14-50624ff9ddf3">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.AL_Type>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.AL_DJ TID="c659eb5e-876d-4c41-aa14-50624ff9ddf3">
 				<Disposition REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
 				<Type REF="af84034d-7094-4cba-9dba-11052d266808"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.AL_DJ>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.AL_Ligne TID="2d8d0425-529d-4004-bc49-4607ba7afd81">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.AL_DJ>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.AL_Ligne TID="2d8d0425-529d-4004-bc49-4607ba7afd81">
 				<Geometrie>
 					<POLYLINE>
 						<COORD>
@@ -1127,31 +1127,31 @@
 					</POLYLINE>
 				</Geometrie>
 				<Type REF="af84034d-7094-4cba-9dba-11052d266808"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.AL_Ligne>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.AL_Type TID="443d237d-881c-4cba-bf4b-63fef1d3c45c">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.AL_Ligne>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.AL_Type TID="443d237d-881c-4cba-bf4b-63fef1d3c45c">
 				<Designation>Baulinie (Wirkungsbereich)</Designation>
 				<Code_de_representation>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 						<Reference REF="standard"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 				</Code_de_representation>
 				<GenreCant>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.BL_KantArt_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.BL_KantArt_CatalogueReference>
 						<Reference REF="bl_kantart.11"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.BL_KantArt_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.BL_KantArt_CatalogueReference>
 				</GenreCant>
 				<ForceObligatoire>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
 						<Reference REF="verbindlichkeit.1"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
 				</ForceObligatoire>
 				<Service_competent REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.AL_Type>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.AL_DJ TID="afa982df-9def-4833-9e85-882baac2d489">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.AL_Type>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.AL_DJ TID="afa982df-9def-4833-9e85-882baac2d489">
 				<Disposition REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
 				<Type REF="443d237d-881c-4cba-bf4b-63fef1d3c45c"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.AL_DJ>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.AL_Surface TID="e906ac50-b187-4f8a-83e5-084b680adc47">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.AL_DJ>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.AL_Surface TID="e906ac50-b187-4f8a-83e5-084b680adc47">
 				<Geometrie>
 					<SURFACE>
 						<BOUNDARY>
@@ -1181,31 +1181,31 @@
 					</SURFACE>
 				</Geometrie>
 				<Type REF="443d237d-881c-4cba-bf4b-63fef1d3c45c"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.AL_Surface>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.CH_Type TID="e4f0db2f-a1d3-4f02-a00b-41761601197b">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.AL_Surface>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.CH_Type TID="e4f0db2f-a1d3-4f02-a00b-41761601197b">
 				<Designation>Wanderweg</Designation>
 				<Code_de_representation>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 						<Reference REF="standard"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 				</Code_de_representation>
 				<GenreCant>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.WE_KantArt_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.WE_KantArt_CatalogueReference>
 						<Reference REF="we_kantart.2"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.WE_KantArt_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.WE_KantArt_CatalogueReference>
 				</GenreCant>
 				<ForceObligatoire>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
 						<Reference REF="verbindlichkeit.1"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
 				</ForceObligatoire>
 				<Service_competent REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.CH_Type>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.CH_DJ TID="627dbc18-8cea-45b4-a1bb-ced36e325b8a">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.CH_Type>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.CH_DJ TID="627dbc18-8cea-45b4-a1bb-ced36e325b8a">
 				<Disposition REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
 				<Type REF="e4f0db2f-a1d3-4f02-a00b-41761601197b"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.CH_DJ>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.CH_Ligne TID="fd4b75d2-44d0-418a-bacf-e7de6f7abc6f">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.CH_DJ>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.CH_Ligne TID="fd4b75d2-44d0-418a-bacf-e7de6f7abc6f">
 				<Geometrie>
 					<POLYLINE>
 						<COORD>
@@ -1219,28 +1219,28 @@
 					</POLYLINE>
 				</Geometrie>
 				<Type REF="e4f0db2f-a1d3-4f02-a00b-41761601197b"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.CH_Ligne>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.CF_Type TID="4ba78ae1-4d6c-41d4-b697-89c04ee2f588">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.CH_Ligne>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.CF_Type TID="4ba78ae1-4d6c-41d4-b697-89c04ee2f588">
 				<Designation>Statische Waldgrenze</Designation>
 				<Abreviation>WGR</Abreviation>
 				<Code_de_representation>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 						<Reference REF="standard"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
 				</Code_de_representation>
 				<GenreCant>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.WF_KantArt_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.WF_KantArt_CatalogueReference>
 						<Reference REF="wf_kantart.1"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.WF_KantArt_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.WF_KantArt_CatalogueReference>
 				</GenreCant>
 				<ForceObligatoire>
-					<Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
 						<Reference REF="verbindlichkeit.1"/>
-					</Nutzungsplanung_BE_V2_Test03_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
 				</ForceObligatoire>
 				<Service_competent REF="82aab446-9dc3-40df-90d8-ccfa7d8aba96"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.CF_Type>
-			<PlansDAffectation_BE_V2_Test03.PlansDAffectation.CF_Ligne TID="f6e5d068-0077-4229-9ef3-d1d7043bd9af">
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.CF_Type>
+			<PlansDAffectation_BE_V2_0.PlansDAffectation.CF_Ligne TID="f6e5d068-0077-4229-9ef3-d1d7043bd9af">
 				<Geometrie>
 					<POLYLINE>
 						<COORD>
@@ -1255,7 +1255,7 @@
 				</Geometrie>
 				<Projet_d_amenagement REF="6440cc9e-789c-482e-9b8f-3926b11a0708"/>
 				<Type REF="4ba78ae1-4d6c-41d4-b697-89c04ee2f588"/>
-			</PlansDAffectation_BE_V2_Test03.PlansDAffectation.CF_Ligne>
-		</PlansDAffectation_BE_V2_Test03.PlansDAffectation>
+			</PlansDAffectation_BE_V2_0.PlansDAffectation.CF_Ligne>
+		</PlansDAffectation_BE_V2_0.PlansDAffectation>
 	</DATASECTION>
 </TRANSFER>
