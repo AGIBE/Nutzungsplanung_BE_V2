@@ -53,6 +53,7 @@ MODEL Nutzungsplanung_BE_V2_Test03_Catalogues
       Check_Polygon : BOOLEAN;
       Check_Polyline : BOOLEAN;
       Check_Point : BOOLEAN;
+      Check_InnereNutzung : BOOLEAN;
       Check_AREA : TEXT*10;
     END BaseClassCatalog;
 
