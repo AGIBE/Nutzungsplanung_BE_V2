@@ -91,11 +91,11 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
     CLASS AD_Datensatz =
       Planungsbehoerde : MANDATORY 101..999;
       Sprache : MANDATORY (de,fr,de_fr);
-      !!DossierNr : TEXT*256;
-      XTF_BeforeChange : MANDATORY TEXT*256;
-      XTF_AfterChange : MANDATORY TEXT*256;
-      creation_date : MANDATORY Datum;
-      creation_time : MANDATORY Zeit;
+      Delta_DossierNr : TEXT*256;
+      Delta_XtfBeforeChange : MANDATORY TEXT*256;
+      Delta_XtfAfterChange : MANDATORY TEXT*256;
+      Delta_CreationDate : MANDATORY Datum;
+      Delta_CreationTime : MANDATORY Zeit;
     END AD_Datensatz;
 
     ASSOCIATION Datensatz_Planungsgeschaeft =
@@ -276,9 +276,8 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
       Delta_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
       Delta_Rating_Existence : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
       Delta_Rating_Attributes : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
-      !!Delta_Tolerance : 0.000 .. 0.100;
-      TID_OldValue : INTERLIS.UUIDOID;
-      TID_NewValue : INTERLIS.UUIDOID;
+      Delta_TID_OldValue : INTERLIS.UUIDOID;
+      Delta_TID_NewValue : INTERLIS.UUIDOID;
       Label_OldValue : TEXT*50;
       Label_NewValue : TEXT*50;
       Label_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
@@ -292,10 +291,10 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
       Delta_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
       Delta_Rating_Existence : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
       Delta_Rating_Attributes : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
-      !!Delta_Tolerance : 0.000 .. 0.100;
-      Delta_Size : MANDATORY 0.00 .. 9999999999.99;
-      TID_OldValue : INTERLIS.UUIDOID;
-      TID_NewValue : INTERLIS.UUIDOID;
+      Delta_GeometricInaccuracy : 0.000 .. 0.100;
+      Delta_LengthInMeters : MANDATORY 0.00 .. 9999999999.99;
+      Delta_TID_OldValue : INTERLIS.UUIDOID;
+      Delta_TID_NewValue : INTERLIS.UUIDOID;
       Label_OldValue : TEXT*50;
       Label_NewValue : TEXT*50;
       Label_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
@@ -309,11 +308,10 @@ MODEL Nutzungsplanung_BE_V2_Test03_Delta
       Delta_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
       Delta_Rating_Existence : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
       Delta_Rating_Attributes : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
-      !!Delta_Tolerance : 0.000 .. 0.100;
-      Delta_Size : MANDATORY 0.00 .. 9999999999.99;
-      !!Delta_CorrelationID : TEXT*36;
-      TID_OldValue : INTERLIS.UUIDOID;
-      TID_NewValue : INTERLIS.UUIDOID;
+      Delta_GeometricInaccuracy : 0.000 .. 0.100;
+      Delta_AreaInSquareMeters : MANDATORY 0.00 .. 9999999999.99;
+      Delta_TID_OldValue : INTERLIS.UUIDOID;
+      Delta_TID_NewValue : INTERLIS.UUIDOID;
       Label_OldValue : TEXT*50;
       Label_NewValue : TEXT*50;
       Label_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
