@@ -1,0 +1,897 @@
+INTERLIS 2.3;
+/*
+Teilmodell für Änderungsinformationen                                           Modèle partiel pour les informations des modifications
+  Hauptmodell       : Nutzungsplanung_BE_V2_0                                     Modèle principal       : PlanDAffectation_BE_V2_0
+  Datenverwaltung   : ePlan                                                       Gestion des données    : ePlan
+  Sprachversion     : DE und FR                                                   Version de langue      : DE et FR
+  Support fachlich  : Amt für Gemeinden und Raumordnung (www.be.ch/agr)           Support thématique     : Office des affaires communales et de l'organisation du territoire (www.be.ch/oacot)
+  Support technisch : Amt für Geoinformation (www.be.ch/agi)                      Support technique      : Office de l'information géographique (www.be.ch/oig)
+
+  Abkürzungen
+  -----------
+  AD    : Administratives
+  DO    : Dokumente
+  RV    : Rechtsvorschrift
+  GN    : Grundnutzung
+  NZ    : Nutzungszone
+  BK    : Bauklasse
+  IN    : Innere Nutzung
+  SN    : Überlagernde Sondernutzungsplanung
+  UE    : Weitere Überlagerungen  
+  ES    : Lärmempfindlichkeitsstufen
+  GG    : Gefahrengebiete
+  GR    : Gewässerraum
+  NH    : Natur- und Heimatschutz
+  BL    : Baulinien
+  WE    : Wege
+  WF    : Waldfeststellung
+
+  Version    | Modification
+  ------------------------------------------------------------------------------
+  2022-04-01 | Version 1.0
+  2025-04-10 | Version 2.0
+
+*/
+
+!!@ technicalContact=mailto:info.agr@be.ch
+!!@ furtherInformation=https://www.raumplanung.dij.be.ch/de/start/eplan.html
+MODEL Nutzungsplanung_BE_V2_0_Delta
+  AT "http://models.geo.be.ch/Grundlagen_und_Planung/Raumplanung_Grundstueckskataster/"
+  VERSION "2025-04-10" =
+
+  IMPORTS GeometryCHLV95_V1;
+  IMPORTS CatalogueObjects_V1, Nutzungsplanung_BE_V2_0_Catalogues;
+
+  DOMAIN
+    Datum = FORMAT INTERLIS.XMLDate "1848-1-1" .. "2100-12-31";
+    Zeit = FORMAT INTERLIS.XMLTime "00:00:00.000" .. "23:59:59.999";
+    LKoord EXTENDS GeometryCHLV95_V1.Coord2 = COORD
+      2550000.000 .. 2690000.000 [INTERLIS.m] ,
+      1120000.000 .. 1250000.000 [INTERLIS.m] ,
+      ROTATION 2 -> 1;
+    Polyline = POLYLINE WITH (STRAIGHTS, ARCS) VERTEX LKoord;
+    Surface  = SURFACE  WITH (STRAIGHTS, ARCS) VERTEX LKoord WITHOUT OVERLAPS > 0.050;
+    Area     = AREA     WITH (STRAIGHTS, ARCS) VERTEX LKoord WITHOUT OVERLAPS > 0.050;
+
+ !! TOPIC Nutzungsplanung
+ !! ----------------------
+ TOPIC Nutzungsplanung =
+  BASKET OID AS INTERLIS.UUIDOID;
+  OID AS INTERLIS.UUIDOID;
+
+  DEPENDS ON CatalogueObjects_V1.Catalogues, Nutzungsplanung_BE_V2_0_Catalogues.Catalogues;
+
+    !! ***********************
+    !! AD = Administratives
+    !! ***********************
+
+    !! Planungsgeschäfte
+    !! -----------------------------------------------
+    CLASS AD_Planungsgeschaeft =
+      Delta_Existence : MANDATORY (Existing,Added,Removed);
+      Delta_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Delta_Rating_Existence : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Delta_Rating_Attributes : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Geschaeft_Nummer_OldValue : TEXT*50;
+      Geschaeft_Nummer_NewValue : TEXT*50;
+      Geschaeft_Nummer_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Geschaeft_Titel_OldValue : TEXT*250;
+      Geschaeft_Titel_NewValue : TEXT*250;
+      Geschaeft_Titel_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Geschaeft_ErstelltAm_OldValue : Datum;
+      Geschaeft_ErstelltAm_NewValue : Datum;
+      Geschaeft_ErstelltAm_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Ortsplanungsrevision_OldValue : BOOLEAN;
+      Ortsplanungsrevision_NewValue : BOOLEAN;
+      Ortsplanungsrevision_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+    END AD_Planungsgeschaeft;
+
+    !! Datensatz
+    !! -----------------------------------------------
+    CLASS AD_Datensatz =
+      Planungsbehoerde : MANDATORY 101..999;
+      Sprache : MANDATORY (de,fr,de_fr);
+      Delta_DossierNr : TEXT*256;
+      Delta_XtfBeforeChange : MANDATORY TEXT*256;
+      Delta_XtfAfterChange : MANDATORY TEXT*256;
+      Delta_CreationDate : MANDATORY Datum;
+      Delta_CreationTime : MANDATORY Zeit;
+    END AD_Datensatz;
+
+    ASSOCIATION Datensatz_Planungsgeschaeft =
+      Aktives_Geschaeft -- {0..1} AD_Planungsgeschaeft;
+      Datensatz -- {0..1} AD_Datensatz;
+    END Datensatz_Planungsgeschaeft;
+
+    !! Amt (Zuständige Stellen)
+    !! -----------------------------------------------
+    CLASS AD_Amt =
+      Delta_Existence : MANDATORY (Existing,Added,Removed);
+      Delta_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Delta_Rating_Existence : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Delta_Rating_Attributes : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Name_OldValue : TEXT*200;
+      Name_NewValue : TEXT*200;
+      Name_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      UID_OldValue : TEXT*15;
+      UID_NewValue : TEXT*15;
+      UID_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      AmtImWeb_OldValue : URI;
+      AmtImWeb_NewValue : URI;
+      AmtImWeb_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+    END AD_Amt;
+
+    !! ***********************
+    !! DO = Dokumente
+    !! ***********************
+
+    !! Rechtsvorschriften und Hinweisdokumente
+    !! -----------------------------------------------
+    CLASS DO_Dokument =
+      Delta_Existence : MANDATORY (Existing,Added,Removed);
+      Delta_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Delta_Rating_Existence : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Delta_Rating_Attributes : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Delta_Rating_DocumentRevisions : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Titel_OldValue : TEXT*500;
+      Titel_NewValue : TEXT*500;
+      Titel_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Abkuerzung_OldValue : TEXT*50;
+      Abkuerzung_NewValue : TEXT*50;
+      Abkuerzung_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      OffizielleNr_OldValue : TEXT*50;
+      OffizielleNr_NewValue : TEXT*50;
+      OffizielleNr_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      PDF_Dateiname_OldValue : TEXT*200;
+      PDF_Dateiname_NewValue : TEXT*200;
+      PDF_Dateiname_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Dokumentart_OldValue : Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Dokumentart_CatalogueReference;
+      Dokumentart_NewValue : Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Dokumentart_CatalogueReference;
+      Dokumentart_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Dokumentverbindlichkeit_OldValue : Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Dokumentverbindlichkeit_CatalogueReference;
+      Dokumentverbindlichkeit_NewValue : Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Dokumentverbindlichkeit_CatalogueReference;
+      Dokumentverbindlichkeit_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Planungsgeschaeft_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      ZustaendigeStelle_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+    END DO_Dokument;
+
+    ASSOCIATION Dokument_Geschaeft_OldValue =
+      Planungsgeschaeft_OldValue -- {0..1} AD_Planungsgeschaeft;
+      Dokument_OldValue -- {0..*} DO_Dokument;
+    END Dokument_Geschaeft_OldValue;
+
+    ASSOCIATION Dokument_Geschaeft_NewValue =
+      Planungsgeschaeft_NewValue -- {0..1} AD_Planungsgeschaeft;
+      Dokument_NewValue -- {0..*} DO_Dokument;
+    END Dokument_Geschaeft_NewValue;
+
+    ASSOCIATION Dokument_ZustaendigeStelle_OldValue  =
+      ZustaendigeStelle_OldValue -- {0..1} AD_Amt;
+      Dokument_OldValue -- {0..*} DO_Dokument;
+    END Dokument_ZustaendigeStelle_OldValue;
+
+    ASSOCIATION Dokument_ZustaendigeStelle_NewValue  =
+      ZustaendigeStelle_NewValue -- {0..1} AD_Amt;
+      Dokument_NewValue -- {0..*} DO_Dokument;
+    END Dokument_ZustaendigeStelle_NewValue;
+
+    !! Änderungsdokumente (Änderungen an Rechtsvorschriften)
+    !! -----------------------------------------------
+    CLASS DO_DokumentRevision =
+      Delta_Existence : MANDATORY (Existing,Added,Removed);
+      Delta_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Delta_Rating_Existence : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Delta_Rating_Attributes : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Titel_OldValue : TEXT*500;
+      Titel_NewValue : TEXT*500;
+      Titel_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Abkuerzung_OldValue : TEXT*50;
+      Abkuerzung_NewValue : TEXT*50;
+      Abkuerzung_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      OffizielleNr_OldValue : TEXT*50;
+      OffizielleNr_NewValue : TEXT*50;
+      OffizielleNr_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      PDF_Dateiname_OldValue : TEXT*200;
+      PDF_Dateiname_NewValue : TEXT*200;
+      PDF_Dateiname_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Planungsgeschaeft_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Erstversion_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+    END DO_DokumentRevision;
+
+    ASSOCIATION DokumentRevision_Geschaeft_OldValue =
+      Planungsgeschaeft_OldValue -- {0..1} AD_Planungsgeschaeft;
+      Aenderungsdokument_OldValue -- {0..*} DO_DokumentRevision;
+    END DokumentRevision_Geschaeft_OldValue;
+
+    ASSOCIATION DokumentRevision_Geschaeft_NewValue =
+      Planungsgeschaeft_NewValue -- {0..1} AD_Planungsgeschaeft;
+      Aenderungsdokument_NewValue -- {0..*} DO_DokumentRevision;
+    END DokumentRevision_Geschaeft_NewValue;
+
+    ASSOCIATION DokumentRevision_Dokument_OldValue =
+      Erstversion_OldValue -- {0..1} DO_Dokument;
+      Aenderungsdokument_OldValue -- {0..*} DO_DokumentRevision;
+    END DokumentRevision_Dokument_OldValue;
+
+    ASSOCIATION DokumentRevision_Dokument_NewValue =
+      Erstversion_NewValue -- {0..1} DO_Dokument;
+      Aenderungsdokument_NewValue -- {0..*} DO_DokumentRevision;
+    END DokumentRevision_Dokument_NewValue;
+
+    !! ***********************
+    !! Geodaten
+    !! ***********************
+
+    !! Basis-Klasse Typ
+    !! -----------------------------------------------
+    CLASS BaseClassType (ABSTRACT) =
+      Delta_Existence : MANDATORY (Existing,Added,Removed);
+      Delta_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Delta_Rating_Existence : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Delta_Rating_Attributes : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Delta_Rating_DocumentLinks : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Bezeichnung_OldValue : TEXT*500;
+      Bezeichnung_NewValue : TEXT*500;
+      Bezeichnung_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Abkuerzung_OldValue : TEXT*50;
+      Abkuerzung_NewValue : TEXT*50;
+      Abkuerzung_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Kategorie_OldValue : TEXT*100;
+      Kategorie_NewValue : TEXT*100;
+      Kategorie_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Darstellungscode_OldValue : Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Darstellungscode_CatalogueReference;
+      Darstellungscode_NewValue : Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Darstellungscode_CatalogueReference;
+      Darstellungscode_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      KantArt_OldValue : Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Typ_CatalogueReference;
+      KantArt_NewValue : Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Typ_CatalogueReference;
+      KantArt_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Verbindlichkeit_OldValue : Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference;
+      Verbindlichkeit_NewValue : Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference;
+      Verbindlichkeit_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      ZustaendigeStelle_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+    END BaseClassType;
+
+    ASSOCIATION BaseClass_ZustaendigeStelle_OldValue =
+      ZustaendigeStelle_OldValue -- {0..1} AD_Amt;
+      Typ_OldValue -- {0..*} BaseClassType;
+    END BaseClass_ZustaendigeStelle_OldValue;
+
+    ASSOCIATION BaseClass_ZustaendigeStelle_NewValue =
+      ZustaendigeStelle_NewValue -- {0..1} AD_Amt;
+      Typ_NewValue -- {0..*} BaseClassType;
+    END BaseClass_ZustaendigeStelle_NewValue;
+
+    ASSOCIATION BaseClass_RV (ABSTRACT) =
+    OID AS INTERLIS.UUIDOID;
+      Vorschrift (ABSTRACT) -- {0..*} DO_Dokument;
+      Typ (ABSTRACT) -- {0..*} BaseClassType;
+      Delta_Existence : MANDATORY (Existing,Added,Removed);
+      Delta_Rating_Existence : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+    END BaseClass_RV;
+
+    !! Basis-Klassen Geometrie
+    !! -----------------------------------------------
+    CLASS BaseClassPoint (ABSTRACT) =
+      Delta_Existence : MANDATORY (Existing,Added,Removed);
+      Delta_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Delta_Rating_Existence : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Delta_Rating_Attributes : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Delta_TID_OldValue : INTERLIS.UUIDOID;
+      Delta_TID_NewValue : INTERLIS.UUIDOID;
+      Label_OldValue : TEXT*50;
+      Label_NewValue : TEXT*50;
+      Label_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Planungsgeschaeft_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Typ_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Geometrie : MANDATORY LKoord;
+    END BaseClassPoint;
+
+    CLASS BaseClassPolyline (ABSTRACT) =
+      Delta_Existence : MANDATORY (Existing,Added,Removed);
+      Delta_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Delta_Rating_Existence : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Delta_Rating_Attributes : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Delta_GeometricInaccuracy : 0.000 .. 0.100;
+      Delta_LengthInMeters : MANDATORY 0.00 .. 9999999999.99;
+      Delta_TID_OldValue : INTERLIS.UUIDOID;
+      Delta_TID_NewValue : INTERLIS.UUIDOID;
+      Label_OldValue : TEXT*50;
+      Label_NewValue : TEXT*50;
+      Label_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Planungsgeschaeft_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Typ_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Geometrie : MANDATORY Polyline;
+    END BaseClassPolyline;
+
+    CLASS BaseClassPolygon (ABSTRACT) =
+      Delta_Existence : MANDATORY (Existing,Added,Removed);
+      Delta_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Delta_Rating_Existence : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Delta_Rating_Attributes : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Delta_GeometricInaccuracy : 0.000 .. 0.100;
+      Delta_AreaInSquareMeters : MANDATORY 0.00 .. 9999999999.99;
+      Delta_TID_OldValue : INTERLIS.UUIDOID;
+      Delta_TID_NewValue : INTERLIS.UUIDOID;
+      Label_OldValue : TEXT*50;
+      Label_NewValue : TEXT*50;
+      Label_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Planungsgeschaeft_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Typ_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Geometrie : MANDATORY Surface;
+    END BaseClassPolygon;
+
+    ASSOCIATION BaseClassPoint_Geschaeft_OldValue =
+      Planungsgeschaeft_OldValue -- {0..1} AD_Planungsgeschaeft;
+      BaseClassPoint_OldValue -- {0..*} BaseClassPoint;
+    END BaseClassPoint_Geschaeft_OldValue;
+
+    ASSOCIATION BaseClassPoint_Geschaeft_NewValue =
+      Planungsgeschaeft_NewValue -- {0..1} AD_Planungsgeschaeft;
+      BaseClassPoint_NewValue -- {0..*} BaseClassPoint;
+    END BaseClassPoint_Geschaeft_NewValue;
+
+    ASSOCIATION BaseClassPolyline_Geschaeft_OldValue =
+      Planungsgeschaeft_OldValue -- {0..1} AD_Planungsgeschaeft;
+      BaseClassPolyline_OldValue -- {0..*} BaseClassPolyline;
+    END BaseClassPolyline_Geschaeft_OldValue;
+
+    ASSOCIATION BaseClassPolyline_Geschaeft_NewValue =
+      Planungsgeschaeft_NewValue -- {0..1} AD_Planungsgeschaeft;
+      BaseClassPolyline_NewValue -- {0..*} BaseClassPolyline;
+    END BaseClassPolyline_Geschaeft_NewValue;
+
+    ASSOCIATION BaseClassPolygon_Geschaeft_OldValue =
+      Planungsgeschaeft_OldValue -- {0..1} AD_Planungsgeschaeft;
+      BaseClassPolygon_OldValue -- {0..*} BaseClassPolygon;
+    END BaseClassPolygon_Geschaeft_OldValue;
+
+    ASSOCIATION BaseClassPolygon_Geschaeft_NewValue =
+      Planungsgeschaeft_NewValue -- {0..1} AD_Planungsgeschaeft;
+      BaseClassPolygon_NewValue -- {0..*} BaseClassPolygon;
+    END BaseClassPolygon_Geschaeft_NewValue;
+
+    CLASS TypeAttributeRatings =
+      Delta_Rating_TypeAttributes : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Type_Bezeichnung_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Type_Abkuerzung_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Type_Kategorie_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Type_Darstellungscode_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Type_KantArt_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Type_Verbindlichkeit_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+      Type_ZustaendigeStelle_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+    END TypeAttributeRatings;
+
+    ASSOCIATION BaseClassPoint_TypeAttributeRatings =
+      TypeAttributeRatings -- {1} TypeAttributeRatings;
+      BaseClassPoint -- {0..*} BaseClassPoint;
+    END BaseClassPoint_TypeAttributeRatings;
+
+    ASSOCIATION BaseClassPolyline_TypeAttributeRatings =
+      TypeAttributeRatings -- {1} TypeAttributeRatings;
+      BaseClassPolyline -- {0..*} BaseClassPolyline;
+    END BaseClassPolyline_TypeAttributeRatings;
+
+    ASSOCIATION BaseClassPolygon_TypeAttributeRatings =
+      TypeAttributeRatings -- {1} TypeAttributeRatings;
+      BaseClassPolygon -- {0..*} BaseClassPolygon;
+    END BaseClassPolygon_TypeAttributeRatings;
+
+    !! ***********************
+    !! GN = Grundnutzung
+    !! ***********************
+
+    !! GN_Typ
+    !! -----------------------------------------------
+    CLASS GN_Typ
+    EXTENDS BaseClassType =
+    END GN_Typ;
+
+    ASSOCIATION GN_RV
+    EXTENDS BaseClass_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Typ (EXTENDED) -- {0..*} GN_Typ;
+    END GN_RV;
+
+    !! GN_Flaeche (AREA)
+    !! -----------------------------------------------
+    CLASS GN_Flaeche
+    EXTENDS BaseClassPolygon =
+    END GN_Flaeche;
+
+    ASSOCIATION GN_Flaeche_Typ_OldValue =
+      Typ_OldValue -- {0..1} GN_Typ;
+      GN_Flaeche_OldValue -- {0..*} GN_Flaeche;
+    END GN_Flaeche_Typ_OldValue;
+
+    ASSOCIATION GN_Flaeche_Typ_NewValue =
+      Typ_NewValue -- {0..1} GN_Typ;
+      GN_Flaeche_NewValue -- {0..*} GN_Flaeche;
+    END GN_Flaeche_Typ_NewValue;
+
+    !! ***********************
+    !! NZ = Nutzungszone
+    !! ***********************
+
+    !! NZ_Typ
+    !! -----------------------------------------------
+    CLASS NZ_Typ
+    EXTENDS BaseClassType =
+    END NZ_Typ;
+
+    ASSOCIATION NZ_RV
+    EXTENDS BaseClass_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Typ (EXTENDED) -- {0..*} NZ_Typ;
+    END NZ_RV;
+
+    !! NZ_Flaeche (AREA)
+    !! -----------------------------------------------
+    CLASS NZ_Flaeche
+    EXTENDS BaseClassPolygon =
+    END NZ_Flaeche;
+
+    ASSOCIATION NZ_Flaeche_Typ_OldValue =
+      Typ_OldValue -- {0..1} NZ_Typ;
+      NZ_Flaeche_OldValue -- {0..*} NZ_Flaeche;
+    END NZ_Flaeche_Typ_OldValue;
+
+    ASSOCIATION NZ_Flaeche_Typ_NewValue =
+      Typ_NewValue -- {0..1} NZ_Typ;
+      NZ_Flaeche_NewValue -- {0..*} NZ_Flaeche;
+    END NZ_Flaeche_Typ_NewValue;
+
+    !! ***********************
+    !! BK = Bauklasse/Bauzone
+    !! ***********************
+
+    !! BK_Typ
+    !! -----------------------------------------------
+    CLASS BK_Typ
+    EXTENDS BaseClassType =
+      NZ_Typ_REF_INFO_OldValue : INTERLIS.UUIDOID;
+      NZ_Typ_REF_INFO_NewValue : INTERLIS.UUIDOID;
+    END BK_Typ;
+
+    ASSOCIATION BK_RV
+    EXTENDS BaseClass_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Typ (EXTENDED) -- {0..*} BK_Typ;
+    END BK_RV;
+
+    !! BK_Flaeche (AREA)
+    !! -----------------------------------------------
+    CLASS BK_Flaeche
+    EXTENDS BaseClassPolygon =
+      NZ_Flaeche_REF_INFO_OldValue : INTERLIS.UUIDOID;
+      NZ_Flaeche_REF_INFO_NewValue : INTERLIS.UUIDOID;
+    END BK_Flaeche;
+
+    ASSOCIATION BK_Flaeche_Typ_OldValue =
+      Typ_OldValue -- {0..1} BK_Typ;
+      BK_Flaeche_OldValue -- {0..*} BK_Flaeche;
+    END BK_Flaeche_Typ_OldValue;
+
+    ASSOCIATION BK_Flaeche_Typ_NewValue =
+      Typ_NewValue -- {0..1} BK_Typ;
+      BK_Flaeche_NewValue -- {0..*} BK_Flaeche;
+    END BK_Flaeche_Typ_NewValue;
+
+    !! ***********************
+    !! IN = Innere Nutzung (von ZPP,UeO,USP,SBV)
+    !! ***********************
+
+    !! IN_Typ
+    !! -----------------------------------------------
+    CLASS IN_Typ
+    EXTENDS BaseClassType =
+    END IN_Typ;
+
+    ASSOCIATION IN_RV
+    EXTENDS BaseClass_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Typ (EXTENDED) -- {0..*} IN_Typ;
+    END IN_RV;
+
+    !! IN_Flaeche (AREA)
+    !! -----------------------------------------------
+    CLASS IN_Flaeche
+    EXTENDS BaseClassPolygon =
+    END IN_Flaeche;
+
+    ASSOCIATION IN_Flaeche_Typ_OldValue =
+      Typ_OldValue -- {0..1} IN_Typ;
+      IN_Flaeche_OldValue -- {0..*} IN_Flaeche;
+    END IN_Flaeche_Typ_OldValue;
+
+    ASSOCIATION IN_Flaeche_Typ_NewValue =
+      Typ_NewValue -- {0..1} IN_Typ;
+      IN_Flaeche_NewValue -- {0..*} IN_Flaeche;
+    END IN_Flaeche_Typ_NewValue;
+
+    !! ***********************
+    !! SN = Überlagernde Sondernutzungsplanung
+    !! ***********************
+
+    !! SN_Typ
+    !! -----------------------------------------------
+    CLASS SN_Typ
+    EXTENDS BaseClassType =
+    END SN_Typ;
+
+    ASSOCIATION SN_RV
+    EXTENDS BaseClass_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Typ (EXTENDED) -- {0..*} SN_Typ;
+    END SN_RV;
+
+    !! SN_Flaeche (SURFACE)
+    !! -----------------------------------------------
+    CLASS SN_Flaeche
+    EXTENDS BaseClassPolygon =
+    END SN_Flaeche;
+
+    ASSOCIATION SN_Flaeche_Typ_OldValue =
+      Typ_OldValue -- {0..1} SN_Typ;
+      SN_Flaeche_OldValue -- {0..*} SN_Flaeche;
+    END SN_Flaeche_Typ_OldValue;
+
+    ASSOCIATION SN_Flaeche_Typ_NewValue =
+      Typ_NewValue -- {0..1} SN_Typ;
+      SN_Flaeche_NewValue -- {0..*} SN_Flaeche;
+    END SN_Flaeche_Typ_NewValue;
+
+    !! ***********************
+    !! UE = Ueberlagerung
+    !! ***********************
+
+    !! UE_Typ
+    !! -----------------------------------------------
+    CLASS UE_Typ
+    EXTENDS BaseClassType =
+    END UE_Typ;
+
+    ASSOCIATION UE_RV
+    EXTENDS BaseClass_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Typ (EXTENDED) -- {0..*} UE_Typ;
+    END UE_RV;
+
+    !! UE_Punkt (COORD)
+    !! -----------------------------------------------
+    CLASS UE_Punkt
+    EXTENDS BaseClassPoint =
+    END UE_Punkt;
+
+    ASSOCIATION UE_Punkt_Typ_OldValue =
+      Typ_OldValue -- {0..1} UE_Typ;
+      UE_Punkt_OldValue -- {0..*} UE_Punkt;
+    END UE_Punkt_Typ_OldValue;
+
+    ASSOCIATION UE_Punkt_Typ_NewValue =
+      Typ_NewValue -- {0..1} UE_Typ;
+      UE_Punkt_NewValue -- {0..*} UE_Punkt;
+    END UE_Punkt_Typ_NewValue;
+
+    !! UE_Linie (POLYLINE)
+    !! -----------------------------------------------
+    CLASS UE_Linie
+    EXTENDS BaseClassPolyline =
+    END UE_Linie;
+
+    ASSOCIATION UE_Linie_Typ_OldValue =
+      Typ_OldValue -- {0..1} UE_Typ;
+      UE_Linie_OldValue -- {0..*} UE_Linie;
+    END UE_Linie_Typ_OldValue;
+
+    ASSOCIATION UE_Linie_Typ_NewValue =
+      Typ_NewValue -- {0..1} UE_Typ;
+      UE_Linie_NewValue -- {0..*} UE_Linie;
+    END UE_Linie_Typ_NewValue;
+
+    !! UE_Flaeche (SURFACE)
+    !! -----------------------------------------------
+    CLASS UE_Flaeche
+    EXTENDS BaseClassPolygon =
+    END UE_Flaeche;
+
+    ASSOCIATION UE_Flaeche_Typ_OldValue =
+      Typ_OldValue -- {0..1} UE_Typ;
+      UE_Flaeche_OldValue -- {0..*} UE_Flaeche;
+    END UE_Flaeche_Typ_OldValue;
+
+    ASSOCIATION UE_Flaeche_Typ_NewValue =
+      Typ_NewValue -- {0..1} UE_Typ;
+      UE_Flaeche_NewValue -- {0..*} UE_Flaeche;
+    END UE_Flaeche_Typ_NewValue;
+
+    !! *********************************
+    !! ES = Laermempfindlichkeitsstufen
+    !! *********************************
+
+    !! ES_Typ
+    !! -----------------------------------------------
+    CLASS ES_Typ
+    EXTENDS BaseClassType =
+    END ES_Typ;
+
+    ASSOCIATION ES_RV
+    EXTENDS BaseClass_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Typ (EXTENDED) -- {0..*} ES_Typ;
+    END ES_RV;
+
+    !! ES_Flaeche (AREA)
+    !! -----------------------------------------------
+    CLASS ES_Flaeche
+    EXTENDS BaseClassPolygon =
+    END ES_Flaeche;
+
+    ASSOCIATION ES_Flaeche_Typ_OldValue =
+      Typ_OldValue -- {0..1} ES_Typ;
+      ES_Flaeche_OldValue -- {0..*} ES_Flaeche;
+    END ES_Flaeche_Typ_OldValue;
+
+    ASSOCIATION ES_Flaeche_Typ_NewValue =
+      Typ_NewValue -- {0..1} ES_Typ;
+      ES_Flaeche_NewValue -- {0..*} ES_Flaeche;
+    END ES_Flaeche_Typ_NewValue;
+
+    !! ***********************
+    !! GG = Gefahrengebiete
+    !! ***********************
+
+    !! GG_Typ
+    !! -----------------------------------------------
+    CLASS GG_Typ
+    EXTENDS BaseClassType =
+    END GG_Typ;
+
+    ASSOCIATION GG_RV
+    EXTENDS BaseClass_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Typ (EXTENDED) -- {0..*} GG_Typ;
+    END GG_RV;
+
+    !! GG_Flaeche (AREA)
+    !! -----------------------------------------------
+    CLASS GG_Flaeche
+    EXTENDS BaseClassPolygon =
+    END GG_Flaeche;
+
+    ASSOCIATION GG_Flaeche_Typ_OldValue =
+      Typ_OldValue -- {0..1} GG_Typ;
+      GG_Flaeche_OldValue -- {0..*} GG_Flaeche;
+    END GG_Flaeche_Typ_OldValue;
+
+    ASSOCIATION GG_Flaeche_Typ_NewValue =
+      Typ_NewValue -- {0..1} GG_Typ;
+      GG_Flaeche_NewValue -- {0..*} GG_Flaeche;
+    END GG_Flaeche_Typ_NewValue;
+
+    !! ***********************
+    !! GR = Gewaesserraum
+    !! ***********************
+
+    !! GR_Typ
+    !! -----------------------------------------------
+    CLASS GR_Typ
+    EXTENDS BaseClassType =
+    END GR_Typ;
+
+    ASSOCIATION GR_RV
+    EXTENDS BaseClass_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Typ (EXTENDED) -- {0..*} GR_Typ;
+    END GR_RV;
+
+    !! GR_Flaeche (AREA)
+    !! -----------------------------------------------
+    CLASS GR_Flaeche
+    EXTENDS BaseClassPolygon =
+    END GR_Flaeche;
+
+    ASSOCIATION GR_Flaeche_Typ_OldValue =
+      Typ_OldValue -- {0..1} GR_Typ;
+      GR_Flaeche_OldValue -- {0..*} GR_Flaeche;
+    END GR_Flaeche_Typ_OldValue;
+
+    ASSOCIATION GR_Flaeche_Typ_NewValue =
+      Typ_NewValue -- {0..1} GR_Typ;
+      GR_Flaeche_NewValue -- {0..*} GR_Flaeche;
+    END GR_Flaeche_Typ_NewValue;
+
+    !! ****************************
+    !! NH = Natur- und Heimatschutz
+    !! ****************************
+
+    !! NH_Typ
+    !! -----------------------------------------------
+    CLASS NH_Typ
+    EXTENDS BaseClassType =
+    END NH_Typ;
+
+    ASSOCIATION NH_RV
+    EXTENDS BaseClass_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Typ (EXTENDED) -- {0..*} NH_Typ;
+    END NH_RV;
+
+    !! NH_Punkt (COORD)
+    !! -----------------------------------------------
+    CLASS NH_Punkt
+    EXTENDS BaseClassPoint =
+    END NH_Punkt;
+
+    ASSOCIATION NH_Punkt_Typ_OldValue =
+      Typ_OldValue -- {0..1} NH_Typ;
+      NH_Punkt_OldValue -- {0..*} NH_Punkt;
+    END NH_Punkt_Typ_OldValue;
+
+    ASSOCIATION NH_Punkt_Typ_NewValue =
+      Typ_NewValue -- {0..1} NH_Typ;
+      NH_Punkt_NewValue -- {0..*} NH_Punkt;
+    END NH_Punkt_Typ_NewValue;
+
+    !! NH_Linie (POLYLINE)
+    !! -----------------------------------------------
+    CLASS NH_Linie
+    EXTENDS BaseClassPolyline =
+    END NH_Linie;
+
+    ASSOCIATION NH_Linie_Typ_OldValue =
+      Typ_OldValue -- {0..1} NH_Typ;
+      NH_Linie_OldValue -- {0..*} NH_Linie;
+    END NH_Linie_Typ_OldValue;
+
+    ASSOCIATION NH_Linie_Typ_NewValue =
+      Typ_NewValue -- {0..1} NH_Typ;
+      NH_Linie_NewValue -- {0..*} NH_Linie;
+    END NH_Linie_Typ_NewValue;
+
+    !! NH_Flaeche (SURFACE)
+    !! -----------------------------------------------
+    CLASS NH_Flaeche
+    EXTENDS BaseClassPolygon =
+    END NH_Flaeche;
+
+    ASSOCIATION NH_Flaeche_Typ_OldValue =
+      Typ_OldValue -- {0..1} NH_Typ;
+      NH_Flaeche_OldValue -- {0..*} NH_Flaeche;
+    END NH_Flaeche_Typ_OldValue;
+
+    ASSOCIATION NH_Flaeche_Typ_NewValue =
+      Typ_NewValue -- {0..1} NH_Typ;
+      NH_Flaeche_NewValue -- {0..*} NH_Flaeche;
+    END NH_Flaeche_Typ_NewValue;
+
+    !! ***********************
+    !! BL = Baulinien
+    !! ***********************
+
+    !! BL_Typ
+    !! -----------------------------------------------
+    CLASS BL_Typ
+    EXTENDS BaseClassType =
+    END BL_Typ;
+
+    ASSOCIATION BL_RV
+    EXTENDS BaseClass_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Typ (EXTENDED) -- {0..*} BL_Typ;
+    END BL_RV;
+
+    !! BL_Linie (POLYLINE)
+    !! -----------------------------------------------
+    CLASS BL_Linie
+    EXTENDS BaseClassPolyline =
+    END BL_Linie;
+
+    ASSOCIATION BL_Linie_Typ_OldValue =
+      Typ_OldValue -- {0..1} BL_Typ;
+      BL_Linie_OldValue -- {0..*} BL_Linie;
+    END BL_Linie_Typ_OldValue;
+
+    ASSOCIATION BL_Linie_Typ_NewValue =
+      Typ_NewValue -- {0..1} BL_Typ;
+      BL_Linie_NewValue -- {0..*} BL_Linie;
+    END BL_Linie_Typ_NewValue;
+
+    !! BL_Flaeche (SURFACE)
+    !! -----------------------------------------------
+    CLASS BL_Flaeche
+    EXTENDS BaseClassPolygon =
+    END BL_Flaeche;
+
+    ASSOCIATION BL_Flaeche_Typ_OldValue =
+      Typ_OldValue -- {0..1} BL_Typ;
+      BL_Flaeche_OldValue -- {0..*} BL_Flaeche;
+    END BL_Flaeche_Typ_OldValue;
+
+    ASSOCIATION BL_Flaeche_Typ_NewValue =
+      Typ_NewValue -- {0..1} BL_Typ;
+      BL_Flaeche_NewValue -- {0..*} BL_Flaeche;
+    END BL_Flaeche_Typ_NewValue;
+
+    !! ***********************
+    !! WE = Wege
+    !! ***********************
+
+    !! WE_Typ
+    !! -----------------------------------------------
+    CLASS WE_Typ
+    EXTENDS BaseClassType =
+    END WE_Typ;
+
+    ASSOCIATION WE_RV
+    EXTENDS BaseClass_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Typ (EXTENDED) -- {0..*} WE_Typ;
+    END WE_RV;
+
+    !! WE_Linie (POLYLINE)
+    !! -----------------------------------------------
+    CLASS WE_Linie
+    EXTENDS BaseClassPolyline =
+    END WE_Linie;
+
+    ASSOCIATION WE_Linie_Typ_OldValue =
+      Typ_OldValue -- {0..1} WE_Typ;
+      WE_Linie_OldValue -- {0..*} WE_Linie;
+    END WE_Linie_Typ_OldValue;
+
+    ASSOCIATION WE_Linie_Typ_NewValue =
+      Typ_NewValue -- {0..1} WE_Typ;
+      WE_Linie_NewValue -- {0..*} WE_Linie;
+    END WE_Linie_Typ_NewValue;
+
+    !! WE_Flaeche (SURFACE)
+    !! -----------------------------------------------
+    CLASS WE_Flaeche
+    EXTENDS BaseClassPolygon =
+    END WE_Flaeche;
+
+    ASSOCIATION WE_Flaeche_Typ_OldValue =
+      Typ_OldValue -- {0..1} WE_Typ;
+      WE_Flaeche_OldValue -- {0..*} WE_Flaeche;
+    END WE_Flaeche_Typ_OldValue;
+
+    ASSOCIATION WE_Flaeche_Typ_NewValue =
+      Typ_NewValue -- {0..1} WE_Typ;
+      WE_Flaeche_NewValue -- {0..*} WE_Flaeche;
+    END WE_Flaeche_Typ_NewValue;
+
+    !! ***********************
+    !! WF = Waldfeststellung
+    !! ***********************
+
+    !! WF_Typ
+    !! -----------------------------------------------
+    CLASS WF_Typ
+    EXTENDS BaseClassType =
+    END WF_Typ;
+
+    ASSOCIATION WF_RV
+    EXTENDS BaseClass_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Typ (EXTENDED) -- {0..*} WF_Typ;
+    END WF_RV;
+
+    !! WF_Linie (POLYLINE)
+    !! -----------------------------------------------
+    CLASS WF_Linie
+    EXTENDS BaseClassPolyline =
+    END WF_Linie;
+
+    ASSOCIATION WF_Linie_Typ_OldValue =
+      Typ_OldValue -- {0..1} WF_Typ;
+      WF_Linie_OldValue -- {0..*} WF_Linie;
+    END WF_Linie_Typ_OldValue;
+
+    ASSOCIATION WF_Linie_Typ_NewValue =
+      Typ_NewValue -- {0..1} WF_Typ;
+      WF_Linie_NewValue -- {0..*} WF_Linie;
+    END WF_Linie_Typ_NewValue;
+
+ END Nutzungsplanung;
+
+END Nutzungsplanung_BE_V2_0_Delta.

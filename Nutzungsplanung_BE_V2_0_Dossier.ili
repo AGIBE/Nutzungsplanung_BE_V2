@@ -1,0 +1,74 @@
+INTERLIS 2.3;
+/*
+Teilmodell für Geschäftsinformationen                                           Modèle partiel pour les informations du projet d'aménagement
+  Hauptmodell       : Nutzungsplanung_BE_V2_0                                     Modèle principal       : PlanDAffectation_BE_V2_0
+  Datenverwaltung   : ePlan                                                       Gestion des données    : ePlan
+  Sprachversion     : DE und FR                                                   Version de langue      : DE et FR
+  Support fachlich  : Amt für Gemeinden und Raumordnung (www.be.ch/agr)           Support thématique     : Office des affaires communales et de l'organisation du territoire (www.be.ch/oacot)
+  Support technisch : Amt für Geoinformation (www.be.ch/agi)                      Support technique      : Office de l'information géographique (www.be.ch/oig)
+  */
+
+!!@ technicalContact=mailto:info.agr@be.ch
+!!@ furtherInformation=https://www.raumplanung.dij.be.ch/de/start/eplan.html
+MODEL Nutzungsplanung_BE_V2_0_Dossier
+  AT "http://models.geo.be.ch/Grundlagen_und_Planung/Raumplanung_Grundstueckskataster/"
+  VERSION "2025-04-10" =
+
+  IMPORTS GeometryCHLV95_V1;
+
+  DOMAIN
+    Date = FORMAT INTERLIS.XMLDate "1848-1-1" .. "2100-12-31";
+    Time = FORMAT INTERLIS.XMLTime "00:00:00.000" .. "23:59:59.999";
+
+    LKoord EXTENDS GeometryCHLV95_V1.Coord2 = COORD
+      2550000.000 .. 2690000.000 [INTERLIS.m] ,
+      1120000.000 .. 1250000.000 [INTERLIS.m] ,
+      ROTATION 2 -> 1;
+    Polyline = POLYLINE WITH (STRAIGHTS, ARCS) VERTEX LKoord;
+    Surface  = SURFACE  WITH (STRAIGHTS, ARCS) VERTEX LKoord WITHOUT OVERLAPS > 0.050;
+    Area     = AREA     WITH (STRAIGHTS, ARCS) VERTEX LKoord WITHOUT OVERLAPS > 0.050;
+
+ TOPIC Dossier =
+  BASKET OID AS INTERLIS.UUIDOID;
+  OID AS INTERLIS.UUIDOID;
+
+    !! Kantonale Geschäftsinformationen
+    !! Informations cantonales sur les projet d'aménagement
+    !! -----------------------------------------------
+    CLASS Dossier_cantonal =
+      DossierNr : TEXT*256;         !! (z.B. Axioma-Nr. oder ePlan-Geschäftsnummer)
+      Title : TEXT*256;
+      Process_step : TEXT*256;      !! (Voranfrage, Vorprüfung, Öffentliche Auflage, Genehmigung, etc.)
+      Process_type : TEXT*256;      !! (Ordentliches Verfahren, Geringfügiges Verfahren, etc.)
+      Process_status : TEXT*256;    !! (open,closed,blocked) => nur falls es sowas gibt
+      ResolutionCommittee: TEXT*256;
+      Date_ResolutionCommittee : Date;
+      Date_resolution : Date;
+      Date_approved : Date;
+      Date_inForce : Date;
+      TID_ActiveBusiness : TEXT*36;     !! (Aktives_Geschaeft)
+      XTF_BeforeChange : TEXT*256;
+      XTF_AfterChange : TEXT*256;
+      XTF_DeltaObjects : TEXT*256;  !! => nur falls einfach möglich. Ansonsten findet man auch vom Delta aus den Weg zum Geschäft.
+      creation_date : Date;
+      creation_time : Time;
+      last_update : Date;               !! => nur falls sinnvoll.
+    END Dossier_cantonal;
+
+    !! Geschäftsdokumente
+    !! Documents du projet d'aménamgement
+    !! -----------------------------------------------    
+    CLASS DossierDocument =
+      Doc_title : MANDATORY TEXT*256;
+      Doc_type : TEXT*256;
+      Doc_filename : MANDATORY TEXT*256;
+    END DossierDocument;
+
+    ASSOCIATION DossierDocument_Dossier =
+      Dossier_cantonal -- {1} Dossier_cantonal;
+      Document -- {0..*} DossierDocument;
+    END DossierDocument_Dossier;
+
+  END Dossier; 
+
+END Nutzungsplanung_BE_V2_0_Dossier.
