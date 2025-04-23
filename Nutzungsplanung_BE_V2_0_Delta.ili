@@ -376,6 +376,30 @@ MODEL Nutzungsplanung_BE_V2_0_Delta
       BaseClassPolygon -- {0..*} BaseClassPolygon;
     END BaseClassPolygon_TypeAttributeRatings;
 
+    ASSOCIATION BaseClassPoint_RV (ABSTRACT) =
+    OID AS INTERLIS.UUIDOID;
+      Vorschrift (ABSTRACT) -- {0..*} DO_Dokument;
+      Point (ABSTRACT) -- {0..*} BaseClassPoint;
+      Delta_Existence : MANDATORY (Existing,Added,Removed);
+      Delta_Rating_Existence : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+    END BaseClassPoint_RV;
+
+    ASSOCIATION BaseClassPolyline_RV (ABSTRACT) =
+    OID AS INTERLIS.UUIDOID;
+      Vorschrift (ABSTRACT) -- {0..*} DO_Dokument;
+      Polyline (ABSTRACT) -- {0..*} BaseClassPolyline;
+      Delta_Existence : MANDATORY (Existing,Added,Removed);
+      Delta_Rating_Existence : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+    END BaseClassPolyline_RV;
+
+    ASSOCIATION BaseClassPolygon_RV (ABSTRACT) =
+    OID AS INTERLIS.UUIDOID;
+      Vorschrift (ABSTRACT) -- {0..*} DO_Dokument;
+      Polygon (ABSTRACT) -- {0..*} BaseClassPolygon;
+      Delta_Existence : MANDATORY (Existing,Added,Removed);
+      Delta_Rating_Existence : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
+    END BaseClassPolygon_RV;
+
     !! ***********************
     !! GN = Grundnutzung
     !! ***********************
@@ -408,6 +432,12 @@ MODEL Nutzungsplanung_BE_V2_0_Delta
       GN_Flaeche_NewValue -- {0..*} GN_Flaeche;
     END GN_Flaeche_Typ_NewValue;
 
+    ASSOCIATION GN_Flaeche_RV
+    EXTENDS BaseClassPolygon_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Polygon (EXTENDED) -- {0..*} GN_Flaeche;
+    END GN_Flaeche_RV;
+
     !! ***********************
     !! NZ = Nutzungszone
     !! ***********************
@@ -439,6 +469,12 @@ MODEL Nutzungsplanung_BE_V2_0_Delta
       Typ_NewValue -- {0..1} NZ_Typ;
       NZ_Flaeche_NewValue -- {0..*} NZ_Flaeche;
     END NZ_Flaeche_Typ_NewValue;
+
+    ASSOCIATION NZ_Flaeche_RV
+    EXTENDS BaseClassPolygon_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Polygon (EXTENDED) -- {0..*} NZ_Flaeche;
+    END NZ_Flaeche_RV;
 
     !! ***********************
     !! BK = Bauklasse/Bauzone
@@ -476,6 +512,12 @@ MODEL Nutzungsplanung_BE_V2_0_Delta
       BK_Flaeche_NewValue -- {0..*} BK_Flaeche;
     END BK_Flaeche_Typ_NewValue;
 
+    ASSOCIATION BK_Flaeche_RV
+    EXTENDS BaseClassPolygon_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Polygon (EXTENDED) -- {0..*} BK_Flaeche;
+    END BK_Flaeche_RV;
+
     !! ***********************
     !! IN = Innere Nutzung (von ZPP,UeO,USP,SBV)
     !! ***********************
@@ -507,6 +549,12 @@ MODEL Nutzungsplanung_BE_V2_0_Delta
       Typ_NewValue -- {0..1} IN_Typ;
       IN_Flaeche_NewValue -- {0..*} IN_Flaeche;
     END IN_Flaeche_Typ_NewValue;
+
+    ASSOCIATION IN_Flaeche_RV
+    EXTENDS BaseClassPolygon_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Polygon (EXTENDED) -- {0..*} IN_Flaeche;
+    END IN_Flaeche_RV;
 
     !! ***********************
     !! SN = Überlagernde Sondernutzungsplanung
@@ -540,6 +588,12 @@ MODEL Nutzungsplanung_BE_V2_0_Delta
       SN_Flaeche_NewValue -- {0..*} SN_Flaeche;
     END SN_Flaeche_Typ_NewValue;
 
+    ASSOCIATION SN_Flaeche_RV
+    EXTENDS BaseClassPolygon_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Polygon (EXTENDED) -- {0..*} SN_Flaeche;
+    END SN_Flaeche_RV;
+
     !! ***********************
     !! UE = Ueberlagerung
     !! ***********************
@@ -572,6 +626,12 @@ MODEL Nutzungsplanung_BE_V2_0_Delta
       UE_Punkt_NewValue -- {0..*} UE_Punkt;
     END UE_Punkt_Typ_NewValue;
 
+    ASSOCIATION UE_Punkt_RV
+    EXTENDS BaseClassPoint_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Point (EXTENDED) -- {0..*} UE_Punkt;
+    END UE_Punkt_RV;
+
     !! UE_Linie (POLYLINE)
     !! -----------------------------------------------
     CLASS UE_Linie
@@ -588,6 +648,12 @@ MODEL Nutzungsplanung_BE_V2_0_Delta
       UE_Linie_NewValue -- {0..*} UE_Linie;
     END UE_Linie_Typ_NewValue;
 
+    ASSOCIATION UE_Linie_RV
+    EXTENDS BaseClassPolyline_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Polyline (EXTENDED) -- {0..*} UE_Linie;
+    END UE_Linie_RV;
+
     !! UE_Flaeche (SURFACE)
     !! -----------------------------------------------
     CLASS UE_Flaeche
@@ -603,6 +669,12 @@ MODEL Nutzungsplanung_BE_V2_0_Delta
       Typ_NewValue -- {0..1} UE_Typ;
       UE_Flaeche_NewValue -- {0..*} UE_Flaeche;
     END UE_Flaeche_Typ_NewValue;
+
+    ASSOCIATION UE_Flaeche_RV
+    EXTENDS BaseClassPolygon_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Polygon (EXTENDED) -- {0..*} UE_Flaeche;
+    END UE_Flaeche_RV;
 
     !! *********************************
     !! ES = Laermempfindlichkeitsstufen
@@ -636,6 +708,12 @@ MODEL Nutzungsplanung_BE_V2_0_Delta
       ES_Flaeche_NewValue -- {0..*} ES_Flaeche;
     END ES_Flaeche_Typ_NewValue;
 
+    ASSOCIATION ES_Flaeche_RV
+    EXTENDS BaseClassPolygon_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Polygon (EXTENDED) -- {0..*} ES_Flaeche;
+    END ES_Flaeche_RV;
+
     !! ***********************
     !! GG = Gefahrengebiete
     !! ***********************
@@ -667,6 +745,12 @@ MODEL Nutzungsplanung_BE_V2_0_Delta
       Typ_NewValue -- {0..1} GG_Typ;
       GG_Flaeche_NewValue -- {0..*} GG_Flaeche;
     END GG_Flaeche_Typ_NewValue;
+
+    ASSOCIATION GG_Flaeche_RV
+    EXTENDS BaseClassPolygon_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Polygon (EXTENDED) -- {0..*} GG_Flaeche;
+    END GG_Flaeche_RV;
 
     !! ***********************
     !! GR = Gewaesserraum
@@ -700,6 +784,12 @@ MODEL Nutzungsplanung_BE_V2_0_Delta
       GR_Flaeche_NewValue -- {0..*} GR_Flaeche;
     END GR_Flaeche_Typ_NewValue;
 
+    ASSOCIATION GR_Flaeche_RV
+    EXTENDS BaseClassPolygon_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Polygon (EXTENDED) -- {0..*} GR_Flaeche;
+    END GR_Flaeche_RV;
+
     !! ****************************
     !! NH = Natur- und Heimatschutz
     !! ****************************
@@ -732,6 +822,12 @@ MODEL Nutzungsplanung_BE_V2_0_Delta
       NH_Punkt_NewValue -- {0..*} NH_Punkt;
     END NH_Punkt_Typ_NewValue;
 
+    ASSOCIATION NH_Punkt_RV
+    EXTENDS BaseClassPoint_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Point (EXTENDED) -- {0..*} NH_Punkt;
+    END NH_Punkt_RV;
+
     !! NH_Linie (POLYLINE)
     !! -----------------------------------------------
     CLASS NH_Linie
@@ -748,6 +844,12 @@ MODEL Nutzungsplanung_BE_V2_0_Delta
       NH_Linie_NewValue -- {0..*} NH_Linie;
     END NH_Linie_Typ_NewValue;
 
+    ASSOCIATION NH_Linie_RV
+    EXTENDS BaseClassPolyline_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Polyline (EXTENDED) -- {0..*} NH_Linie;
+    END NH_Linie_RV;
+
     !! NH_Flaeche (SURFACE)
     !! -----------------------------------------------
     CLASS NH_Flaeche
@@ -763,6 +865,12 @@ MODEL Nutzungsplanung_BE_V2_0_Delta
       Typ_NewValue -- {0..1} NH_Typ;
       NH_Flaeche_NewValue -- {0..*} NH_Flaeche;
     END NH_Flaeche_Typ_NewValue;
+
+    ASSOCIATION NH_Flaeche_RV
+    EXTENDS BaseClassPolygon_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Polygon (EXTENDED) -- {0..*} NH_Flaeche;
+    END NH_Flaeche_RV;
 
     !! ***********************
     !! BL = Baulinien
@@ -796,6 +904,12 @@ MODEL Nutzungsplanung_BE_V2_0_Delta
       BL_Linie_NewValue -- {0..*} BL_Linie;
     END BL_Linie_Typ_NewValue;
 
+    ASSOCIATION BL_Linie_RV
+    EXTENDS BaseClassPolyline_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Polyline (EXTENDED) -- {0..*} BL_Linie;
+    END BL_Linie_RV;
+
     !! BL_Flaeche (SURFACE)
     !! -----------------------------------------------
     CLASS BL_Flaeche
@@ -811,6 +925,12 @@ MODEL Nutzungsplanung_BE_V2_0_Delta
       Typ_NewValue -- {0..1} BL_Typ;
       BL_Flaeche_NewValue -- {0..*} BL_Flaeche;
     END BL_Flaeche_Typ_NewValue;
+
+    ASSOCIATION BL_Flaeche_RV
+    EXTENDS BaseClassPolygon_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Polygon (EXTENDED) -- {0..*} BL_Flaeche;
+    END BL_Flaeche_RV;
 
     !! ***********************
     !! WE = Wege
@@ -844,6 +964,12 @@ MODEL Nutzungsplanung_BE_V2_0_Delta
       WE_Linie_NewValue -- {0..*} WE_Linie;
     END WE_Linie_Typ_NewValue;
 
+    ASSOCIATION WE_Linie_RV
+    EXTENDS BaseClassPolyline_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Polyline (EXTENDED) -- {0..*} WE_Linie;
+    END WE_Linie_RV;
+
     !! WE_Flaeche (SURFACE)
     !! -----------------------------------------------
     CLASS WE_Flaeche
@@ -859,6 +985,12 @@ MODEL Nutzungsplanung_BE_V2_0_Delta
       Typ_NewValue -- {0..1} WE_Typ;
       WE_Flaeche_NewValue -- {0..*} WE_Flaeche;
     END WE_Flaeche_Typ_NewValue;
+
+    ASSOCIATION WE_Flaeche_RV
+    EXTENDS BaseClassPolygon_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Polygon (EXTENDED) -- {0..*} WE_Flaeche;
+    END WE_Flaeche_RV;
 
     !! ***********************
     !! WF = Waldfeststellung
@@ -891,6 +1023,12 @@ MODEL Nutzungsplanung_BE_V2_0_Delta
       Typ_NewValue -- {0..1} WF_Typ;
       WF_Linie_NewValue -- {0..*} WF_Linie;
     END WF_Linie_Typ_NewValue;
+
+    ASSOCIATION WF_Linie_RV
+    EXTENDS BaseClassPolyline_RV =
+      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
+      Polyline (EXTENDED) -- {0..*} WF_Linie;
+    END WF_Linie_RV;
 
  END Nutzungsplanung;
 
