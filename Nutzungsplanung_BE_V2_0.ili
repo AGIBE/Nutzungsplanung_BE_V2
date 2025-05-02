@@ -17,7 +17,7 @@ Datenmodell für die Nutzungsplanung im Kanton Bern
   BK    : Bauklasse
   IN    : Innere Nutzung
   SN    : Überlagernde Sondernutzungsplanung
-  UE    : Weitere Überlagerungen  
+  UE    : Weitere Überlagerungen
   ES    : Lärmempfindlichkeitsstufen
   GG    : Gefahrengebiete
   GR    : Gewässerraum
@@ -148,13 +148,23 @@ MODEL Nutzungsplanung_BE_V2_0 (de)
       Dokument -- {0..*} DO_Dokument;
     END Dokument_ZustaendigeStelle;
 
-    ASSOCIATION DO_WeitereDokumente =
-    OID AS INTERLIS.UUIDOID;
-      Dokument -- {0..*} DO_Dokument;
-      WeiteresDokument -- {0..*} DO_Dokument;
+    !! WeitereDokumente (Verlinkung Dokument zu Dokument)
+    !! -----------------------------------------------
+    CLASS DO_WeitereDokumente =
       ArtikelNr : TEXT*50;
-      ToApprove : (No);
+      OhneNeueGenehmigung : BOOLEAN; !! default = false
+      Zusatz_Attribute : BAG {0..*} OF CustomAttribute;
     END DO_WeitereDokumente;
+
+    ASSOCIATION WeitereDokumente_Dokument =
+      Dokument -- {1} DO_Dokument;
+      Parent -- {0..*} DO_WeitereDokumente;
+    END WeitereDokumente_Dokument;
+
+    ASSOCIATION Weiteredokumente_WeiteresDokument =
+      WeiteresDokument -- {1} DO_Dokument;
+      Child -- {0..*} DO_WeitereDokumente;
+    END Weiteredokumente_WeiteresDokument;
 
     !! Änderungsdokumente (Änderungen an Rechtsvorschriften)
     !! -----------------------------------------------
@@ -175,7 +185,7 @@ MODEL Nutzungsplanung_BE_V2_0 (de)
     ASSOCIATION DokumentRevision_Dokument =
       Erstversion -- {1} DO_Dokument;
       Aenderungsdokument -- {0..*} DO_DokumentRevision;
-    END DokumentRevision_Dokument;    
+    END DokumentRevision_Dokument;
 
     !! ***********************
     !! Geodaten
@@ -198,14 +208,18 @@ MODEL Nutzungsplanung_BE_V2_0 (de)
       Typ -- {0..*} BaseClassType;
     END BaseClass_ZustaendigeStelle;
 
-    ASSOCIATION BaseClass_RV (ABSTRACT) =
-    OID AS INTERLIS.UUIDOID;
-      Vorschrift (ABSTRACT) -- {0..*} DO_Dokument;
-      Typ (ABSTRACT) -- {0..*} BaseClassType;
+    !! Basis-Klasse RV (Verlinkung Typ zu Dokument)
+    !! -----------------------------------------------
+    CLASS BaseClassRV (ABSTRACT) =
       ArtikelNr : TEXT*50;
-      ToApprove : (No);
+      OhneNeueGenehmigung : BOOLEAN; !! default = false
       Zusatz_Attribute : BAG {0..*} OF CustomAttribute;
-    END BaseClass_RV;
+    END BaseClassRV;
+
+    ASSOCIATION BaseClassRV_Dokument =
+      Vorschrift -- {1} DO_Dokument;
+      BaseClassRV -- {0..*} BaseClassRV;
+    END BaseClassRV_Dokument;
 
     !! Basis-Klassen Geometrie
     !! -----------------------------------------------
@@ -253,11 +267,16 @@ MODEL Nutzungsplanung_BE_V2_0 (de)
       KantArt (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.GN_KantArt_CatalogueReference;
     END GN_Typ;
 
-    ASSOCIATION GN_RV
-    EXTENDS BaseClass_RV =
-      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
-      Typ (EXTENDED) -- {0..*} GN_Typ;
+    !! GN_RV
+    !! -----------------------------------------------
+    CLASS GN_RV
+    EXTENDS BaseClassRV =
     END GN_RV;
+
+    ASSOCIATION GN_RV_Typ =
+      Typ -- {1} GN_Typ;
+      RV -- {0..*} GN_RV;
+    END GN_RV_Typ;
 
     !! GN_Flaeche (AREA)
     !! -----------------------------------------------
@@ -281,11 +300,16 @@ MODEL Nutzungsplanung_BE_V2_0 (de)
       KantArt (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.NZ_KantArt_CatalogueReference;
     END NZ_Typ;
 
-    ASSOCIATION NZ_RV
-    EXTENDS BaseClass_RV =
-      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
-      Typ (EXTENDED) -- {0..*} NZ_Typ;
+    !! NZ_RV
+    !! -----------------------------------------------
+    CLASS NZ_RV
+    EXTENDS BaseClassRV =
     END NZ_RV;
+
+    ASSOCIATION NZ_RV_Typ =
+      Typ -- {1} NZ_Typ;
+      RV -- {0..*} NZ_RV;
+    END NZ_RV_Typ;
 
     !! NZ_Flaeche (AREA)
     !! -----------------------------------------------
@@ -309,16 +333,21 @@ MODEL Nutzungsplanung_BE_V2_0 (de)
       KantArt (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.BK_KantArt_CatalogueReference;
     END BK_Typ;
 
-    ASSOCIATION BK_RV
-    EXTENDS BaseClass_RV =
-      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
-      Typ (EXTENDED) -- {0..*} BK_Typ;
-    END BK_RV;
-
-    ASSOCIATION BK_NZ_Typ =
+    ASSOCIATION BK_NZ_Typ = !! Key-Attribut für die Zusammenführung von NZ und BK
       NZ_Typ -- {0..1} NZ_Typ;
       BK_Typ -- {0..*} BK_Typ;
     END BK_NZ_Typ;
+
+    !! BK_RV
+    !! -----------------------------------------------
+    CLASS BK_RV
+    EXTENDS BaseClassRV =
+    END BK_RV;
+
+    ASSOCIATION BK_RV_Typ =
+      Typ -- {1} BK_Typ;
+      RV -- {0..*} BK_RV;
+    END BK_RV_Typ;
 
     !! BK_Flaeche (AREA)
     !! -----------------------------------------------
@@ -331,7 +360,7 @@ MODEL Nutzungsplanung_BE_V2_0 (de)
       BK_Flaeche -- {0..*} BK_Flaeche;
     END BK_Flaeche_Typ;
     
-    ASSOCIATION BK_NZ_Flaeche = !! experimentell
+    ASSOCIATION BK_NZ_Flaeche = !! Key-Attribut für die Zusammenführung von NZ und BK
       NZ_Flaeche -- {0..1} NZ_Flaeche;
       BK_Flaeche -- {0..*} BK_Flaeche;
     END BK_NZ_Flaeche;
@@ -347,11 +376,16 @@ MODEL Nutzungsplanung_BE_V2_0 (de)
       KantArt (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.IN_KantArt_CatalogueReference;
     END IN_Typ;
 
-    ASSOCIATION IN_RV
-    EXTENDS BaseClass_RV =
-      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
-      Typ (EXTENDED) -- {0..*} IN_Typ;
+    !! IN_RV
+    !! -----------------------------------------------
+    CLASS IN_RV
+    EXTENDS BaseClassRV =
     END IN_RV;
+
+    ASSOCIATION IN_RV_Typ =
+      Typ -- {1} IN_Typ;
+      RV -- {0..*} IN_RV;
+    END IN_RV_Typ;
 
     !! IN_Flaeche (AREA)
     !! -----------------------------------------------
@@ -375,11 +409,16 @@ MODEL Nutzungsplanung_BE_V2_0 (de)
       KantArt (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.SN_KantArt_CatalogueReference;
     END SN_Typ;
 
-    ASSOCIATION SN_RV
-    EXTENDS BaseClass_RV =
-      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
-      Typ (EXTENDED) -- {0..*} SN_Typ;
+    !! SN_RV
+    !! -----------------------------------------------
+    CLASS SN_RV
+    EXTENDS BaseClassRV =
     END SN_RV;
+
+    ASSOCIATION SN_RV_Typ =
+      Typ -- {1} SN_Typ;
+      RV -- {0..*} SN_RV;
+    END SN_RV_Typ;
 
     !! SN_Flaeche (SURFACE)
     !! -----------------------------------------------
@@ -403,11 +442,16 @@ MODEL Nutzungsplanung_BE_V2_0 (de)
       KantArt (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.UE_KantArt_CatalogueReference;
     END UE_Typ;
 
-    ASSOCIATION UE_RV
-    EXTENDS BaseClass_RV =
-      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
-      Typ (EXTENDED) -- {0..*} UE_Typ;
+    !! UE_RV
+    !! -----------------------------------------------
+    CLASS UE_RV
+    EXTENDS BaseClassRV =
     END UE_RV;
+
+    ASSOCIATION UE_RV_Typ =
+      Typ -- {1} UE_Typ;
+      RV -- {0..*} UE_RV;
+    END UE_RV_Typ;
 
     !! UE_Punkt (COORD)
     !! -----------------------------------------------
@@ -453,11 +497,16 @@ MODEL Nutzungsplanung_BE_V2_0 (de)
       KantArt (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.ES_KantArt_CatalogueReference;
     END ES_Typ;
 
-    ASSOCIATION ES_RV
-    EXTENDS BaseClass_RV =
-      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
-      Typ (EXTENDED) -- {0..*} ES_Typ;
+    !! ES_RV
+    !! -----------------------------------------------
+    CLASS ES_RV
+    EXTENDS BaseClassRV =
     END ES_RV;
+
+    ASSOCIATION ES_RV_Typ =
+      Typ -- {1} ES_Typ;
+      RV -- {0..*} ES_RV;
+    END ES_RV_Typ;
 
     !! ES_Flaeche (AREA)
     !! -----------------------------------------------
@@ -481,11 +530,16 @@ MODEL Nutzungsplanung_BE_V2_0 (de)
       KantArt (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.GG_KantArt_CatalogueReference;
     END GG_Typ;
 
-    ASSOCIATION GG_RV
-    EXTENDS BaseClass_RV =
-      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
-      Typ (EXTENDED) -- {0..*} GG_Typ;
+    !! GG_RV
+    !! -----------------------------------------------
+    CLASS GG_RV
+    EXTENDS BaseClassRV =
     END GG_RV;
+
+    ASSOCIATION GG_RV_Typ =
+      Typ -- {1} GG_Typ;
+      RV -- {0..*} GG_RV;
+    END GG_RV_Typ;
 
     !! GG_Flaeche (AREA)
     !! -----------------------------------------------
@@ -509,11 +563,16 @@ MODEL Nutzungsplanung_BE_V2_0 (de)
       KantArt (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.GR_KantArt_CatalogueReference;
     END GR_Typ;
 
-    ASSOCIATION GR_RV
-    EXTENDS BaseClass_RV =
-      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
-      Typ (EXTENDED) -- {0..*} GR_Typ;
+    !! GR_RV
+    !! -----------------------------------------------
+    CLASS GR_RV
+    EXTENDS BaseClassRV =
     END GR_RV;
+
+    ASSOCIATION GR_RV_Typ =
+      Typ -- {1} GR_Typ;
+      RV -- {0..*} GR_RV;
+    END GR_RV_Typ;
 
     !! GR_Flaeche (AREA)
     !! -----------------------------------------------
@@ -537,11 +596,16 @@ MODEL Nutzungsplanung_BE_V2_0 (de)
       KantArt (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.NH_KantArt_CatalogueReference;
     END NH_Typ;
 
-    ASSOCIATION NH_RV
-    EXTENDS BaseClass_RV =
-      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
-      Typ (EXTENDED) -- {0..*} NH_Typ;
+    !! NH_RV
+    !! -----------------------------------------------
+    CLASS NH_RV
+    EXTENDS BaseClassRV =
     END NH_RV;
+
+    ASSOCIATION NH_RV_Typ =
+      Typ -- {1} NH_Typ;
+      RV -- {0..*} NH_RV;
+    END NH_RV_Typ;
 
     !! NH_Punkt (COORD)
     !! -----------------------------------------------
@@ -587,11 +651,16 @@ MODEL Nutzungsplanung_BE_V2_0 (de)
       KantArt (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.BL_KantArt_CatalogueReference;
     END BL_Typ;
 
-    ASSOCIATION BL_RV
-    EXTENDS BaseClass_RV =
-      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
-      Typ (EXTENDED) -- {0..*} BL_Typ;
+    !! BL_RV
+    !! -----------------------------------------------
+    CLASS BL_RV
+    EXTENDS BaseClassRV =
     END BL_RV;
+
+    ASSOCIATION BL_RV_Typ =
+      Typ -- {1} BL_Typ;
+      RV -- {0..*} BL_RV;
+    END BL_RV_Typ;
 
     !! BL_Linie (POLYLINE)
     !! -----------------------------------------------
@@ -626,11 +695,16 @@ MODEL Nutzungsplanung_BE_V2_0 (de)
       KantArt (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.WE_KantArt_CatalogueReference;
     END WE_Typ;
 
-    ASSOCIATION WE_RV
-    EXTENDS BaseClass_RV =
-      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
-      Typ (EXTENDED) -- {0..*} WE_Typ;
+    !! WE_RV
+    !! -----------------------------------------------
+    CLASS WE_RV
+    EXTENDS BaseClassRV =
     END WE_RV;
+
+    ASSOCIATION WE_RV_Typ =
+      Typ -- {1} WE_Typ;
+      RV -- {0..*} WE_RV;
+    END WE_RV_Typ;
 
     !! WE_Linie (POLYLINE)
     !! -----------------------------------------------
@@ -665,11 +739,16 @@ MODEL Nutzungsplanung_BE_V2_0 (de)
       KantArt (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.WF_KantArt_CatalogueReference;
     END WF_Typ;
 
-    ASSOCIATION WF_RV
-    EXTENDS BaseClass_RV =
-      Vorschrift (EXTENDED) -- {0..*} DO_Dokument;
-      Typ (EXTENDED) -- {0..*} WF_Typ;
+    !! WF_RV
+    !! -----------------------------------------------
+    CLASS WF_RV
+    EXTENDS BaseClassRV =
     END WF_RV;
+
+    ASSOCIATION WF_RV_Typ =
+      Typ -- {1} WF_Typ;
+      RV -- {0..*} WF_RV;
+    END WF_RV_Typ;
 
     !! WF_Linie (POLYLINE)
     !! -----------------------------------------------

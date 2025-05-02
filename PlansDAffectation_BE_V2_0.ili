@@ -62,7 +62,7 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
   DEPENDS ON CatalogueObjects_V1.Catalogues, Nutzungsplanung_BE_V2_0_Catalogues.Catalogues;
 
     !! Structure pour des informations supplémentaires individuelles
-    !! --------------------------------------------------------------  
+    !! --------------------------------------------------------------
     STRUCTURE CustomAttribute =
       AttributeName : MANDATORY TEXT*50; !! Doit être UNIQUE
       AttributeValue : MTEXT*256;
@@ -114,7 +114,7 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
     END AD_Geoservice;
 
     !! Office (Service compétent)
-    !! -------------------------------------------------------------- 
+    !! --------------------------------------------------------------
     CLASS AD_Office =
       Nom : MANDATORY TEXT*200;
       IDE : TEXT*15;
@@ -127,7 +127,7 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
     !! ***********************
 
     !! Dispositions juridiques et document à titre indicatif
-    !! -------------------------------------------------------------- 
+    !! --------------------------------------------------------------
     CLASS DO_Document =
       Titre : MANDATORY TEXT*500;
       Abreviation : TEXT*50;
@@ -149,16 +149,26 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
       Document -- {0..*} DO_Document;
     END Document_Service_competent;
 
-    ASSOCIATION DO_AutresDocuments =
-    OID AS INTERLIS.UUIDOID;
-      Document -- {0..*} DO_Document;
-      AutreDocument -- {0..*} DO_Document;
+    !! AutresDocuments (Lien document vers document)
+    !! --------------------------------------------------------------
+    CLASS DO_AutresDocuments =
       NoArticles : TEXT*50;
-      ToApprove : (No);
+      Sans_nouvelle_approbation : BOOLEAN; !! default = false
+      Supplement_Attributs : BAG {0..*} OF CustomAttribute;
     END DO_AutresDocuments;
 
+    ASSOCIATION AutresDocuments_Document =
+      Document -- {1} DO_Document;
+      Parent -- {0..*} DO_AutresDocuments;
+    END AutresDocuments_Document;
+
+    ASSOCIATION AutresDocuments_AutreDocument =
+      AutreDocument -- {1} DO_Document;
+      Child -- {0..*} DO_AutresDocuments;
+    END AutresDocuments_AutreDocument;
+
     !! Documents de révision (modifications des dispositions juridiques)
-    !! -------------------------------------------------------------- 
+    !! --------------------------------------------------------------
     CLASS DO_DocumentRevision =
       Titre : MANDATORY TEXT*500;
       Abreviation : TEXT*50;
@@ -183,7 +193,7 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
     !! ***********************
 
     !! Classe de base pour les Types
-    !! -------------------------------------------------------------- 
+    !! --------------------------------------------------------------
     CLASS BaseClassType (ABSTRACT) =
       Designation : MANDATORY TEXT*500;
       Abreviation : TEXT*50;
@@ -199,17 +209,21 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
       Type -- {0..*} BaseClassType;
     END BaseClass_Service_competent;
 
-    ASSOCIATION BaseClass_DJ (ABSTRACT) =
-    OID AS INTERLIS.UUIDOID;
-      Disposition (ABSTRACT) -- {0..*} DO_Document;
-      Type (ABSTRACT) -- {0..*} BaseClassType;
+    !! Classe de base DJ (Lien type vers document)
+    !! -----------------------------------------------
+    CLASS BaseClassDJ (ABSTRACT) =
       NoArticles : TEXT*50;
-      ToApprove : (No);
+      Sans_nouvelle_approbation : BOOLEAN; !! default = false
       Supplement_Attributs : BAG {0..*} OF CustomAttribute;
-    END BaseClass_DJ;
+    END BaseClassDJ;
+
+    ASSOCIATION BaseClassDJ_Document =
+      Disposition -- {1} DO_Document;
+      BaseClassDJ -- {0..*} BaseClassDJ;
+    END BaseClassDJ_Document;
 
     !! Classes de base pour les géométries
-    !! -------------------------------------------------------------- 
+    !! --------------------------------------------------------------
     CLASS BaseClassPoint (ABSTRACT) =
       Label : TEXT*50;
       Geometrie : MANDATORY CoordP;
@@ -248,20 +262,25 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
     !! *************************
 
     !! AP_Type
-    !! -------------------------------------------------------------- 
+    !! --------------------------------------------------------------
     CLASS AP_Type
     EXTENDS BaseClassType =
       GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.GN_KantArt_CatalogueReference;
     END AP_Type;
 
-    ASSOCIATION AP_DJ
-    EXTENDS BaseClass_DJ =
-      Disposition (EXTENDED) -- {0..*} DO_Document;
-      Type (EXTENDED) -- {0..*} AP_Type;
+    !! AP_RV
+    !! --------------------------------------------------------------
+    CLASS AP_DJ
+    EXTENDS BaseClassDJ =
     END AP_DJ;
 
+    ASSOCIATION AP_DJ_Type =
+      Type -- {1} AP_Type;
+      DJ -- {0..*} AP_DJ;
+    END AP_DJ_Type;
+
     !! AP_Surface (AREA)
-    !! -------------------------------------------------------------- 
+    !! --------------------------------------------------------------
     CLASS AP_Surface
     EXTENDS BaseClassPolygon =
     END AP_Surface;
@@ -276,20 +295,25 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
     !! *************************
 
     !! ZA_Type
-    !! -------------------------------------------------------------- 
+    !! --------------------------------------------------------------
     CLASS ZA_Type
     EXTENDS BaseClassType =
       GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.NZ_KantArt_CatalogueReference;
     END ZA_Type;
 
-    ASSOCIATION ZA_DJ
-    EXTENDS BaseClass_DJ =
-      Disposition (EXTENDED) -- {0..*} DO_Document;
-      Type (EXTENDED) -- {0..*} ZA_Type;
+    !! ZA_RV
+    !! --------------------------------------------------------------
+    CLASS ZA_DJ
+    EXTENDS BaseClassDJ =
     END ZA_DJ;
 
+    ASSOCIATION ZA_DJ_Type =
+      Type -- {1} ZA_Type;
+      DJ -- {0..*} ZA_DJ;
+    END ZA_DJ_Type;
+
     !! ZA_Surface (AREA)
-    !! -------------------------------------------------------------- 
+    !! --------------------------------------------------------------
     CLASS ZA_Surface
     EXTENDS BaseClassPolygon =
     END ZA_Surface;
@@ -304,25 +328,30 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
     !! *************************
 
     !! CC_Type
-    !! -------------------------------------------------------------- 
+    !! --------------------------------------------------------------
     CLASS CC_Type
     EXTENDS BaseClassType =
       GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.BK_KantArt_CatalogueReference;
     END CC_Type;
-
-    ASSOCIATION CC_DJ
-    EXTENDS BaseClass_DJ =
-      Disposition (EXTENDED) -- {0..*} DO_Document;
-      Type (EXTENDED) -- {0..*} CC_Type;
-    END CC_DJ;
 
     ASSOCIATION CC_ZA_Type =
       ZA_Type -- {0..1} ZA_Type;
       CC_Type -- {0..*} CC_Type;
     END CC_ZA_Type;
 
+    !! CC_RV
+    !! --------------------------------------------------------------
+    CLASS CC_DJ
+    EXTENDS BaseClassDJ =
+    END CC_DJ;
+
+    ASSOCIATION CC_DJ_Type =
+      Type -- {1} CC_Type;
+      DJ -- {0..*} CC_DJ;
+    END CC_DJ_Type;
+
     !! CC_Surface (AREA)
-    !! -------------------------------------------------------------- 
+    !! --------------------------------------------------------------
     CLASS CC_Surface
     EXTENDS BaseClassPolygon =
     END CC_Surface;
@@ -342,20 +371,25 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
     !! *************************
 
     !! UI_Type
-    !! -------------------------------------------------------------- 
+    !! --------------------------------------------------------------
     CLASS UI_Type
     EXTENDS BaseClassType =
       GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.IN_KantArt_CatalogueReference;
     END UI_Type;
 
-    ASSOCIATION UI_DJ
-    EXTENDS BaseClass_DJ =
-      Disposition (EXTENDED) -- {0..*} DO_Document;
-      Type (EXTENDED) -- {0..*} UI_Type;
+    !! UI_RV
+    !! --------------------------------------------------------------
+    CLASS UI_DJ
+    EXTENDS BaseClassDJ =
     END UI_DJ;
 
+    ASSOCIATION UI_DJ_Type =
+      Type -- {1} UI_Type;
+      DJ -- {0..*} UI_DJ;
+    END UI_DJ_Type;
+
     !! UI_Surface (AREA)
-    !! -------------------------------------------------------------- 
+    !! --------------------------------------------------------------
     CLASS UI_Surface
     EXTENDS BaseClassPolygon =
     END UI_Surface;
@@ -370,20 +404,25 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
     !! *************************
 
     !! AS_Type
-    !! -------------------------------------------------------------- 
+    !! --------------------------------------------------------------
     CLASS AS_Type
     EXTENDS BaseClassType =
       GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.SN_KantArt_CatalogueReference;
     END AS_Type;
 
-    ASSOCIATION AS_DJ
-    EXTENDS BaseClass_DJ =
-      Disposition (EXTENDED) -- {0..*} DO_Document;
-      Type (EXTENDED) -- {0..*} AS_Type;
+    !! AS_RV
+    !! --------------------------------------------------------------
+    CLASS AS_DJ
+    EXTENDS BaseClassDJ =
     END AS_DJ;
 
+    ASSOCIATION AS_DJ_Type =
+      Type -- {1} AS_Type;
+      DJ -- {0..*} AS_DJ;
+    END AS_DJ_Type;
+
     !! AS_Surface (AREA)
-    !! -------------------------------------------------------------- 
+    !! --------------------------------------------------------------
     CLASS AS_Surface
     EXTENDS BaseClassPolygon =
     END AS_Surface;
@@ -398,20 +437,25 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
     !! ***********************
 
     !! SU_Type
-    !! -------------------------------------------------------------- 
+    !! --------------------------------------------------------------
     CLASS SU_Type
     EXTENDS BaseClassType =
       GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.UE_KantArt_CatalogueReference;
     END SU_Type;
 
-    ASSOCIATION SU_DJ
-    EXTENDS BaseClass_DJ =
-      Disposition (EXTENDED) -- {0..*} DO_Document;
-      Type (EXTENDED) -- {0..*} SU_Type;
+    !! SU_RV
+    !! --------------------------------------------------------------
+    CLASS SU_DJ
+    EXTENDS BaseClassDJ =
     END SU_DJ;
 
+    ASSOCIATION SU_DJ_Type =
+      Type -- {1} SU_Type;
+      DJ -- {0..*} SU_DJ;
+    END SU_DJ_Type;
+
     !! SU_Point (COORD)
-    !! -------------------------------------------------------------- 
+    !! --------------------------------------------------------------
     CLASS SU_Point
     EXTENDS BaseClassPoint =
     END SU_Point;
@@ -422,7 +466,7 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
     END SU_Point_Type;
 
     !! SU_Ligne (POLYLINE)
-    !! -------------------------------------------------------------- 
+    !! --------------------------------------------------------------
     CLASS SU_Ligne
     EXTENDS BaseClassPolyline =
     END SU_Ligne;
@@ -433,7 +477,7 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
     END SU_Ligne_Type;
 
     !! SU_Surface (SURFACE)
-    !! -------------------------------------------------------------- 
+    !! --------------------------------------------------------------
     CLASS SU_Surface
     EXTENDS BaseClassPolygon =
     END SU_Surface;
@@ -448,20 +492,25 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
     !! **********************************
 
     !! DS_Type
-    !! -------------------------------------------------------------- 
+    !! --------------------------------------------------------------
     CLASS DS_Type
     EXTENDS BaseClassType =
       GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.ES_KantArt_CatalogueReference;
     END DS_Type;
 
-    ASSOCIATION DS_DJ
-    EXTENDS BaseClass_DJ =
-      Disposition (EXTENDED) -- {0..*} DO_Document;
-      Type (EXTENDED) -- {0..*} DS_Type;
+    !! DS_RV
+    !! --------------------------------------------------------------
+    CLASS DS_DJ
+    EXTENDS BaseClassDJ =
     END DS_DJ;
 
+    ASSOCIATION DS_DJ_Type =
+      Type -- {1} DS_Type;
+      DJ -- {0..*} DS_DJ;
+    END DS_DJ_Type;
+
     !! DS_Surface
-    !! -------------------------------------------------------------- 
+    !! --------------------------------------------------------------
     CLASS DS_Surface
     EXTENDS BaseClassPolygon =
     END DS_Surface;
@@ -476,20 +525,25 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
     !! ***********************
 
     !! ZD_Type
-    !! -------------------------------------------------------------- 
+    !! --------------------------------------------------------------
     CLASS ZD_Type
     EXTENDS BaseClassType =
       GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.GG_KantArt_CatalogueReference;
     END ZD_Type;
 
-    ASSOCIATION ZD_DJ
-    EXTENDS BaseClass_DJ =
-      Disposition (EXTENDED) -- {0..*} DO_Document;
-      Type (EXTENDED) -- {0..*} ZD_Type;
+    !! ZD_RV
+    !! --------------------------------------------------------------
+    CLASS ZD_DJ
+    EXTENDS BaseClassDJ =
     END ZD_DJ;
 
+    ASSOCIATION ZD_DJ_Type =
+      Type -- {1} ZD_Type;
+      DJ -- {0..*} ZD_DJ;
+    END ZD_DJ_Type;
+
     !! ZD_Surface (AREA)
-    !! -------------------------------------------------------------- 
+    !! --------------------------------------------------------------
     CLASS ZD_Surface
     EXTENDS BaseClassPolygon =
     END ZD_Surface;
@@ -504,20 +558,25 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
     !! ***********************
 
     !! EE_Type
-    !! -------------------------------------------------------------- 
+    !! --------------------------------------------------------------
     CLASS EE_Type
     EXTENDS BaseClassType =
       GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.GR_KantArt_CatalogueReference;
     END EE_Type;
 
-    ASSOCIATION EE_DJ
-    EXTENDS BaseClass_DJ =
-      Disposition (EXTENDED) -- {0..*} DO_Document;
-      Type (EXTENDED) -- {0..*} EE_Type;
+    !! EE_RV
+    !! --------------------------------------------------------------
+    CLASS EE_DJ
+    EXTENDS BaseClassDJ =
     END EE_DJ;
 
+    ASSOCIATION EE_DJ_Type =
+      Type -- {1} EE_Type;
+      DJ -- {0..*} EE_DJ;
+    END EE_DJ_Type;
+
     !! EE_Surface (AREA)
-    !! -------------------------------------------------------------- 
+    !! --------------------------------------------------------------
     CLASS EE_Surface
     EXTENDS BaseClassPolygon =
     END EE_Surface;
@@ -532,20 +591,25 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
     !! ****************************
 
     !! NP_Type
-    !! -------------------------------------------------------------- 
+    !! --------------------------------------------------------------
     CLASS NP_Type
     EXTENDS BaseClassType =
       GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.NH_KantArt_CatalogueReference;
     END NP_Type;
 
-    ASSOCIATION NP_DJ
-    EXTENDS BaseClass_DJ =
-      Disposition (EXTENDED) -- {0..*} DO_Document;
-      Type (EXTENDED) -- {0..*} NP_Type;
+    !! NP_RV
+    !! --------------------------------------------------------------
+    CLASS NP_DJ
+    EXTENDS BaseClassDJ =
     END NP_DJ;
 
+    ASSOCIATION NP_DJ_Type =
+      Type -- {1} NP_Type;
+      DJ -- {0..*} NP_DJ;
+    END NP_DJ_Type;
+
     !! NP_Point (COORD)
-    !! -------------------------------------------------------------- 
+    !! --------------------------------------------------------------
     CLASS NP_Point
     EXTENDS BaseClassPoint=
     END NP_Point;
@@ -556,7 +620,7 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
     END NP_Point_Type;
 
     !! NP_Ligne (POLYLINE)
-    !! -------------------------------------------------------------- 
+    !! --------------------------------------------------------------
     CLASS NP_Ligne
     EXTENDS BaseClassPolyline =
     END NP_Ligne;
@@ -567,7 +631,7 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
     END NP_Ligne_Type;
 
     !! NP_Surface (SURFACE)
-    !! -------------------------------------------------------------- 
+    !! --------------------------------------------------------------
     CLASS NP_Surface
     EXTENDS BaseClassPolygon =
     END NP_Surface;
@@ -582,20 +646,25 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
     !! ***********************
 
     !! AL_Type
-    !! -------------------------------------------------------------- 
+    !! --------------------------------------------------------------
     CLASS AL_Type
     EXTENDS BaseClassType =
       GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.BL_KantArt_CatalogueReference;
     END AL_Type;
 
-    ASSOCIATION AL_DJ
-    EXTENDS BaseClass_DJ =
-      Disposition (EXTENDED) -- {0..*} DO_Document;
-      Type (EXTENDED) -- {0..*} AL_Type;
+    !! AL_RV
+    !! --------------------------------------------------------------
+    CLASS AL_DJ
+    EXTENDS BaseClassDJ =
     END AL_DJ;
 
+    ASSOCIATION AL_DJ_Type =
+      Type -- {1} AL_Type;
+      DJ -- {0..*} AL_DJ;
+    END AL_DJ_Type;
+
     !! AL_Ligne (POLYLINE)
-    !! -------------------------------------------------------------- 
+    !! --------------------------------------------------------------
     CLASS AL_Ligne
     EXTENDS BaseClassPolyline =
     END AL_Ligne;
@@ -606,7 +675,7 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
     END AL_Ligne_Type;
 
     !! AL_Surface (SURFACE)
-    !! -------------------------------------------------------------- 
+    !! --------------------------------------------------------------
     CLASS AL_Surface
     EXTENDS BaseClassPolygon =
     END AL_Surface;
@@ -621,20 +690,25 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
     !! ***********************
 
     !! CH_Type
-    !! -------------------------------------------------------------- 
+    !! --------------------------------------------------------------
     CLASS CH_Type
     EXTENDS BaseClassType =
       GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.WE_KantArt_CatalogueReference;
     END CH_Type;
 
-    ASSOCIATION CH_DJ
-    EXTENDS BaseClass_DJ =
-      Disposition (EXTENDED) -- {0..*} DO_Document;
-      Type (EXTENDED) -- {0..*} CH_Type;
+    !! CH_RV
+    !! --------------------------------------------------------------
+    CLASS CH_DJ
+    EXTENDS BaseClassDJ =
     END CH_DJ;
 
+    ASSOCIATION CH_DJ_Type =
+      Type -- {1} CH_Type;
+      DJ -- {0..*} CH_DJ;
+    END CH_DJ_Type;
+
     !! CH_Ligne (POLYLINE)
-    !! -------------------------------------------------------------- 
+    !! --------------------------------------------------------------
     CLASS CH_Ligne
     EXTENDS BaseClassPolyline =
     END CH_Ligne;
@@ -645,7 +719,7 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
     END CH_Ligne_Type;
 
     !! CH_Surface (SURFACE)
-    !! -------------------------------------------------------------- 
+    !! --------------------------------------------------------------
     CLASS CH_Surface
     EXTENDS BaseClassPolygon =
     END CH_Surface;
@@ -660,20 +734,25 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
     !! ***********************
 
     !! CF_Type
-    !! -------------------------------------------------------------- 
+    !! --------------------------------------------------------------
     CLASS CF_Type
     EXTENDS BaseClassType =
       GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.WF_KantArt_CatalogueReference;
     END CF_Type;
 
-    ASSOCIATION CF_DJ
-    EXTENDS BaseClass_DJ =
-      Disposition (EXTENDED) -- {0..*} DO_Document;
-      Type (EXTENDED) -- {0..*} CF_Type;
+    !! CF_RV
+    !! --------------------------------------------------------------
+    CLASS CF_DJ
+    EXTENDS BaseClassDJ =
     END CF_DJ;
 
+    ASSOCIATION CF_DJ_Type =
+      Type -- {1} CF_Type;
+      DJ -- {0..*} CF_DJ;
+    END CF_DJ_Type;
+
     !! CF_Ligne (POLYLINE)
-    !! -------------------------------------------------------------- 
+    !! --------------------------------------------------------------
     CLASS CF_Ligne
     EXTENDS BaseClassPolyline =
     END CF_Ligne;
