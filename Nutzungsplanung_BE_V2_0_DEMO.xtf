@@ -4,7 +4,7 @@
 <TRANSFER xmlns="http://www.interlis.ch/INTERLIS2.3">
     <HEADERSECTION SENDER="AGR Kanton Bern" VERSION="2.3">
         <MODELS>
-            <MODEL NAME="Nutzungsplanung_BE_V2_0" VERSION="2025-04-10" URI="http://models.geo.be.ch/Grundlagen_und_Planung/Raumplanung_Grundstueckskataster/"/>
+            <MODEL NAME="Nutzungsplanung_BE_V2_0" VERSION="2025-05-05" URI="http://models.geo.be.ch/Grundlagen_und_Planung/Raumplanung_Grundstueckskataster/"/>
         </MODELS>
     </HEADERSECTION>
 	<DATASECTION>
