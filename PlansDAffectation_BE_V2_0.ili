@@ -153,8 +153,7 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
     !! --------------------------------------------------------------
     CLASS DO_AutresDocuments =
       NoArticles : TEXT*50;
-      Sans_nouvelle_approbation : BOOLEAN; !! default = false
-      Supplement_Attributs : BAG {0..*} OF CustomAttribute;
+      Dispositions_restent_identiques : BOOLEAN; !! default = false
     END DO_AutresDocuments;
 
     ASSOCIATION AutresDocuments_Document =
@@ -213,7 +212,7 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
     !! -----------------------------------------------
     CLASS BaseClassDJ (ABSTRACT) =
       NoArticles : TEXT*50;
-      Sans_nouvelle_approbation : BOOLEAN; !! default = false
+      Dispositions_restent_identiques : BOOLEAN; !! default = false
       Supplement_Attributs : BAG {0..*} OF CustomAttribute;
     END BaseClassDJ;
 
@@ -335,7 +334,7 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
     END CC_Type;
 
     ASSOCIATION CC_ZA_Type =
-      ZA_Type -- {0..1} ZA_Type;
+      ZA_Type -- {0..1} ZA_Type; !! Attribut clé pour la fusion de ZA et CC
       CC_Type -- {0..*} CC_Type;
     END CC_ZA_Type;
 
@@ -362,7 +361,7 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
     END CC_Surface_Type;
 
     ASSOCIATION CC_ZA_Surface =
-      ZA_Surface -- {0..1} ZA_Surface;
+      ZA_Surface -- {0..1} ZA_Surface; !! Attribut clé pour la fusion de ZA et CC
       CC_Surface -- {0..*} CC_Surface;
     END CC_ZA_Surface;
 

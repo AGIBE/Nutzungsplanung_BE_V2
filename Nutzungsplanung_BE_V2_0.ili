@@ -152,8 +152,7 @@ MODEL Nutzungsplanung_BE_V2_0 (de)
     !! -----------------------------------------------
     CLASS DO_WeitereDokumente =
       ArtikelNr : TEXT*50;
-      OhneNeueGenehmigung : BOOLEAN; !! default = false
-      Zusatz_Attribute : BAG {0..*} OF CustomAttribute;
+      VorschriftenBleibenIdentisch : BOOLEAN; !! default = false
     END DO_WeitereDokumente;
 
     ASSOCIATION WeitereDokumente_Dokument =
@@ -212,7 +211,7 @@ MODEL Nutzungsplanung_BE_V2_0 (de)
     !! -----------------------------------------------
     CLASS BaseClassRV (ABSTRACT) =
       ArtikelNr : TEXT*50;
-      OhneNeueGenehmigung : BOOLEAN; !! default = false
+      VorschriftenBleibenIdentisch : BOOLEAN; !! default = false
       Zusatz_Attribute : BAG {0..*} OF CustomAttribute;
     END BaseClassRV;
 
@@ -333,8 +332,8 @@ MODEL Nutzungsplanung_BE_V2_0 (de)
       KantArt (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.BK_KantArt_CatalogueReference;
     END BK_Typ;
 
-    ASSOCIATION BK_NZ_Typ = !! Key-Attribut für die Zusammenführung von NZ und BK
-      NZ_Typ -- {0..1} NZ_Typ;
+    ASSOCIATION BK_NZ_Typ =
+      NZ_Typ -- {0..1} NZ_Typ; !! Key-Attribut für die Zusammenführung von NZ und BK
       BK_Typ -- {0..*} BK_Typ;
     END BK_NZ_Typ;
 
@@ -360,8 +359,8 @@ MODEL Nutzungsplanung_BE_V2_0 (de)
       BK_Flaeche -- {0..*} BK_Flaeche;
     END BK_Flaeche_Typ;
     
-    ASSOCIATION BK_NZ_Flaeche = !! Key-Attribut für die Zusammenführung von NZ und BK
-      NZ_Flaeche -- {0..1} NZ_Flaeche;
+    ASSOCIATION BK_NZ_Flaeche =
+      NZ_Flaeche -- {0..1} NZ_Flaeche; !! Key-Attribut für die Zusammenführung von NZ und BK
       BK_Flaeche -- {0..*} BK_Flaeche;
     END BK_NZ_Flaeche;
 
