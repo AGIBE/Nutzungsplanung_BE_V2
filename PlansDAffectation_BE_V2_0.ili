@@ -153,7 +153,7 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
     !! --------------------------------------------------------------
     CLASS DO_AutresDocuments =
       NoArticles : TEXT*50;
-      Dispositions_restent_identiques : BOOLEAN; !! default = false
+      SansModificationDuContenu : BOOLEAN; !! default = false
     END DO_AutresDocuments;
 
     ASSOCIATION AutresDocuments_Document =
@@ -210,16 +210,16 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
 
     !! Classe de base DJ (Lien type vers document)
     !! -----------------------------------------------
-    CLASS BaseClassDJ (ABSTRACT) =
+    CLASS BaseClass_DJ (ABSTRACT) =
       NoArticles : TEXT*50;
-      Dispositions_restent_identiques : BOOLEAN; !! default = false
+      SansModificationDuContenu : BOOLEAN; !! default = false
       Supplement_Attributs : BAG {0..*} OF CustomAttribute;
-    END BaseClassDJ;
+    END BaseClass_DJ;
 
-    ASSOCIATION BaseClassDJ_Document =
+    ASSOCIATION BaseClass_DJ_Document =
       Disposition -- {1} DO_Document;
-      BaseClassDJ -- {0..*} BaseClassDJ;
-    END BaseClassDJ_Document;
+      BaseClass_DJ -- {0..*} BaseClass_DJ;
+    END BaseClass_DJ_Document;
 
     !! Classes de base pour les géométries
     !! --------------------------------------------------------------
@@ -270,7 +270,7 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
     !! AP_RV
     !! --------------------------------------------------------------
     CLASS AP_DJ
-    EXTENDS BaseClassDJ =
+    EXTENDS BaseClass_DJ =
     END AP_DJ;
 
     ASSOCIATION AP_DJ_Type =
@@ -303,7 +303,7 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
     !! ZA_RV
     !! --------------------------------------------------------------
     CLASS ZA_DJ
-    EXTENDS BaseClassDJ =
+    EXTENDS BaseClass_DJ =
     END ZA_DJ;
 
     ASSOCIATION ZA_DJ_Type =
@@ -341,7 +341,7 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
     !! CC_RV
     !! --------------------------------------------------------------
     CLASS CC_DJ
-    EXTENDS BaseClassDJ =
+    EXTENDS BaseClass_DJ =
     END CC_DJ;
 
     ASSOCIATION CC_DJ_Type =
@@ -379,7 +379,7 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
     !! UI_RV
     !! --------------------------------------------------------------
     CLASS UI_DJ
-    EXTENDS BaseClassDJ =
+    EXTENDS BaseClass_DJ =
     END UI_DJ;
 
     ASSOCIATION UI_DJ_Type =
@@ -412,7 +412,7 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
     !! AS_RV
     !! --------------------------------------------------------------
     CLASS AS_DJ
-    EXTENDS BaseClassDJ =
+    EXTENDS BaseClass_DJ =
     END AS_DJ;
 
     ASSOCIATION AS_DJ_Type =
@@ -445,7 +445,7 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
     !! SU_RV
     !! --------------------------------------------------------------
     CLASS SU_DJ
-    EXTENDS BaseClassDJ =
+    EXTENDS BaseClass_DJ =
     END SU_DJ;
 
     ASSOCIATION SU_DJ_Type =
@@ -500,7 +500,7 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
     !! DS_RV
     !! --------------------------------------------------------------
     CLASS DS_DJ
-    EXTENDS BaseClassDJ =
+    EXTENDS BaseClass_DJ =
     END DS_DJ;
 
     ASSOCIATION DS_DJ_Type =
@@ -533,7 +533,7 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
     !! ZD_RV
     !! --------------------------------------------------------------
     CLASS ZD_DJ
-    EXTENDS BaseClassDJ =
+    EXTENDS BaseClass_DJ =
     END ZD_DJ;
 
     ASSOCIATION ZD_DJ_Type =
@@ -566,7 +566,7 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
     !! EE_RV
     !! --------------------------------------------------------------
     CLASS EE_DJ
-    EXTENDS BaseClassDJ =
+    EXTENDS BaseClass_DJ =
     END EE_DJ;
 
     ASSOCIATION EE_DJ_Type =
@@ -599,7 +599,7 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
     !! NP_RV
     !! --------------------------------------------------------------
     CLASS NP_DJ
-    EXTENDS BaseClassDJ =
+    EXTENDS BaseClass_DJ =
     END NP_DJ;
 
     ASSOCIATION NP_DJ_Type =
@@ -654,7 +654,7 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
     !! AL_RV
     !! --------------------------------------------------------------
     CLASS AL_DJ
-    EXTENDS BaseClassDJ =
+    EXTENDS BaseClass_DJ =
     END AL_DJ;
 
     ASSOCIATION AL_DJ_Type =
@@ -698,7 +698,7 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
     !! CH_RV
     !! --------------------------------------------------------------
     CLASS CH_DJ
-    EXTENDS BaseClassDJ =
+    EXTENDS BaseClass_DJ =
     END CH_DJ;
 
     ASSOCIATION CH_DJ_Type =
@@ -742,7 +742,7 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
     !! CF_RV
     !! --------------------------------------------------------------
     CLASS CF_DJ
-    EXTENDS BaseClassDJ =
+    EXTENDS BaseClass_DJ =
     END CF_DJ;
 
     ASSOCIATION CF_DJ_Type =

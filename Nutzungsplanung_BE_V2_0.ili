@@ -152,7 +152,7 @@ MODEL Nutzungsplanung_BE_V2_0 (de)
     !! -----------------------------------------------
     CLASS DO_WeitereDokumente =
       ArtikelNr : TEXT*50;
-      VorschriftenBleibenIdentisch : BOOLEAN; !! default = false
+      KeineInhaltlicheAenderung : BOOLEAN; !! default = false
     END DO_WeitereDokumente;
 
     ASSOCIATION WeitereDokumente_Dokument =
@@ -209,16 +209,16 @@ MODEL Nutzungsplanung_BE_V2_0 (de)
 
     !! Basis-Klasse RV (Verlinkung Typ zu Dokument)
     !! -----------------------------------------------
-    CLASS BaseClassRV (ABSTRACT) =
+    CLASS BaseClass_RV (ABSTRACT) =
       ArtikelNr : TEXT*50;
-      VorschriftenBleibenIdentisch : BOOLEAN; !! default = false
+      KeineInhaltlicheAenderung : BOOLEAN; !! default = false
       Zusatz_Attribute : BAG {0..*} OF CustomAttribute;
-    END BaseClassRV;
+    END BaseClass_RV;
 
-    ASSOCIATION BaseClassRV_Dokument =
+    ASSOCIATION BaseClass_RV_Dokument =
       Vorschrift -- {1} DO_Dokument;
-      BaseClassRV -- {0..*} BaseClassRV;
-    END BaseClassRV_Dokument;
+      BaseClass_RV -- {0..*} BaseClass_RV;
+    END BaseClass_RV_Dokument;
 
     !! Basis-Klassen Geometrie
     !! -----------------------------------------------
@@ -269,7 +269,7 @@ MODEL Nutzungsplanung_BE_V2_0 (de)
     !! GN_RV
     !! -----------------------------------------------
     CLASS GN_RV
-    EXTENDS BaseClassRV =
+    EXTENDS BaseClass_RV =
     END GN_RV;
 
     ASSOCIATION GN_RV_Typ =
@@ -302,7 +302,7 @@ MODEL Nutzungsplanung_BE_V2_0 (de)
     !! NZ_RV
     !! -----------------------------------------------
     CLASS NZ_RV
-    EXTENDS BaseClassRV =
+    EXTENDS BaseClass_RV =
     END NZ_RV;
 
     ASSOCIATION NZ_RV_Typ =
@@ -340,7 +340,7 @@ MODEL Nutzungsplanung_BE_V2_0 (de)
     !! BK_RV
     !! -----------------------------------------------
     CLASS BK_RV
-    EXTENDS BaseClassRV =
+    EXTENDS BaseClass_RV =
     END BK_RV;
 
     ASSOCIATION BK_RV_Typ =
@@ -378,7 +378,7 @@ MODEL Nutzungsplanung_BE_V2_0 (de)
     !! IN_RV
     !! -----------------------------------------------
     CLASS IN_RV
-    EXTENDS BaseClassRV =
+    EXTENDS BaseClass_RV =
     END IN_RV;
 
     ASSOCIATION IN_RV_Typ =
@@ -411,7 +411,7 @@ MODEL Nutzungsplanung_BE_V2_0 (de)
     !! SN_RV
     !! -----------------------------------------------
     CLASS SN_RV
-    EXTENDS BaseClassRV =
+    EXTENDS BaseClass_RV =
     END SN_RV;
 
     ASSOCIATION SN_RV_Typ =
@@ -444,7 +444,7 @@ MODEL Nutzungsplanung_BE_V2_0 (de)
     !! UE_RV
     !! -----------------------------------------------
     CLASS UE_RV
-    EXTENDS BaseClassRV =
+    EXTENDS BaseClass_RV =
     END UE_RV;
 
     ASSOCIATION UE_RV_Typ =
@@ -499,7 +499,7 @@ MODEL Nutzungsplanung_BE_V2_0 (de)
     !! ES_RV
     !! -----------------------------------------------
     CLASS ES_RV
-    EXTENDS BaseClassRV =
+    EXTENDS BaseClass_RV =
     END ES_RV;
 
     ASSOCIATION ES_RV_Typ =
@@ -532,7 +532,7 @@ MODEL Nutzungsplanung_BE_V2_0 (de)
     !! GG_RV
     !! -----------------------------------------------
     CLASS GG_RV
-    EXTENDS BaseClassRV =
+    EXTENDS BaseClass_RV =
     END GG_RV;
 
     ASSOCIATION GG_RV_Typ =
@@ -565,7 +565,7 @@ MODEL Nutzungsplanung_BE_V2_0 (de)
     !! GR_RV
     !! -----------------------------------------------
     CLASS GR_RV
-    EXTENDS BaseClassRV =
+    EXTENDS BaseClass_RV =
     END GR_RV;
 
     ASSOCIATION GR_RV_Typ =
@@ -598,7 +598,7 @@ MODEL Nutzungsplanung_BE_V2_0 (de)
     !! NH_RV
     !! -----------------------------------------------
     CLASS NH_RV
-    EXTENDS BaseClassRV =
+    EXTENDS BaseClass_RV =
     END NH_RV;
 
     ASSOCIATION NH_RV_Typ =
@@ -653,7 +653,7 @@ MODEL Nutzungsplanung_BE_V2_0 (de)
     !! BL_RV
     !! -----------------------------------------------
     CLASS BL_RV
-    EXTENDS BaseClassRV =
+    EXTENDS BaseClass_RV =
     END BL_RV;
 
     ASSOCIATION BL_RV_Typ =
@@ -697,7 +697,7 @@ MODEL Nutzungsplanung_BE_V2_0 (de)
     !! WE_RV
     !! -----------------------------------------------
     CLASS WE_RV
-    EXTENDS BaseClassRV =
+    EXTENDS BaseClass_RV =
     END WE_RV;
 
     ASSOCIATION WE_RV_Typ =
@@ -741,7 +741,7 @@ MODEL Nutzungsplanung_BE_V2_0 (de)
     !! WF_RV
     !! -----------------------------------------------
     CLASS WF_RV
-    EXTENDS BaseClassRV =
+    EXTENDS BaseClass_RV =
     END WF_RV;
 
     ASSOCIATION WF_RV_Typ =
