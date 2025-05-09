@@ -16,6 +16,8 @@ Datenmodell für die Nutzungsplanung im Kanton Bern
   NZ    : Nutzungszone
   BK    : Bauklasse
   IN    : Innere Nutzung
+  IZ    : Innere Nutzung Nutzungszone
+  IK    : Innere Nutzung Bauklasse
   SN    : Überlagernde Sondernutzungsplanung
   UE    : Weitere Überlagerungen
   ES    : Lärmempfindlichkeitsstufen
@@ -396,6 +398,72 @@ MODEL Nutzungsplanung_BE_V2_0 (de)
       Typ -- {1} IN_Typ;
       IN_Flaeche -- {0..*} IN_Flaeche;
     END IN_Flaeche_Typ;
+
+    !! ***********************
+    !! IZ = Innere Nutzung Nutzungszone (von ZPP,UeO,USP,SBV)
+    !! ***********************
+
+    !! IZ_Typ
+    !! -----------------------------------------------
+    CLASS IZ_Typ
+    EXTENDS BaseClassType =
+      KantArt (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.IZ_KantArt_CatalogueReference;
+    END IZ_Typ;
+
+    !! IZ_RV
+    !! -----------------------------------------------
+    CLASS IZ_RV
+    EXTENDS BaseClass_RV =
+    END IZ_RV;
+
+    ASSOCIATION IZ_RV_Typ =
+      Typ -- {1} IZ_Typ;
+      RV -- {0..*} IZ_RV;
+    END IZ_RV_Typ;
+
+    !! IZ_Flaeche (AREA)
+    !! -----------------------------------------------
+    CLASS IZ_Flaeche
+    EXTENDS BaseClassPolygon =
+    END IZ_Flaeche;
+
+    ASSOCIATION IZ_Flaeche_Typ =
+      Typ -- {1} IZ_Typ;
+      IZ_Flaeche -- {0..*} IZ_Flaeche;
+    END IZ_Flaeche_Typ;
+
+    !! ***********************
+    !! IK = Innere Nutzung Bauklasse (von ZPP,UeO,USP,SBV)
+    !! ***********************
+
+    !! IK_Typ
+    !! -----------------------------------------------
+    CLASS IK_Typ
+    EXTENDS BaseClassType =
+      KantArt (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.IK_KantArt_CatalogueReference;
+    END IK_Typ;
+
+    !! IK_RV
+    !! -----------------------------------------------
+    CLASS IK_RV
+    EXTENDS BaseClass_RV =
+    END IK_RV;
+
+    ASSOCIATION IK_RV_Typ =
+      Typ -- {1} IK_Typ;
+      RV -- {0..*} IK_RV;
+    END IK_RV_Typ;
+
+    !! IK_Flaeche (AREA)
+    !! -----------------------------------------------
+    CLASS IK_Flaeche
+    EXTENDS BaseClassPolygon =
+    END IK_Flaeche;
+
+    ASSOCIATION IK_Flaeche_Typ =
+      Typ -- {1} IK_Typ;
+      IK_Flaeche -- {0..*} IK_Flaeche;
+    END IK_Flaeche_Typ;
 
     !! ***********************
     !! SN = Überlagernde Sondernutzungsplanung
