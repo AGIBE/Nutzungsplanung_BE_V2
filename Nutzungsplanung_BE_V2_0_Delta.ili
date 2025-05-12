@@ -672,6 +672,94 @@ MODEL Nutzungsplanung_BE_V2_0_Delta
     END IN_Flaeche_RV_Polygon;
 
     !! ***********************
+    !! IZ = Innere Nutzung Nutzungszone (von ZPP,UeO,USP,SBV)
+    !! ***********************
+
+    !! IZ_Typ
+    !! -----------------------------------------------
+    CLASS IZ_Typ
+    EXTENDS BaseClassType =
+    END IZ_Typ;
+
+    CLASS IZ_RV
+    EXTENDS BaseClass_RV =
+    END IZ_RV;
+
+    ASSOCIATION IZ_RV_Typ =
+      Typ -- {1} IZ_Typ;
+      RV -- {0..*} IZ_RV;
+    END IZ_RV_Typ;
+
+    !! IZ_Flaeche (AREA)
+    !! -----------------------------------------------
+    CLASS IZ_Flaeche
+    EXTENDS BaseClassPolygon =
+    END IZ_Flaeche;
+
+    ASSOCIATION IZ_Flaeche_Typ_OldValue =
+      Typ_OldValue -- {0..1} IZ_Typ;
+      IZ_Flaeche_OldValue -- {0..*} IZ_Flaeche;
+    END IZ_Flaeche_Typ_OldValue;
+
+    ASSOCIATION IZ_Flaeche_Typ_NewValue =
+      Typ_NewValue -- {0..1} IZ_Typ;
+      IZ_Flaeche_NewValue -- {0..*} IZ_Flaeche;
+    END IZ_Flaeche_Typ_NewValue;
+
+    CLASS IZ_Flaeche_RV
+    EXTENDS BaseClassPolygon_RV =
+    END IZ_Flaeche_RV;
+
+    ASSOCIATION IZ_Flaeche_RV_Polygon =
+      Polygon -- {1} IZ_Flaeche;
+      RV -- {0..*} IZ_Flaeche_RV;
+    END IZ_Flaeche_RV_Polygon;
+
+    !! ***********************
+    !! IK = Innere Nutzung Bauklasse (von ZPP,UeO,USP,SBV)
+    !! ***********************
+
+    !! IK_Typ
+    !! -----------------------------------------------
+    CLASS IK_Typ
+    EXTENDS BaseClassType =
+    END IK_Typ;
+
+    CLASS IK_RV
+    EXTENDS BaseClass_RV =
+    END IK_RV;
+
+    ASSOCIATION IK_RV_Typ =
+      Typ -- {1} IK_Typ;
+      RV -- {0..*} IK_RV;
+    END IK_RV_Typ;
+
+    !! IK_Flaeche (AREA)
+    !! -----------------------------------------------
+    CLASS IK_Flaeche
+    EXTENDS BaseClassPolygon =
+    END IK_Flaeche;
+
+    ASSOCIATION IK_Flaeche_Typ_OldValue =
+      Typ_OldValue -- {0..1} IK_Typ;
+      IK_Flaeche_OldValue -- {0..*} IK_Flaeche;
+    END IK_Flaeche_Typ_OldValue;
+
+    ASSOCIATION IK_Flaeche_Typ_NewValue =
+      Typ_NewValue -- {0..1} IK_Typ;
+      IK_Flaeche_NewValue -- {0..*} IK_Flaeche;
+    END IK_Flaeche_Typ_NewValue;
+
+    CLASS IK_Flaeche_RV
+    EXTENDS BaseClassPolygon_RV =
+    END IK_Flaeche_RV;
+
+    ASSOCIATION IK_Flaeche_RV_Polygon =
+      Polygon -- {1} IK_Flaeche;
+      RV -- {0..*} IK_Flaeche_RV;
+    END IK_Flaeche_RV_Polygon;
+
+    !! ***********************
     !! SN = Überlagernde Sondernutzungsplanung
     !! ***********************
 
