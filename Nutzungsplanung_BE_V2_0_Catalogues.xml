@@ -6,7 +6,7 @@
 
   <HEADERSECTION SENDER="ili2fme-7.2.0-ed9cf94b1802a8ccbeaf3b77914108916795fd42" VERSION="2.3">
     <MODELS>
-      <MODEL NAME="Nutzungsplanung_BE_V2_0_Catalogues" VERSION="2025-05-06" URI="http://models.geo.be.ch/Grundlagen_und_Planung/Raumplanung_Grundstueckskataster/"></MODEL>
+      <MODEL NAME="Nutzungsplanung_BE_V2_0_Catalogues" VERSION="2025-05-12" URI="http://models.geo.be.ch/Grundlagen_und_Planung/Raumplanung_Grundstueckskataster/"></MODEL>
     </MODELS>
   </HEADERSECTION>
   <DATASECTION>
