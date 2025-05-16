@@ -13,6 +13,8 @@ Teilmodell für die XML-Kataloge                                                
   NZ    : Nutzungszone                                                            ZA    : Zones d'affectation 
   BK    : Bauklasse                                                               CC    : Classe de construction
   IN    : Innere Nutzung                                                          UI    : Utilisation intérieure
+  IZ    : Innere Nutzung Nutzungszone                                             UA    : Utilisation intérieure des zones d'affectation
+  IK    : Innere Nutzung Bauklasse                                                UC    : Utilisation intérieure des classes de construction
   SN    : Überlagernde Sondernutzungsplanung                                      AS    : Affectation spéciale
   UE    : Weitere Überlagerungen                                                  SU    : Autres Superpositions 
   ES    : Lärmempfindlichkeitsstufen                                              DS    : Degrés de sensibilité au bruit
@@ -29,7 +31,7 @@ Teilmodell für die XML-Kataloge                                                
 !!@ furtherInformation=https://www.raumplanung.dij.be.ch/de/start/eplan.html
 MODEL Nutzungsplanung_BE_V2_0_Catalogues
   AT "http://models.geo.be.ch/Grundlagen_und_Planung/Raumplanung_Grundstueckskataster/"
-  VERSION "2025-05-06" =
+  VERSION "2025-05-12" =
 
   IMPORTS CatalogueObjects_V1,LocalisationCH_V1;
 
@@ -160,6 +162,30 @@ MODEL Nutzungsplanung_BE_V2_0_Catalogues
     EXTENDS Typ_CatalogueReference =
       Reference (EXTENDED) : MANDATORY REFERENCE TO (EXTERNAL) IN_KantArt;
     END IN_KantArt_CatalogueReference;
+
+    !! IZ_KantArt                                                                !! UA_GenreCant
+    !! --------------------                                                      !! ------------------------
+    CLASS IZ_KantArt
+    EXTENDS BaseClassCatalog =
+      UNIQUE ID;
+    END IZ_KantArt;
+
+    STRUCTURE IZ_KantArt_CatalogueReference
+    EXTENDS Typ_CatalogueReference =
+      Reference (EXTENDED) : MANDATORY REFERENCE TO (EXTERNAL) IZ_KantArt;
+    END IZ_KantArt_CatalogueReference;
+
+    !! IK_KantArt                                                                !! UC_GenreCant
+    !! --------------------                                                      !! ------------------------
+    CLASS IK_KantArt
+    EXTENDS BaseClassCatalog =
+      UNIQUE ID;
+    END IK_KantArt;
+
+    STRUCTURE IK_KantArt_CatalogueReference
+    EXTENDS Typ_CatalogueReference =
+      Reference (EXTENDED) : MANDATORY REFERENCE TO (EXTERNAL) IK_KantArt;
+    END IK_KantArt_CatalogueReference;
 
     !! SN_KantArt                                                                !! PS_GenreCant
     !! --------------------                                                      !! ------------------------

@@ -4,7 +4,7 @@
 <TRANSFER xmlns="http://www.interlis.ch/INTERLIS2.3">
     <HEADERSECTION SENDER="AGR Kanton Bern" VERSION="2.3">
         <MODELS>
-            <MODEL NAME="Nutzungsplanung_BE_V2_0" VERSION="2025-05-12" URI="http://models.geo.be.ch/Grundlagen_und_Planung/Raumplanung_Grundstueckskataster/"/>
+            <MODEL NAME="Nutzungsplanung_BE_V2_0" VERSION="2025-04-10" URI="http://models.geo.be.ch/Grundlagen_und_Planung/Raumplanung_Grundstueckskataster/"/>
         </MODELS>
     </HEADERSECTION>
 	<DATASECTION>
@@ -19,6 +19,12 @@
 				<Geschaeft_Titel>Einführung ePlan</Geschaeft_Titel>
 				<Geschaeft_ErstelltAm>2026-01-01</Geschaeft_ErstelltAm>
 				<Ortsplanungsrevision>false</Ortsplanungsrevision>
+                <Zusatz_Attribute>
+					<Nutzungsplanung_BE_V2_0.Nutzungsplanung.CustomAttribute>
+						<AttributeName>Planungsbüro</AttributeName>
+						<AttributeValue>MusterPlanAG</AttributeValue>
+					</Nutzungsplanung_BE_V2_0.Nutzungsplanung.CustomAttribute>
+				</Zusatz_Attribute>
 			</Nutzungsplanung_BE_V2_0.Nutzungsplanung.AD_Planungsgeschaeft>
 			<Nutzungsplanung_BE_V2_0.Nutzungsplanung.AD_Planungsgeschaeft TID="c230dac5-2372-40c6-aaf1-2efef15a3944">
 				<Geschaeft_Nummer>301_2026_002</Geschaeft_Nummer>
@@ -91,6 +97,12 @@
 			<Nutzungsplanung_BE_V2_0.Nutzungsplanung.AD_Geoservice TID="b4ee57d1-db2c-4fe8-888f-d5d1968c39a4">
 				<Geoservice_Name>Kantonale Richtpläne (WMS)</Geoservice_Name>
 				<Geoservice_URL>https://www.geoservice.apps.be.ch/geoservice3/services/a42geo/of_planningcadastre03_de_ms_wms/MapServer/WMSServer?</Geoservice_URL>
+                <Zusatz_Attribute>
+					<Nutzungsplanung_BE_V2_0.Nutzungsplanung.CustomAttribute>
+						<AttributeName>Verwendungszweck</AttributeName>
+						<AttributeValue>RegioGIS</AttributeValue>
+					</Nutzungsplanung_BE_V2_0.Nutzungsplanung.CustomAttribute>
+				</Zusatz_Attribute>
 			</Nutzungsplanung_BE_V2_0.Nutzungsplanung.AD_Geoservice>
 			<Nutzungsplanung_BE_V2_0.Nutzungsplanung.AD_Amt TID="ac16fb03-a846-4c13-b519-fe1e1e3c28c2">
 				<Name>Gemeinde Muster an der Aare</Name>
@@ -99,7 +111,7 @@
 				<Zusatz_Attribute>
 					<Nutzungsplanung_BE_V2_0.Nutzungsplanung.CustomAttribute>
 						<AttributeName>Adresse</AttributeName>
-						<AttributeValue>Musterweg 123</AttributeValue>
+						<AttributeValue>Musterweg 1234</AttributeValue>
 					</Nutzungsplanung_BE_V2_0.Nutzungsplanung.CustomAttribute>
 					<Nutzungsplanung_BE_V2_0.Nutzungsplanung.CustomAttribute>
 						<AttributeName>Telefonnummer</AttributeName>
@@ -113,7 +125,7 @@
 				<AmtImWeb>https://www.be.ch/awn</AmtImWeb>
 			</Nutzungsplanung_BE_V2_0.Nutzungsplanung.AD_Amt>
 			<Nutzungsplanung_BE_V2_0.Nutzungsplanung.DO_Dokument TID="69471826-1027-46cf-a7ca-12f64d1f1d81">
-				<Titel>Baureglement</Titel>
+				<Titel>Baureglement (Test: Neuer Titel)</Titel>
 				<Abkuerzung>BauR</Abkuerzung>
 				<PDF_Dateiname>Baureglement.pdf</PDF_Dateiname>
 				<Dokumentart>
@@ -126,6 +138,12 @@
 						<Reference REF="dokumentverbindlichkeit.1"/>
 					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Dokumentverbindlichkeit_CatalogueReference>
 				</Dokumentverbindlichkeit>
+                <Zusatz_Attribute>
+					<Nutzungsplanung_BE_V2_0.Nutzungsplanung.CustomAttribute>
+						<AttributeName>Autor</AttributeName>
+						<AttributeValue>Max Muster</AttributeValue>
+					</Nutzungsplanung_BE_V2_0.Nutzungsplanung.CustomAttribute>
+				</Zusatz_Attribute>
 				<Planungsgeschaeft REF="334a102b-f56f-4a22-90cf-8cfcf336ca30"/>
 				<ZustaendigeStelle REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
 			</Nutzungsplanung_BE_V2_0.Nutzungsplanung.DO_Dokument>
@@ -143,6 +161,12 @@
 						<Reference REF="dokumentverbindlichkeit.1"/>
 					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Dokumentverbindlichkeit_CatalogueReference>
 				</Dokumentverbindlichkeit>
+                <Zusatz_Attribute>
+					<Nutzungsplanung_BE_V2_0.Nutzungsplanung.CustomAttribute>
+						<AttributeName>Autor</AttributeName>
+						<AttributeValue>Mia Muster</AttributeValue>
+					</Nutzungsplanung_BE_V2_0.Nutzungsplanung.CustomAttribute>
+				</Zusatz_Attribute>
 				<Planungsgeschaeft REF="334a102b-f56f-4a22-90cf-8cfcf336ca30"/>
 				<ZustaendigeStelle REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
 			</Nutzungsplanung_BE_V2_0.Nutzungsplanung.DO_Dokument>
@@ -179,10 +203,12 @@
 				<ZustaendigeStelle REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
 			</Nutzungsplanung_BE_V2_0.Nutzungsplanung.DO_Dokument>
 			<Nutzungsplanung_BE_V2_0.Nutzungsplanung.DO_WeitereDokumente TID="82349b0b-52f3-4fd8-9d93-1557edd9db03">
+                <KeineInhaltlicheAenderung>true</KeineInhaltlicheAenderung>
 				<Dokument REF="ab2927a9-35e4-4c91-9d97-136d646b1906"/>
 				<WeiteresDokument REF="5ef6e978-f78a-447b-8dab-d1e21c7a3c9a"/>
 			</Nutzungsplanung_BE_V2_0.Nutzungsplanung.DO_WeitereDokumente>
 			<Nutzungsplanung_BE_V2_0.Nutzungsplanung.DO_WeitereDokumente TID="9b23b484-5936-4b5b-a53b-9d97d95095c2">
+                <ArtikelNr>Art. 11</ArtikelNr>
 				<Dokument REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
 				<WeiteresDokument REF="6524629b-34c9-4384-bbdb-2578506a5250"/>
 			</Nutzungsplanung_BE_V2_0.Nutzungsplanung.DO_WeitereDokumente>
@@ -214,6 +240,14 @@
 				<ZustaendigeStelle REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
 			</Nutzungsplanung_BE_V2_0.Nutzungsplanung.GN_Typ>
 			<Nutzungsplanung_BE_V2_0.Nutzungsplanung.GN_RV TID="0e5c18c2-8c92-4664-91c8-89ec1feb0a85">
+                <ArtikelNr>Art. 12</ArtikelNr>
+                <KeineInhaltlicheAenderung>false</KeineInhaltlicheAenderung>
+                <Zusatz_Attribute>
+					<Nutzungsplanung_BE_V2_0.Nutzungsplanung.CustomAttribute>
+						<AttributeName>Bemerkung</AttributeName>
+						<AttributeValue>Anhang 2 enthält zusätzliche Informationen.</AttributeValue>
+					</Nutzungsplanung_BE_V2_0.Nutzungsplanung.CustomAttribute>
+				</Zusatz_Attribute>
 				<Vorschrift REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
 				<Typ REF="66a93d45-bc8f-45a4-a281-7a5ce3b2de86"/>
 			</Nutzungsplanung_BE_V2_0.Nutzungsplanung.GN_RV>
@@ -267,9 +301,16 @@
 						<Reference REF="verbindlichkeit.1"/>
 					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
 				</Verbindlichkeit>
+                <Zusatz_Attribute>
+					<Nutzungsplanung_BE_V2_0.Nutzungsplanung.CustomAttribute>
+						<AttributeName>Nummer</AttributeName>
+						<AttributeValue>X</AttributeValue>
+					</Nutzungsplanung_BE_V2_0.Nutzungsplanung.CustomAttribute>
+				</Zusatz_Attribute>
 				<ZustaendigeStelle REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
 			</Nutzungsplanung_BE_V2_0.Nutzungsplanung.GN_Typ>
 			<Nutzungsplanung_BE_V2_0.Nutzungsplanung.GN_RV TID="c554278b-4c06-49c0-927f-4a4d1427ec49">
+                <KeineInhaltlicheAenderung>false</KeineInhaltlicheAenderung>
 				<Vorschrift REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
 				<Typ REF="3cb8fdfa-0bdd-4d5c-94bc-b62234a782f7"/>
 			</Nutzungsplanung_BE_V2_0.Nutzungsplanung.GN_RV>
@@ -303,6 +344,12 @@
 						</BOUNDARY>
 					</SURFACE>
 				</Geometrie>
+                <Zusatz_Attribute>
+					<Nutzungsplanung_BE_V2_0.Nutzungsplanung.CustomAttribute>
+						<AttributeName>Label-Koordinate</AttributeName>
+						<AttributeValue>123,456</AttributeValue>
+					</Nutzungsplanung_BE_V2_0.Nutzungsplanung.CustomAttribute>
+				</Zusatz_Attribute>
 				<Typ REF="3cb8fdfa-0bdd-4d5c-94bc-b62234a782f7"/>
 			</Nutzungsplanung_BE_V2_0.Nutzungsplanung.GN_Flaeche>
 			<Nutzungsplanung_BE_V2_0.Nutzungsplanung.GN_Typ TID="a925bec1-6368-43e4-a404-44a9fdf83e9a">
@@ -327,6 +374,7 @@
 				<ZustaendigeStelle REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
 			</Nutzungsplanung_BE_V2_0.Nutzungsplanung.GN_Typ>
 			<Nutzungsplanung_BE_V2_0.Nutzungsplanung.GN_RV TID="22bc089a-2058-42eb-8cc6-1455085f7a88">
+                <KeineInhaltlicheAenderung>true</KeineInhaltlicheAenderung>
 				<Vorschrift REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
 				<Typ REF="a925bec1-6368-43e4-a404-44a9fdf83e9a"/>
 			</Nutzungsplanung_BE_V2_0.Nutzungsplanung.GN_RV>

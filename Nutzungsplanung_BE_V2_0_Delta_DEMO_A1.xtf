@@ -4,7 +4,7 @@
 <TRANSFER xmlns="http://www.interlis.ch/INTERLIS2.3">
     <HEADERSECTION SENDER="AGR Kanton Bern" VERSION="2.3">
         <MODELS>
-            <MODEL NAME="Nutzungsplanung_BE_V2_0" VERSION="2025-05-12" URI="http://models.geo.be.ch/Grundlagen_und_Planung/Raumplanung_Grundstueckskataster/"/>
+            <MODEL NAME="Nutzungsplanung_BE_V2_0" VERSION="2025-04-10" URI="http://models.geo.be.ch/Grundlagen_und_Planung/Raumplanung_Grundstueckskataster/"/>
         </MODELS>
     </HEADERSECTION>
 	<DATASECTION>
@@ -12,24 +12,24 @@
 			<Nutzungsplanung_BE_V2_0.Nutzungsplanung.AD_Datensatz TID="9a717257-d148-4277-aa1f-0df737711180">
 				<Planungsbehoerde>301</Planungsbehoerde>
 				<Sprache>de</Sprache>
-				<Aktives_Geschaeft REF="6440cc9e-789c-482e-9b8f-3926b11a0708"/>
+				<Aktives_Geschaeft REF="c230dac5-2372-40c6-aaf1-2efef15a3944"/>
 			</Nutzungsplanung_BE_V2_0.Nutzungsplanung.AD_Datensatz>
 			<Nutzungsplanung_BE_V2_0.Nutzungsplanung.AD_Planungsgeschaeft TID="334a102b-f56f-4a22-90cf-8cfcf336ca30">
 				<Geschaeft_Nummer>301_2026_001</Geschaeft_Nummer>
 				<Geschaeft_Titel>Einführung ePlan</Geschaeft_Titel>
 				<Geschaeft_ErstelltAm>2026-01-01</Geschaeft_ErstelltAm>
 				<Ortsplanungsrevision>false</Ortsplanungsrevision>
+                <Zusatz_Attribute>
+					<Nutzungsplanung_BE_V2_0.Nutzungsplanung.CustomAttribute>
+						<AttributeName>Planungsbüro</AttributeName>
+						<AttributeValue>MusterPlanAG</AttributeValue>
+					</Nutzungsplanung_BE_V2_0.Nutzungsplanung.CustomAttribute>
+				</Zusatz_Attribute>
 			</Nutzungsplanung_BE_V2_0.Nutzungsplanung.AD_Planungsgeschaeft>
 			<Nutzungsplanung_BE_V2_0.Nutzungsplanung.AD_Planungsgeschaeft TID="c230dac5-2372-40c6-aaf1-2efef15a3944">
 				<Geschaeft_Nummer>301_2026_002</Geschaeft_Nummer>
 				<Geschaeft_Titel>Änderung Baureglement</Geschaeft_Titel>
 				<Geschaeft_ErstelltAm>2026-07-01</Geschaeft_ErstelltAm>
-				<Ortsplanungsrevision>false</Ortsplanungsrevision>
-			</Nutzungsplanung_BE_V2_0.Nutzungsplanung.AD_Planungsgeschaeft>
-			<Nutzungsplanung_BE_V2_0.Nutzungsplanung.AD_Planungsgeschaeft TID="6440cc9e-789c-482e-9b8f-3926b11a0708">
-				<Geschaeft_Nummer>301_2027_001</Geschaeft_Nummer>
-				<Geschaeft_Titel>Neue Waldfeststellung</Geschaeft_Titel>
-				<Geschaeft_ErstelltAm>2027-02-01</Geschaeft_ErstelltAm>
 				<Ortsplanungsrevision>false</Ortsplanungsrevision>
 			</Nutzungsplanung_BE_V2_0.Nutzungsplanung.AD_Planungsgeschaeft>
 			<Nutzungsplanung_BE_V2_0.Nutzungsplanung.AD_Datenperimeter TID="ea9f95b2-3800-45ec-b81f-c7dbb94c5a7f">
@@ -126,6 +126,12 @@
 						<Reference REF="dokumentverbindlichkeit.1"/>
 					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Dokumentverbindlichkeit_CatalogueReference>
 				</Dokumentverbindlichkeit>
+                <Zusatz_Attribute>
+					<Nutzungsplanung_BE_V2_0.Nutzungsplanung.CustomAttribute>
+						<AttributeName>Autor</AttributeName>
+						<AttributeValue>Max Muster</AttributeValue>
+					</Nutzungsplanung_BE_V2_0.Nutzungsplanung.CustomAttribute>
+				</Zusatz_Attribute>
 				<Planungsgeschaeft REF="334a102b-f56f-4a22-90cf-8cfcf336ca30"/>
 				<ZustaendigeStelle REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
 			</Nutzungsplanung_BE_V2_0.Nutzungsplanung.DO_Dokument>
@@ -143,23 +149,12 @@
 						<Reference REF="dokumentverbindlichkeit.1"/>
 					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Dokumentverbindlichkeit_CatalogueReference>
 				</Dokumentverbindlichkeit>
-				<Planungsgeschaeft REF="334a102b-f56f-4a22-90cf-8cfcf336ca30"/>
-				<ZustaendigeStelle REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
-			</Nutzungsplanung_BE_V2_0.Nutzungsplanung.DO_Dokument>
-			<Nutzungsplanung_BE_V2_0.Nutzungsplanung.DO_Dokument TID="5ef6e978-f78a-447b-8dab-d1e21c7a3c9a">
-				<Titel>Überbauungsordnung 1 "Nord" (Plan)</Titel>
-				<Abkuerzung>UeP 1</Abkuerzung>
-				<PDF_Dateiname>UEO_1_Plan.pdf</PDF_Dateiname>
-				<Dokumentart>
-					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Dokumentart_CatalogueReference>
-						<Reference REF="dokumentart.2"/>
-					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Dokumentart_CatalogueReference>
-				</Dokumentart>
-				<Dokumentverbindlichkeit>
-					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Dokumentverbindlichkeit_CatalogueReference>
-						<Reference REF="dokumentverbindlichkeit.1"/>
-					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Dokumentverbindlichkeit_CatalogueReference>
-				</Dokumentverbindlichkeit>
+                <Zusatz_Attribute>
+					<Nutzungsplanung_BE_V2_0.Nutzungsplanung.CustomAttribute>
+						<AttributeName>Autor</AttributeName>
+						<AttributeValue>Mia Muster</AttributeValue>
+					</Nutzungsplanung_BE_V2_0.Nutzungsplanung.CustomAttribute>
+				</Zusatz_Attribute>
 				<Planungsgeschaeft REF="334a102b-f56f-4a22-90cf-8cfcf336ca30"/>
 				<ZustaendigeStelle REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
 			</Nutzungsplanung_BE_V2_0.Nutzungsplanung.DO_Dokument>
@@ -178,11 +173,24 @@
 				</Dokumentverbindlichkeit>
 				<ZustaendigeStelle REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
 			</Nutzungsplanung_BE_V2_0.Nutzungsplanung.DO_Dokument>
-			<Nutzungsplanung_BE_V2_0.Nutzungsplanung.DO_WeitereDokumente TID="82349b0b-52f3-4fd8-9d93-1557edd9db03">
-				<Dokument REF="ab2927a9-35e4-4c91-9d97-136d646b1906"/>
-				<WeiteresDokument REF="5ef6e978-f78a-447b-8dab-d1e21c7a3c9a"/>
-			</Nutzungsplanung_BE_V2_0.Nutzungsplanung.DO_WeitereDokumente>
+			<Nutzungsplanung_BE_V2_0.Nutzungsplanung.DO_Dokument TID="6524629b-34c9-4384-bbdb-2578506a5251">
+				<Titel>Testdokument (löschen)</Titel>
+				<PDF_Dateiname>Testdokument.pdf</PDF_Dateiname>
+				<Dokumentart>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Dokumentart_CatalogueReference>
+						<Reference REF="dokumentart.1"/>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Dokumentart_CatalogueReference>
+				</Dokumentart>
+				<Dokumentverbindlichkeit>
+					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Dokumentverbindlichkeit_CatalogueReference>
+						<Reference REF="dokumentverbindlichkeit.1"/>
+					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Dokumentverbindlichkeit_CatalogueReference>
+				</Dokumentverbindlichkeit>
+				<Planungsgeschaeft REF="334a102b-f56f-4a22-90cf-8cfcf336ca30"/>
+				<ZustaendigeStelle REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
+			</Nutzungsplanung_BE_V2_0.Nutzungsplanung.DO_Dokument>
 			<Nutzungsplanung_BE_V2_0.Nutzungsplanung.DO_WeitereDokumente TID="9b23b484-5936-4b5b-a53b-9d97d95095c2">
+                <ArtikelNr>Art. 11</ArtikelNr>
 				<Dokument REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
 				<WeiteresDokument REF="6524629b-34c9-4384-bbdb-2578506a5250"/>
 			</Nutzungsplanung_BE_V2_0.Nutzungsplanung.DO_WeitereDokumente>
@@ -190,6 +198,12 @@
 				<Titel>Baureglement - Änderung Nr. 1</Titel>
 				<Abkuerzung>BauR A1</Abkuerzung>
 				<PDF_Dateiname>Baureglement_A1.pdf</PDF_Dateiname>
+                <Zusatz_Attribute>
+					<Nutzungsplanung_BE_V2_0.Nutzungsplanung.CustomAttribute>
+						<AttributeName>Autor</AttributeName>
+						<AttributeValue>Max Muster</AttributeValue>
+					</Nutzungsplanung_BE_V2_0.Nutzungsplanung.CustomAttribute>
+				</Zusatz_Attribute>
 				<Erstversion REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
 				<Planungsgeschaeft REF="c230dac5-2372-40c6-aaf1-2efef15a3944"/>
 			</Nutzungsplanung_BE_V2_0.Nutzungsplanung.DO_DokumentRevision>
@@ -214,6 +228,14 @@
 				<ZustaendigeStelle REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
 			</Nutzungsplanung_BE_V2_0.Nutzungsplanung.GN_Typ>
 			<Nutzungsplanung_BE_V2_0.Nutzungsplanung.GN_RV TID="0e5c18c2-8c92-4664-91c8-89ec1feb0a85">
+                <ArtikelNr>Art. 12</ArtikelNr>
+                <KeineInhaltlicheAenderung>false</KeineInhaltlicheAenderung>
+                <Zusatz_Attribute>
+					<Nutzungsplanung_BE_V2_0.Nutzungsplanung.CustomAttribute>
+						<AttributeName>Bemerkung</AttributeName>
+						<AttributeValue>Anhang 2 enthält zusätzliche Informationen.</AttributeValue>
+					</Nutzungsplanung_BE_V2_0.Nutzungsplanung.CustomAttribute>
+				</Zusatz_Attribute>
 				<Vorschrift REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
 				<Typ REF="66a93d45-bc8f-45a4-a281-7a5ce3b2de86"/>
 			</Nutzungsplanung_BE_V2_0.Nutzungsplanung.GN_RV>
@@ -246,7 +268,7 @@
 						</BOUNDARY>
 					</SURFACE>
 				</Geometrie>
-				<Typ REF="66a93d45-bc8f-45a4-a281-7a5ce3b2de86"/>
+				<Typ REF="a925bec1-6368-43e4-a404-44a9fdf83e9a"/>
 			</Nutzungsplanung_BE_V2_0.Nutzungsplanung.GN_Flaeche>
 			<Nutzungsplanung_BE_V2_0.Nutzungsplanung.GN_Typ TID="3cb8fdfa-0bdd-4d5c-94bc-b62234a782f7">
 				<Bezeichnung>Zone für öffentliche Nutzung Nr. X</Bezeichnung>
@@ -267,14 +289,21 @@
 						<Reference REF="verbindlichkeit.1"/>
 					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
 				</Verbindlichkeit>
+                <Zusatz_Attribute>
+					<Nutzungsplanung_BE_V2_0.Nutzungsplanung.CustomAttribute>
+						<AttributeName>Nummer</AttributeName>
+						<AttributeValue>X</AttributeValue>
+					</Nutzungsplanung_BE_V2_0.Nutzungsplanung.CustomAttribute>
+				</Zusatz_Attribute>
 				<ZustaendigeStelle REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
 			</Nutzungsplanung_BE_V2_0.Nutzungsplanung.GN_Typ>
 			<Nutzungsplanung_BE_V2_0.Nutzungsplanung.GN_RV TID="c554278b-4c06-49c0-927f-4a4d1427ec49">
+                <KeineInhaltlicheAenderung>false</KeineInhaltlicheAenderung>
 				<Vorschrift REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
 				<Typ REF="3cb8fdfa-0bdd-4d5c-94bc-b62234a782f7"/>
 			</Nutzungsplanung_BE_V2_0.Nutzungsplanung.GN_RV>
 			<Nutzungsplanung_BE_V2_0.Nutzungsplanung.GN_Flaeche TID="bf3a09e8-15bf-43be-9cea-ba9297ae596e">
-				<Label>X</Label>
+				<Label>10</Label>
 				<Geometrie>
 					<SURFACE>
 						<BOUNDARY>
@@ -303,6 +332,12 @@
 						</BOUNDARY>
 					</SURFACE>
 				</Geometrie>
+                <Zusatz_Attribute>
+					<Nutzungsplanung_BE_V2_0.Nutzungsplanung.CustomAttribute>
+						<AttributeName>Label-Koordinate</AttributeName>
+						<AttributeValue>123,456</AttributeValue>
+					</Nutzungsplanung_BE_V2_0.Nutzungsplanung.CustomAttribute>
+				</Zusatz_Attribute>
 				<Typ REF="3cb8fdfa-0bdd-4d5c-94bc-b62234a782f7"/>
 			</Nutzungsplanung_BE_V2_0.Nutzungsplanung.GN_Flaeche>
 			<Nutzungsplanung_BE_V2_0.Nutzungsplanung.GN_Typ TID="a925bec1-6368-43e4-a404-44a9fdf83e9a">
@@ -433,7 +468,7 @@
 				</KantArt>
 				<Verbindlichkeit>
 					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
-						<Reference REF="verbindlichkeit.1"/>
+						<Reference REF="verbindlichkeit.3"/>
 					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
 				</Verbindlichkeit>
 				<ZustaendigeStelle REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
@@ -483,7 +518,7 @@
 				</Darstellungscode>
 				<KantArt>
 					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
-						<Reference REF="ue_kantart.201"/>
+						<Reference REF="ue_kantart.202"/>
 					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
 				</KantArt>
 				<Verbindlichkeit>
@@ -530,7 +565,7 @@
 				<Typ REF="6ca04d5f-42ce-4167-92ff-70236de5406e"/>
 			</Nutzungsplanung_BE_V2_0.Nutzungsplanung.UE_Flaeche>
 			<Nutzungsplanung_BE_V2_0.Nutzungsplanung.UE_Typ TID="91421931-72cb-4727-9e25-016f81640efe">
-				<Bezeichnung>Zone für öffentliche Nutzung Nr. X - Sektor B</Bezeichnung>
+				<Bezeichnung>Zone für öffentliche Nutzung Nr. X (Sektor B)</Bezeichnung>
 				<Abkuerzung>ZöN Xb</Abkuerzung>
 				<Darstellungscode>
 					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Darstellungscode_CatalogueReference>
@@ -1073,10 +1108,6 @@
 									<C2>1200000.0</C2>
 								</COORD>
 								<COORD>
-									<C1>2600010.0</C1>
-									<C2>1200010.0</C2>
-								</COORD>
-								<COORD>
 									<C1>2600000.0</C1>
 									<C2>1200010.0</C2>
 								</COORD>
@@ -1123,6 +1154,10 @@
 						<COORD>
 							<C1>2600010.0</C1>
 							<C2>1200010.0</C2>
+						</COORD>
+						<COORD>
+							<C1>2600020.0</C1>
+							<C2>1200020.0</C2>
 						</COORD>
 					</POLYLINE>
 				</Geometrie>
@@ -1205,6 +1240,10 @@
 				<Vorschrift REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
 				<Typ REF="e4f0db2f-a1d3-4f02-a00b-41761601197b"/>
 			</Nutzungsplanung_BE_V2_0.Nutzungsplanung.WE_RV>
+			<Nutzungsplanung_BE_V2_0.Nutzungsplanung.WE_RV TID="627dbc18-8cea-45b4-a1bb-ced36e325b8b">
+				<Vorschrift REF="6524629b-34c9-4384-bbdb-2578506a5251"/>
+				<Typ REF="e4f0db2f-a1d3-4f02-a00b-41761601197b"/>
+			</Nutzungsplanung_BE_V2_0.Nutzungsplanung.WE_RV>
 			<Nutzungsplanung_BE_V2_0.Nutzungsplanung.WE_Linie TID="fd4b75d2-44d0-418a-bacf-e7de6f7abc6f">
 				<Geometrie>
 					<POLYLINE>
@@ -1240,22 +1279,6 @@
 				</Verbindlichkeit>
 				<ZustaendigeStelle REF="82aab446-9dc3-40df-90d8-ccfa7d8aba96"/>
 			</Nutzungsplanung_BE_V2_0.Nutzungsplanung.WF_Typ>
-			<Nutzungsplanung_BE_V2_0.Nutzungsplanung.WF_Linie TID="f6e5d068-0077-4229-9ef3-d1d7043bd9af">
-				<Geometrie>
-					<POLYLINE>
-						<COORD>
-							<C1>2600000.0</C1>
-							<C2>1200020.0</C2>
-						</COORD>
-						<COORD>
-							<C1>2600010.0</C1>
-							<C2>1200030.0</C2>
-						</COORD>
-					</POLYLINE>
-				</Geometrie>
-				<Planungsgeschaeft REF="6440cc9e-789c-482e-9b8f-3926b11a0708"/>
-				<Typ REF="4ba78ae1-4d6c-41d4-b697-89c04ee2f588"/>
-			</Nutzungsplanung_BE_V2_0.Nutzungsplanung.WF_Linie>
 		</Nutzungsplanung_BE_V2_0.Nutzungsplanung>
 	</DATASECTION>
 </TRANSFER>

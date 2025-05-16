@@ -9,27 +9,29 @@ Modèle de données pour les plans d'affectation dans le canton de Berne
 
   Abréviations
   ------------
-  AD    : Administratif                                     AD    : Administratives
-  DO    : Documents                                         DO    : Dokumente
-  DJ    : Disposition juridique                             RV    : Rechtsvorschrift
-  AP    : Affectation primaire                              GN    : Grundnutzung
-  ZA    : Zones d'affectation                               NZ    : Nutzungszone
-  CC    : Classe de construction                            BK    : Bauklasse
-  UI    : Utilisation intérieure                            IN    : Innere Nutzung
-  AS    : Affectation spéciale superposée                   SN    : Überlagernde Sondernutzungsplanung
-  SU    : Autres Superpositions                             UE    : Weitere Überlagerungen  
-  DS    : Degrés de sensibilité au bruit                    ES    : Lärmempfindlichkeitsstufen
-  ZD    : Zones de danger                                   GG    : Gefahrengebiete
-  EE    : Espace réservé aux eaux                           GR    : Gewässerraum
-  NP    : Protection de la nature et du patrimoine          NH    : Natur- und Heimatschutz
-  AL    : Alignements                                       BL    : Baulinien
-  CH    : Chemins                                           WE    : Wege
-  CF    : Constatation de la nature forestière              WF    : Waldfeststellung
+  AD    : Administratif                                       AD    : Administratives
+  DO    : Documents                                           DO    : Dokumente
+  DJ    : Disposition juridique                               RV    : Rechtsvorschrift
+  AP    : Affectation primaire                                GN    : Grundnutzung
+  ZA    : Zones d'affectation                                 NZ    : Nutzungszone
+  CC    : Classe de construction                              BK    : Bauklasse
+  UI    : Utilisation intérieure                              IN    : Innere Nutzung
+  UA    : Utilisation intérieure des zones d'affectation      IZ    : Innere Nutzung Nutzungszone
+  UC    : Utilisation intérieure des classes de construction  IK    : Innere Nutzung Bauklasse
+  AS    : Affectation spéciale superposée                     SN    : Überlagernde Sondernutzungsplanung
+  SU    : Autres Superpositions                               UE    : Weitere Überlagerungen  
+  DS    : Degrés de sensibilité au bruit                      ES    : Lärmempfindlichkeitsstufen
+  ZD    : Zones de danger                                     GG    : Gefahrengebiete
+  EE    : Espace réservé aux eaux                             GR    : Gewässerraum
+  NP    : Protection de la nature et du patrimoine            NH    : Natur- und Heimatschutz
+  AL    : Alignements                                         BL    : Baulinien
+  CH    : Chemins                                             WE    : Wege
+  CF    : Constatation de la nature forestière                WF    : Waldfeststellung
 
   Version    | Modification
   ------------------------------------------------------------------------------
   2022-04-01 | Version 1.0
-  2025-05-06 | Version 2.0
+  2025-05-12 | Version 2.0
 
 */
 
@@ -37,8 +39,8 @@ Modèle de données pour les plans d'affectation dans le canton de Berne
 !!@ furtherInformation=https://www.raumplanung.dij.be.ch/de/start/eplan.html
 MODEL PlansDAffectation_BE_V2_0 (fr)
   AT "http://models.geo.be.ch/Grundlagen_und_Planung/Raumplanung_Grundstueckskataster/"
-  VERSION "2025-05-06"
-  TRANSLATION OF Nutzungsplanung_BE_V2_0 ["2025-05-06"] =
+  VERSION "2025-05-12"
+  TRANSLATION OF Nutzungsplanung_BE_V2_0 ["2025-05-12"] =
 
   IMPORTS GeometryCHLV95_V1;
   IMPORTS CatalogueObjects_V1, Nutzungsplanung_BE_V2_0_Catalogues;
@@ -397,6 +399,72 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
       Type -- {1} UI_Type;
       UI_Surface -- {0..*} UI_Surface;
     END UI_Surface_Type;
+
+    !! *************************
+    !! UA = Utilisation intérieure des zones d'affectation (de ZPO,PQ,PPR,PS)
+    !! *************************
+
+    !! UA_Type
+    !! --------------------------------------------------------------
+    CLASS UA_Type
+    EXTENDS BaseClassType =
+      GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.IZ_KantArt_CatalogueReference;
+    END UA_Type;
+
+    !! UA_RV
+    !! --------------------------------------------------------------
+    CLASS UA_DJ
+    EXTENDS BaseClass_DJ =
+    END UA_DJ;
+
+    ASSOCIATION UA_DJ_Type =
+      Type -- {1} UA_Type;
+      DJ -- {0..*} UA_DJ;
+    END UA_DJ_Type;
+
+    !! UA_Surface (AREA)
+    !! --------------------------------------------------------------
+    CLASS UA_Surface
+    EXTENDS BaseClassPolygon =
+    END UA_Surface;
+
+    ASSOCIATION UA_Surface_Type =
+      Type -- {1} UA_Type;
+      UA_Surface -- {0..*} UA_Surface;
+    END UA_Surface_Type;
+
+   !! *************************
+    !! UI = Utilisation intérieure des classes de construction (de ZPO,PQ,PPR,PS)
+    !! *************************
+
+    !! UC_Type
+    !! --------------------------------------------------------------
+    CLASS UC_Type
+    EXTENDS BaseClassType =
+      GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.IK_KantArt_CatalogueReference;
+    END UC_Type;
+
+    !! UC_RV
+    !! --------------------------------------------------------------
+    CLASS UC_DJ
+    EXTENDS BaseClass_DJ =
+    END UC_DJ;
+
+    ASSOCIATION UC_DJ_Type =
+      Type -- {1} UC_Type;
+      DJ -- {0..*} UC_DJ;
+    END UC_DJ_Type;
+
+    !! UC_Surface (AREA)
+    !! --------------------------------------------------------------
+    CLASS UC_Surface
+    EXTENDS BaseClassPolygon =
+    END UC_Surface;
+
+    ASSOCIATION UC_Surface_Type =
+      Type -- {1} UC_Type;
+      UC_Surface -- {0..*} UC_Surface;
+    END UC_Surface_Type;
 
     !! *************************
     !! AS = Affectation spéciale superposée
