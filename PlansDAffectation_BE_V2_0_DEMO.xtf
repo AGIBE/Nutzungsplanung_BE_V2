@@ -180,18 +180,18 @@
 			</PlansDAffectation_BE_V2_0.PlansDAffectation.DO_Document>
 			<PlansDAffectation_BE_V2_0.PlansDAffectation.DO_AutresDocuments TID="82349b0b-52f3-4fd8-9d93-1557edd9db03">
 				<Document REF="ab2927a9-35e4-4c91-9d97-136d646b1906"/>
-				<AutreDocument REF="5ef6e978-f78a-447b-8dab-d1e21c7a3c9a"/>
+				<DocumentSupplementaire REF="5ef6e978-f78a-447b-8dab-d1e21c7a3c9a"/>
 			</PlansDAffectation_BE_V2_0.PlansDAffectation.DO_AutresDocuments>
 			<PlansDAffectation_BE_V2_0.PlansDAffectation.DO_AutresDocuments TID="9b23b484-5936-4b5b-a53b-9d97d95095c2">
 				<Document REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
-				<AutreDocument REF="6524629b-34c9-4384-bbdb-2578506a5250"/>
+				<DocumentSupplementaire REF="6524629b-34c9-4384-bbdb-2578506a5250"/>
 			</PlansDAffectation_BE_V2_0.PlansDAffectation.DO_AutresDocuments>
 			<PlansDAffectation_BE_V2_0.PlansDAffectation.DO_DocumentRevision TID="84e6d1c4-2651-4f5d-8352-7d85b3272d89">
 				<Titre>Baureglement - Änderung Nr. 1</Titre>
 				<Abreviation>BauR A1</Abreviation>
 				<Nom_du_fichier_PDF>Baureglement_A1.pdf</Nom_du_fichier_PDF>
+				<DocumentInitiale REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
 				<Projet_d_amenagement REF="c230dac5-2372-40c6-aaf1-2efef15a3944"/>
-				<VersionInitiale REF="69471826-1027-46cf-a7ca-12f64d1f1d81"/>
 			</PlansDAffectation_BE_V2_0.PlansDAffectation.DO_DocumentRevision>
 			<PlansDAffectation_BE_V2_0.PlansDAffectation.AP_Type TID="66a93d45-bc8f-45a4-a281-7a5ce3b2de86">
 				<Designation>Landwirtschaftszone</Designation>
