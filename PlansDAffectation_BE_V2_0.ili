@@ -31,7 +31,7 @@ Modèle de données pour les plans d'affectation dans le canton de Berne
   Version    | Modification
   ------------------------------------------------------------------------------
   2022-04-01 | Version 1.0
-  2025-05-12 | Version 2.0
+  2025-12-15 | Version 2.0
 
 */
 
@@ -39,8 +39,8 @@ Modèle de données pour les plans d'affectation dans le canton de Berne
 !!@ furtherInformation=https://www.raumplanung.dij.be.ch/de/start/eplan.html
 MODEL PlansDAffectation_BE_V2_0 (fr)
   AT "http://models.geo.be.ch/Grundlagen_und_Planung/Raumplanung_Grundstueckskataster/"
-  VERSION "2025-05-12"
-  TRANSLATION OF Nutzungsplanung_BE_V2_0 ["2025-05-12"] =
+  VERSION "2025-12-15"
+  TRANSLATION OF Nutzungsplanung_BE_V2_0 ["2025-12-15"] =
 
   IMPORTS GeometryCHLV95_V1;
   IMPORTS CatalogueObjects_V1, Nutzungsplanung_BE_V2_0_Catalogues;
@@ -85,12 +85,9 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
     UNIQUE Projet_Numero;
     END AD_Projet_d_amenagement;
 
-    !! Jeu de données
+    !! Jeu de données (projet d'aménagement actif)
     !! -----------------------------------------------
-    CLASS AD_Jeu_de_donnes = !! Doit contenir exactement 1 entrée.
-      Autorite_de_planification : MANDATORY 101..999;
-      Langage : MANDATORY (de,fr,de_fr);
-      Supplement_Attributs : BAG {0..*} OF CustomAttribute;
+    CLASS AD_Jeu_de_donnes =
     END AD_Jeu_de_donnes;
 
     ASSOCIATION JeuDeDonnes_ProjetDAmenagement =
@@ -118,9 +115,12 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
     !! Office (Service compétent)
     !! --------------------------------------------------------------
     CLASS AD_Office =
+      Autorite_de_planification : MANDATORY BOOLEAN;
       Nom : MANDATORY TEXT*200;
+      No_organisation : 101..999;
       IDE : TEXT*15;
       GuichetEnLigne : URI;
+      Langue_officielle : (de,fr,de_fr);
       Supplement_Attributs : BAG {0..*} OF CustomAttribute;
     END AD_Office;
 
@@ -243,21 +243,6 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
       Supplement_Attributs : BAG {0..*} OF CustomAttribute;
     END BaseClassPolygon;
 
-    ASSOCIATION BaseClassPoint_Projet =
-      Projet_d_amenagement -- {0..1} AD_Projet_d_amenagement;
-      BaseClassPoint -- {0..*} BaseClassPoint;
-    END BaseClassPoint_Projet;
-
-    ASSOCIATION BaseClassPolyline_Projet =
-      Projet_d_amenagement -- {0..1} AD_Projet_d_amenagement;
-      BaseClassPolyline -- {0..*} BaseClassPolyline;
-    END BaseClassPolyline_Projet;
-
-    ASSOCIATION BaseClassPolygon_Projet =
-      Projet_d_amenagement -- {0..1} AD_Projet_d_amenagement;
-      BaseClassPolygon -- {0..*} BaseClassPolygon;
-    END BaseClassPolygon_Projet;
-
     !! *************************
     !! AP = Affectation primaire
     !! *************************
@@ -269,7 +254,7 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
       GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.GN_KantArt_CatalogueReference;
     END AP_Type;
 
-    !! AP_RV
+    !! AP_DJ
     !! --------------------------------------------------------------
     CLASS AP_DJ
     EXTENDS BaseClass_DJ =
@@ -302,7 +287,7 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
       GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.NZ_KantArt_CatalogueReference;
     END ZA_Type;
 
-    !! ZA_RV
+    !! ZA_DJ
     !! --------------------------------------------------------------
     CLASS ZA_DJ
     EXTENDS BaseClass_DJ =
@@ -335,12 +320,7 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
       GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.BK_KantArt_CatalogueReference;
     END CC_Type;
 
-    ASSOCIATION CC_ZA_Type =
-      Ref_ZA_Type -- {0..1} ZA_Type; !! Attribut clé pour la fusion de ZA et CC
-      CC_Type -- {0..*} CC_Type;
-    END CC_ZA_Type;
-
-    !! CC_RV
+    !! CC_DJ
     !! --------------------------------------------------------------
     CLASS CC_DJ
     EXTENDS BaseClass_DJ =
@@ -362,11 +342,6 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
       CC_Surface -- {0..*} CC_Surface;
     END CC_Surface_Type;
 
-    ASSOCIATION CC_ZA_Surface =
-      Ref_ZA_Surface -- {0..1} ZA_Surface; !! Attribut clé pour la fusion de ZA et CC
-      CC_Surface -- {0..*} CC_Surface;
-    END CC_ZA_Surface;
-
     !! *************************
     !! UI = Utilisation intérieure (de ZPO,PQ,PPR,PS)
     !! *************************
@@ -378,7 +353,7 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
       GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.IN_KantArt_CatalogueReference;
     END UI_Type;
 
-    !! UI_RV
+    !! UI_DJ
     !! --------------------------------------------------------------
     CLASS UI_DJ
     EXTENDS BaseClass_DJ =
@@ -411,7 +386,7 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
       GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.IZ_KantArt_CatalogueReference;
     END UA_Type;
 
-    !! UA_RV
+    !! UA_DJ
     !! --------------------------------------------------------------
     CLASS UA_DJ
     EXTENDS BaseClass_DJ =
@@ -444,7 +419,7 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
       GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.IK_KantArt_CatalogueReference;
     END UC_Type;
 
-    !! UC_RV
+    !! UC_DJ
     !! --------------------------------------------------------------
     CLASS UC_DJ
     EXTENDS BaseClass_DJ =
@@ -477,7 +452,7 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
       GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.SN_KantArt_CatalogueReference;
     END AS_Type;
 
-    !! AS_RV
+    !! AS_DJ
     !! --------------------------------------------------------------
     CLASS AS_DJ
     EXTENDS BaseClass_DJ =
@@ -510,7 +485,7 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
       GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.UE_KantArt_CatalogueReference;
     END SU_Type;
 
-    !! SU_RV
+    !! SU_DJ
     !! --------------------------------------------------------------
     CLASS SU_DJ
     EXTENDS BaseClass_DJ =
@@ -565,7 +540,7 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
       GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.ES_KantArt_CatalogueReference;
     END DS_Type;
 
-    !! DS_RV
+    !! DS_DJ
     !! --------------------------------------------------------------
     CLASS DS_DJ
     EXTENDS BaseClass_DJ =
@@ -598,7 +573,7 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
       GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.GG_KantArt_CatalogueReference;
     END ZD_Type;
 
-    !! ZD_RV
+    !! ZD_DJ
     !! --------------------------------------------------------------
     CLASS ZD_DJ
     EXTENDS BaseClass_DJ =
@@ -631,7 +606,7 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
       GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.GR_KantArt_CatalogueReference;
     END EE_Type;
 
-    !! EE_RV
+    !! EE_DJ
     !! --------------------------------------------------------------
     CLASS EE_DJ
     EXTENDS BaseClass_DJ =
@@ -664,7 +639,7 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
       GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.NH_KantArt_CatalogueReference;
     END NP_Type;
 
-    !! NP_RV
+    !! NP_DJ
     !! --------------------------------------------------------------
     CLASS NP_DJ
     EXTENDS BaseClass_DJ =
@@ -719,7 +694,7 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
       GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.BL_KantArt_CatalogueReference;
     END AL_Type;
 
-    !! AL_RV
+    !! AL_DJ
     !! --------------------------------------------------------------
     CLASS AL_DJ
     EXTENDS BaseClass_DJ =
@@ -763,7 +738,7 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
       GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.WE_KantArt_CatalogueReference;
     END CH_Type;
 
-    !! CH_RV
+    !! CH_DJ
     !! --------------------------------------------------------------
     CLASS CH_DJ
     EXTENDS BaseClass_DJ =
@@ -807,7 +782,7 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
       GenreCant (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.WF_KantArt_CatalogueReference;
     END CF_Type;
 
-    !! CF_RV
+    !! CF_DJ
     !! --------------------------------------------------------------
     CLASS CF_DJ
     EXTENDS BaseClass_DJ =
@@ -823,6 +798,11 @@ MODEL PlansDAffectation_BE_V2_0 (fr)
     CLASS CF_Ligne
     EXTENDS BaseClassPolyline =
     END CF_Ligne;
+
+    ASSOCIATION CF_Ligne_Projet =
+      Projet_d_amenagement -- {0..1} AD_Projet_d_amenagement;
+      CF_Ligne -- {0..*} CF_Ligne;
+    END CF_Ligne_Projet;
 
     ASSOCIATION CF_Ligne_Type =
       Type -- {1} CF_Type;

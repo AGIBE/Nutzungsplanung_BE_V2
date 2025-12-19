@@ -31,7 +31,7 @@ Teilmodell für die XML-Kataloge                                                
 !!@ furtherInformation=https://www.raumplanung.dij.be.ch/de/start/eplan.html
 MODEL Nutzungsplanung_BE_V2_0_Catalogues
   AT "http://models.geo.be.ch/Grundlagen_und_Planung/Raumplanung_Grundstueckskataster/"
-  VERSION "2025-05-12" =
+  VERSION "2025-12-15" =
 
   IMPORTS CatalogueObjects_V1,LocalisationCH_V1;
 
@@ -51,7 +51,7 @@ MODEL Nutzungsplanung_BE_V2_0_Catalogues
       StandardSymbol_Polygon : TEXT*20;
       StandardSymbol_Polyline : TEXT*20;
       StandardSymbol_Point : TEXT*20;
-      Check_MandatorySymbol : BOOLEAN;
+      Check_Symbol : TEXT*100;
       Check_Polygon : BOOLEAN;
       Check_Polyline : BOOLEAN;
       Check_Point : BOOLEAN;

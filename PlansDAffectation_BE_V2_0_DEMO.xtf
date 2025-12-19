@@ -4,14 +4,12 @@
 <TRANSFER xmlns="http://www.interlis.ch/INTERLIS2.3">
     <HEADERSECTION SENDER="OACOT du canton de Berne" VERSION="2.3">
         <MODELS>
-            <MODEL NAME="PlansDAffectation_BE_V2_0" VERSION="2025-05-12" URI="http://models.geo.be.ch/Grundlagen_und_Planung/Raumplanung_Grundstueckskataster/"/>
+            <MODEL NAME="PlansDAffectation_BE_V2_0" VERSION="2025-12-15" URI="http://models.geo.be.ch/Grundlagen_und_Planung/Raumplanung_Grundstueckskataster/"/>
         </MODELS>
     </HEADERSECTION>
 	<DATASECTION>
 		<PlansDAffectation_BE_V2_0.PlansDAffectation BID="f9fff5ec-eb43-4725-9e0d-b2d1991bc117">
 			<PlansDAffectation_BE_V2_0.PlansDAffectation.AD_Jeu_de_donnes TID="9a717257-d148-4277-aa1f-0df737711180">
-				<Autorite_de_planification>301</Autorite_de_planification>
-				<Langage>fr</Langage>
 				<Projet_actif REF="6440cc9e-789c-482e-9b8f-3926b11a0708"/>
 			</PlansDAffectation_BE_V2_0.PlansDAffectation.AD_Jeu_de_donnes>
 			<PlansDAffectation_BE_V2_0.PlansDAffectation.AD_Projet_d_amenagement TID="334a102b-f56f-4a22-90cf-8cfcf336ca30">
@@ -93,9 +91,12 @@
 				<Geoservice_URL>https://www.geoservice.apps.be.ch/geoservice3/services/a42geo/of_planningcadastre03_de_ms_wms/MapServer/WMSServer?</Geoservice_URL>
 			</PlansDAffectation_BE_V2_0.PlansDAffectation.AD_Geoservice>
 			<PlansDAffectation_BE_V2_0.PlansDAffectation.AD_Office TID="ac16fb03-a846-4c13-b519-fe1e1e3c28c2">
+				<Autorite_de_planification>true</Autorite_de_planification>
 				<Nom>Gemeinde Muster an der Aare</Nom>
+				<No_organisation>301</No_organisation>
 				<IDE>CHE-114.809.379</IDE>
 				<GuichetEnLigne>https://www.muster.ch</GuichetEnLigne>
+				<Langue_officielle>fr</Langue_officielle>
 				<Supplement_Attributs>
 					<PlansDAffectation_BE_V2_0.PlansDAffectation.CustomAttribute>
 						<AttributeName>Adresse</AttributeName>
@@ -106,11 +107,6 @@
 						<AttributeValue>123 456 78 90</AttributeValue>
 					</PlansDAffectation_BE_V2_0.PlansDAffectation.CustomAttribute>
 				</Supplement_Attributs>
-			</PlansDAffectation_BE_V2_0.PlansDAffectation.AD_Office>
-			<PlansDAffectation_BE_V2_0.PlansDAffectation.AD_Office TID="82aab446-9dc3-40df-90d8-ccfa7d8aba96">
-				<Nom>Amt für Wald und Naturgefahren des Kantons Bern</Nom>
-				<IDE>CHE-108.957.267</IDE>
-				<GuichetEnLigne>https://www.be.ch/awn</GuichetEnLigne>
 			</PlansDAffectation_BE_V2_0.PlansDAffectation.AD_Office>
 			<PlansDAffectation_BE_V2_0.PlansDAffectation.DO_Document TID="69471826-1027-46cf-a7ca-12f64d1f1d81">
 				<Titre>Baureglement</Titre>
@@ -1238,7 +1234,7 @@
 						<Reference REF="verbindlichkeit.1"/>
 					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
 				</ForceObligatoire>
-				<Service_competent REF="82aab446-9dc3-40df-90d8-ccfa7d8aba96"/>
+				<Service_competent REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
 			</PlansDAffectation_BE_V2_0.PlansDAffectation.CF_Type>
 			<PlansDAffectation_BE_V2_0.PlansDAffectation.CF_Ligne TID="f6e5d068-0077-4229-9ef3-d1d7043bd9af">
 				<Geometrie>
