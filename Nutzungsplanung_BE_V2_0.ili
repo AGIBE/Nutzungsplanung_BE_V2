@@ -31,7 +31,7 @@ Datenmodell für die Nutzungsplanung im Kanton Bern
   Version    | Modification
   ------------------------------------------------------------------------------
   2022-04-01 | Version 1.0
-  2025-05-12 | Version 2.0
+  2025-12-15 | Version 2.0
 
 */
 
@@ -39,7 +39,7 @@ Datenmodell für die Nutzungsplanung im Kanton Bern
 !!@ furtherInformation=https://www.raumplanung.dij.be.ch/de/start/eplan.html
 MODEL Nutzungsplanung_BE_V2_0 (de)
   AT "http://models.geo.be.ch/Grundlagen_und_Planung/Raumplanung_Grundstueckskataster/"
-  VERSION "2025-05-12" =
+  VERSION "2025-12-15" =
 
   IMPORTS GeometryCHLV95_V1;
   IMPORTS CatalogueObjects_V1, Nutzungsplanung_BE_V2_0_Catalogues;
@@ -84,12 +84,9 @@ MODEL Nutzungsplanung_BE_V2_0 (de)
     UNIQUE Geschaeft_Nummer;
     END AD_Planungsgeschaeft;
 
-    !! Datensatz
+    !! Datensatz (Aktives Planungsgeschäft)
     !! -----------------------------------------------
-    CLASS AD_Datensatz = !! Muss exakt 1 Eintrag enthalten.
-      Planungsbehoerde : MANDATORY 101..999;
-      Sprache : MANDATORY (de,fr,de_fr);
-      Zusatz_Attribute : BAG {0..*} OF CustomAttribute;
+    CLASS AD_Datensatz =
     END AD_Datensatz;
 
     ASSOCIATION Datensatz_Planungsgeschaeft =
@@ -117,9 +114,12 @@ MODEL Nutzungsplanung_BE_V2_0 (de)
     !! Amt (Zuständige Stellen)
     !! -----------------------------------------------
     CLASS AD_Amt =
+      Planungsbehoerde : MANDATORY BOOLEAN;
       Name : MANDATORY TEXT*200;
+      OrgNr : 101..999;
       UID : TEXT*15;
       AmtImWeb : URI;
+      Amtssprache : (de,fr,de_fr);
       Zusatz_Attribute : BAG {0..*} OF CustomAttribute;
     END AD_Amt;
 
@@ -218,7 +218,7 @@ MODEL Nutzungsplanung_BE_V2_0 (de)
     END BaseClass_RV;
 
     ASSOCIATION BaseClass_RV_Dokument =
-      Vorschrift -- {1} DO_Dokument;
+      Dokument -- {1} DO_Dokument;
       BaseClass_RV -- {0..*} BaseClass_RV;
     END BaseClass_RV_Dokument;
 
@@ -241,21 +241,6 @@ MODEL Nutzungsplanung_BE_V2_0 (de)
       Geometrie : MANDATORY Surface; !! AREA-Prüfung erfolgt via Checkservice
       Zusatz_Attribute : BAG {0..*} OF CustomAttribute;
     END BaseClassPolygon;
-
-    ASSOCIATION BaseClassPoint_Geschaeft =
-      Planungsgeschaeft -- {0..1} AD_Planungsgeschaeft;
-      BaseClassPoint -- {0..*} BaseClassPoint;
-    END BaseClassPoint_Geschaeft;
-
-    ASSOCIATION BaseClassPolyline_Geschaeft =
-      Planungsgeschaeft -- {0..1} AD_Planungsgeschaeft;
-      BaseClassPolyline -- {0..*} BaseClassPolyline;
-    END BaseClassPolyline_Geschaeft;
-
-    ASSOCIATION BaseClassPolygon_Geschaeft =
-      Planungsgeschaeft -- {0..1} AD_Planungsgeschaeft;
-      BaseClassPolygon -- {0..*} BaseClassPolygon;
-    END BaseClassPolygon_Geschaeft;
 
     !! ***********************
     !! GN = Grundnutzung
@@ -334,11 +319,6 @@ MODEL Nutzungsplanung_BE_V2_0 (de)
       KantArt (EXTENDED) : MANDATORY Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.BK_KantArt_CatalogueReference;
     END BK_Typ;
 
-    ASSOCIATION BK_NZ_Typ =
-      NZ_Typ -- {0..1} NZ_Typ; !! Key-Attribut für die Zusammenführung von NZ und BK
-      BK_Typ -- {0..*} BK_Typ;
-    END BK_NZ_Typ;
-
     !! BK_RV
     !! -----------------------------------------------
     CLASS BK_RV
@@ -360,11 +340,6 @@ MODEL Nutzungsplanung_BE_V2_0 (de)
       Typ -- {1} BK_Typ;
       BK_Flaeche -- {0..*} BK_Flaeche;
     END BK_Flaeche_Typ;
-    
-    ASSOCIATION BK_NZ_Flaeche =
-      NZ_Flaeche -- {0..1} NZ_Flaeche; !! Key-Attribut für die Zusammenführung von NZ und BK
-      BK_Flaeche -- {0..*} BK_Flaeche;
-    END BK_NZ_Flaeche;
 
     !! ***********************
     !! IN = Innere Nutzung (von ZPP,UeO,USP,SBV)
@@ -822,6 +797,11 @@ MODEL Nutzungsplanung_BE_V2_0 (de)
     CLASS WF_Linie
     EXTENDS BaseClassPolyline =
     END WF_Linie;
+
+    ASSOCIATION WF_Linie_Geschaeft =
+      Planungsgeschaeft -- {0..1} AD_Planungsgeschaeft;
+      WF_Linie -- {0..*} WF_Linie;
+    END WF_Linie_Geschaeft;
 
     ASSOCIATION WF_Linie_Typ =
       Typ -- {1} WF_Typ;
