@@ -107,7 +107,6 @@ MODEL Nutzungsplanung_BE_V2_0_Catalogues
     !! --------------------                                                      !! ------------------------
     CLASS Darstellungscode
     EXTENDS BaseClassCatalog =
-      UNIQUE ID;
     END Darstellungscode;
 
     STRUCTURE Darstellungscode_CatalogueReference
