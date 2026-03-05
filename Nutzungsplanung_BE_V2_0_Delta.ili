@@ -155,8 +155,8 @@ MODEL Nutzungsplanung_BE_V2_0_Delta
       Delta_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
       Delta_Rating_Existence : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
       Delta_Rating_Attributes : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
-      Planungsbehoerde_OldValue : MANDATORY BOOLEAN;
-      Planungsbehoerde_NewValue : MANDATORY BOOLEAN;
+      Planungsbehoerde_OldValue : BOOLEAN;
+      Planungsbehoerde_NewValue : BOOLEAN;
       Planungsbehoerde_Rating : MANDATORY (NoChange,ToLog,ToCheck,ToApprove);
       Name_OldValue : TEXT*200;
       Name_NewValue : TEXT*200;
