@@ -429,7 +429,7 @@
 				</GenreCant>
 				<ForceObligatoire>
 					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
-						<Reference REF="verbindlichkeit.1"/>
+						<Reference REF="verbindlichkeit.3"/>
 					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.Verbindlichkeit_CatalogueReference>
 				</ForceObligatoire>
 				<Service_competent REF="ac16fb03-a846-4c13-b519-fe1e1e3c28c2"/>
@@ -612,23 +612,23 @@
 							<POLYLINE>
 								<COORD>
 									<C1>2600000.0</C1>
-									<C2>1200010.0</C2>
+									<C2>1200000.0</C2>
 								</COORD>
 								<COORD>
 									<C1>2600010.0</C1>
-									<C2>1200010.0</C2>
+									<C2>1200000.0</C2>
 								</COORD>
 								<COORD>
 									<C1>2600010.0</C1>
-									<C2>1200020.0</C2>
+									<C2>1200040.0</C2>
 								</COORD>
 								<COORD>
 									<C1>2600000.0</C1>
-									<C2>1200020.0</C2>
+									<C2>1200040.0</C2>
 								</COORD>
 								<COORD>
 									<C1>2600000.0</C1>
-									<C2>1200010.0</C2>
+									<C2>1200000.0</C2>
 								</COORD>
 							</POLYLINE>
 						</BOUNDARY>
@@ -753,7 +753,7 @@
 				</Code_de_representation>
 				<GenreCant>
 					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
-						<Reference REF="ue_kantart.108"/>
+						<Reference REF="ue_kantart.99"/>
 					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
 				</GenreCant>
 				<ForceObligatoire>
@@ -785,7 +785,7 @@
 				</Code_de_representation>
 				<GenreCant>
 					<Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
-						<Reference REF="ue_kantart.107"/>
+						<Reference REF="ue_kantart.99"/>
 					</Nutzungsplanung_BE_V2_0_Catalogues.Catalogues.UE_KantArt_CatalogueReference>
 				</GenreCant>
 				<ForceObligatoire>
